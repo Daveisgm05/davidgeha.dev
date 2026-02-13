@@ -1,0 +1,19 @@
+<svg width="195" height="270" viewBox="0 0 195 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="45" y="15" width="105" height="165" fill="#111111"/>
+<rect x="30" y="30" width="135" height="135" fill="#111111"/>
+<rect x="15" y="45" width="165" height="105" fill="#111111"/>
+<rect y="75" width="195" height="45" fill="#111111"/>
+<rect x="75" width="45" height="270" fill="#111111"/>
+<rect x="60" y="165" width="75" height="90" fill="#111111"/>
+<rect x="60" y="209" width="75" height="46" fill="#111111"/>
+<path d="M60 45V30H90V15H105V30H135V45H150V60H165V90H180V105H165V135H150V150H135V165H120V194H75V165H60V150H45V135H30V105H15V90H30V60H45V45H60Z" fill="#FFF5EE"/>
+<rect x="75" y="135" width="15" height="90" fill="#111111"/>
+<rect x="60" y="105" width="15" height="30" fill="#111111"/>
+<rect x="120" y="105" width="15" height="30" fill="#111111"/>
+<rect x="90" y="105" width="15" height="30" fill="#111111"/>
+<rect x="75" y="90" width="15" height="15" fill="#111111"/>
+<rect x="105" y="90" width="15" height="15" fill="#111111"/>
+<rect x="105" y="135" width="15" height="90" fill="#111111"/>
+<rect x="75" y="210" width="30" height="15" fill="#FFF5EE"/>
+<rect x="90" y="240" width="30" height="15" fill="#FFF5EE"/>
+</svg>

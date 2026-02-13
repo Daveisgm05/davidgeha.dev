@@ -1,0 +1,110 @@
+.my-work {
+    padding: 6rem 0;
+}
+
+.my-work__title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 3rem;
+    color: var(--color-accent);
+}
+
+.my-work__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .my-work__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .my-work__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.work-card {
+    border: 1px solid var(--card-color, white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--color-background);
+    transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
+    cursor: pointer;
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Optional: Add a folded corner effect or similar if desired, 
+   but simplistic rounded border matches the clean aesthetic for now */
+
+.work-card__header {
+    margin-bottom: 1rem;
+}
+
+.work-card__date {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--card-color, white);
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-sans);
+}
+
+.work-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.work-card__tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid var(--card-color, white);
+    border-radius: 20px;
+    padding: 0.2rem 0.6rem;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+}
+
+.work-card__title {
+    font-family: var(--font-sans);
+    /* Ensure strong impact font */
+    font-weight: 800;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 auto 0;
+    /* Push footer down */
+}
+
+.work-card__footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.work-card__mentions {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 0.2rem 0.6rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-sans);
+}
