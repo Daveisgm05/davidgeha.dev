@@ -3,6 +3,6 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://cydstumpel.nl/sitemap_index.xml
+Sitemap: https://davidgeha.dev/sitemap_index.xml
 # ---------------------------
 # END YOAST BLOCK
