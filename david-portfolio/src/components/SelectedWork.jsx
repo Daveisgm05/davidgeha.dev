@@ -1,39 +1,47 @@
 import React from 'react';
 import './SelectedWork.css';
+import Reveal from './Reveal';
 
 const projects = [
     {
         id: 1,
-        title: 'Digital Horizon',
-        category: 'Web Experience',
-        image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
-        year: '2025'
+        title: 'Lead Outreach Pipelines',
+        category: 'Agentic Outreach',
+        image: '/work-outreach.webp',
+        year: '2026'
     },
     {
         id: 2,
-        title: 'Neon Dreams',
-        category: 'Creative Direction',
-        image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop',
-        year: '2024'
+        title: 'Competitive Research & SEO/GEO Pipelines',
+        category: 'Market Intelligence',
+        image: '/work-research.webp',
+        year: '2026'
     },
     {
         id: 3,
-        title: 'Abstract Logic',
-        category: 'Interaction Design',
-        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop',
-        year: '2024'
+        title: 'Image Ad Pipelines',
+        category: 'GPT Image 2.0',
+        image: '/work-ads.webp',
+        year: '2025'
+    },
+    {
+        id: 4,
+        title: 'Custom CRM Dashboards',
+        category: 'Internal Tooling',
+        image: '/work-crm.webp',
+        year: '2025'
     }
 ];
 
 const SelectedWork = () => {
     return (
-        <section className="selected-work container">
-            <div className="selected-work__header">
+        <section className="selected-work container" id="work">
+            <Reveal as="div" className="selected-work__header" variant="rise">
                 <h2 className="selected-work__title">Selected Work</h2>
                 <span className="selected-work__count">({projects.length})</span>
-            </div>
+            </Reveal>
 
-            <div className="selected-work__grid">
+            <Reveal as="div" className="selected-work__grid" variant="pop" stagger>
                 {projects.map((project) => (
                     <article key={project.id} className="work-item">
                         <div className="work-item__image-container">
@@ -53,7 +61,7 @@ const SelectedWork = () => {
                         </div>
                     </article>
                 ))}
-            </div>
+            </Reveal>
         </section>
     );
 };

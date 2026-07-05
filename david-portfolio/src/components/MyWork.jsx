@@ -1,63 +1,58 @@
 import React from 'react';
 import './MyWork.css';
+import Reveal from './Reveal';
 
 const workItems = [
     {
         id: 1,
-        date: 'DECEMBER 13, 2025',
-        tags: ['AI', 'MARKETING', 'AUTOMATION'],
-        title: 'Automated generation of UGC-style ad creatives with direct Meta Ads–ready export',
-        mentions: 49,
+        date: 'JUNE 2026',
+        tags: ['AGENTIC', 'OUTREACH', 'SUPABASE'],
+        title: 'Outreach engine that sources leads, researches each one, and sends personalized cold emails on its own',
         color: 'white'
     },
     {
         id: 2,
-        date: 'NOVEMBER 2, 2025',
-        tags: ['UI/UX', 'ANIMATION'],
-        title: 'GLOBAL FINTECH DASHBOARD REDESIGN',
-        mentions: 18,
+        date: 'APRIL 2026',
+        tags: ['AI', 'MARKETING', 'GPT IMAGE 2.0'],
+        title: 'Ad-creative pipeline generating on-brand UGC-style visuals, ready to export to Meta Ads',
         color: '#ff0066' // Pinkish
     },
     {
         id: 3,
-        date: 'OCTOBER 3, 2025',
-        tags: ['AI', 'EXPERIMENTAL'],
-        title: 'AI-POWERED CONTENT GENERATION TOOL',
-        mentions: 4,
-        color: '#808080' // Grey
+        date: 'MARCH 2026',
+        tags: ['AI', 'F&B', 'AUTOMATION'],
+        title: 'Automated the daily reporting and inventory busywork for an F&B consultancy',
+        color: '#cc9900' // Yellow/Gold
     },
     {
         id: 4,
-        date: 'SEPTEMBER 17, 2025',
-        tags: ['FULL STACK', 'REAL-TIME'],
-        title: 'REAL-TIME DATA VISUALIZATION SYSTEM',
-        mentions: 85,
+        date: 'JANUARY 2026',
+        tags: ['FULL STACK', 'CRM', 'SUPABASE'],
+        title: 'Custom CRM built for a marketing agency to track clients, deals, and delivery',
         color: '#0066cc' // Blue
     },
     {
         id: 5,
-        date: 'JULY 13, 2025',
-        tags: ['ECOMMERCE', 'STRATEGY'],
-        title: 'SUSTAINABLE FASHION PLATFORM',
-        mentions: 15,
-        color: '#cc9900' // Yellow/Gold
+        date: 'NOVEMBER 2025',
+        tags: ['UI/UX', 'APP'],
+        title: 'Designed and built a client-facing web app end to end — from UI to deploy',
+        color: 'white'
     },
     {
         id: 6,
-        date: 'JULY 7, 2025',
-        tags: ['MOBILE', 'APP'],
-        title: 'MOBILE-FIRST BANKING APPLICATION',
-        mentions: 13,
-        color: 'white'
+        date: 'SEPTEMBER 2025',
+        tags: ['AGENTIC', 'WORKFLOW'],
+        title: 'Internal agentic workflow that clears repetitive back-office tasks for a small team',
+        color: '#808080' // Grey
     }
 ];
 
 const MyWork = () => {
     return (
-        <section className="my-work container">
-            <h2 className="my-work__title">My Work</h2>
+        <section className="my-work container" id="services">
+            <Reveal as="h2" className="my-work__title" variant="rise">Recent Builds</Reveal>
 
-            <div className="my-work__grid">
+            <Reveal as="div" className="my-work__grid" variant="rise" stagger>
                 {workItems.map((item) => (
                     <article
                         key={item.id}
@@ -77,19 +72,13 @@ const MyWork = () => {
                             <h3 className="work-card__title">
                                 {item.title}
                             </h3>
-
-                            <div className="work-card__footer">
-                                <span className="work-card__mentions">
-                                    {item.mentions} WEBMENTIONS
-                                </span>
-                            </div>
                         </div>
 
                         {/* Decorative fold/icon for top right if needed, 
                 for now utilizing border radius and pseudo elements */}
                     </article>
                 ))}
-            </div>
+            </Reveal>
         </section>
     );
 };

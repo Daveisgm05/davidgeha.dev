@@ -1,0 +1,26 @@
+# David Geha — AI Consultant in Lebanon
+
+> David Geha is an AI consultant based in Lebanon who helps businesses automate repetitive work with custom agentic AI systems.
+
+## About
+David Geha is a 4th-year Civil & Environmental Engineering student at the American University of Beirut (AUB) and runs an AI consultancy for businesses across Lebanon. He works with marketing agencies and F&B businesses to identify their repetitive, manual work and replace it with agentic AI systems that run on their own. He also designs and builds full products — UI/UX, backend, and apps.
+
+## Services
+- Lead outreach pipelines (agentic)
+- Competitive research & SEO/GEO pipelines
+- Image ad pipelines (GPT Image 2.0)
+- Custom CRM dashboards
+- Back-office workflow automation
+
+## Stack
+Supabase, Vercel, Claude Code, Claude Desktop, GitHub, GPT Image 2.0, plus custom-built CRMs and outreach systems.
+
+## Process
+1. Find the repetitive work
+2. Build the agentic system
+3. Automate & scale
+
+## Contact
+- Email: hello@davidgeha.dev
+- GitHub: https://github.com/Daveisgm05
+- Website: https://davidgeha.dev

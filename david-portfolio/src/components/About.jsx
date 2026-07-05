@@ -1,33 +1,36 @@
 import React from 'react';
 import './About.css';
+import Reveal from './Reveal';
 
 const About = () => {
     return (
-        <section className="about container">
+        <section className="about container" id="about">
             <div className="about__grid">
-                <div className="about__intro">
-                    <h2 className="about__title">Digital artisan shaping the future of web.</h2>
-                </div>
+                <Reveal as="div" className="about__intro" variant="rise">
+                    <h2 className="about__title">An engineer's approach to AI automation.</h2>
+                </Reveal>
 
                 <div className="about__content">
-                    <p className="about__text">
-                        I'm a multidisciplinary developer with a passion for creating immersive digital experiences.
-                        With a background in both design and engineering, I bridge the gap between aesthetics and functionality.
-                    </p>
-                    <div className="about__stats">
+                    <Reveal as="p" className="about__text" variant="rise" delay={0.1}>
+                        I'm David — a Civil &amp; Environmental Engineering student at AUB running an AI consultancy
+                        for businesses across Lebanon. I work with marketing agencies and F&amp;B teams to find the
+                        work they repeat every day and replace it with agentic AI systems that run on their own.
+                        Alongside that, I design and build the full product — UI/UX, backend, and apps.
+                    </Reveal>
+                    <Reveal as="div" className="about__stats" variant="rise" stagger>
                         <div className="stat-item">
-                            <span className="stat-number">8+</span>
-                            <span className="stat-label">Years Experience</span>
+                            <span className="stat-number">01</span>
+                            <span className="stat-label">Find the repetitive work</span>
                         </div>
                         <div className="stat-item">
-                            <span className="stat-number">40+</span>
-                            <span className="stat-label">Projects Delivered</span>
+                            <span className="stat-number">02</span>
+                            <span className="stat-label">Build the agentic system</span>
                         </div>
                         <div className="stat-item">
-                            <span className="stat-number">12</span>
-                            <span className="stat-label">Awards Won</span>
+                            <span className="stat-number">03</span>
+                            <span className="stat-label">Automate &amp; scale</span>
                         </div>
-                    </div>
+                    </Reveal>
                 </div>
             </div>
         </section>

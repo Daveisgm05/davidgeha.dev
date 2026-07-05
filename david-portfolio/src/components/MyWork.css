@@ -1,5 +1,7 @@
 .my-work {
-    padding: 6rem 0;
+    /* vertical-only so .container keeps its horizontal padding on mobile */
+    padding-top: clamp(4rem, 12vw, 6rem);
+    padding-bottom: clamp(4rem, 12vw, 6rem);
 }
 
 .my-work__title {

@@ -1,5 +1,7 @@
 .about {
-    padding: 10rem 0;
+    /* vertical-only so .container keeps its horizontal padding on mobile */
+    padding-top: clamp(5rem, 14vw, 10rem);
+    padding-bottom: clamp(5rem, 14vw, 10rem);
 }
 
 .about__grid {
@@ -61,4 +63,18 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     opacity: 0.5;
+}
+
+@media (max-width: 560px) {
+    .about__stats {
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.72rem;
+    }
 }

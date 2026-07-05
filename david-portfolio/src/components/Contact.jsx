@@ -3,27 +3,29 @@ import './Contact.css';
 
 const Contact = () => {
     return (
-        <footer className="contact container">
+        <footer className="contact container" id="contact">
             <div className="contact__content">
                 <h2 className="contact__title">
-                    Let's create something<br />
-                    extraordinary together.
+                    Let's automate the work <br />
+                    you shouldn't be doing.
                 </h2>
 
                 <div className="contact__actions">
-                    <a href="mailto:hello@david.dev" className="contact__button">
+                    {/* TODO: confirm this mailbox exists on your domain, or swap in your real email */}
+                    <a href="mailto:hello@davidgeha.dev" className="contact__button">
                         Start a project
                     </a>
                 </div>
 
                 <div className="contact__links">
                     <div className="contact__social">
-                        <a href="#" className="social-link">Twitter</a>
+                        {/* TODO: add your real Instagram and LinkedIn handles */}
+                        <a href="#" className="social-link">Instagram</a>
                         <a href="#" className="social-link">LinkedIn</a>
-                        <a href="#" className="social-link">GitHub</a>
+                        <a href="https://github.com/Daveisgm05" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
                     </div>
                     <div className="contact__copyright">
-                        &copy; {new Date().getFullYear()} David. All rights reserved.
+                        &copy; {new Date().getFullYear()} David Geha. All rights reserved.
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
   /* Colors */
   --color-background: #0a0a0a;
   --color-text: #e0e0e0;
-  --color-accent: #ffffff;
+  --color-accent: #f4f1ea;
   --color-primary: #3b82f6;
   /* Example accent */
   --color-secondary: #64748b;
@@ -10,7 +10,7 @@
 
   /* Typography */
   --font-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   /* Premium feel */
 
   /* Spacing */
@@ -23,6 +23,41 @@
   --transition-fast: 0.3s var(--ease-out-expo);
   --transition-medium: 0.6s var(--ease-out-expo);
   --transition-slow: 1.0s var(--ease-out-expo);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis smooth-scroll (overrides native smooth while active) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Nav anchors land with a little breathing room, not flush to the top */
+#work,
+#about,
+#contact {
+  scroll-margin-top: clamp(1.5rem, 5vh, 3.5rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 *,

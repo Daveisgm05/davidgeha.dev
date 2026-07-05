@@ -1,12 +1,14 @@
 .contact {
-    padding: 8rem 0 4rem;
+    /* vertical-only so .container keeps its horizontal padding on mobile */
+    padding-top: clamp(5rem, 12vw, 8rem);
+    padding-bottom: 4rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .contact__title {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 6vw, 6rem);
-    line-height: 1;
+    font-size: clamp(2rem, 6vw, 6rem);
+    line-height: 1.05;
     margin-bottom: 4rem;
     text-align: center;
 }
@@ -41,6 +43,14 @@
 }
 
 @media (max-width: 768px) {
+    .contact__title br {
+        display: none; /* let it wrap naturally instead of a fixed break */
+    }
+
+    .contact__actions {
+        margin-bottom: 5rem;
+    }
+
     .contact__links {
         flex-direction: column;
         gap: 1.5rem;

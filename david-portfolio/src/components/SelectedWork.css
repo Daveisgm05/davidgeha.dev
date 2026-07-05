@@ -41,18 +41,27 @@
     border-radius: 50%;
     position: relative;
     margin-bottom: 1.5rem;
+    isolation: isolate;
+    transform: translateZ(0); /* own compositing layer — avoids Safari filter/clip flash */
 }
 
 .work-item__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%; /* clip the image itself too, so Safari never paints a square */
+    /* Blurred at rest; sharpens on hover and eases back out on mouse-leave */
+    filter: blur(9px);
+    transform: scale(1.04) translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: filter, transform;
     transition: transform 0.7s var(--ease-out-expo), filter 0.7s var(--ease-out-expo);
 }
 
 .work-item:hover .work-item__image {
-    transform: scale(1.03);
-    filter: brightness(1.1);
+    transform: scale(1) translateZ(0);
+    filter: blur(0);
 }
 
 .work-item__info {
