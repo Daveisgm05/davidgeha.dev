@@ -35,7 +35,7 @@ const workItems = [
         id: 5,
         date: 'NOVEMBER 2025',
         tags: ['UI/UX', 'APP'],
-        title: 'Designed and built a client-facing web app end to end — from UI to deploy',
+        title: 'Designed and built a client-facing web app end to end, from UI to deploy',
         color: 'white'
     },
     {

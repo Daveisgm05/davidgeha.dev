@@ -2,6 +2,12 @@ import React from 'react';
 import './About.css';
 import Reveal from './Reveal';
 
+const steps = [
+    { num: '01', label: 'Find the repetitive work' },
+    { num: '02', label: 'Build the agentic system' },
+    { num: '03', label: 'Automate & scale' },
+];
+
 const About = () => {
     return (
         <section className="about container" id="about">
@@ -10,29 +16,23 @@ const About = () => {
                     <h2 className="about__title">An engineer's approach to AI automation.</h2>
                 </Reveal>
 
-                <div className="about__content">
-                    <Reveal as="p" className="about__text" variant="rise" delay={0.1}>
-                        I'm David — a Civil &amp; Environmental Engineering student at AUB running an AI consultancy
-                        for businesses across Lebanon. I work with marketing agencies and F&amp;B teams to find the
-                        work they repeat every day and replace it with agentic AI systems that run on their own.
-                        Alongside that, I design and build the full product — UI/UX, backend, and apps.
-                    </Reveal>
-                    <Reveal as="div" className="about__stats" variant="rise" stagger>
-                        <div className="stat-item">
-                            <span className="stat-number">01</span>
-                            <span className="stat-label">Find the repetitive work</span>
-                        </div>
-                        <div className="stat-item">
-                            <span className="stat-number">02</span>
-                            <span className="stat-label">Build the agentic system</span>
-                        </div>
-                        <div className="stat-item">
-                            <span className="stat-number">03</span>
-                            <span className="stat-label">Automate &amp; scale</span>
-                        </div>
-                    </Reveal>
-                </div>
+                <Reveal as="p" className="about__text" variant="rise" delay={0.1}>
+                    I'm David, a Civil &amp; Environmental Engineering student at AUB running an AI consultancy
+                    for businesses across Lebanon. I work with marketing agencies and F&amp;B teams to find the
+                    work they repeat every day and replace it with agentic AI systems that run on their own.
+                    Alongside that, I design and build the full product: UI/UX, backend, and apps.
+                </Reveal>
             </div>
+
+            {/* The process as a pipeline: one rail, three stations */}
+            <Reveal as="ol" className="about__process" variant="rise" stagger>
+                {steps.map(({ num, label }) => (
+                    <li className="process-step" key={num}>
+                        <span className="process-step__num">{num}</span>
+                        <h3 className="process-step__label">{label}</h3>
+                    </li>
+                ))}
+            </Reveal>
         </section>
     );
 };

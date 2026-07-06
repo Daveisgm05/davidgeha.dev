@@ -11,13 +11,6 @@
     align-items: start;
 }
 
-@media (max-width: 768px) {
-    .about__grid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-}
-
 .about__title {
     font-family: var(--font-serif);
     font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -25,56 +18,117 @@
     max-width: 90%;
 }
 
-.about__content {
-    padding-top: 1rem;
-}
-
 .about__text {
+    padding-top: 1rem;
     font-size: 1.25rem;
     line-height: 1.6;
     color: var(--color-text);
-    margin-bottom: 4rem;
     opacity: 0.8;
     max-width: 600px;
 }
 
-.about__stats {
+/* ---------- Process rail: one hairline, a ✦ station per step ---------- */
+.about__process {
+    list-style: none;
+    position: relative;
+    margin-top: clamp(4rem, 9vw, 7rem);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 2rem;
 }
 
-.stat-item {
-    display: flex;
-    flex-direction: column;
+/* the rail */
+.about__process::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.stat-number {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
+.process-step {
+    position: relative;
+    padding-top: 2.4rem;
+}
+
+/* the station: same ✦ as the marquee separator, sitting on the rail */
+.process-step::before {
+    content: '✦';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    line-height: 1;
     color: var(--color-accent);
-    margin-bottom: 0.5rem;
+    background: var(--color-background);
+    padding-right: 0.6rem;
+    transition: transform 0.6s var(--ease-out-expo);
 }
 
-.stat-label {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    opacity: 0.5;
+.process-step:hover::before {
+    transform: translateY(-50%) rotate(90deg);
 }
 
-@media (max-width: 560px) {
-    .about__stats {
-        gap: 1rem;
+.process-step__num {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    color: var(--color-secondary);
+}
+
+.process-step__label {
+    font-family: var(--font-serif);
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+    line-height: 1.2;
+    max-width: 13ch;
+    color: var(--color-accent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .about__grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
-    .stat-number {
-        font-size: 2rem;
+    .about__text {
+        padding-top: 0;
     }
 
-    .stat-label {
-        font-size: 0.72rem;
+    /* rail turns vertical down the left side */
+    .about__process {
+        grid-template-columns: 1fr;
+        gap: 2.75rem;
+        padding-left: 1.8rem;
+    }
+
+    .about__process::before {
+        top: 0.4rem;
+        bottom: 0.4rem;
+        left: 0;
+        right: auto;
+        width: 1px;
+        height: auto;
+    }
+
+    .process-step {
+        padding-top: 0;
+    }
+
+    .process-step::before {
+        top: 0.4rem;
+        left: -1.8rem;
+        transform: translate(-50%, 0);
+        padding: 0.35rem 0;
+    }
+
+    .process-step:hover::before {
+        transform: translate(-50%, 0) rotate(90deg);
     }
 }

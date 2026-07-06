@@ -6,7 +6,7 @@ import Reveal from './Reveal';
 const faqs = [
     {
         q: 'What does an AI consultant in Lebanon do?',
-        a: 'As an AI consultant based in Lebanon, I find the repetitive, manual work inside a business and replace it with custom agentic AI systems that run on their own — so teams spend less time on busywork and more on the work that matters.',
+        a: 'As an AI consultant based in Lebanon, I find the repetitive, manual work inside a business and replace it with custom agentic AI systems that run on their own, so teams spend less time on busywork and more on the work that matters.',
     },
     {
         q: 'What kind of businesses do you work with?',
@@ -14,7 +14,7 @@ const faqs = [
     },
     {
         q: 'What can you automate with AI?',
-        a: 'Lead-outreach pipelines, competitive research and SEO/GEO pipelines, image-ad generation, custom CRMs and dashboards, and back-office workflows — built on a modern stack including Supabase, Vercel, Claude and GitHub.',
+        a: 'Lead-outreach pipelines, competitive research and SEO/GEO pipelines, image-ad generation, custom CRMs and dashboards, and back-office workflows, built on a modern stack including Supabase, Vercel, Claude and GitHub.',
     },
     {
         q: 'How do we get started?',

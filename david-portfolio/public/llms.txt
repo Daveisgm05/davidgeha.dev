@@ -1,9 +1,9 @@
-# David Geha — AI Consultant in Lebanon
+# David Geha - AI Consultant in Lebanon
 
 > David Geha is an AI consultant based in Lebanon who helps businesses automate repetitive work with custom agentic AI systems.
 
 ## About
-David Geha is a 4th-year Civil & Environmental Engineering student at the American University of Beirut (AUB) and runs an AI consultancy for businesses across Lebanon. He works with marketing agencies and F&B businesses to identify their repetitive, manual work and replace it with agentic AI systems that run on their own. He also designs and builds full products — UI/UX, backend, and apps.
+David Geha is a 4th-year Civil & Environmental Engineering student at the American University of Beirut (AUB) and runs an AI consultancy for businesses across Lebanon. He works with marketing agencies and F&B businesses to identify their repetitive, manual work and replace it with agentic AI systems that run on their own. He also designs and builds full products: UI/UX, backend, and apps.
 
 ## Services
 - Lead outreach pipelines (agentic)

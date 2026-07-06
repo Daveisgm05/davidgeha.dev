@@ -16,7 +16,10 @@ const GY = 200;          // grid rows (≈ 3:4)
 const PLANE_W = 0.75;    // model-space plane size (matches 3:4 asset)
 const PLANE_H = 1.0;
 const DISP = 0.22;       // depth displacement amount
-const ROT = 0.15;        // max head rotation (radians ≈ 8.6°)
+const ROT = 0.18;        // max head rotation (radians ≈ 10.3°)
+const SWAY = 0.035;      // max positional sway (model units) — parallax on top of rotation
+const IDLE_MS = 2500;    // no pointer input for this long → autonomous idle drift
+const IDLE_AMP = 0.45;   // idle drift amplitude (fraction of full pointer range)
 const CAM = 2.15;        // camera distance
 const FOV = 26 * Math.PI / 180;
 
@@ -75,6 +78,9 @@ out vec4 outColor;
 void main() {
     vec4 col = texture(uDiffuse, vUv);
     if (col.a < 0.04) discard;
+    // Fade the left/right edges so shoulders dissolve instead of being cut
+    // by the canvas bounds (the bottom fade is handled by the CSS mask).
+    col.a *= smoothstep(0.0, 0.05, vUv.x) * (1.0 - smoothstep(0.95, 1.0, vUv.x));
     vec3 n = normalize(vNormal);
     vec3 lightDir = normalize(vec3(uMouse * 1.2, 0.9));
     float diff = clamp(dot(n, lightDir), 0.0, 1.0);
@@ -213,18 +219,28 @@ const HeroPortrait = ({
             }
         };
 
+        let lastPointer = -Infinity;
         const onPointer = (e) => {
+            lastPointer = performance.now();
             target.x = (e.clientX / window.innerWidth) * 2 - 1;
             target.y = (e.clientY / window.innerHeight) * 2 - 1;
         };
         const onLeave = () => { target.x = 0; target.y = 0; };
 
-        const render = () => {
+        const render = (now = 0) => {
             if (disposed) return;
+            // No recent pointer input (touch devices, or a resting cursor):
+            // drift the gaze on a slow figure-eight so the portrait stays alive.
+            if (now - lastPointer > IDLE_MS) {
+                const t = now * 0.001;
+                target.x = Math.sin(t * 0.35) * IDLE_AMP;
+                target.y = Math.cos(t * 0.22) * IDLE_AMP * 0.6;
+            }
             eased.x += (target.x - eased.x) * 0.07;
             eased.y += (target.y - eased.y) * 0.07;
 
-            const model = m4.mul(m4.rotY(eased.x * ROT), m4.rotX(-eased.y * ROT));
+            const rot = m4.mul(m4.rotY(eased.x * ROT), m4.rotX(-eased.y * ROT));
+            const model = m4.mul(m4.translate(eased.x * SWAY, -eased.y * SWAY * 0.6, 0), rot);
             const view = m4.translate(0, 0, -CAM);
             const mvp = m4.mul(proj, m4.mul(view, model));
 
@@ -289,7 +305,10 @@ const HeroPortrait = ({
                 gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, diffImg);
                 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
                 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+                // The source image is larger than the canvas — mipmaps kill the
+                // shimmer that plain LINEAR minification produces while rotating.
+                gl.generateMipmap(gl.TEXTURE_2D);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
                 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 
                 resize();

@@ -50,18 +50,25 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%; /* clip the image itself too, so Safari never paints a square */
-    /* Blurred at rest; sharpens on hover and eases back out on mouse-leave */
-    filter: blur(9px);
-    transform: scale(1.04) translateZ(0);
+    transform: scale(1) translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: filter, transform;
     transition: transform 0.7s var(--ease-out-expo), filter 0.7s var(--ease-out-expo);
 }
 
-.work-item:hover .work-item__image {
-    transform: scale(1) translateZ(0);
-    filter: blur(0);
+/* Blur-to-focus is hover-only feedback: touch devices have no hover, so they
+   must see the sharp image at rest — a permanent blur reads as a broken load. */
+@media (hover: hover) and (pointer: fine) {
+    .work-item__image {
+        filter: blur(9px);
+        transform: scale(1.04) translateZ(0);
+    }
+
+    .work-item:hover .work-item__image {
+        transform: scale(1) translateZ(0);
+        filter: blur(0);
+    }
 }
 
 .work-item__info {
