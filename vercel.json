@@ -3,5 +3,13 @@
   "framework": "vite",
   "installCommand": "npm --prefix david-portfolio install",
   "buildCommand": "npm --prefix david-portfolio run build",
-  "outputDirectory": "david-portfolio/dist"
+  "outputDirectory": "david-portfolio/dist",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.davidgeha.dev" }],
+      "destination": "https://davidgeha.dev/:path*",
+      "permanent": true
+    }
+  ]
 }
