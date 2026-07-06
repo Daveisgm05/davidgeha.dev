@@ -32,8 +32,8 @@ const GitHubIcon = () => (
 const navLinks = ['Work', 'About', 'Contact'];
 
 const socials = [
-    { name: 'Instagram', href: '#', Icon: InstagramIcon },
-    { name: 'LinkedIn', href: '#', Icon: LinkedInIcon },
+    { name: 'Instagram', href: 'https://www.instagram.com/david.geha/', Icon: InstagramIcon },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/david-geha/', Icon: LinkedInIcon },
     { name: 'GitHub', href: 'https://github.com/Daveisgm05', Icon: GitHubIcon },
 ];
 

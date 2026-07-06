@@ -19,9 +19,8 @@ const Contact = () => {
 
                 <div className="contact__links">
                     <div className="contact__social">
-                        {/* TODO: add your real Instagram and LinkedIn handles */}
-                        <a href="#" className="social-link">Instagram</a>
-                        <a href="#" className="social-link">LinkedIn</a>
+                        <a href="https://www.instagram.com/david.geha/" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
+                        <a href="https://www.linkedin.com/in/david-geha/" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
                         <a href="https://github.com/Daveisgm05" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
                     </div>
                     <div className="contact__copyright">
