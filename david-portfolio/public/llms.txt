@@ -21,6 +21,6 @@ Supabase, Vercel, Claude Code, Claude Desktop, GitHub, GPT Image 2.0, plus custo
 3. Automate & scale
 
 ## Contact
-- Email: hello@davidgeha.dev
+- Email: david@osgdev.com
 - GitHub: https://github.com/Daveisgm05
 - Website: https://davidgeha.dev

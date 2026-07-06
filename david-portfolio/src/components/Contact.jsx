@@ -11,8 +11,7 @@ const Contact = () => {
                 </h2>
 
                 <div className="contact__actions">
-                    {/* TODO: confirm this mailbox exists on your domain, or swap in your real email */}
-                    <a href="mailto:hello@davidgeha.dev" className="contact__button">
+                    <a href="mailto:david@osgdev.com" className="contact__button">
                         Start a project
                     </a>
                 </div>
