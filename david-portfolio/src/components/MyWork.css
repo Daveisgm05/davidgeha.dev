@@ -54,15 +54,21 @@
 @media (max-width: 767px) {
     .my-work__grid {
         display: block;
-        padding-bottom: 8rem;
+        padding-bottom: 6rem;
     }
 
     .work-card {
         position: sticky;
-        top: calc(5.5rem + var(--stack-index, 0) * 1rem);
+        /* Same base top for every card, offset by only a few px per card —
+           each new card pins almost exactly over the last, leaving just a
+           sliver of its colored border peeking out above (cydstumpel.nl-
+           style deck). No gap between cards: the next one has to fully
+           cover the current one before it can start sliding over it. */
+        top: calc(5.5rem + var(--stack-index, 0) * 0.6rem);
         z-index: calc(var(--stack-index, 0) + 1);
-        margin-bottom: 1.5rem;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        margin-bottom: 0;
+        min-height: min(66vh, 520px);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
     }
 
     .work-card:hover {
