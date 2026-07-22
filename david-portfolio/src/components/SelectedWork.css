@@ -7,7 +7,7 @@
     display: flex;
     align-items: baseline;
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(9rem, 13vw, 13rem);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 1rem;
 }
@@ -24,89 +24,204 @@
     opacity: 0.6;
 }
 
-.selected-work__grid {
-    display: grid;
-    gap: 4rem;
-}
-
-.work-item {
-    display: block;
-    cursor: pointer;
-}
-
-.work-item__image-container {
-    width: 100%;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    border-radius: 50%;
+/* ---------- Row list ---------- */
+.work-list-wrap {
     position: relative;
-    margin-bottom: 1.5rem;
-    isolation: isolate;
-    transform: translateZ(0); /* own compositing layer — avoids Safari filter/clip flash */
 }
 
-.work-item__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%; /* clip the image itself too, so Safari never paints a square */
-    transform: scale(1) translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    will-change: filter, transform;
-    transition: transform 0.7s var(--ease-out-expo), filter 0.7s var(--ease-out-expo);
+.work-list {
+    position: relative;
+    z-index: 10;
 }
 
-/* Blur-to-focus is hover-only feedback: touch devices have no hover, so they
-   must see the sharp image at rest — a permanent blur reads as a broken load. */
-@media (hover: hover) and (pointer: fine) {
-    .work-item__image {
-        filter: blur(9px);
-        transform: scale(1.04) translateZ(0);
-    }
-
-    .work-item:hover .work-item__image {
-        transform: scale(1) translateZ(0);
-        filter: blur(0);
-    }
+.work-row {
+    position: relative;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem 0;
+    cursor: default;
 }
 
-.work-item__info {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.work-item:hover .work-item__info {
-    border-color: var(--color-accent);
-}
-
-.work-item__meta {
+.work-row__inner {
+    position: relative;
+    z-index: 3;
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 0.5rem;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: 46%;
+    margin-left: auto;
 }
 
-.work-item__title {
+.work-row__left {
+    display: flex;
+    align-items: baseline;
+    gap: 1.1rem;
+    min-width: 0;
+}
+
+.work-row__index {
+    flex-shrink: 0;
     font-family: var(--font-sans);
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin: 0;
-}
-
-.work-item__year {
-    font-size: 0.9rem;
-    opacity: 0.6;
-}
-
-.work-item__category {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--color-secondary);
 }
 
-@media (min-width: 768px) {
-    .selected-work__grid {
-        grid-template-columns: repeat(2, 1fr);
+.work-row__title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+    font-weight: 500;
+    color: #9a9aa0;
+    transition: color 0.45s var(--ease-out-expo);
+}
+
+.work-row__right {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    flex-shrink: 0;
+}
+
+.work-row__category {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    transition: color 0.45s var(--ease-out-expo);
+    white-space: nowrap;
+}
+
+.work-row__year {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    opacity: 0.7;
+}
+
+.work-row__mobile-thumb {
+    display: none;
+}
+
+/* ---------- Glued preview: pinned to the list's own box, left side ---------- */
+/* Not per-row, not cursor-tracking — one shared spot at the vertical
+   center of the whole list (position:absolute against .work-list-wrap),
+   rotated 6deg. Scrolls with the page like normal content; only the
+   visible image (via .is-active) swaps as the hovered row changes. */
+.work-preview-stack {
+    position: absolute;
+    z-index: 2;
+    top: 24%;
+    left: 0;
+    width: 38%;
+    max-width: 400px;
+    /* Children are position:absolute, so they can't give this box a real
+       height on their own — without this, translateY(-50%) below would
+       center against a near-zero collapsed height instead of the frame's
+       actual ~1.3x-width height, making the whole stack sit far too low. */
+    aspect-ratio: 1 / 1.3;
+    transform: translateY(-50%) rotate(6deg);
+    pointer-events: none;
+}
+
+.work-preview {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.work-preview.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.work-preview__frame {
+    aspect-ratio: 1 / 1.3;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 6px solid var(--color-accent);
+    background: var(--color-accent);
+    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+}
+
+.work-preview__frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: scale(1.07) rotate(3deg);
+    transition: transform 0.5s var(--ease-out-expo);
+}
+
+.work-preview.is-active .work-preview__frame img {
+    transform: scale(1) rotate(0deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .work-list:hover .work-row__title,
+    .work-list:hover .work-row__category {
+        color: #55555c;
+    }
+
+    .work-row:hover .work-row__title,
+    .work-row:hover .work-row__category {
+        color: var(--color-accent);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .work-preview-stack {
+        width: 40%;
+        max-width: 280px;
+    }
+
+    .work-row__inner {
+        width: 48%;
+    }
+}
+
+/* ---------- Touch / narrow: no hover, static stacked thumbnail ---------- */
+@media (max-width: 768px), (hover: none) {
+    .work-preview-stack {
+        display: none;
+    }
+
+    .selected-work__header {
+        margin-bottom: 1.5rem;
+    }
+
+    .work-row {
+        padding: 1.5rem 0;
+    }
+
+    .work-row__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-left: 0;
+        gap: 0.75rem;
+    }
+
+    .work-row__title {
+        color: var(--color-accent);
+    }
+
+    .work-row__right {
+        gap: 0.9rem;
+    }
+
+    .work-row__mobile-thumb {
+        display: block;
+        margin-top: 1.1rem;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        aspect-ratio: 16 / 10;
+    }
+
+    .work-row__mobile-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }

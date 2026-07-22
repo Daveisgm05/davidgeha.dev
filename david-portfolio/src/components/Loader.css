@@ -1,0 +1,105 @@
+html.is-loading {
+    overflow: hidden;
+}
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(165deg, #0a0a0a 0%, #101012 38%, #17171a 78%, #1e1e22 100%);
+    animation: loader-lift 0.85s var(--ease-out-expo) 1.55s both;
+}
+
+.loader__logo {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    background: linear-gradient(120deg, #cfcac0 0%, #f4f1ea 45%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation:
+        loader-enter 0.7s var(--ease-out-expo) 0.1s both,
+        loader-exit-item 0.5s cubic-bezier(0.55, 0, 1, 0.45) 1.35s both;
+}
+
+.loader__tag,
+.loader__num {
+    position: absolute;
+    bottom: 1.8rem;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    color: #9a9aa0;
+    animation:
+        loader-fade-in 0.5s ease 0.25s both,
+        loader-exit-item 0.5s cubic-bezier(0.55, 0, 1, 0.45) 1.4s both;
+}
+
+.loader__tag {
+    left: 50%;
+    animation:
+        loader-fade-in 0.5s ease 0.25s both,
+        loader-exit-item-x 0.5s cubic-bezier(0.55, 0, 1, 0.45) 1.4s both;
+}
+
+.loader__num {
+    right: 2rem;
+    font-variant-numeric: tabular-nums;
+    animation:
+        loader-fade-in 0.5s ease 0.25s both,
+        loader-exit-item 0.5s cubic-bezier(0.55, 0, 1, 0.45) 1.45s both;
+}
+
+.loader__bar {
+    position: absolute;
+    top: calc(50% + clamp(2.2rem, 5vw, 3.4rem));
+    left: 50%;
+    width: clamp(150px, 20vw, 260px);
+    height: 2px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(244, 241, 234, 0.16);
+    animation:
+        loader-fade-in 0.5s ease 0.25s both,
+        loader-exit-item-x 0.5s cubic-bezier(0.55, 0, 1, 0.45) 1.5s both;
+}
+
+.loader__bar i {
+    display: block;
+    height: 100%;
+    transform-origin: 0;
+    transform: scaleX(0);
+    background: linear-gradient(90deg, #3b82f6 0%, #f4f1ea 100%);
+}
+
+@keyframes loader-enter {
+    from { opacity: 0; transform: translateY(34px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes loader-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes loader-exit-item {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-70%); }
+}
+
+/* Same exit, but keeps the element's horizontal centering (translateX(-50%))
+   intact throughout — for elements whose static position depends on it. */
+@keyframes loader-exit-item-x {
+    from { opacity: 1; transform: translateX(-50%) translateY(0); }
+    to { opacity: 0; transform: translateX(-50%) translateY(-70%); }
+}
+
+@keyframes loader-lift {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}

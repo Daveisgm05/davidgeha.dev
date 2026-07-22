@@ -191,6 +191,17 @@ const HeroPortrait = ({
         const target = { x: 0, y: 0 }, eased = { x: 0, y: 0 };
         let program, uMVP, uMouse, uLight, uDiffuse, indexCount, proj;
 
+        // Touch devices don't get a hovering cursor, so the effect needs to be
+        // driven more aggressively — direct finger position, scroll motion, and
+        // (where available) physical phone tilt — and with a wider range than
+        // the subtle desktop parallax.
+        const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+        const rotAmt = isCoarsePointer ? ROT * 1.9 : ROT;
+        const swayAmt = isCoarsePointer ? SWAY * 1.9 : SWAY;
+
+        let scrollSway = 0, lastScrollY = window.scrollY, motionEnabled = false;
+        let baseBeta = null, baseGamma = null;
+
         try {
             program = gl.createProgram();
             gl.attachShader(program, compile(gl, gl.VERTEX_SHADER, VERT));
@@ -227,6 +238,48 @@ const HeroPortrait = ({
         };
         const onLeave = () => { target.x = 0; target.y = 0; };
 
+        // Finger drags: touchmove keeps firing even once the browser hands the
+        // gesture off to native scrolling, so this tracks the head to the touch
+        // point directly (pointermove alone can get cancelled mid-scroll).
+        const onTouchMove = (e) => {
+            const t = e.touches[0];
+            if (!t) return;
+            lastPointer = performance.now();
+            target.x = (t.clientX / window.innerWidth) * 2 - 1;
+            target.y = (t.clientY / window.innerHeight) * 2 - 1;
+        };
+
+        // Scrolling nudges the head too, so the portrait feels tied to the
+        // page moving under the user's thumb, not just direct touches on it.
+        const onScroll = () => {
+            const y = window.scrollY;
+            const delta = y - lastScrollY;
+            lastScrollY = y;
+            lastPointer = performance.now();
+            scrollSway = Math.max(-1, Math.min(1, scrollSway + delta * 0.025));
+        };
+
+        // Physical phone tilt (deviceorientation), calibrated relative to
+        // whatever orientation the phone was in when tracking started.
+        const onOrientation = (e) => {
+            if (e.gamma == null || e.beta == null) return;
+            if (baseGamma === null) { baseGamma = e.gamma; baseBeta = e.beta; }
+            lastPointer = performance.now();
+            target.x = Math.max(-1, Math.min(1, (e.gamma - baseGamma) / 24));
+            target.y = Math.max(-1, Math.min(1, -(e.beta - baseBeta) / 24));
+        };
+        const enableMotion = () => {
+            if (motionEnabled || disposed) return;
+            motionEnabled = true;
+            if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+                DeviceOrientationEvent.requestPermission()
+                    .then((state) => { if (state === 'granted') window.addEventListener('deviceorientation', onOrientation); })
+                    .catch(() => {});
+            } else if ('DeviceOrientationEvent' in window) {
+                window.addEventListener('deviceorientation', onOrientation);
+            }
+        };
+
         const render = (now = 0) => {
             if (disposed) return;
             // No recent pointer input (touch devices, or a resting cursor):
@@ -238,9 +291,11 @@ const HeroPortrait = ({
             }
             eased.x += (target.x - eased.x) * 0.07;
             eased.y += (target.y - eased.y) * 0.07;
+            scrollSway *= 0.92; // decays each frame regardless of pointer state
 
-            const rot = m4.mul(m4.rotY(eased.x * ROT), m4.rotX(-eased.y * ROT));
-            const model = m4.mul(m4.translate(eased.x * SWAY, -eased.y * SWAY * 0.6, 0), rot);
+            const finalX = eased.x, finalY = Math.max(-1, Math.min(1, eased.y + scrollSway));
+            const rot = m4.mul(m4.rotY(finalX * rotAmt), m4.rotX(-finalY * rotAmt));
+            const model = m4.mul(m4.translate(finalX * swayAmt, -finalY * swayAmt * 0.6, 0), rot);
             const view = m4.translate(0, 0, -CAM);
             const mvp = m4.mul(proj, m4.mul(view, model));
 
@@ -252,7 +307,7 @@ const HeroPortrait = ({
 
             gl.useProgram(program);
             gl.uniformMatrix4fv(uMVP, false, mvp);
-            gl.uniform2f(uMouse, eased.x, eased.y);
+            gl.uniform2f(uMouse, finalX, finalY);
             gl.uniform1f(uLight, 0.35);
             gl.uniform1i(uDiffuse, 0);
             gl.drawElements(gl.TRIANGLES, indexCount, gl.UNSIGNED_INT, 0);
@@ -316,6 +371,9 @@ const HeroPortrait = ({
                 window.addEventListener('resize', resize);
                 window.addEventListener('pointermove', onPointer);
                 window.addEventListener('pointerleave', onLeave);
+                window.addEventListener('touchmove', onTouchMove, { passive: true });
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('touchstart', enableMotion, { passive: true, once: true });
                 document.addEventListener('visibilitychange', onVisibility);
                 io.observe(canvas);
                 start();
@@ -333,6 +391,10 @@ const HeroPortrait = ({
             window.removeEventListener('resize', resize);
             window.removeEventListener('pointermove', onPointer);
             window.removeEventListener('pointerleave', onLeave);
+            window.removeEventListener('touchmove', onTouchMove);
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('touchstart', enableMotion);
+            window.removeEventListener('deviceorientation', onOrientation);
             document.removeEventListener('visibilitychange', onVisibility);
         };
     }, [diffuse, depth]);

@@ -29,6 +29,7 @@
 
 /* ---------- Process rail: one hairline, a ✦ station per step ---------- */
 .about__process {
+    --progress: 0;
     list-style: none;
     position: relative;
     margin-top: clamp(4rem, 9vw, 7rem);
@@ -37,7 +38,7 @@
     gap: 2rem;
 }
 
-/* the rail */
+/* the rail track, always visible */
 .about__process::before {
     content: '';
     position: absolute;
@@ -48,9 +49,26 @@
     background: rgba(255, 255, 255, 0.12);
 }
 
+/* the rail fill — draws left-to-right in lockstep with scroll --progress */
+.about__process::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: calc(var(--progress) * 100%);
+    background: var(--color-accent);
+}
+
 .process-step {
+    /* Each step owns a 0.4-wide slice of the shared 0-1 --progress timeline,
+       staggered by --i so step 1 leads and step 3 trails — but all driven by
+       the same scroll value, not independent timers. */
+    --local: clamp(0, calc((var(--progress) - var(--i) * 0.3) / 0.4), 1);
     position: relative;
     padding-top: 2.4rem;
+    opacity: var(--local);
+    transform: translateY(calc((1 - var(--local)) * 22px));
 }
 
 /* the station: same ✦ as the marquee separator, sitting on the rail */
@@ -115,6 +133,13 @@
         right: auto;
         width: 1px;
         height: auto;
+    }
+
+    .about__process::after {
+        top: 0.4rem;
+        left: 0;
+        width: 1px;
+        height: calc(var(--progress) * 100%);
     }
 
     .process-step {

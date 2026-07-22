@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './About.css';
 import Reveal from './Reveal';
 
@@ -9,6 +9,45 @@ const steps = [
 ];
 
 const About = () => {
+    const railRef = useRef(null);
+
+    // Steps reveal in lockstep with scroll position (not a fixed-timing
+    // stagger) — --progress tracks how far the rail has scrolled through a
+    // window above the fold, and each step reads its own slice of it in CSS.
+    useEffect(() => {
+        const el = railRef.current;
+        if (!el) return;
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            el.style.setProperty('--progress', 1);
+            return;
+        }
+
+        let raf = 0;
+        const update = () => {
+            raf = 0;
+            const rect = el.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const start = vh * 0.9;
+            const end = vh * 0.35;
+            const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+            el.style.setProperty('--progress', progress);
+        };
+        const onScroll = () => {
+            if (raf) return;
+            raf = requestAnimationFrame(update);
+        };
+
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        return () => {
+            cancelAnimationFrame(raf);
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+        };
+    }, []);
+
     return (
         <section className="about container" id="about">
             <div className="about__grid">
@@ -25,14 +64,14 @@ const About = () => {
             </div>
 
             {/* The process as a pipeline: one rail, three stations */}
-            <Reveal as="ol" className="about__process" variant="rise" stagger>
-                {steps.map(({ num, label }) => (
-                    <li className="process-step" key={num}>
+            <ol className="about__process" ref={railRef}>
+                {steps.map(({ num, label }, i) => (
+                    <li className="process-step" key={num} style={{ '--i': i }}>
                         <span className="process-step__num">{num}</span>
                         <h3 className="process-step__label">{label}</h3>
                     </li>
                 ))}
-            </Reveal>
+            </ol>
         </section>
     );
 };

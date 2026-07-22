@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 import './App.css';
+import Loader from './components/Loader';
 import Header from './components/Header';
 import Marquee from './components/Marquee';
 import SelectedWork from './components/SelectedWork';
 import About from './components/About';
 import MyWork from './components/MyWork';
-import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Reveal from './components/Reveal';
 
@@ -44,13 +44,13 @@ function App() {
 
   return (
     <div className="app">
+      <Loader />
       <main>
         <Header />
         <Marquee />
         <SelectedWork />
         <About />
         <MyWork />
-        <FAQ />
         <Reveal><Contact /></Reveal>
       </main>
     </div>

@@ -30,15 +30,25 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    flex-shrink: 0;
+    /* Shrinks and truncates before it can ever push .nav__actions off-edge —
+       .nav__actions keeps flex-shrink:0 so the CTA is never the one clipped. */
+    flex-shrink: 1;
+    min-width: 0;
     font-size: 0.9rem;
     color: #b6b6bb;
-    white-space: nowrap;
     opacity: 0;
     animation: nav-in 0.8s var(--ease-out-expo) 0.1s forwards;
 }
 
+.nav__status-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .nav__dot {
+    flex-shrink: 0;
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -353,7 +363,10 @@
     }
 }
 
-@media (max-width: 768px) {
+/* Also catch short landscape phones (e.g. 812x375) — width alone would put
+   them on the desktop absolute-positioned layout, which needs much more
+   vertical room than a rotated phone has and overlaps name/portrait/socials. */
+@media (max-width: 768px), (max-width: 1000px) and (max-height: 500px) {
     /* Tight nav: drop the redundant logo button and shrink so the pill clears the edge */
     .nav__logo {
         display: none;

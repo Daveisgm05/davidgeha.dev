@@ -47,6 +47,29 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* ---------- Mobile: cards pin in place and stack as you scroll past ---------- */
+/* Each card sticks a little lower than the last (--stack-index), so the
+   next card slides up and lands on top, leaving a sliver of every card
+   underneath peeking out — a physical deck-of-cards feel. */
+@media (max-width: 767px) {
+    .my-work__grid {
+        display: block;
+        padding-bottom: 8rem;
+    }
+
+    .work-card {
+        position: sticky;
+        top: calc(5.5rem + var(--stack-index, 0) * 1rem);
+        z-index: calc(var(--stack-index, 0) + 1);
+        margin-bottom: 1.5rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .work-card:hover {
+        transform: none;
+    }
+}
+
 /* Optional: Add a folded corner effect or similar if desired, 
    but simplistic rounded border matches the clean aesthetic for now */
 

@@ -45,7 +45,7 @@ const Header = () => {
             <nav className="nav container">
                 <span className="nav__status">
                     <span className="nav__dot" aria-hidden="true"></span>
-                    Available for new projects
+                    <span className="nav__status-label">Available for new projects</span>
                 </span>
 
                 <ul className="nav__links">

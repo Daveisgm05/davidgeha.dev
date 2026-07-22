@@ -53,11 +53,11 @@ const MyWork = () => {
             <Reveal as="h2" className="my-work__title" variant="rise">Recent Builds</Reveal>
 
             <Reveal as="div" className="my-work__grid" variant="rise" stagger>
-                {workItems.map((item) => (
+                {workItems.map((item, i) => (
                     <article
                         key={item.id}
                         className="work-card"
-                        style={{ '--card-color': item.color }}
+                        style={{ '--card-color': item.color, '--stack-index': i }}
                     >
                         <div className="work-card__content">
                             <div className="work-card__header">
