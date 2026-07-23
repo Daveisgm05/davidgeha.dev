@@ -16,6 +16,11 @@
 .reveal.is-visible {
     opacity: 1;
     transform: none;
+    /* Drop the layer-promotion hint once settled — left on indefinitely,
+       it keeps the element on its own compositing layer forever, which
+       makes position:sticky descendants/siblings unreliable on mobile
+       Safari (sticky cards would "work for a few seconds" then stop). */
+    will-change: auto;
 }
 
 /* ---------- Stagger reveal: direct children cascade in ---------- */
@@ -36,6 +41,7 @@
 .reveal-stagger.is-visible > * {
     opacity: 1;
     transform: none;
+    will-change: auto;
 }
 
 .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }

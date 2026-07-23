@@ -27,6 +27,13 @@
 
 html {
   scroll-behavior: smooth;
+  /* Clip horizontal overflow on the actual root scroller, not body — if
+     overflow-x is non-visible while overflow-y is left unset, the spec
+     silently computes overflow-y as auto too, turning that element into
+     its own scroll container. On body (not the real root scroller Lenis
+     moves), that mismatch makes position:sticky descendants intermittently
+     stick to the wrong reference and stop working after a few seconds. */
+  overflow-x: hidden;
 }
 
 /* Lenis smooth-scroll (overrides native smooth while active) */
@@ -74,7 +81,6 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 img,
