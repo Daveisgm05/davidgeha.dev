@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import './Header.css';
 import HeroPortrait from './HeroPortrait';
+import { INTRO_READY_EVENT, arrivedMidPage, prefersReducedMotion } from '../lib/introGate';
 
 const ArrowUpRight = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -38,23 +40,89 @@ const socials = [
 ];
 
 const Header = () => {
+    const headerRef = useRef(null);
+    const navStatusRef = useRef(null);
+    const navLinksRef = useRef(null);
+    const navActionsRef = useRef(null);
+    const nameOutlineRef = useRef(null);
+    const nameSolidRef = useRef(null);
+    const introRef = useRef(null);
+    const socialsRef = useRef(null);
+
+    // First-load entrance, orchestrated with GSAP instead of CSS keyframes
+    // firing unconditionally on mount — the old version animated in while
+    // still hidden behind the Loader curtain, so it was never actually
+    // visible. This waits for the Loader to signal it's clear (or, on a
+    // mid-page reload / reduced motion, plays immediately with no wait).
+    useEffect(() => {
+        if (prefersReducedMotion()) return; // CSS already forces the final state
+
+        const header = headerRef.current;
+        let play;
+
+        // React StrictMode runs this effect, its cleanup, then this effect
+        // again in dev. GSAP caches parsed transform data per element, so a
+        // plain gsap.set(el, {clearProps:'all'}) on cleanup resets the DOM
+        // style but not that internal cache — the second run's yPercent:115
+        // then compounds on the first run's stale cache instead of starting
+        // clean (visible as the name staying stuck instead of animating in).
+        // gsap.context()/.revert() is GSAP's own fix for exactly this: it
+        // tracks everything created inside, and reverts it — cache included.
+        const ctx = gsap.context(() => {
+            const nameWords = [nameOutlineRef.current, nameSolidRef.current];
+            const navLinkItems = navLinksRef.current
+                ? Array.from(navLinksRef.current.children)
+                : [];
+
+            // Matches the CSS baseline exactly (Header.css) so this is a
+            // no-op visually — it just tells GSAP explicitly what "from" is.
+            gsap.set(navStatusRef.current, { autoAlpha: 0, y: -10 });
+            gsap.set(navLinkItems, { autoAlpha: 0, y: -10 });
+            gsap.set(navActionsRef.current, { autoAlpha: 0, y: -10 });
+            gsap.set(nameWords, { yPercent: 115 });
+            gsap.set(introRef.current, { autoAlpha: 0, y: 24 });
+            gsap.set(socialsRef.current, { autoAlpha: 0, y: 16 });
+
+            play = () => {
+                header?.classList.add('is-ready'); // gates the portrait's own CSS reveal (Header.css)
+
+                gsap.timeline({ defaults: { ease: 'expo.out' } })
+                    .to(navStatusRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, 0)
+                    .to(navLinkItems, { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.07 }, 0.08)
+                    .to(navActionsRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, 0.3)
+                    .to(nameWords, { yPercent: 0, duration: 1.2, stagger: 0.12 }, 0.15)
+                    .to(introRef.current, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.75)
+                    .to(socialsRef.current, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.85);
+            };
+
+            if (arrivedMidPage()) play();
+            else window.addEventListener(INTRO_READY_EVENT, play, { once: true });
+        }, headerRef);
+
+        return () => {
+            window.removeEventListener(INTRO_READY_EVENT, play);
+            header?.classList.remove('is-ready');
+            ctx.revert();
+        };
+    }, []);
+
     return (
         <div className="hero-frame">
-        <header className="header" id="top">
+        <header className="header" id="top" ref={headerRef}>
             {/* Top navigation — borderless top bar */}
             <nav className="nav container">
-                <span className="nav__status">
+                <span className="nav__status" ref={navStatusRef}>
                     <span className="nav__dot" aria-hidden="true"></span>
                     <span className="nav__status-label">Available for new projects</span>
                 </span>
 
-                <ul className="nav__links">
+                <ul className="nav__links" ref={navLinksRef}>
                     {navLinks.map((link) => (
                         <li key={link}><a href={`#${link.toLowerCase()}`}>{link}</a></li>
                     ))}
                 </ul>
 
-                <div className="nav__actions">
+                <div className="nav__actions" ref={navActionsRef}>
                     <a className="nav__cta" href="#contact">
                         Let's talk <ArrowUpRight />
                     </a>
@@ -65,14 +133,14 @@ const Header = () => {
             {/* Hero — name behind portrait */}
             <div className="hero">
                 <h1 className="hero__name" aria-label="David Geha">
-                    <span className="hero__word hero__word--outline"><span className="hero__word-inner">David</span></span>
-                    <span className="hero__word hero__word--solid"><span className="hero__word-inner">Geha</span></span>
+                    <span className="hero__word hero__word--outline"><span className="hero__word-inner" ref={nameOutlineRef}>David</span></span>
+                    <span className="hero__word hero__word--solid"><span className="hero__word-inner" ref={nameSolidRef}>Geha</span></span>
                 </h1>
 
                 <HeroPortrait className="hero__portrait" alt="David Geha" />
 
                 {/* Bottom-left: role + intro */}
-                <div className="hero__intro">
+                <div className="hero__intro" ref={introRef}>
                     <span className="hero__eyebrow">AI Automation · Lebanon</span>
                     <h2 className="hero__role">AI consultant</h2>
                     <p className="hero__subtitle">
@@ -85,7 +153,7 @@ const Header = () => {
                 </div>
 
                 {/* Bottom-right: social pills */}
-                <div className="hero__socials">
+                <div className="hero__socials" ref={socialsRef}>
                     {socials.map(({ name, href, Icon }) => {
                         const external = href.startsWith('http');
                         return (

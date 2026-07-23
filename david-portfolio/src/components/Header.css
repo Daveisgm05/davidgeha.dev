@@ -36,8 +36,9 @@
     min-width: 0;
     font-size: 0.9rem;
     color: #b6b6bb;
+    /* GSAP-driven entrance (Header.jsx) animates from this baseline. */
     opacity: 0;
-    animation: nav-in 0.8s var(--ease-out-expo) 0.1s forwards;
+    transform: translateY(-10px);
 }
 
 .nav__status-label {
@@ -65,14 +66,10 @@
 }
 
 .nav__links li {
+    /* GSAP-driven entrance (Header.jsx) animates from this baseline. */
     opacity: 0;
-    animation: nav-in 0.8s var(--ease-out-expo) forwards;
+    transform: translateY(-10px);
 }
-
-.nav__links li:nth-child(1) { animation-delay: 0.2s; }
-.nav__links li:nth-child(2) { animation-delay: 0.28s; }
-.nav__links li:nth-child(3) { animation-delay: 0.36s; }
-.nav__links li:nth-child(4) { animation-delay: 0.44s; }
 
 .nav__links a {
     font-size: 0.95rem;
@@ -89,8 +86,9 @@
     align-items: center;
     gap: 0.75rem;
     flex-shrink: 0;
+    /* GSAP-driven entrance (Header.jsx) animates from this baseline. */
     opacity: 0;
-    animation: nav-in 0.8s var(--ease-out-expo) 0.5s forwards;
+    transform: translateY(-10px);
 }
 
 .nav__cta {
@@ -165,8 +163,15 @@
 
 .hero__word-inner {
     display: block;
-    transform: translateY(115%);
-    animation: word-reveal 1.1s var(--ease-out-expo) forwards;
+    /* No static transform baseline here on purpose — GSAP (Header.jsx) sets
+       the initial yPercent:115 itself. A percentage transform declared in
+       CSS gets resolved to a fixed px matrix by the browser before GSAP
+       ever sees it, so GSAP can't recover "this was 115%" from it; it reads
+       the px offset as position zero and then *adds* another 115% on top,
+       so animating back to yPercent:0 lands on the old CSS offset instead
+       of 0 (the name stays stuck instead of animating in). The curtain
+       (Loader) covers the one-frame gap before JS applies the real hidden
+       state, so there's nothing to flash in the common case anyway. */
 }
 
 .hero__word--outline {
@@ -179,10 +184,12 @@
     color: #f4f1ea;
 }
 
-.hero__word--outline .hero__word-inner { animation-delay: 0.15s; }
-.hero__word--solid .hero__word-inner { animation-delay: 0.3s; }
-
-/* Portrait stands in front of the lower half of the name */
+/* Portrait stands in front of the lower half of the name. It keeps its
+   own CSS reveal (the clip-path wipe is easiest to express this way) but
+   only fires once .header carries .is-ready — added by the GSAP-driven
+   entrance (Header.jsx) at the same moment as everything else, so the
+   whole hero appears as one coordinated sequence instead of the portrait
+   popping in on its own timer. */
 .hero__portrait {
     position: absolute;
     z-index: 2;
@@ -204,7 +211,10 @@
     mask-image: linear-gradient(to bottom, #000 58%, transparent 94%);
     opacity: 0;
     clip-path: inset(100% 0 0 0);
-    animation: portrait-reveal 1.3s var(--ease-out-expo) 0.35s forwards;
+}
+
+.header.is-ready .hero__portrait {
+    animation: portrait-reveal 1.3s var(--ease-out-expo) 0.4s forwards;
 }
 
 /* Bottom-left: role + intro */
@@ -214,8 +224,9 @@
     left: var(--padding-page);
     bottom: 3.5rem;
     max-width: 30rem;
+    /* GSAP-driven entrance (Header.jsx) animates from this baseline. */
     opacity: 0;
-    animation: hero-fade 1s var(--ease-out-expo) 0.55s forwards;
+    transform: translateY(24px);
 }
 
 .hero__eyebrow {
@@ -272,8 +283,9 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    /* GSAP-driven entrance (Header.jsx) animates from this baseline. */
     opacity: 0;
-    animation: hero-fade 1s var(--ease-out-expo) 0.65s forwards;
+    transform: translateY(16px);
 }
 
 .hero__social {
@@ -310,28 +322,11 @@
 }
 
 /* ---------- Animations ---------- */
-@keyframes hero-rise {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes hero-fade {
-    to { opacity: 1; }
-}
-
-/* Name words wipe up from behind a mask */
-@keyframes word-reveal {
-    to { transform: translateY(0); }
-}
-
-/* Portrait rises into view (bottom-up clip) */
+/* Portrait rises into view (bottom-up clip) — the one entrance animation
+   still driven by CSS (see .header.is-ready above); everything else in
+   the hero is orchestrated by the GSAP timeline in Header.jsx. */
 @keyframes portrait-reveal {
     to { opacity: 1; clip-path: inset(0 0 0 0); }
-}
-
-/* Nav items drop in, staggered */
-@keyframes nav-in {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

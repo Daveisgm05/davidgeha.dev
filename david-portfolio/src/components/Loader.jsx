@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Loader.css';
+import { INTRO_READY_EVENT, arrivedMidPage, prefersReducedMotion } from '../lib/introGate';
 
 const COUNT_DELAY = 200;   // ms — matches the CSS fade-in delay on tag/num/bar
 const COUNT_DUR = 1050;
@@ -21,10 +22,12 @@ const Loader = () => {
     const barRef = useRef(null);
 
     useEffect(() => {
-        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const arrivedMidPage = window.scrollY > 4 || !!window.location.hash;
-        if (reduced || arrivedMidPage) {
+        if (prefersReducedMotion() || arrivedMidPage()) {
             setSkip(true);
+            // The hero still waits on this event to know when it's safe to
+            // play its own entrance — dispatch it even when this curtain
+            // itself is skipped, so it's never left waiting forever.
+            window.dispatchEvent(new Event(INTRO_READY_EVENT));
             return;
         }
 
@@ -38,6 +41,7 @@ const Loader = () => {
             window.clearTimeout(fallback);
             document.documentElement.classList.remove('is-loading');
             setHidden(true);
+            window.dispatchEvent(new Event(INTRO_READY_EVENT));
         };
         const fallback = window.setTimeout(finish, FALLBACK_MS);
 
