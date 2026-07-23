@@ -191,16 +191,16 @@ const HeroPortrait = ({
         const target = { x: 0, y: 0 }, eased = { x: 0, y: 0 };
         let program, uMVP, uMouse, uLight, uDiffuse, indexCount, proj;
 
-        // Touch devices don't get a hovering cursor, so the effect needs to be
-        // driven more aggressively — direct finger position, scroll motion, and
-        // (where available) physical phone tilt — and with a wider range than
-        // the subtle desktop parallax.
+        // Touch devices don't get a hovering cursor, so on coarse pointers the
+        // (scroll-driven, idle-drift) motion this still gets is amplified to
+        // read clearly — deliberately not driven by raw touch-drag position,
+        // since that would make a scroll swipe feel like it's grabbing the
+        // model instead of just scrolling the page.
         const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
         const rotAmt = isCoarsePointer ? ROT * 1.9 : ROT;
         const swayAmt = isCoarsePointer ? SWAY * 1.9 : SWAY;
 
-        let scrollSway = 0, lastScrollY = window.scrollY, motionEnabled = false;
-        let baseBeta = null, baseGamma = null;
+        let scrollSway = 0, lastScrollY = window.scrollY;
 
         try {
             program = gl.createProgram();
@@ -238,17 +238,6 @@ const HeroPortrait = ({
         };
         const onLeave = () => { target.x = 0; target.y = 0; };
 
-        // Finger drags: touchmove keeps firing even once the browser hands the
-        // gesture off to native scrolling, so this tracks the head to the touch
-        // point directly (pointermove alone can get cancelled mid-scroll).
-        const onTouchMove = (e) => {
-            const t = e.touches[0];
-            if (!t) return;
-            lastPointer = performance.now();
-            target.x = (t.clientX / window.innerWidth) * 2 - 1;
-            target.y = (t.clientY / window.innerHeight) * 2 - 1;
-        };
-
         // Scrolling nudges the head too, so the portrait feels tied to the
         // page moving under the user's thumb, not just direct touches on it.
         const onScroll = () => {
@@ -257,27 +246,6 @@ const HeroPortrait = ({
             lastScrollY = y;
             lastPointer = performance.now();
             scrollSway = Math.max(-1, Math.min(1, scrollSway + delta * 0.025));
-        };
-
-        // Physical phone tilt (deviceorientation), calibrated relative to
-        // whatever orientation the phone was in when tracking started.
-        const onOrientation = (e) => {
-            if (e.gamma == null || e.beta == null) return;
-            if (baseGamma === null) { baseGamma = e.gamma; baseBeta = e.beta; }
-            lastPointer = performance.now();
-            target.x = Math.max(-1, Math.min(1, (e.gamma - baseGamma) / 24));
-            target.y = Math.max(-1, Math.min(1, -(e.beta - baseBeta) / 24));
-        };
-        const enableMotion = () => {
-            if (motionEnabled || disposed) return;
-            motionEnabled = true;
-            if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-                DeviceOrientationEvent.requestPermission()
-                    .then((state) => { if (state === 'granted') window.addEventListener('deviceorientation', onOrientation); })
-                    .catch(() => {});
-            } else if ('DeviceOrientationEvent' in window) {
-                window.addEventListener('deviceorientation', onOrientation);
-            }
         };
 
         const render = (now = 0) => {
@@ -371,9 +339,7 @@ const HeroPortrait = ({
                 window.addEventListener('resize', resize);
                 window.addEventListener('pointermove', onPointer);
                 window.addEventListener('pointerleave', onLeave);
-                window.addEventListener('touchmove', onTouchMove, { passive: true });
                 window.addEventListener('scroll', onScroll, { passive: true });
-                window.addEventListener('touchstart', enableMotion, { passive: true, once: true });
                 document.addEventListener('visibilitychange', onVisibility);
                 io.observe(canvas);
                 start();
@@ -391,10 +357,7 @@ const HeroPortrait = ({
             window.removeEventListener('resize', resize);
             window.removeEventListener('pointermove', onPointer);
             window.removeEventListener('pointerleave', onLeave);
-            window.removeEventListener('touchmove', onTouchMove);
             window.removeEventListener('scroll', onScroll);
-            window.removeEventListener('touchstart', enableMotion);
-            window.removeEventListener('deviceorientation', onOrientation);
             document.removeEventListener('visibilitychange', onVisibility);
         };
     }, [diffuse, depth]);
