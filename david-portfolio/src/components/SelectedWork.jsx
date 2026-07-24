@@ -21,7 +21,7 @@ const projects = [
         id: 3,
         title: 'Image Ad Pipelines',
         category: 'GPT Image 2.0',
-        image: '/work-ads.webp',
+        image: '/work-ads-v2.webp',
         year: '2025'
     },
     {
