@@ -28,7 +28,7 @@ const projects = [
         id: 4,
         title: 'Custom CRM Dashboards',
         category: 'Internal Tooling',
-        image: '/work-crm-v2.webp',
+        image: '/work-crm-v3.webp',
         year: '2025'
     }
 ];
