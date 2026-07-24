@@ -107,7 +107,9 @@
    visible image (via .is-active) swaps as the hovered row changes. */
 .work-preview-stack {
     position: absolute;
-    z-index: 2;
+    /* Above .work-list (z-index 10) so row separator lines never draw
+       across the card; safe because the card never overlaps the text. */
+    z-index: 12;
     top: 24%;
     left: 0;
     width: 38%;
