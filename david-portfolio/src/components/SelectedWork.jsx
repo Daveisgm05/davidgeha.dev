@@ -7,7 +7,7 @@ const projects = [
         id: 1,
         title: 'Lead Outreach Pipelines',
         category: 'Agentic Outreach',
-        image: '/work-outreach.webp',
+        image: '/work-outreach-v2.webp',
         year: '2026'
     },
     {
