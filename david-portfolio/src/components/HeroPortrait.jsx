@@ -191,14 +191,11 @@ const HeroPortrait = ({
         const target = { x: 0, y: 0 }, eased = { x: 0, y: 0 };
         let program, uMVP, uMouse, uLight, uDiffuse, indexCount, proj;
 
-        // Touch devices don't get a hovering cursor, so on coarse pointers the
-        // (scroll-driven, idle-drift) motion this still gets is amplified to
-        // read clearly — deliberately not driven by raw touch-drag position,
-        // since that would make a scroll swipe feel like it's grabbing the
-        // model instead of just scrolling the page.
-        const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-        const rotAmt = isCoarsePointer ? ROT * 1.9 : ROT;
-        const swayAmt = isCoarsePointer ? SWAY * 1.9 : SWAY;
+        // Same rotation/sway limits on every device: the depth mesh only reads
+        // clean within the desktop range (±ROT); pushing further on touch
+        // exposes the stretched edges and occlusion gaps of the displaced mesh.
+        const rotAmt = ROT;
+        const swayAmt = SWAY;
 
         let scrollSway = 0, lastScrollY = window.scrollY;
 
