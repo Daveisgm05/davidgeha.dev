@@ -14,7 +14,7 @@ const projects = [
         id: 2,
         title: 'Competitive Research & SEO/GEO Pipelines',
         category: 'Market Intelligence',
-        image: '/work-research.webp',
+        image: '/work-research-v2.webp',
         year: '2026'
     },
     {
