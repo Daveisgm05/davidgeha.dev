@@ -123,7 +123,7 @@ const Header = () => {
                 </ul>
 
                 <div className="nav__actions" ref={navActionsRef}>
-                    <a className="nav__cta" href="#contact">
+                    <a className="nav__cta" href="mailto:david@osgdev.com">
                         Let's talk <ArrowUpRight />
                     </a>
                     <a className="nav__logo" href="#top" aria-label="Back to top">D</a>
