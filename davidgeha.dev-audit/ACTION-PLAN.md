@@ -19,7 +19,7 @@ Health 56 → 74 (deployed 2026-09-19; PSI post-deploy: mobile 88 / desktop 96).
 
 | # | Action | Owner |
 |---|---|---|
-| 7 | **Google Business Profile** — service-area business. Name exactly `David Geha - AI Consultant`. Primary: Business management consultant; secondary: Consultant, Software company. Areas: Beirut, Mount Lebanon, North, South, Bekaa. Website davidgeha.dev. 4 services with the exact site descriptions. 5+ photos. Then ask 3 clients for reviews mentioning "AI" + "Lebanon"; space reviews ≤18 days apart | ☐ |
+| 7 | ✅ **Google Business Profile created 2026-09-19** — `David Geha - AI Consultant`, SAB (Lebanon + cities), Business management consultant, +961 76 412 978, WhatsApp `wa.me/96176412978`, https://davidgeha.dev/. ☐ **Pending verification** (video) — listing is invisible until it passes. ☐ Then: photos (logo, cover, headshot, 4 work mockups), 4 services, and ask 3 clients for reviews mentioning "AI" + "Lebanon", ≤18 days apart | ☐ verify |
 | 8 | ✅ Phone `+961 76 412 978` (WhatsApp link) in footer NAP line, schema `telephone` + `contactPoint`, noscript, llms.txt, FAQ | done |
 | 9 | ✅ Canonical NAP: `David Geha - AI Consultant` · Beirut, Lebanon · david@osgdev.com · +961 76 412 978 · https://davidgeha.dev/ — use exactly this on GBP and every directory | done |
 | 10 | Directory citations, in this order (each also shows up on page 1 for your queries): Clutch → GoodFirms → The Manifest → LinkedIn Services page → TechBehemoths → Consultancy.org → Sortlist → Crunchbase → Bayt → Yellow Pages Lebanon. Send me each URL → I verify with `verify_backlinks.py` and add to `Person.sameAs` | ☐ → 🤖 |
