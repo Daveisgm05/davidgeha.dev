@@ -11,7 +11,7 @@ Health 56 → 74 (deployed 2026-09-19; PSI post-deploy: mobile 88 / desktop 96).
 | 2 | ✅ GSC domain property verified; service account added (Full); sitemap submitted via API. Finding: already indexed (last crawl 09-09) but **0 impressions in 90 days**. ☐ Still to click: URL Inspection → **Request indexing** so Google fetches today's version | ☐ 1 click | GSC → Pages shows crawl date ≥ 09-19; first impressions appear within 2–4 weeks |
 | 3 | ✅ IndexNow submitted (`/`, `/sitemap.xml`, `/llms.txt`) → 202 to Bing/Yandex/Naver/Seznam/Yep/Amazon | done | — |
 | 4 | Bing Webmaster Tools → "Import from GSC" | ☐ after #2 | Bing shows the URL indexed |
-| 5 | www → apex redirect: Vercel → david-portfolio → Settings → Domains → `www.davidgeha.dev` → Edit → Redirect to `davidgeha.dev` (308). *(API change blocked for me by your permission policy; GSC already treats www as a proper alternate, so low urgency)* | ☐ 20 s | `curl -sI https://www.davidgeha.dev/` → 308 |
+| 5 | ✅ www → apex 308 redirect set in Vercel (verified: `www.davidgeha.dev/*` → `https://davidgeha.dev/*`) | done | — |
 | 6 | Profiles: ✅ Instagram `@dave.automate` wired site-wide · ☐ GitHub (token lacks `user` scope — run `gh auth refresh -h github.com -s user` or paste bio/website/location at github.com/settings/profile) · ☐ LinkedIn headline "AI Consultant in Lebanon · agentic AI automation for agencies & F&B" + website | ☐ | Brave/Bing for "David Geha AI consultant" surfaces a profile that links to the site |
 | ✅ | H1/H2/title/meta, Services + FAQ (~1,000 words), schema graph, noscript mirror (726 words), security headers, IndexNow key, images/WebP, robots Claude-SearchBot | done | live on davidgeha.dev |
 
@@ -50,7 +50,7 @@ Everything must be **pre-rendered/static HTML** (raw HTML is what Bing and AI fe
 | # | Action |
 |---|---|
 | 25 | ✅ Google API key configured → monthly `/seo google` (PSI now; CrUX + GSC once eligible/verified) |
-| 26 | ✅ Moz + Bing keys configured (Tier 2; Moz free quota exhausts fast — competitor gap table pending next reset). **Finding:** DA 9, 57 referring domains — but they're a PBN/casino link package built Feb–Jun 2026 (see `findings/backlinks-moz-2026-09-19.md`). ☐ Confirm origin → check GSC *Security & Manual Actions* → upload `disavow-draft.txt` if purchased/unknown |
+| 26 | ✅ Moz + Bing keys configured (Tier 2; Moz free quota exhausts fast — competitor gap table pending next reset). **Finding:** DA 9, 57 referring domains — but they're a PBN/casino link package built Feb–Jun 2026 (see `findings/backlinks-moz-2026-09-19.md`). ✅ Owner confirmed links were unsolicited; URL-prefix property `https://davidgeha.dev/` added; `disavow-draft.txt` (50 domains) uploaded 2026-09-19. Google processes disavows over weeks — no action needed. |
 | 27 | `/seo drift compare https://davidgeha.dev` after every deploy (baseline captured 2026-09-19) |
 | 28 | Re-run `/seo audit` after Phase 3. Targets: Health ≥ 85 · `site:` shows ≥ 5 URLs · GSC impressions for all three queries · one directory listing on page 1 pointing at you |
 
