@@ -95,8 +95,8 @@ E-E-A-T (live): Experience 50 · Expertise 40 · Authoritativeness 25 · Trustwo
 - **Info:** FAQPage produces no Google rich result since 2026-05-07; kept (now visible-content-honest) for Bing/AI consumers.
 - **Not recommended:** `telephone` fabricated (add when you publish a real number), `ProfilePage` (needs follower metrics), `openingHoursSpecification` (remote-first).
 
-### Performance (CWV) — 79 mobile / 95 desktop (live) → ~90 (working tree)  ·  weight 10%
-Lab (Lighthouse 13.5, simulated): LCP 3.6 s mobile / 0.9 s desktop · TBT 0 ms · CLS 0 / 0.013. TTFB 53–56 ms. No CrUX field data (no key + too little traffic).
+### Performance (CWV) — 79 mobile / 95 desktop (pre-deploy) → **88 mobile / 96 desktop (PageSpeed Insights, post-deploy 2026-09-19)**  ·  weight 10%
+Pre-deploy lab (Lighthouse 13.5): LCP 3.6 s mobile / 0.9 s desktop · TBT 0 ms · CLS 0 / 0.013. **Post-deploy PSI (Google, with API key):** mobile perf 88 · a11y 100 · BP 100 · SEO 100 — LCP 2.9 s, TBT 0 ms, CLS 0, SI 4.5 s; desktop perf 96 — LCP 0.8 s, CLS 0.001. TTFB 53–56 ms. **CrUX field data: none yet** — origin below Chrome traffic eligibility threshold (checked via CrUX API + CrUX History with the key); will populate once real traffic arrives.
 - **Critical (UX/perceived):** intro curtain is 2,450 ms on *every* visit (4,500 ms fallback); trace frames show real content at 3,722 ms mobile. *Not changed — design decision.* Low-risk option: gate to once per session (`sessionStorage`) and/or shorten.
 - **High:** 1.43 MB `david_transparent.png` = 74% of page weight. *Fixed in tree:* WebP q92 (205 KB), verified rendering in WebGL; PNG removed. Page ≈ 1.94 MB → ≈ 0.7 MB.
 - **High:** Google Fonts 3-hop chain still ~1.8 s render-blocking on mobile despite the preload swap. → self-host Inter 400/500 + Playfair 400/italic with `<link rel=preload as=font>`; also removes the 0.013 CLS.
@@ -156,13 +156,13 @@ Build verified: `npm run build` OK, JSON-LD valid, 5 graph nodes, FAQ 6/6 parity
 | Check | Blocker | Unblock |
 |---|---|---|
 | GSC index status / queries / URL inspection / sitemap submit | property doesn't exist | verify davidgeha.dev in GSC, then add `jaris-agent@jarvis-project-495313.iam.gserviceaccount.com` as a user |
-| PageSpeed Insights + CrUX (field CWV) | no API key | Google Cloud API key with PSI + CrUX APIs enabled → `~/.config/claude-seo/google-api.json` or `GOOGLE_API_KEY` |
+| ~~PageSpeed Insights + CrUX~~ | **unblocked 2026-09-19** — key in `~/.config/claude-seo/google-api.json` | PSI ran (88/96); CrUX has no data until the site has Chrome traffic |
 | GA4 organic | no property | GA4 property ID |
 | Keyword volumes | no Ads token | Google Ads developer token |
 | Moz DA / referring domains | no key | free Moz API key |
 | Bing Webmaster | no key | Bing Webmaster API key (after Bing verification — import from GSC) |
 | DataForSEO (live LB SERPs, maps grid, AI visibility) | extension not installed | DataForSEO login + `/seo dataforseo setup` |
-| Google NL entity analysis | no key | same Google API key + NL API enabled |
+| Google NL entity analysis | NL API needs billing on the project | optional; low value for a 1-page site |
 | IndexNow submit | key file not live | deploy, then run the command in ACTION-PLAN |
 | www → apex redirect | production config change | approve, or set it in Vercel → Domains |
 | PDF report | see below | — |

@@ -1,7 +1,7 @@
 {
   "summary": {
     "health_score": 56,
-    "health_score_pending_deploy": 74,
+    "health_score_pending_deploy": 75,
     "business_type": "Local service-area business \u2014 solo AI consultant, Beirut, Lebanon (professional services)",
     "target_keywords": [
       "AI consultant Lebanon",
@@ -21,7 +21,28 @@
       "Create Google Business Profile as service-area business with the exact name 'David Geha - AI Consultant'",
       "Fill GitHub/LinkedIn/Instagram profiles with bio, Beirut, and the site URL",
       "Set the www -> apex redirect at the Vercel domain level"
-    ]
+    ],
+    "psi_post_deploy": {
+      "mobile": {
+        "performance": 88,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100,
+        "lcp_s": 2.9,
+        "cls": 0,
+        "tbt_ms": 0
+      },
+      "desktop": {
+        "performance": 96,
+        "accessibility": 100,
+        "best_practices": 100,
+        "seo": 100,
+        "lcp_s": 0.8,
+        "cls": 0.001,
+        "tbt_ms": 0
+      },
+      "crux": "no data (ineligible)"
+    }
   },
   "categories": [
     {
@@ -173,15 +194,21 @@
     {
       "name": "Performance (CWV)",
       "weight": 0.1,
-      "score": 82,
-      "score_pending": 90,
+      "score": 88,
+      "score_pending": 92,
       "what_works": [
+        "PSI post-deploy: mobile 88 / desktop 96 (a11y, BP, SEO all 100)",
         "TTFB 53-56 ms",
         "TBT 0 ms",
-        "CLS 0 / 0.013",
-        "Small DOM (236 nodes)"
+        "CLS 0 / 0.001"
       ],
       "findings": [
+        {
+          "title": "No CrUX field data yet",
+          "severity": "Info",
+          "description": "Origin below Chrome traffic eligibility (CrUX + History checked with API key).",
+          "recommendation": "Re-check monthly; field LCP/INP/CLS appear once real traffic accumulates."
+        },
         {
           "title": "Intro curtain blocks content 2.45 s every visit",
           "severity": "Critical",
@@ -412,15 +439,13 @@
     ]
   },
   "blocked_checks": [
-    "GSC (no property; add service account after verification)",
-    "PSI/CrUX (Google API key)",
+    "GSC (property still not verified; add service account after verification)",
     "GA4 (property ID)",
     "Keyword Planner (Ads token)",
     "Moz (key)",
     "Bing Webmaster (key)",
     "DataForSEO (extension)",
     "Google NL (key)",
-    "IndexNow submit (awaiting deploy)",
     "www redirect (approval)"
   ],
   "artifacts": {
