@@ -24,6 +24,6 @@ export const faq = [
     },
     {
         q: 'How do we get started?',
-        a: 'Email david@osgdev.com with one or two sentences about the work your team repeats most. We map that work together on a short call, I come back with a scoped plan and a price, and then I design and build the agentic system that automates it and measure the productivity gain.',
+        a: 'Email david@osgdev.com or WhatsApp +961 76 412 978 with one or two sentences about the work your team repeats most. We map that work together on a short call, I come back with a scoped plan and a price, and then I design and build the agentic system that automates it and measure the productivity gain.',
     },
 ];

@@ -20,8 +20,8 @@ Health 56 → 74 (deployed 2026-09-19; PSI post-deploy: mobile 88 / desktop 96).
 | # | Action | Owner |
 |---|---|---|
 | 7 | **Google Business Profile** — service-area business. Name exactly `David Geha - AI Consultant`. Primary: Business management consultant; secondary: Consultant, Software company. Areas: Beirut, Mount Lebanon, North, South, Bekaa. Website davidgeha.dev. 4 services with the exact site descriptions. 5+ photos. Then ask 3 clients for reviews mentioning "AI" + "Lebanon"; space reviews ≤18 days apart | ☐ |
-| 8 | Publish a phone/WhatsApp number → I add `telephone` to schema + footer, and a WhatsApp CTA (SERP-winning pages all have one) | ☐ → 🤖 |
-| 9 | Decide the NAP string once and use it everywhere: `David Geha - AI Consultant` · Beirut, Lebanon · david@osgdev.com · <phone> | ☐ |
+| 8 | ✅ Phone `+961 76 412 978` (WhatsApp link) in footer NAP line, schema `telephone` + `contactPoint`, noscript, llms.txt, FAQ | done |
+| 9 | ✅ Canonical NAP: `David Geha - AI Consultant` · Beirut, Lebanon · david@osgdev.com · +961 76 412 978 · https://davidgeha.dev/ — use exactly this on GBP and every directory | done |
 | 10 | Directory citations, in this order (each also shows up on page 1 for your queries): Clutch → GoodFirms → The Manifest → LinkedIn Services page → TechBehemoths → Consultancy.org → Sortlist → Crunchbase → Bayt → Yellow Pages Lebanon. Send me each URL → I verify with `verify_backlinks.py` and add to `Person.sameAs` | ☐ → 🤖 |
 | 11 | **AUB**: ask CEE dept / Darwazah Center / iPark for a student-founder listing or story (`.edu.lb` link corroborates `alumniOf` and outweighs every directory) | ☐ |
 | 12 | Berytech, UK-Lebanon Tech Hub, ArabNet/Menabytes founder listings | ☐ |

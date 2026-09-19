@@ -52,6 +52,7 @@ ${services.map(({ title, text }) => `    <h3>${esc(title)}</h3>\n    <p>${esc(te
 ${faq.map(({ q, a }) => `    <h3>${esc(q)}</h3>\n    <p>${esc(a)}</p>`).join('\n')}
 
     <p>Contact: <a href="mailto:david@osgdev.com">david@osgdev.com</a> ·
+      <a href="tel:+96176412978">+961 76 412 978</a> (WhatsApp) · Beirut, Lebanon ·
       <a href="https://www.linkedin.com/in/david-geha/">LinkedIn</a> ·
       <a href="https://github.com/Daveisgm05">GitHub</a> ·
       <a href="https://www.instagram.com/dave.automate/">Instagram</a></p>

@@ -16,6 +16,15 @@ const Contact = () => {
                     </a>
                 </div>
 
+                {/* Visible NAP — must match the Google Business Profile and every directory exactly. */}
+                <address className="contact__nap">
+                    <a href="mailto:david@osgdev.com">david@osgdev.com</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="https://wa.me/96176412978" target="_blank" rel="noopener noreferrer">+961 76 412 978</a>
+                    <span aria-hidden="true">·</span>
+                    <span>Beirut, Lebanon</span>
+                </address>
+
                 <div className="contact__links">
                     <div className="contact__social">
                         <a href="https://www.instagram.com/dave.automate/" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
