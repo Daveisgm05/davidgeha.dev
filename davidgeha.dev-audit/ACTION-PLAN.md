@@ -1,19 +1,19 @@
 # Action Plan: davidgeha.dev → #1 for "AI consultant / consulting / solutions Lebanon"
 
-Health 56 → 74 on deploy. Getting to #1 is then ~20% on-site and ~80% off-site (index, entity, GBP, links, dedicated pages).
+Health 56 → 74 (deployed 2026-09-19; PSI post-deploy: mobile 88 / desktop 96). Getting to #1 is then ~20% on-site and ~80% off-site (index, entity, GBP, links, dedicated pages).
 ✅ done in working tree · ☐ you · 🤖 me, once unblocked
 
 ## Phase 1 — Critical fixes (Week 1)
 
 | # | Action | Owner | How we know it worked |
 |---|---|---|---|
-| 1 | Review + commit + push the working tree (Vercel auto-deploys) | ☐ | `curl -sI https://davidgeha.dev/c7c27eae54684c15c350b92dc7577bcb.txt` → 200; Last-Modified changes |
+| 1 | ✅ Deployed (`a22b896`, `dcc7205`) | done | `curl -sI https://davidgeha.dev/c7c27eae54684c15c350b92dc7577bcb.txt` → 200; Last-Modified changes |
 | 2 | Google Search Console: add `davidgeha.dev` as Domain property (DNS TXT at your registrar). Submit `sitemap.xml`. URL-inspect `/` → Request indexing. Add user `jaris-agent@jarvis-project-495313.iam.gserviceaccount.com` (Full) | ☐ | `site:davidgeha.dev` shows the homepage within ~7 days; `/seo google` returns data |
-| 3 | IndexNow submit (no key needed): `"$HOME/.claude/plugins/cache/agricidaniel-claude-seo/claude-seo/2.3.1/scripts/claude-seo" run indexnow_submit.py --host davidgeha.dev --key c7c27eae54684c15c350b92dc7577bcb --urls https://davidgeha.dev/ --json` | 🤖 after #1 | HTTP 200/202 from api.indexnow.org |
+| 3 | ✅ IndexNow submitted (`/`, `/sitemap.xml`, `/llms.txt`) → 202 to Bing/Yandex/Naver/Seznam/Yep/Amazon | done | — |
 | 4 | Bing Webmaster Tools → "Import from GSC" | ☐ after #2 | Bing shows the URL indexed |
 | 5 | www → apex redirect: Vercel → david-portfolio → Settings → Domains → `www.davidgeha.dev` → Redirect to `davidgeha.dev` (308) | ☐ (or say "do it" and I'll set it) | `curl -sI https://www.davidgeha.dev/` → 308 |
-| 6 | Fill your own profiles today: GitHub (bio, location "Beirut, Lebanon", website), LinkedIn (headline "AI Consultant in Lebanon · agentic AI automation for agencies & F&B", website, Featured), Instagram bio link | ☐ | Brave/Bing for "David Geha AI consultant" surfaces a profile that links to the site |
-| ✅ | H1/H2/title/meta, Services + FAQ (~1,000 words), schema graph, noscript mirror (726 words), security headers, IndexNow key, images/WebP, robots Claude-SearchBot | done | in `git status` |
+| 6 | Profiles: ✅ Instagram `@dave.automate` wired site-wide · ☐ GitHub (token lacks `user` scope — run `gh auth refresh -h github.com -s user` or paste bio/website/location at github.com/settings/profile) · ☐ LinkedIn headline "AI Consultant in Lebanon · agentic AI automation for agencies & F&B" + website | ☐ | Brave/Bing for "David Geha AI consultant" surfaces a profile that links to the site |
+| ✅ | H1/H2/title/meta, Services + FAQ (~1,000 words), schema graph, noscript mirror (726 words), security headers, IndexNow key, images/WebP, robots Claude-SearchBot | done | live on davidgeha.dev |
 
 ## Phase 2 — High-impact (Weeks 2–3)
 
@@ -56,6 +56,5 @@ Everything must be **pre-rendered/static HTML** (raw HTML is what Bing and AI fe
 
 ## Not done, and why
 
-- **Not committed/pushed** — you haven't asked; everything is reviewable in `git status`.
 - **www redirect, loader timing, mobile nav/hero, About rewrite, font self-hosting** — production config or design decisions; ready to do on your word.
 - **Bot traffic** — not built. Rankings don't move on raw visits; it would pollute analytics and risk invalid-traffic flags. Phase 1–2 above is what moves them.
