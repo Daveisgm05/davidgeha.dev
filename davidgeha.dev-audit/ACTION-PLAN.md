@@ -8,7 +8,7 @@ Health 56 → 74 (deployed 2026-09-19; PSI post-deploy: mobile 88 / desktop 96).
 | # | Action | Owner | How we know it worked |
 |---|---|---|---|
 | 1 | ✅ Deployed (`a22b896`, `dcc7205`) | done | `curl -sI https://davidgeha.dev/c7c27eae54684c15c350b92dc7577bcb.txt` → 200; Last-Modified changes |
-| 2 | Google Search Console: add `davidgeha.dev` as Domain property (DNS TXT at your registrar). Submit `sitemap.xml`. URL-inspect `/` → Request indexing. Add user `jaris-agent@jarvis-project-495313.iam.gserviceaccount.com` (Full) | ☐ | `site:davidgeha.dev` shows the homepage within ~7 days; `/seo google` returns data |
+| 2 | ✅ GSC domain property verified; service account added (Full); sitemap submitted via API. Finding: already indexed (last crawl 09-09) but **0 impressions in 90 days**. ☐ Still to click: URL Inspection → **Request indexing** so Google fetches today's version | ☐ 1 click | GSC → Pages shows crawl date ≥ 09-19; first impressions appear within 2–4 weeks |
 | 3 | ✅ IndexNow submitted (`/`, `/sitemap.xml`, `/llms.txt`) → 202 to Bing/Yandex/Naver/Seznam/Yep/Amazon | done | — |
 | 4 | Bing Webmaster Tools → "Import from GSC" | ☐ after #2 | Bing shows the URL indexed |
 | 5 | www → apex redirect: Vercel → david-portfolio → Settings → Domains → `www.davidgeha.dev` → Redirect to `davidgeha.dev` (308) | ☐ (or say "do it" and I'll set it) | `curl -sI https://www.davidgeha.dev/` → 308 |

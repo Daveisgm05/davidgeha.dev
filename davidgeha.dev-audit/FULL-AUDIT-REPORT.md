@@ -6,7 +6,7 @@
 **Business type detected:** Local service-area business (SAB) — solo AI consultant, Beirut, Lebanon; professional services vertical
 **Pages crawled:** 1 (single-URL React/Vite SPA; all internal links are fragments)
 **Specialists run:** technical, content, schema, sitemap, performance, visual, geo, sxo, local, backlinks
-**Skipped (conditions not met):** google (service account sees no GSC property; no PSI key), maps (no DataForSEO), cluster (no content hub), drift (baseline captured today, no prior), ecommerce (n/a)
+**Skipped at run time, completed afterwards:** google (PSI 88/96 with key; GSC verified later the same day — see corrected finding #1), maps (no DataForSEO), cluster (no content hub), drift (baseline captured today, no prior), ecommerce (n/a)
 
 ---
 
@@ -31,7 +31,7 @@ Off-site dimensions the health score does *not* weight, reported separately beca
 
 ### Top 5 critical issues
 
-1. **Not indexed by Google** — `site:davidgeha.dev` returns nothing; brand query surfaces a TV producer. No GSC property exists (confirmed: the configured service account lists zero sites). Blocks everything.
+1. **Indexed but invisible** — *(corrected after GSC verification, 2026-09-19)*: URL Inspection says "Submitted and indexed", last crawl 2026-09-09, canonical OK — but Search Analytics shows **0 impressions and 0 clicks across 90 days** for any query. The earlier "not indexed" call came from a non-Google `site:` probe and was wrong. The problem is authority/relevance, not crawlability. Google has one referring URL on record: `ultraenvirotech.com/solutions/gentoo`.
 2. **Entity collision with zero corroboration** — no directory, profile, or article on the web asserts "David Geha = AI consultant in Beirut". LLMs and Google will keep resolving the name to the producer.
 3. **Wrong page type for the SERPs** — a 205-word portfolio hero cannot outrank 2,000-word priced service pages and directories. Even fully optimized, one URL caps around 60/100 SXO.
 4. **No Google Business Profile / NAP** — local pack eligibility is zero; no phone anywhere on site or in schema.
@@ -155,7 +155,7 @@ Build verified: `npm run build` OK, JSON-LD valid, 5 graph nodes, FAQ 6/6 parity
 
 | Check | Blocker | Unblock |
 |---|---|---|
-| GSC index status / queries / URL inspection / sitemap submit | property doesn't exist | verify davidgeha.dev in GSC, then add `jaris-agent@jarvis-project-495313.iam.gserviceaccount.com` as a user |
+| ~~GSC~~ | **unblocked 2026-09-19** — `sc-domain:davidgeha.dev` verified, service account has Full access | inspection + analytics ran; sitemap submitted via API |
 | ~~PageSpeed Insights + CrUX~~ | **unblocked 2026-09-19** — key in `~/.config/claude-seo/google-api.json` | PSI ran (88/96); CrUX has no data until the site has Chrome traffic |
 | GA4 organic | no property | GA4 property ID |
 | Keyword volumes | no Ads token | Google Ads developer token |
