@@ -26,9 +26,9 @@ Health 56 → 74 (deployed 2026-09-19; PSI post-deploy: mobile 88 / desktop 96).
 | 11 | **AUB**: ask CEE dept / Darwazah Center / iPark for a student-founder listing or story (`.edu.lb` link corroborates `alumniOf` and outweighs every directory) | ☐ |
 | 12 | Berytech, UK-Lebanon Tech Hub, ArabNet/Menabytes founder listings | ☐ |
 | 13 | ✅ Fonts self-hosted (8 latin woff2, 2 preloaded, immutable cache); Google Fonts chain removed | done |
-| 14 | Loader curtain: gate to once per session and/or cut 2,450 → ≤800 ms. Keeps the first-visit intro; stops repeat visitors waiting 3.7 s | 🤖 (design call — say go) |
-| 15 | Mobile: hero CTA is below the fold; no nav on ≤1024 px. Shrink portrait/name at ≤768 px; add a minimal menu | 🤖 (design call — say go) |
-| 16 | Rewrite About in third person, entity + location first ("David Geha is an AI consultant in Beirut…"); add a dated "Updated <month>" line | 🤖 (say go) |
+| 14 | ✅ Loader now plays once per browser session (sessionStorage); first-visit intro untouched | done |
+| 15 | ✅ Native mobile menu added to home header and all content pages. ☐ Hero CTA still below the fold on 812-px phones — needs a portrait/name resize at ≤768 px (design call) | partial |
+| 16 | ✅ `/about/` is the third-person entity page (disambiguation, AUB, timeline, verification links); home About paragraph keeps its first-person voice and links to it | done |
 
 ## Phase 3 — Content & authority (Month 2)
 
@@ -36,11 +36,11 @@ Everything must be **pre-rendered/static HTML** (raw HTML is what Bing and AI fe
 
 | # | Page | Targets | Spec |
 |---|---|---|---|
-| 17 | `/ai-consulting-lebanon/` | AI consulting Lebanon, AI consultant Lebanon | 1,800–2,500 words. Direct answer ¶ · Lebanon market reality (lean teams, USD pricing, infra) · 3 **priced** offers (48-h audit / 2-week sprint / retainer — SERP winners all show prices) · 5-step process · industries · 6–8 FAQ (cost, timeline, do I need tech staff, data safety, Arabic support) · 2 inline case studies · Service + FAQPage schema |
-| 18 | `/ai-solutions-lebanon/` | AI solutions Lebanon | Catalog page: one H2 per solution (outreach engine, research/SEO-GEO pipeline, ad-creative pipeline, custom CRM, F&B reporting/inventory, back-office agents) with problem / what / stack / timeline / from-price |
-| 19 | `/blog/ai-consulting-in-lebanon-guide/` | "how much does an AI consultant cost in Lebanon", the article slot jonahtebaa.com holds | 2,000+ words: market tiers, USD bands, what to ask, chatbot vs agent, question-form H2s |
-| 20 | `/work/outreach-engine-marketing-agency/`, `/work/custom-ai-crm/`, `/work/fnb-reporting-inventory-automation/` | proof long-tails (custom CRM development Lebanon, restaurant automation Lebanon fold here) | outcome case studies with one metric each and a quote |
-| 21 | `/about/` | **AI consultant Beirut** (cluster: Beirut SERP = person/community) | Person entity page; AUB, timeline, photo alt "David Geha, AI consultant in Beirut"; ProfilePage schema if you add follower counts |
+| 17 | ✅ **LIVE** `/ai-consulting-lebanon/` (1,620 words, Service+OfferCatalog schema, 7 FAQs). ☐ Add your real prices to the three offer cards | AI consulting Lebanon | Spec was: 1,800–2,500 words. Direct answer ¶ · Lebanon market reality (lean teams, USD pricing, infra) · 3 **priced** offers (48-h audit / 2-week sprint / retainer — SERP winners all show prices) · 5-step process · industries · 6–8 FAQ (cost, timeline, do I need tech staff, data safety, Arabic support) · 2 inline case studies · Service + FAQPage schema |
+| 18 | ✅ **LIVE** `/ai-solutions-lebanon/` (1,590 words, CollectionPage+ItemList of 6 Services, 6 FAQs) | AI solutions Lebanon | Catalog page: one H2 per solution (outreach engine, research/SEO-GEO pipeline, ad-creative pipeline, custom CRM, F&B reporting/inventory, back-office agents) with problem / what / stack / timeline / from-price |
+| 19 | ✅ **LIVE** `/blog/ai-consulting-in-lebanon-guide/` (2,420 words, Article schema, price-band table, 3-tier market map, 6 FAQs) | "how much does an AI consultant cost in Lebanon" | Spec was 2,000+ words: market tiers, USD bands, what to ask, chatbot vs agent, question-form H2s |
+| 20 | ☐ **Drafted, needs your numbers** → `CASE-STUDY-DRAFTS.md`. `/work/outreach-engine-marketing-agency/`, `/work/custom-ai-crm/`, `/work/fnb-reporting-inventory-automation/` | proof long-tails | Reply with the bracketed facts and I publish them |
+| 21 | ✅ **LIVE** `/about/` (840 words, ProfilePage+Person schema, disambiguation FAQ) | **AI consultant Beirut** | Person entity page; AUB, timeline, photo alt "David Geha, AI consultant in Beirut"; ProfilePage schema if you add follower counts |
 | 22 | Later: `/ai-for-marketing-agencies-lebanon/`, `/ai-for-restaurants-lebanon/`, FR `/fr/consultant-ia-liban/` with hreflang | | only with genuinely distinct content — **no city-swapped doorway pages** |
 | 23 | 3–5 YouTube walkthroughs titled "<pipeline> — David Geha, AI consultant in Lebanon" (strongest AI-citation correlate; the name on YouTube is currently 100% the producer) | ☐ |
 | 24 | One LinkedIn article/month; one genuine r/lebanon or r/Beirut answer/week when AI help is asked | ☐ |

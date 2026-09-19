@@ -218,3 +218,20 @@ Self-hosted fonts (8 latin woff2, 2 preloaded, immutable cache; Google Fonts cha
 
 ### Still yours
 GBP · GitHub/LinkedIn profiles · www redirect (blocked for me by permission policy — Vercel → Domains → www → Redirect to davidgeha.dev, 308) · disavow confirmation · design calls (loader once-per-session, mobile hero/nav, third-person About).
+
+---
+
+## Phase 3 shipped (2026-09-19, same day)
+
+| URL | Primary keyword | Raw words | Schema |
+|---|---|---|---|
+| `/ai-consulting-lebanon/` | AI consulting Lebanon | 1,620 | WebPage · BreadcrumbList · Service + OfferCatalog · FAQPage (7) |
+| `/ai-solutions-lebanon/` | AI solutions Lebanon | 1,586 | CollectionPage · BreadcrumbList · ItemList (6 Services) · FAQPage (6) |
+| `/blog/ai-consulting-in-lebanon-guide/` | how much does an AI consultant cost in Lebanon | 2,421 | Article · BreadcrumbList · FAQPage (6) |
+| `/about/` | AI consultant Beirut | 839 | ProfilePage · BreadcrumbList · Person · FAQPage (4) |
+
+Built as static HTML at build time (`scripts/build-pages.mjs` → Vite multi-page entries), so Bing and AI fetchers read the full copy without JS. Shared `src/pages.css` keeps the homepage design. Sitemap now generated from the page list (5 URLs), resubmitted to GSC; all URLs submitted via IndexNow (200). Homepage links into the cluster from Services, About and footer; content pages cross-link per the 52-edge matrix. Intro curtain now once per session; native mobile menu on every page.
+
+**Deliberately not shipped:** the three `/work/` case studies (need real metrics — see `CASE-STUDY-DRAFTS.md`) and actual prices on the offer cards (need your numbers). Both are one reply away.
+
+**Health estimate after Phase 3:** ≈ 80/100 on-site. Remaining gap to #1 is off-site: GBP verification, directory citations, AUB link, reviews, and time for Google to re-crawl (Request indexing on each new URL accelerates it).
