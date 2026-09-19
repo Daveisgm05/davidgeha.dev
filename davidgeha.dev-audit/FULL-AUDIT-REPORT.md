@@ -121,7 +121,10 @@ GBP 0 · Reviews 5 · Local on-page 45 · NAP/citations 10 · Local schema 35→
 - **Medium:** no `openingHoursSpecification`; no testimonials.
 - **Forward risk:** once reviews start, keep cadence ≤ 18 days (velocity cliff).
 
-### Backlinks — Tier 0, not scoreable (unweighted; off-site)
+### Backlinks — Tier 2 after Moz/Bing keys (unweighted; off-site)
+**Update 2026-09-19 (Moz):** DA 9 · PA 27 · spam 4 · **57 linking root domains / 124 links** — but the top 50 are a purchased-looking PBN set (casino, pharma, fake-news brands; each exactly 2–4 links; avg spam 8.4). Domain registered 2026-02-10; links built while parked. Google's own inspection lists only 2 referring URLs, so Google is likely discounting them. Draft disavow prepared at `disavow-draft.txt` — upload only after confirming origin and checking GSC Manual Actions. Details: `findings/backlinks-moz-2026-09-19.md`.
+
+*Original Tier-0 findings:*
 `validate_backlink_report.py`: PASS. Common Crawl `cc-main-2026-jan-feb-mar`:
 
 | Domain | In crawl | PageRank rank | Harmonic rank | n_hosts |

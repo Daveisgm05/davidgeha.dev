@@ -1,0 +1,365 @@
+{
+  "status": "success",
+  "data": {
+    "target": "https://davidgeha.dev",
+    "total_returned": 50,
+    "referring_domains": [
+      {
+        "domain": "cvillico.com",
+        "domain_authority": 63,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "cmocheatsheets.com",
+        "domain_authority": 62,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "wioutlet.com",
+        "domain_authority": 61,
+        "page_authority": null,
+        "spam_score": 1,
+        "links_to_target": 2
+      },
+      {
+        "domain": "mymarketpost.com",
+        "domain_authority": 61,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "phanerosart.com",
+        "domain_authority": 60,
+        "page_authority": null,
+        "spam_score": 12,
+        "links_to_target": 2
+      },
+      {
+        "domain": "mylisthero.com",
+        "domain_authority": 60,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 4
+      },
+      {
+        "domain": "sahammurah.com",
+        "domain_authority": 59,
+        "page_authority": null,
+        "spam_score": 13,
+        "links_to_target": 2
+      },
+      {
+        "domain": "bisprofit.com",
+        "domain_authority": 58,
+        "page_authority": null,
+        "spam_score": 8,
+        "links_to_target": 2
+      },
+      {
+        "domain": "bestofthefirstcoast.com",
+        "domain_authority": 58,
+        "page_authority": null,
+        "spam_score": 1,
+        "links_to_target": 2
+      },
+      {
+        "domain": "chordmp3.net",
+        "domain_authority": 58,
+        "page_authority": null,
+        "spam_score": 21,
+        "links_to_target": 4
+      },
+      {
+        "domain": "expresskitchendesigns.com",
+        "domain_authority": 57,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "blogerreviewers.com",
+        "domain_authority": 57,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "bazerdaily.com",
+        "domain_authority": 57,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "fletcherrld.com",
+        "domain_authority": 57,
+        "page_authority": null,
+        "spam_score": 14,
+        "links_to_target": 2
+      },
+      {
+        "domain": "thedocmag.com",
+        "domain_authority": 57,
+        "page_authority": null,
+        "spam_score": 1,
+        "links_to_target": 2
+      },
+      {
+        "domain": "ufabettererm4.com",
+        "domain_authority": 56,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "smartstimer.com",
+        "domain_authority": 56,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "primenewsartical.com",
+        "domain_authority": 56,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "archive-hu.com",
+        "domain_authority": 56,
+        "page_authority": null,
+        "spam_score": 11,
+        "links_to_target": 4
+      },
+      {
+        "domain": "fastlifesite.com",
+        "domain_authority": 56,
+        "page_authority": null,
+        "spam_score": 12,
+        "links_to_target": 2
+      },
+      {
+        "domain": "onlyhealthydeals.com",
+        "domain_authority": 56,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "theforbestimes.com",
+        "domain_authority": 56,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "canadapsilocybin.com",
+        "domain_authority": 56,
+        "page_authority": null,
+        "spam_score": 9,
+        "links_to_target": 2
+      },
+      {
+        "domain": "techbumppy.com",
+        "domain_authority": 55,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 4
+      },
+      {
+        "domain": "adcreativevideo.com",
+        "domain_authority": 55,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "themicrodigits.com",
+        "domain_authority": 55,
+        "page_authority": null,
+        "spam_score": 11,
+        "links_to_target": 2
+      },
+      {
+        "domain": "digitalchatni.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "southfwb.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 9,
+        "links_to_target": 2
+      },
+      {
+        "domain": "dupurgeniefr.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "betulcrime.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "mediaboooster.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 11,
+        "links_to_target": 2
+      },
+      {
+        "domain": "marinasone.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 5,
+        "links_to_target": 2
+      },
+      {
+        "domain": "rjcentinc.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "gladeflowers.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 11,
+        "links_to_target": 2
+      },
+      {
+        "domain": "firstguestpost.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 2,
+        "links_to_target": 2
+      },
+      {
+        "domain": "plrdownloadshub.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": -1,
+        "links_to_target": 2
+      },
+      {
+        "domain": "kkinsider.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 8,
+        "links_to_target": 2
+      },
+      {
+        "domain": "digitalseotool.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 12,
+        "links_to_target": 2
+      },
+      {
+        "domain": "masihnyata.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 14,
+        "links_to_target": 2
+      },
+      {
+        "domain": "forbesstories.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "casinooftheking.com",
+        "domain_authority": 54,
+        "page_authority": null,
+        "spam_score": 14,
+        "links_to_target": 2
+      },
+      {
+        "domain": "bestnz-poker-casinoslot.com",
+        "domain_authority": 53,
+        "page_authority": null,
+        "spam_score": 15,
+        "links_to_target": 2
+      },
+      {
+        "domain": "hotonlinegaming.com",
+        "domain_authority": 53,
+        "page_authority": null,
+        "spam_score": 1,
+        "links_to_target": 4
+      },
+      {
+        "domain": "homesforsaleoldgreenwichct.com",
+        "domain_authority": 52,
+        "page_authority": null,
+        "spam_score": 5,
+        "links_to_target": 2
+      },
+      {
+        "domain": "clifflisting.com",
+        "domain_authority": 52,
+        "page_authority": null,
+        "spam_score": 20,
+        "links_to_target": 2
+      },
+      {
+        "domain": "onvaxs.com",
+        "domain_authority": 50,
+        "page_authority": null,
+        "spam_score": 23,
+        "links_to_target": 2
+      },
+      {
+        "domain": "aloysionunes.com",
+        "domain_authority": 42,
+        "page_authority": null,
+        "spam_score": 18,
+        "links_to_target": 2
+      },
+      {
+        "domain": "quotesblom.com",
+        "domain_authority": 42,
+        "page_authority": null,
+        "spam_score": 6,
+        "links_to_target": 2
+      },
+      {
+        "domain": "uncledspizza.com",
+        "domain_authority": 41,
+        "page_authority": null,
+        "spam_score": 7,
+        "links_to_target": 2
+      },
+      {
+        "domain": "cgpa2percentag.com",
+        "domain_authority": 39,
+        "page_authority": null,
+        "spam_score": -1,
+        "links_to_target": 2
+      }
+    ]
+  },
+  "error": null,
+  "metadata": {
+    "source": "moz",
+    "path": "/v2/linking_root_domains",
+    "timestamp": "2026-09-19T16:06:53Z"
+  }
+}

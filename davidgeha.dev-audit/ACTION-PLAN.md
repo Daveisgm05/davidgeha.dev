@@ -50,7 +50,7 @@ Everything must be **pre-rendered/static HTML** (raw HTML is what Bing and AI fe
 | # | Action |
 |---|---|
 | 25 | ✅ Google API key configured → monthly `/seo google` (PSI now; CrUX + GSC once eligible/verified) |
-| 26 | Free Moz key → `/seo backlinks` gets a real numeric score and competitor gap |
+| 26 | ✅ Moz + Bing keys configured (Tier 2). **Finding:** DA 9, 57 referring domains — but they're a PBN/casino link package built Feb–Jun 2026 (see `findings/backlinks-moz-2026-09-19.md`). ☐ Confirm origin → check GSC *Security & Manual Actions* → upload `disavow-draft.txt` if purchased/unknown |
 | 27 | `/seo drift compare https://davidgeha.dev` after every deploy (baseline captured 2026-09-19) |
 | 28 | Re-run `/seo audit` after Phase 3. Targets: Health ≥ 85 · `site:` shows ≥ 5 URLs · GSC impressions for all three queries · one directory listing on page 1 pointing at you |
 

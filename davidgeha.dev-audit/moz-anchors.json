@@ -1,0 +1,8 @@
+{
+  "status": "error",
+  "data": null,
+  "error": "Moz API access denied. Free tier may not include this endpoint.",
+  "metadata": {
+    "source": "moz"
+  }
+}
