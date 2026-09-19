@@ -1,26 +1,31 @@
 # David Geha - AI Consultant in Lebanon
 
-> David Geha is an AI consultant based in Lebanon who helps businesses automate repetitive work with custom agentic AI systems.
+> David Geha is an independent AI consultant based in Beirut, Lebanon. He offers AI consulting, agentic AI automation and custom AI solutions to marketing agencies, F&B businesses and founders in Lebanon and across the Middle East.
 
-## About
-David Geha is a 4th-year Civil & Environmental Engineering student at the American University of Beirut (AUB) and runs an AI consultancy for businesses across Lebanon. He works with marketing agencies and F&B businesses to identify their repetitive, manual work and replace it with agentic AI systems that run on their own. He also designs and builds full products: UI/UX, backend, and apps.
+## Who
+David Geha is a Civil & Environmental Engineering student at the American University of Beirut (AUB) who runs an AI consultancy for businesses across Lebanon. He audits how a team works, finds the repetitive manual work, and replaces it with agentic AI systems that run on their own. He also designs and builds full products: UI/UX, backend, and web apps.
 
-## Services
-- Lead outreach pipelines (agentic)
-- Competitive research & SEO/GEO pipelines
-- Image ad pipelines (GPT Image 2.0)
-- Custom CRM dashboards
-- Back-office workflow automation
+## Services (AI consulting & AI solutions in Lebanon)
+- AI consulting for Lebanese businesses: workflow audit, prioritized automation map, fixed-price scoped plan
+- Agentic AI automation: lead-outreach pipelines, competitive research & SEO/GEO pipelines, image-ad generation, daily reporting, back-office workflows
+- Custom AI solutions & internal tools: custom CRMs, dashboards, client portals, web apps with AI in the workflow
+- AI for marketing agencies & F&B operators in Beirut and across Lebanon
 
 ## Stack
-Supabase, Vercel, Claude Code, Claude Desktop, GitHub, GPT Image 2.0, plus custom-built CRMs and outreach systems.
+Supabase, Vercel, Claude Code, Claude Desktop, GitHub, GPT Image 2.0, plus custom-built CRMs and outreach systems. Clients own the code and the data.
 
 ## Process
-1. Find the repetitive work
+1. Find the repetitive work (audit)
 2. Build the agentic system
-3. Automate & scale
+3. Automate & scale, and measure the hours saved
+
+## Frequently asked
+- What does an AI consultant in Lebanon do? Finds repetitive, manual work inside a business and replaces it with custom agentic AI systems: audit, design, build, handover.
+- How much does AI consulting cost in Lebanon? Focused automations are fixed-price projects measured in weeks; larger builds (custom CRM, client app) are scoped after a short audit. Price is agreed before work starts.
+- Who does he work with? Mainly marketing agencies and F&B businesses in Beirut and across Lebanon, plus founders; also remote clients across the Middle East.
 
 ## Contact
 - Email: david@osgdev.com
+- LinkedIn: https://www.linkedin.com/in/david-geha/
 - GitHub: https://github.com/Daveisgm05
 - Website: https://davidgeha.dev

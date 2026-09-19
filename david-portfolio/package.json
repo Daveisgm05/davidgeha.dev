@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "sync-static": "node scripts/sync-static.mjs",
+    "prebuild": "node scripts/sync-static.mjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

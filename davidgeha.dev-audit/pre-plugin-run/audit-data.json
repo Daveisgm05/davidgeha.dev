@@ -1,0 +1,73 @@
+{
+  "summary": {
+    "health_score": 68,
+    "health_score_before": 41,
+    "business_type": "Local professional service (solo AI consultant, Beirut, Lebanon)",
+    "target_keywords": ["AI consultant Lebanon", "AI consulting Lebanon", "AI solutions Lebanon"],
+    "top_findings": [
+      "Site not indexed by Google (site:davidgeha.dev = 0 results)",
+      "Thin content: 331 rendered words on the only URL (competitors: 2,000-2,500)",
+      "Zero backlinks; domain absent from Common Crawl web graph",
+      "H1 did not contain the target keyword",
+      "FAQPage schema had no visible FAQ on page (content/schema mismatch)",
+      "No Google Business Profile, no phone number (NAP incomplete)"
+    ],
+    "quick_wins": [
+      "Verify in Google Search Console, submit sitemap, request indexing",
+      "Deploy this commit (1,053 words, keyword H1, synced FAQ, OfferCatalog schema)",
+      "Submit via IndexNow after deploy (key file already in public/)",
+      "Create Google Business Profile as service-area business for Lebanon",
+      "Claim free Clutch / TechBehemoths / GoodFirms / The Manifest / Consultancy.org listings"
+    ]
+  },
+  "categories": [
+    {"name": "Technical SEO", "score": 82, "score_before": 78, "what_works": ["HTTPS + HSTS", "50 ms TTFB on Vercel CDN", "www→apex 301", "canonical", "robots.txt allows all + AI crawlers", "valid sitemap", "no console errors"],
+     "findings": [
+       {"title": "Not indexed by Google", "severity": "High", "description": "site:davidgeha.dev returns 0 results; no GSC verification detected.", "recommendation": "Verify domain in GSC, submit sitemap, request indexing."},
+       {"title": "Client-side rendered SPA", "severity": "Medium", "description": "render_page.py is_spa=true; raw HTML has 7.4 KB vs 21.7 KB rendered.", "recommendation": "Prerender to static HTML at build; noscript fallback expanded as interim."},
+       {"title": "No IndexNow key", "severity": "Medium", "description": "Bing/Yandex not notified of changes.", "recommendation": "Key file added; submit after deploy."}
+     ]},
+    {"name": "Content Quality", "score": 55, "score_before": 30, "what_works": ["content_quality.py overall 96, filler 0, AI-pattern 0", "specific first-person voice", "real client verticals"],
+     "findings": [
+       {"title": "Thin content", "severity": "Critical", "description": "331 words rendered.", "recommendation": "Fixed to 1,053 with Services + FAQ; add 3 dedicated 2,000-word pages next."},
+       {"title": "FAQ schema not visible", "severity": "High", "description": "FAQPage JSON-LD present with no on-page FAQ.", "recommendation": "Fixed: visible FAQ generated from src/content/faq.js."},
+       {"title": "No proof signals", "severity": "High", "description": "No metrics, testimonials, or dated case studies.", "recommendation": "One case study with a number per Recent Build."}
+     ]},
+    {"name": "On-Page SEO", "score": 80, "score_before": 45, "what_works": ["title within length", "meta description present", "single canonical"],
+     "findings": [
+       {"title": "H1 lacked keyword", "severity": "High", "description": "H1 was 'David Geha'.", "recommendation": "Fixed: 'David Geha — AI Consultant in Lebanon'."},
+       {"title": "Three intents on one URL", "severity": "Medium", "description": "'AI solutions Lebanon' is a different intent from 'AI consultant'.", "recommendation": "Dedicated pages per intent (Phase 3)."}
+     ]},
+    {"name": "Schema / Structured Data", "score": 90, "score_before": 70, "what_works": ["valid JSON-LD @graph", "Person↔ProfessionalService linked"],
+     "findings": [
+       {"title": "No service catalog / city / contact in schema", "severity": "Medium", "description": "areaServed was Country only; no email, geo, offers.", "recommendation": "Fixed: OfferCatalog with 4 Services, City Beirut (Wikidata), geo, email, priceRange, WebPage."}
+     ]},
+    {"name": "Performance (CWV)", "score": 88, "score_before": 80, "what_works": ["CLS 0.005", "TTFB 50 ms", "LCP 2.3-2.4 s"],
+     "findings": [
+       {"title": "Render-blocking Google Fonts CSS", "severity": "Medium", "description": "580 ms wasted (Lighthouse).", "recommendation": "Fixed: preload + onload swap."},
+       {"title": "Oversized images", "severity": "Medium", "description": "1280w served at 634px; 189 KiB wasted.", "recommendation": "Fixed: 640/960/1280 srcset."},
+       {"title": "Unused JS", "severity": "Low", "description": "46 KiB unused in main bundle (GSAP/Lenis).", "recommendation": "Dynamic import after first paint."}
+     ]},
+    {"name": "AI Search Readiness", "score": 70, "score_before": 50, "what_works": ["agent_ux_check 100/100", "AI crawlers allowed", "llms.txt present"],
+     "findings": [
+       {"title": "No answer-shaped passages", "severity": "High", "description": "No 50-160-word self-contained answer blocks.", "recommendation": "Fixed: 4 service blocks + 6 FAQ answers."},
+       {"title": "Weak entity footprint", "severity": "High", "description": "Name collides with a TV producer; no LinkedIn/Reddit/directory presence pointing at the domain.", "recommendation": "LinkedIn headline + articles, directories, GBP."}
+     ]},
+    {"name": "Local SEO", "score": 25, "score_before": 25, "what_works": ["geo meta tags", "Beirut in schema (now)"],
+     "findings": [
+       {"title": "No Google Business Profile", "severity": "Critical", "description": "No local pack eligibility.", "recommendation": "Create service-area GBP for Lebanon."},
+       {"title": "No phone number", "severity": "High", "description": "NAP incomplete.", "recommendation": "Add WhatsApp/phone to footer + schema telephone."}
+     ]},
+    {"name": "Backlinks", "score": 5, "score_before": 5, "what_works": [],
+     "findings": [
+       {"title": "Zero referring domains", "severity": "High", "description": "Absent from Common Crawl host graph cc-main-2026-jan-feb-mar.", "recommendation": "Directory listings, AUB link, LinkedIn articles."}
+     ]},
+    {"name": "Images", "score": 90, "score_before": 60, "what_works": ["WebP", "lazy loading"],
+     "findings": [
+       {"title": "Generic alt text, no dimensions", "severity": "Low", "description": "alt was the bare title; no width/height.", "recommendation": "Fixed."}
+     ]}
+  ],
+  "action_plan": {"see": "ACTION-PLAN.md"},
+  "blocked_checks": ["PageSpeed Insights/CrUX (Google API key)", "Search Console (OAuth)", "Indexing API", "GA4", "Keyword Planner (Ads token)", "Bing Webmaster (key)", "Moz (token)", "DataForSEO/Ahrefs/SE Ranking/Profound (keys)", "IndexNow submit (waiting on deploy)", "PDF report (WeasyPrint system libs)"],
+  "artifacts": {"findings_dir": ".", "screenshots_dir": "screenshots/", "lighthouse_before": "lighthouse-mobile.json", "lighthouse_after": "lighthouse-mobile-after.json"}
+}

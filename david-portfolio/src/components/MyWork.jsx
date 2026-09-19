@@ -49,7 +49,7 @@ const workItems = [
 
 const MyWork = () => {
     return (
-        <section className="my-work container" id="services">
+        <section className="my-work container" id="builds">
             <Reveal as="h2" className="my-work__title" variant="rise">Recent Builds</Reveal>
 
             <Reveal as="div" className="my-work__grid" variant="rise" stagger>

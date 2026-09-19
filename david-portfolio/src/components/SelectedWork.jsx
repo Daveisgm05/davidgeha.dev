@@ -73,7 +73,16 @@ const SelectedWork = () => {
 
                             {/* Touch fallback: no hover, so show a static inline thumbnail. */}
                             <div className="work-row__mobile-thumb">
-                                <img src={project.image} alt={project.title} loading="lazy" />
+                                <img
+                                    src={project.image}
+                                    srcSet={`${project.image.replace('.webp', '-640.webp')} 640w, ${project.image.replace('.webp', '-960.webp')} 960w, ${project.image} 1280w`}
+                                    sizes="(max-width: 768px) calc(100vw - 48px), 640px"
+                                    width="1280"
+                                    height="960"
+                                    alt={`${project.title} — AI automation project by David Geha, AI consultant in Lebanon`}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                             </div>
                         </article>
                     ))}
@@ -84,7 +93,7 @@ const SelectedWork = () => {
                     {projects.map((project, i) => (
                         <div key={project.id} className={`work-preview${activeIndex === i ? ' is-active' : ''}`}>
                             <div className="work-preview__frame">
-                                <img src={project.image} alt="" loading="lazy" />
+                                <img src={project.image} width="1280" height="960" alt="" loading="lazy" decoding="async" />
                             </div>
                         </div>
                     ))}

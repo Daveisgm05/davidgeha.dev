@@ -172,7 +172,7 @@ function buildGeometry(depthGrid) {
 }
 
 const HeroPortrait = ({
-    diffuse = '/david_transparent.png',
+    diffuse = '/david_transparent.webp',
     depth = '/david_depth.png',
     alt = 'David Geha',
     className = 'hero__portrait',

@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://davidgeha.dev/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://davidgeha.dev/og-image.jpg</image:loc>
+      <image:title>David Geha - AI Consultant in Lebanon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-outreach-v2.webp</image:loc>
+      <image:title>Lead Outreach Pipelines - agentic AI automation project</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-research-v2.webp</image:loc>
+      <image:title>Competitive Research and SEO/GEO Pipelines - AI automation project</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-ads-v2.webp</image:loc>
+      <image:title>Image Ad Pipelines - AI ad-creative generation project</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-crm-v3.webp</image:loc>
+      <image:title>Custom CRM Dashboards - custom AI solution for a marketing agency in Lebanon</image:title>
+    </image:image>
   </url>
 </urlset>

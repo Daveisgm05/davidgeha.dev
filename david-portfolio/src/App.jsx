@@ -6,6 +6,8 @@ import Header from './components/Header';
 import Marquee from './components/Marquee';
 import SelectedWork from './components/SelectedWork';
 import About from './components/About';
+import Services from './components/Services';
+import Faq from './components/Faq';
 import MyWork from './components/MyWork';
 import Contact from './components/Contact';
 import Reveal from './components/Reveal';
@@ -50,7 +52,9 @@ function App() {
         <Marquee />
         <SelectedWork />
         <About />
+        <Services />
         <MyWork />
+        <Faq />
         <Reveal><Contact /></Reveal>
       </main>
     </div>

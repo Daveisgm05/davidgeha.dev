@@ -31,7 +31,7 @@ const GitHubIcon = () => (
     </svg>
 );
 
-const navLinks = ['Work', 'About', 'Contact'];
+const navLinks = ['Work', 'Services', 'About', 'Contact'];
 
 const socials = [
     { name: 'Instagram', href: 'https://www.instagram.com/david.geha/', Icon: InstagramIcon },
@@ -132,9 +132,12 @@ const Header = () => {
 
             {/* Hero — name behind portrait */}
             <div className="hero">
-                <h1 className="hero__name" aria-label="David Geha">
+                {/* The visible H1 is the name; the sr-only tail gives search engines and
+                    screen readers the full "who + what + where" in the top heading. */}
+                <h1 className="hero__name">
                     <span className="hero__word hero__word--outline"><span className="hero__word-inner" ref={nameOutlineRef}>David</span></span>
                     <span className="hero__word hero__word--solid"><span className="hero__word-inner" ref={nameSolidRef}>Geha</span></span>
+                    <span className="sr-only"> — AI Consultant in Lebanon</span>
                 </h1>
 
                 <HeroPortrait className="hero__portrait" alt="David Geha" />
@@ -142,10 +145,11 @@ const Header = () => {
                 {/* Bottom-left: role + intro */}
                 <div className="hero__intro" ref={introRef}>
                     <span className="hero__eyebrow">AI Automation · Lebanon</span>
-                    <h2 className="hero__role">AI consultant</h2>
+                    <h2 className="hero__role">AI consultant in Lebanon</h2>
                     <p className="hero__subtitle">
                         I find the repetitive work in your business and <br />
-                        build agentic AI systems that run it for you.
+                        build agentic AI systems that run it for you — <br />
+                        AI consulting and custom AI solutions for teams in Beirut and across Lebanon.
                     </p>
                     <a href="#work" className="hero__btn">
                         Let's collaborate <ArrowUpRight />
