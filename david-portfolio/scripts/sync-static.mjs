@@ -51,6 +51,14 @@ ${services.map(({ title, text }) => `    <h3>${esc(title)}</h3>\n    <p>${esc(te
     <h2>Working with an AI consultant in Lebanon</h2>
 ${faq.map(({ q, a }) => `    <h3>${esc(q)}</h3>\n    <p>${esc(a)}</p>`).join('\n')}
 
+    <h2>Pages</h2>
+    <ul>
+      <li><a href="/ai-consulting-lebanon/">AI consulting in Lebanon</a></li>
+      <li><a href="/ai-solutions-lebanon/">AI solutions &amp; automation for businesses in Lebanon</a></li>
+      <li><a href="/blog/ai-consulting-in-lebanon-guide/">AI consulting in Lebanon: the 2026 guide to costs and how to choose</a></li>
+      <li><a href="/about/">About David Geha</a></li>
+    </ul>
+
     <p>Contact: <a href="mailto:david@osgdev.com">david@osgdev.com</a> ·
       <a href="tel:+96176412978">+961 76 412 978</a> (WhatsApp) · Beirut, Lebanon ·
       <a href="https://www.linkedin.com/in/david-geha/">LinkedIn</a> ·

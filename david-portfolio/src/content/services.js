@@ -4,21 +4,29 @@
 export const services = [
     {
         num: '01',
+        href: '/ai-consulting-lebanon/',
+        cta: 'How the audit works',
         title: 'AI consulting for Lebanese businesses',
         text: 'I start with an audit of how your team actually works: where hours go, which tasks repeat every day, and what data already exists. You get a clear, prioritized map of what AI can take over now, what it should not touch yet, and what it will cost to build. No slide decks about "digital transformation", just a plan you can act on next week.',
     },
     {
         num: '02',
+        href: '/ai-solutions-lebanon/',
+        cta: 'See the systems',
         title: 'Agentic AI automation',
         text: 'Not a chatbot bolted onto your website. I build agentic systems that do the work end to end: sourcing and researching leads, writing and sending personalized outreach, generating on-brand ad creatives, compiling daily reports, and clearing back-office busywork. They run on their own, log what they did, and hand you the exceptions.',
     },
     {
         num: '03',
+        href: '/ai-solutions-lebanon/#crm',
+        cta: 'Custom CRMs and tools',
         title: 'Custom AI solutions & internal tools',
         text: 'When off-the-shelf software does not fit, I design and build the product: custom CRMs, dashboards, client portals, and web apps with AI baked into the workflow. Full stack, from UI/UX to backend and deploy, on a modern, low-maintenance stack of Supabase, Vercel, Claude, and GitHub, so you own the code and the data.',
     },
     {
         num: '04',
+        href: '/ai-solutions-lebanon/#industries',
+        cta: 'Agencies and F&B',
         title: 'AI for marketing agencies & F&B',
         text: 'Most of my work is with marketing agencies and food & beverage operators in Beirut and across Lebanon. Agencies get outreach engines, research pipelines, and ad-creative generation. F&B teams get inventory, reporting, and supplier follow-ups automated. Same approach in every case: find the repeat work, build the system, measure the hours saved.',
     },

@@ -25,6 +25,13 @@ const Contact = () => {
                     <span>Beirut, Lebanon</span>
                 </address>
 
+                <nav className="contact__sitemap" aria-label="Pages">
+                    <a href="/ai-consulting-lebanon/">AI consulting in Lebanon</a>
+                    <a href="/ai-solutions-lebanon/">AI solutions &amp; automation</a>
+                    <a href="/blog/ai-consulting-in-lebanon-guide/">2026 guide: costs &amp; how to choose</a>
+                    <a href="/about/">About David</a>
+                </nav>
+
                 <div className="contact__links">
                     <div className="contact__social">
                         <a href="https://www.instagram.com/dave.automate/" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>

@@ -18,6 +18,13 @@
     max-width: 90%;
 }
 
+/* link to the /about/ entity page */
+.about__more {
+    color: var(--color-accent);
+    border-bottom: 1px solid rgba(244, 241, 234, 0.35);
+    white-space: nowrap;
+}
+
 .about__text {
     padding-top: 1rem;
     font-size: 1.25rem;
@@ -115,7 +122,14 @@
         gap: 3rem;
     }
 
-    .about__text {
+    /* link to the /about/ entity page */
+.about__more {
+    color: var(--color-accent);
+    border-bottom: 1px solid rgba(244, 241, 234, 0.35);
+    white-space: nowrap;
+}
+
+.about__text {
         padding-top: 0;
     }
 

@@ -24,6 +24,13 @@ Supabase, Vercel, Claude Code, Claude Desktop, GitHub, GPT Image 2.0, plus custo
 - How much does AI consulting cost in Lebanon? Focused automations are fixed-price projects measured in weeks; larger builds (custom CRM, client app) are scoped after a short audit. Price is agreed before work starts.
 - Who does he work with? Mainly marketing agencies and F&B businesses in Beirut and across Lebanon, plus founders; also remote clients across the Middle East.
 
+## Pages
+- https://davidgeha.dev/ — home: services, selected work, FAQ
+- https://davidgeha.dev/ai-consulting-lebanon/ — AI consulting in Lebanon: 48-hour audit, 2-week build sprint, retainer
+- https://davidgeha.dev/ai-solutions-lebanon/ — AI solutions & automation catalog: outreach engine, research pipeline, ad-creative pipeline, custom AI CRM, F&B reporting, back-office agents
+- https://davidgeha.dev/blog/ai-consulting-in-lebanon-guide/ — 2026 guide: what AI consultants do, USD cost bands in Lebanon, firms vs practitioners, how to choose
+- https://davidgeha.dev/about/ — about David Geha (disambiguation: not the TV producer)
+
 ## Contact
 - Email: david@osgdev.com
 - Phone / WhatsApp: +961 76 412 978

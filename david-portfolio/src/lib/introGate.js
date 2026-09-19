@@ -13,3 +13,18 @@ export const prefersReducedMotion = () =>
 // scrolled to) rather than delightful.
 export const arrivedMidPage = () =>
     window.scrollY > 4 || !!window.location.hash;
+
+// The curtain + hero entrance play once per browser session. Repeat visits
+// within the session (back from a content page, a reload) land straight on
+// the hero — the intro is a first impression, not a toll on every navigation.
+const PLAYED_KEY = 'dg:intro-played';
+
+export const introAlreadyPlayed = () => {
+    try { return sessionStorage.getItem(PLAYED_KEY) === '1'; } catch { return false; }
+};
+
+export const markIntroPlayed = () => {
+    try { sessionStorage.setItem(PLAYED_KEY, '1'); } catch { /* private mode etc. */ }
+};
+
+export const shouldSkipIntro = () => arrivedMidPage() || introAlreadyPlayed();

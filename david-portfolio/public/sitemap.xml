@@ -4,8 +4,6 @@
   <url>
     <loc>https://davidgeha.dev/</loc>
     <lastmod>2026-09-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
     <image:image>
       <image:loc>https://davidgeha.dev/og-image.jpg</image:loc>
       <image:title>David Geha - AI Consultant in Lebanon</image:title>
@@ -26,5 +24,21 @@
       <image:loc>https://davidgeha.dev/work-crm-v3.webp</image:loc>
       <image:title>Custom CRM Dashboards - custom AI solution for a marketing agency in Lebanon</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://davidgeha.dev/about/</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>https://davidgeha.dev/ai-consulting-lebanon/</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>https://davidgeha.dev/ai-solutions-lebanon/</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>https://davidgeha.dev/blog/ai-consulting-in-lebanon-guide/</loc>
+    <lastmod>2026-09-19</lastmod>
   </url>
 </urlset>

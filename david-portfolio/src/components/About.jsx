@@ -59,7 +59,8 @@ const About = () => {
                     I'm David, a Civil &amp; Environmental Engineering student at AUB running an AI consultancy
                     for businesses across Lebanon. I work with marketing agencies and F&amp;B teams to find the
                     work they repeat every day and replace it with agentic AI systems that run on their own.
-                    Alongside that, I design and build the full product: UI/UX, backend, and apps.
+                    Alongside that, I design and build the full product: UI/UX, backend, and apps.{' '}
+                    <a className="about__more" href="/about/">More about me →</a>
                 </Reveal>
             </div>
 

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './Header.css';
 import HeroPortrait from './HeroPortrait';
-import { INTRO_READY_EVENT, arrivedMidPage, prefersReducedMotion } from '../lib/introGate';
+import { INTRO_READY_EVENT, shouldSkipIntro, prefersReducedMotion } from '../lib/introGate';
 
 const ArrowUpRight = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -95,7 +95,7 @@ const Header = () => {
                     .to(socialsRef.current, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.85);
             };
 
-            if (arrivedMidPage()) play();
+            if (shouldSkipIntro()) play();
             else window.addEventListener(INTRO_READY_EVENT, play, { once: true });
         }, headerRef);
 
@@ -127,6 +127,20 @@ const Header = () => {
                         Let's talk <ArrowUpRight />
                     </a>
                     <a className="nav__logo" href="#top" aria-label="Back to top">D</a>
+                    {/* ≤1024px: the inline links are hidden, so a native
+                        <details> menu takes over — no JS, no focus trap needed. */}
+                    <details className="nav__menu">
+                        <summary aria-label="Open menu">Menu</summary>
+                        <ul>
+                            {navLinks.map((link) => (
+                                <li key={link}><a href={`#${link.toLowerCase()}`}>{link}</a></li>
+                            ))}
+                            <li><a href="/ai-consulting-lebanon/">AI consulting</a></li>
+                            <li><a href="/ai-solutions-lebanon/">AI solutions</a></li>
+                            <li><a href="/blog/ai-consulting-in-lebanon-guide/">Guide</a></li>
+                            <li><a href="https://wa.me/96176412978" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        </ul>
+                    </details>
                 </div>
             </nav>
 

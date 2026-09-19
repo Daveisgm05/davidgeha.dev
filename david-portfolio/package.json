@@ -4,9 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/sync-static.mjs && node scripts/build-pages.mjs",
     "dev": "vite",
     "sync-static": "node scripts/sync-static.mjs",
-    "prebuild": "node scripts/sync-static.mjs",
+    "build-pages": "node scripts/build-pages.mjs",
+    "prebuild": "node scripts/sync-static.mjs && node scripts/build-pages.mjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

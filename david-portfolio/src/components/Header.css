@@ -125,6 +125,45 @@
     color: #0a0a0a;
 }
 
+/* ---------- Mobile menu (hidden ≥1025px, where .nav__links shows) ---------- */
+.nav__menu {
+    display: none;
+    position: relative;
+}
+
+.nav__menu summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.7rem 0.25rem;
+    font-size: 0.95rem;
+    color: #cfcfd2;
+}
+
+.nav__menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.nav__menu ul {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    z-index: 20;
+    min-width: 220px;
+    list-style: none;
+    padding: 1rem 1.25rem;
+    display: grid;
+    gap: 0.8rem;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+}
+
+.nav__menu a {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--color-accent);
+}
+
 /* ---------- Hero: giant name at top, portrait in front ---------- */
 .hero {
     position: relative;
@@ -351,6 +390,10 @@
 @media (max-width: 1024px) {
     .nav__links {
         display: none;
+    }
+
+    .nav__menu {
+        display: block;
     }
 
     .hero__portrait {

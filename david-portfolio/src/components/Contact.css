@@ -68,6 +68,24 @@
     }
 }
 
+.contact__sitemap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.contact__sitemap a {
+    border-bottom: 1px solid rgba(244, 241, 234, 0.25);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.contact__sitemap a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
 .contact__nap {
     display: flex;
     flex-wrap: wrap;
