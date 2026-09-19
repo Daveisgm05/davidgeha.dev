@@ -9,8 +9,9 @@
       "AI solutions Lebanon"
     ],
     "top_findings": [
-      "Not indexed by Google: site:davidgeha.dev returns nothing; no GSC property exists",
+      "Indexed but never shown: 0 impressions across GSC's full 16-month window \u2014 an authority/entity problem, not a crawl problem",
       "Entity collision: 'David Geha' on the open web resolves to a TV producer; zero corroboration of the AI-consultant entity",
+      "Toxic inherited backlink profile: 57 referring domains, 50 sampled are a PBN/casino package (backlink score 11/100) \u2014 disavow prepared",
       "Page-type mismatch: 205-word portfolio landing vs SERPs dominated by directories and 650-2,500-word priced service pages",
       "No Google Business Profile, no phone, zero citations (Local SEO 16/100)",
       "Live FAQPage schema has no visible FAQ (policy violation; fixed in working tree)"
@@ -42,6 +43,13 @@
         "tbt_ms": 0
       },
       "crux": "no data (ineligible)"
+    },
+    "gsc": {
+      "property": "sc-domain:davidgeha.dev",
+      "index": "Submitted and indexed (last crawl 2026-09-09)",
+      "impressions_16mo": 0,
+      "clicks_16mo": 0,
+      "sitemap": "processed, 0 errors"
     }
   },
   "categories": [
@@ -337,17 +345,30 @@
     {
       "name": "Backlinks",
       "weight": 0,
-      "score": null,
-      "score_pending": null,
+      "score": 11,
+      "score_pending": 11,
       "what_works": [
-        "Niche is not saturated: only zfort.com and eurisko.net appear in Common Crawl"
+        "One verified, live, dofollow backlink from ultraenvirotech.com confirmed via verify_backlinks.py",
+        "Niche not saturated by CC measure: only zfort.com and eurisko.net of 7 named competitors have any Common Crawl presence"
       ],
       "findings": [
         {
-          "title": "Zero known backlinks",
+          "title": "Toxic PBN/casino/pharma link package (57 referring domains)",
+          "severity": "Critical",
+          "description": "Moz (cached 2026-09-19T16:06Z, confidence 0.85): DA 9, PA 27, spam score 4, 57 linking root domains, avg referring-domain spam score 8.4, 32% of sampled domains at high-risk spam >=10. Mechanical 2x/4x link pattern, casino/pharma/fake-news category mix, apparently built within ~4 months of the 2026-02-10 domain registration. Confidence-weighted 7-factor score (4/7 factors scored): 11/100.",
+          "recommendation": "Confirm with owner these were not knowingly purchased, check GSC Security & Manual Actions, then upload disavow-draft.txt (50 of 57 domains ready) to https://search.google.com/search-console/disavow-links."
+        },
+        {
+          "title": "Moz API quota exhausted mid-audit \u2014 competitor gap analysis incomplete",
+          "severity": "Medium",
+          "description": "All Moz metrics/domains calls for 7 named competitors (and a fresh own-domain re-check) returned 403 access denied this session, despite Tier 2 being confirmed active. Likely free-tier monthly quota exhausted by the earlier same-day pull.",
+          "recommendation": "Retry Moz domains for competitors once quota resets, or install the DataForSEO extension for reliable competitor referring-domain data to complete the shared-referring-domain gap table."
+        },
+        {
+          "title": "Legitimate link-building targets identified",
           "severity": "High",
-          "description": "Domain absent from cc-main-2026-jan-feb-mar; Tier 0 sources only.",
-          "recommendation": "AUB .edu.lb, GBP, LinkedIn Services, Berytech, Clutch, GoodFirms; free Moz key for a numeric score."
+          "description": "AUB, GBP, LinkedIn Services, Berytech, UK-Lebanon Tech Hub, ArabNet, Clutch, GoodFirms, Bayt.com, Wamda \u2014 top 10 targets for a solo Lebanese AI consultant.",
+          "recommendation": "Sequence after locking canonical NAP string (see findings/local.md); target branded-anchor-heavy mix (45-60%) for first links."
         }
       ]
     },
@@ -378,6 +399,28 @@
           "severity": "High",
           "description": "CTA at y=824 on 812-px viewport; nav hidden <=1024px.",
           "recommendation": "Resize hero at <=768px; add minimal menu."
+        }
+      ]
+    },
+    {
+      "name": "Content Architecture (keyword clusters)",
+      "weight": 0,
+      "score": null,
+      "what_works": [
+        "44 keywords clustered by SERP overlap into hub + 3 clusters / 10 URLs; 52-link internal matrix; no orphans"
+      ],
+      "findings": [
+        {
+          "title": "Three targets need three page types",
+          "severity": "High",
+          "description": "consultant\u2192entity hub; consulting\u2192service page + cost guide; solutions\u2192catalog page. Consulting\u2194solutions SERP overlap only 3/1 so pages won't cannibalize.",
+          "recommendation": "Build /ai-consulting-lebanon/, /ai-solutions-lebanon/, /blog/ai-consulting-in-lebanon-guide/, /about/, 3 case studies per cluster-plan.json"
+        },
+        {
+          "title": "Service page vs cost guide share a SERP",
+          "severity": "Medium",
+          "description": "6/5 overlap.",
+          "recommendation": "Guide title carries 'cost'+'guide'; service page doesn't; cross-link; disjoint FAQs; monitor in GSC at 8\u201312 weeks."
         }
       ]
     }

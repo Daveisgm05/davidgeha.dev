@@ -5,7 +5,7 @@
 **Target queries:** "AI consultant Lebanon" · "AI consulting Lebanon" · "AI solutions Lebanon"
 **Business type detected:** Local service-area business (SAB) — solo AI consultant, Beirut, Lebanon; professional services vertical
 **Pages crawled:** 1 (single-URL React/Vite SPA; all internal links are fragments)
-**Specialists run:** technical, content, schema, sitemap, performance, visual, geo, sxo, local, backlinks
+**Specialists run:** technical, content, schema, sitemap, performance, visual, geo, sxo, local, backlinks (Tier 0 → re-run at Tier 2), google, cluster
 **Skipped at run time, completed afterwards:** google (PSI 88/96 with key; GSC verified later the same day — see corrected finding #1), maps (no DataForSEO), cluster (no content hub), drift (baseline captured today, no prior), ecommerce (n/a)
 
 ---
@@ -180,3 +180,41 @@ Build verified: `npm run build` OK, JSON-LD valid, 5 graph nodes, FAQ 6/6 parity
 - `pre-plugin-run/` — the earlier manual audit (before the plugin was installed), incl. before/after Lighthouse of the working tree
 - `audit-data.json` — structured envelope for `google_report.py`
 - Drift baseline stored (`drift_baseline.py`, CWV skipped) — run `/seo drift compare https://davidgeha.dev` after deploy
+
+---
+
+## Final pass (same day, after keys + GSC verification)
+
+### Google APIs (`seo-google`) — `findings/google.md`
+- **Indexation:** `/` PASS, "Submitted and indexed", last crawl 2026-09-09. `www.` = "Alternate page with proper canonical" → no duplication issue; the www redirect is tidy-up only.
+- **Sitemap:** processed 2026-09-19 15:34 UTC, 0 errors, 1 URL + 5 images.
+- **Search Analytics:** **0 clicks / 0 impressions** for every dimension across the full ~16-month retention window (`totals_complete: true`). The site has never appeared in a Google result.
+- **CrUX / History:** no data (ineligible). **PSI:** mobile 88 / desktop 96; remaining lab opportunities: ~48 KiB unused JS, ~39 KiB on two 640w WebPs, mobile LCP 2.9 s.
+- **Cadence:** GSC weekly for 6 weeks; URL Inspection again ~09-26; CrUX monthly at most.
+
+### Backlinks at Tier 2 (`seo-backlinks`, Moz + Bing) — `findings/backlinks.md`
+- **Score 11/100 — toxic profile.** DA 9 / PA 27 / 57 RDs / 124 links; sampled 50 RDs avg spam 8.4, 32 % ≥ 10, mechanical 2×/4× pattern, casino/pharma/fake-news mix, all acquired within ~4 months of registration (2026-02-10). Purchased-package signature.
+- **Legit link verified:** `ultraenvirotech.com/solutions/gentoo` → live, dofollow, anchor "David Geha" (not in Moz's crawl).
+- **Disavow: YES, gated** on (a) owner confirms the links weren't knowingly built for a purpose worth keeping, (b) GSC *Security & Manual Actions* checked. File: `disavow-draft.txt` (50 of 57 RDs).
+- **Limitation:** Moz free quota exhausted after the own-domain pulls; competitor DA/RD and the shared-referrer gap table could not be built this month. Retry after quota reset or via DataForSEO.
+
+### Keyword clusters (`seo-cluster`, 44 keywords, 946 SERP pairs) — `findings/cluster.md`, `cluster-plan.json`
+| Cluster | Primary | URL | Intent |
+|---|---|---|---|
+| Hub | AI consultant Lebanon | `/` | commercial / person-entity |
+| Consulting | AI consulting Lebanon | `/ai-consulting-lebanon/` | commercial (directory-heavy) |
+| Consulting | how much does an AI consultant cost in Lebanon | `/blog/ai-consulting-in-lebanon-guide/` | informational (article slot exists) |
+| Consulting | AI consultant Beirut | `/about/` | person / community SERP |
+| Solutions | AI solutions Lebanon (+ AI automation, custom AI, AI agents, SMEs as H2s) | `/ai-solutions-lebanon/` | commercial (service catalogs) |
+| Solutions | proof long-tails | `/work/outreach-engine-marketing-agency/`, `/work/custom-ai-crm/`, `/work/fnb-reporting-inventory-automation/` | proof |
+| Industries (phase 2) | AI for marketing agencies Lebanon · AI for F&B businesses Lebanon | `/ai-for-marketing-agencies-lebanon/`, `/ai-for-restaurants-lebanon/` | commercial |
+
+- 10 URLs, 52 planned internal links, no orphans. One cannibalization pair to manage: service page vs guide (same SERP) — guide title carries "cost" + "guide", service page doesn't; cross-link both ways; non-overlapping FAQs.
+- **Fold, don't build:** best AI consultant in Lebanon · AI consulting company/firms · AI strategy consulting · AI automation Lebanon · AI services · custom AI solutions · AI agents Lebanon · AI for SMEs · AI audit · WhatsApp automation · custom CRM development · restaurant automation · agentic AI Lebanon.
+- **Avoid site-wide:** "AI agency Lebanon" (state agencies), "AI marketing agency" (wrong intent), "consultant IA Liban" (no FR AI-consulting SERP), "AI for restaurants Lebanon" as a lead phrase (hijacked by a venue named *Ai Restaurant Beirut*).
+
+### On-site shipped in this pass
+Self-hosted fonts (8 latin woff2, 2 preloaded, immutable cache; Google Fonts chain removed) · COOP header · Instagram `@dave.automate` wired · IndexNow submitted (202) · sitemap submitted via GSC API · Moz/Bing/Google keys configured for the plugin.
+
+### Still yours
+GBP · GitHub/LinkedIn profiles · www redirect (blocked for me by permission policy — Vercel → Domains → www → Redirect to davidgeha.dev, 308) · disavow confirmation · design calls (loader once-per-session, mobile hero/nav, third-person About).
