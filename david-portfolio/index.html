@@ -309,17 +309,10 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Font CSS loads as a preload and swaps to a stylesheet on arrival, so it
-       no longer blocks first paint (~0.5s on mobile per Lighthouse). -->
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap">
-  </noscript>
+  <!-- Fonts are self-hosted (src/fonts.css → /fonts/*.woff2). Preload only the
+       two files that paint above the fold: the serif hero name and body sans. -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-400.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin>
 </head>
 
 <body>
