@@ -58,3 +58,12 @@ Everything must be **pre-rendered/static HTML** (raw HTML is what Bing and AI fe
 
 - **www redirect, loader timing, mobile nav/hero, About rewrite, font self-hosting** — production config or design decisions; ready to do on your word.
 - **Bot traffic** — not built. Rankings don't move on raw visits; it would pollute analytics and risk invalid-traffic flags. Phase 1–2 above is what moves them.
+
+## Autonomous engine (2026-09-21)
+
+The ongoing work above is now run by **`seo-geo-engine/`** (private repo `Daveisgm05/seo-geo-engine`):
+daily/weekly/monthly GitHub Actions jobs (collect → analyse → tasks → reports), publishing through PRs only,
+and Claude Code commands (`/weekly-review`, `/new-case-study`, `/monthly-review`, `/quarterly-entity-audit`,
+`/publish`, `/run-audit`, `/onboard`). What David still has to prepare is listed in
+`seo-geo-engine/docs/PREREQUISITES.md`; the switch-on steps are in `seo-geo-engine/docs/RUNBOOK.md`.
+First live crawl found and fixed: 5 over-long meta descriptions, 4 over-long titles, missing Article headline.
