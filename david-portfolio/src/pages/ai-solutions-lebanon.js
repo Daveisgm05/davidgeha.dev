@@ -2,6 +2,8 @@
 // Primary: "AI solutions Lebanon". Secondaries: AI automation Lebanon, AI services
 // Lebanon, custom AI solutions Lebanon, AI implementation services Lebanon,
 // AI agents for business Lebanon, AI for small business / SMEs Lebanon.
+import { figure, img, label, tags, workImg } from './_kit.js';
+
 const solutions = [
     {
         id: 'outreach', num: '01', title: 'Lead-outreach engine',
@@ -9,6 +11,7 @@ const solutions = [
         what: 'An agent that sources leads against your ideal-customer profile, researches each one (site, socials, recent news), writes a personalised first message, sends it from your domain on a schedule, and logs replies into your CRM. You approve the sequence once; it runs daily.',
         stack: 'Supabase · Vercel cron · Claude · your email domain (SPF/DKIM set up properly)',
         time: '2-week sprint', for: 'Marketing agencies, B2B founders',
+        media: workImg('work-outreach-v2', 'Lead-outreach engine built by David Geha: an agentic pipeline that sources, researches and emails leads for a marketing agency in Lebanon'),
     },
     {
         id: 'research', num: '02', title: 'Research and SEO/GEO pipeline',
@@ -16,6 +19,7 @@ const solutions = [
         what: 'A pipeline that takes a client or competitor list and produces the brief: positioning, content gaps, technical SEO issues, and how each brand shows up in AI answers (ChatGPT, Perplexity, Google AI Overviews). Runs on demand or monthly, outputs a document your team edits rather than writes.',
         stack: 'Supabase · Claude · search and crawl APIs · Google Docs/Notion export',
         time: '2-week sprint', for: 'Marketing agencies, SEO teams',
+        media: workImg('work-research-v2', 'Competitive research and SEO/GEO pipeline built by David Geha: automated competitor and AI-visibility briefs for agencies'),
     },
     {
         id: 'ads', num: '03', title: 'Ad-creative pipeline',
@@ -23,6 +27,7 @@ const solutions = [
         what: 'From a brief and your brand assets to a set of on-brand, UGC-style visuals and copy variants, sized for Meta and Instagram, with a review step before anything is exported. Your designer approves and adjusts instead of producing from zero.',
         stack: 'Image generation models · Claude for copy · brand-asset library in Supabase · Meta-ready export',
         time: '2-week sprint', for: 'Agencies, e-commerce, F&B brands',
+        media: workImg('work-ads-v2', 'Ad-creative pipeline built by David Geha: AI-generated, on-brand UGC-style visuals ready for Meta Ads'),
     },
     {
         id: 'crm', num: '04', title: 'Custom AI CRM and dashboards',
@@ -30,6 +35,7 @@ const solutions = [
         what: 'A CRM built around how your team actually sells and delivers: clients, deals, delivery status, and the AI doing the data entry from email and WhatsApp. Dashboards that answer the owner\'s questions without a weekly spreadsheet.',
         stack: 'Supabase (Postgres + auth) · Vercel · Claude for extraction and summaries',
         time: '2 × 2-week sprints', for: 'Agencies, service businesses, founders',
+        media: workImg('work-crm-v3', 'Custom AI CRM dashboard built by David Geha for a marketing agency in Lebanon: clients, deals and delivery in one view'),
     },
     {
         id: 'fnb', num: '05', title: 'F&B reporting and inventory automation',
@@ -37,6 +43,7 @@ const solutions = [
         what: 'The morning report produced automatically from your POS export, inventory variances flagged, and supplier reorder messages drafted in Arabic or English and waiting for a tap to send. Works with the tools you already have, including WhatsApp.',
         stack: 'POS CSV/API · Supabase · Claude · WhatsApp Business API or approval queue',
         time: '2-week sprint', for: 'Restaurants, cafés, cloud kitchens, F&B consultancies',
+        media: img('solutions-fnb', { alt: 'Chefs at work in a dimly lit restaurant kitchen: the daily reporting and inventory busywork behind F&B operations in Lebanon' }),
     },
     {
         id: 'backoffice', num: '06', title: 'WhatsApp and back-office agents',
@@ -44,6 +51,7 @@ const solutions = [
         what: 'Internal agents that read incoming messages and documents, extract what matters, update the right system, and draft the reply, with a person approving anything that leaves the building. Built one workflow at a time so each one is measurable.',
         stack: 'Supabase · Claude · WhatsApp / email / Google Drive connectors',
         time: '2-week sprint per workflow', for: 'Any small team with repeat admin',
+        media: img('solutions-backoffice', { alt: 'Paperwork, calculator and smartphone on a dark office desk: the intake and data entry a back-office agent takes over' }),
     },
 ];
 
@@ -52,15 +60,23 @@ export default {
     title: 'AI Solutions & Automation for Businesses in Lebanon',
     ogTitle: 'AI Solutions & Automation for Businesses in Lebanon',
     description: 'Custom AI solutions in Lebanon: lead-outreach engines, research pipelines, ad creatives, AI CRMs, F&B reporting and back-office agents, built in Beirut.',
+    ogImage: '/img/og-solutions.jpg',
     about: 'service',
     schemaType: 'CollectionPage',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Solutions in Lebanon' }],
+    word: 'Solutions',
+    eyebrow: 'Custom AI systems · Lebanon',
     h1: 'AI Solutions &amp; Automation for Businesses in Lebanon',
     lead: 'Six systems I build for Lebanese agencies, F&amp;B operators and founders. Each one replaces a specific piece of repeated manual work, runs in accounts you own, and ships in a two-week sprint at a fixed price.',
     meta: 'Custom-built · Supabase, Vercel, Claude, GitHub · English, Arabic, French',
+    hero: {
+        image: 'solutions-hero',
+        alt: 'Lattice of connected nodes on a dark background, representing agentic AI systems linking the tools a business already uses',
+        caption: 'Each system sits beside the tools you already use and moves data between them. It does not replace them.',
+    },
     body: `
   <section class="container" style="padding-top:2.5rem">
-    <dl class="glance">
+    <dl class="glance reveal-stagger">
       <div><dt>Delivery</dt><dd>2-week sprints</dd></div>
       <div><dt>Ownership</dt><dd>Your accounts, your code</dd></div>
       <div><dt>Runs on</dt><dd>Supabase · Vercel · Claude</dd></div>
@@ -68,10 +84,10 @@ export default {
     </dl>
   </section>
 
-  <section class="section container">
+  <section class="section container" id="approach">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Approach</span><h2>Solutions, not software licences</h2></div>
-      <div class="prose">
+      ${label('Approach', 'Solutions, not software licences')}
+      <div class="prose reveal">
         <p>Most <strong>AI solutions offered in Lebanon</strong> are either a large vendor's platform resold with local support, or a chatbot on your website. Both charge per seat or per month, and both ask you to change how you work to fit the product. For a small team that is usually the wrong trade.</p>
         <p>What I build is narrower and more useful: one <strong>custom AI system</strong> per repeated task, designed around the tools you already use, deployed in your own Supabase and Vercel accounts, and measured by the hours it gives back. There is no licence. When the sprint is done the system is yours, the code is in your GitHub, and you can hand it to anyone.</p>
         <p>If you are not sure which of these you need, start with the <a href="/ai-consulting-lebanon/#audit">48-hour audit</a>: it ranks your repeated tasks by payback and comes back with a fixed price for the first build.</p>
@@ -80,23 +96,27 @@ export default {
   </section>
 
   <section class="section container" id="solutions">
-    <div class="section__label" style="margin-bottom:2.5rem"><span class="eyebrow">Catalog</span><h2>What I build</h2></div>
-    <div class="cards cards--2">
+    <div class="section__head reveal"><span class="eyebrow">Catalog</span><h2>What I build</h2><p>Six systems, each one a two-week sprint. The first four are screenshots of builds already running for clients.</p></div>
+    <div class="cards cards--2 reveal-stagger">
 ${solutions.map((s) => `      <article class="card" id="${s.id}">
+        <div class="card__media">${s.media}</div>
         <span class="num">${s.num}</span>
         <h3>${s.title}</h3>
-        <p class="price">${s.time} · ${s.for}</p>
+        ${tags([s.time, s.for])}
         <p><strong>The problem.</strong> ${s.problem}</p>
         <p><strong>What it does.</strong> ${s.what}</p>
-        <p class="price" style="text-transform:none;letter-spacing:0">Stack: ${s.stack}</p>
+        <p class="stack"><strong>Stack:</strong> ${s.stack}</p>
       </article>`).join('\n')}
     </div>
   </section>
 
   <section class="section container" id="smes">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Small teams</span><h2>AI for SMEs and small teams in Lebanon</h2></div>
-      <div class="prose">
+      ${label('Small teams', 'AI for SMEs and small teams in Lebanon', figure('solutions-smes', {
+        alt: 'Two colleagues working side by side on a laptop in a small plant-filled office',
+        caption: 'Almost every client has fewer than thirty people. The three tasks that eat the afternoon are the target, not a data lake.',
+    }))}
+      <div class="prose reveal">
         <p>Almost every business I work with in Lebanon has fewer than thirty people. That changes what "AI solutions" should mean. You do not need a data lake or a transformation office. You need the three tasks that eat your afternoon handled by something reliable, and you need to see the hours come back within the first month.</p>
         <h2>Which processes should a small business automate first?</h2>
         <ol>
@@ -115,8 +135,12 @@ ${solutions.map((s) => `      <article class="card" id="${s.id}">
 
   <section class="section container" id="industries">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Industries</span><h2>Where these systems already run</h2></div>
-      <div class="prose">
+      ${label('Industries', 'Where these systems already run', figure('solutions-industries', {
+        alt: 'Contemporary café interior with a long bar counter, the kind of F&B outlet where daily reporting is automated',
+        caption: 'Agencies feel the payback fastest; F&B groups get the morning report and supplier follow-ups handled before service starts.',
+        tilt: 'right',
+    }))}
+      <div class="prose reveal">
         <h2>Marketing agencies</h2>
         <p>Outreach engines, research pipelines and ad-creative generation, usually in that order. Agencies feel the payback fastest because the same work repeats for every client. See the <a href="/#work">selected work</a> for the outreach engine and the ad-creative pipeline.</p>
         <h2>Restaurants and F&amp;B</h2>

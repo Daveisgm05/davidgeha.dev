@@ -28,17 +28,101 @@
   <url>
     <loc>https://davidgeha.dev/about/</loc>
     <lastmod>2026-09-21</lastmod>
+    <image:image>
+      <image:loc>https://davidgeha.dev/david_transparent.webp</image:loc>
+      <image:title>David Geha, independent AI consultant based in Beirut, Lebanon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/about-beirut-1200.webp</image:loc>
+      <image:title>Aerial view of the Lebanese coast and Beirut bay at dusk</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/about-engineering-1200.webp</image:loc>
+      <image:title>Tower crane and a high-rise under construction in monochrome: the civil engineering discipline behind the consultancy</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-consulting-lebanon/</loc>
     <lastmod>2026-09-21</lastmod>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/consulting-hero-1600.webp</image:loc>
+      <image:title>The clock tower on Nejmeh Square in downtown Beirut, Lebanon, where David Geha meets AI consulting clients</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/consulting-what-1200.webp</image:loc>
+      <image:title>Hand-drawn workflow diagram on a whiteboard mapping a business process before automating it</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/consulting-audit-1200.webp</image:loc>
+      <image:title>Staff member using a touchscreen point-of-sale terminal in a dimly lit restaurant, the kind of daily task an AI audit maps</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/consulting-who-1200.webp</image:loc>
+      <image:title>Small marketing agency team in a planning session at a whiteboard</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/consulting-why-1200.webp</image:loc>
+      <image:title>Drafting compass resting on an engineering blueprint: define the load before designing the beam</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-solutions-lebanon/</loc>
     <lastmod>2026-09-21</lastmod>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/solutions-hero-1600.webp</image:loc>
+      <image:title>Lattice of connected nodes on a dark background, representing agentic AI systems linking the tools a business already uses</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/solutions-fnb-1200.webp</image:loc>
+      <image:title>Chefs at work in a dimly lit restaurant kitchen: the daily reporting and inventory busywork behind F&amp;B operations in Lebanon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/solutions-backoffice-1200.webp</image:loc>
+      <image:title>Paperwork, calculator and smartphone on a dark office desk: the intake and data entry a back-office agent takes over</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/solutions-smes-1200.webp</image:loc>
+      <image:title>Two colleagues working side by side on a laptop in a small plant-filled office</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/solutions-industries-1200.webp</image:loc>
+      <image:title>Contemporary café interior with a long bar counter, the kind of F&amp;B outlet where daily reporting is automated</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://davidgeha.dev/blog/ai-consulting-in-lebanon-guide/</loc>
     <lastmod>2026-09-21</lastmod>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-hero-1600.webp</image:loc>
+      <image:title>Beirut skyline in monochrome, where most AI consulting firms and consultants in Lebanon are based</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-consultant-1200.webp</image:loc>
+      <image:title>Two consultants mapping a business process as a flow diagram on a whiteboard</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-cost-1200.webp</image:loc>
+      <image:title>Counting US dollar bills beside a laptop and a calculator: AI consulting in Lebanon is priced in USD</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-firms-1200.webp</image:loc>
+      <image:title>Downtown Beirut street with the Mohammad Al-Amin Mosque, the district where Lebanon's consulting firms and software houses cluster</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-choose-1200.webp</image:loc>
+      <image:title>Handshake over a signed proposal: agreeing a fixed-price AI consulting engagement</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-agent-1200.webp</image:loc>
+      <image:title>Developer writing the code of an AI agent on a laptop in a dark room</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-lebanon-1200.webp</image:loc>
+      <image:title>Beirut apartment building facade with balconies and Arabic signage: the everyday context AI systems in Lebanon run in</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-timeline-1200.webp</image:loc>
+      <image:title>Open planner notebook and glasses on a dark desk: scheduling a two-day audit and a two-week build sprint</image:title>
+    </image:image>
   </url>
 </urlset>

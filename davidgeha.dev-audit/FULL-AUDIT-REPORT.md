@@ -235,3 +235,18 @@ Built as static HTML at build time (`scripts/build-pages.mjs` → Vite multi-pag
 **Deliberately not shipped:** the three `/work/` case studies (need real metrics — see `CASE-STUDY-DRAFTS.md`) and actual prices on the offer cards (need your numbers). Both are one reply away.
 
 **Health estimate after Phase 3:** ≈ 80/100 on-site. Remaining gap to #1 is off-site: GBP verification, directory citations, AUB link, reviews, and time for Google to re-crawl (Request indexing on each new URL accelerates it).
+
+---
+
+## Phase 4 shipped (2026-09-22): content pages redesigned to the homepage system
+
+All four static pages now render inside the homepage's inset panel (status dot, centred nav, "Let's talk" pill, **D** logo → home), with an outline watermark word, a hero photo (or the portrait on `/about/`), the ✦ stack marquee, tilted cream-framed section photos, the ✦ process rail and the Contact-style footer. Copy, headings, FAQs and schema are unchanged; every effect is gated on `html.js`, so non-JS fetchers still get the full page.
+
+| URL | Raw words | Images (alt + dims + srcset) | Schema additions |
+|---|---|---|---|
+| `/ai-consulting-lebanon/` | 1,886 | 5 | ImageObject + `primaryImageOfPage`, per-page OG (`/img/og-consulting.jpg`) |
+| `/ai-solutions-lebanon/` | 1,723 | 9 (4 real build screenshots) | ImageObject + `primaryImageOfPage`, per-page OG |
+| `/blog/ai-consulting-in-lebanon-guide/` | 2,682 | 8 | ImageObject + `primaryImageOfPage`, per-page OG, jump-link TOC, "direct answer" box |
+| `/about/` | 969 | 4 | ImageObject (portrait) |
+
+Images: 20 contextual photos sourced from Pexels (free licence; sources in `src/pages/_images.js`), 480/800/1200/1600 WebP variants in `public/img/` (2.8 MB total, lazy except the hero which is preloaded with `fetchpriority=high`). Sitemap now carries image entries for every page (26 image URLs), `/img/` gets a 30-day cache header. Every page links home via the logo, breadcrumb and footer sitemap — fixes the "lands on the guide, no obvious way to the homepage" complaint.

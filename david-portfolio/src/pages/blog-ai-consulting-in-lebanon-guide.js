@@ -3,24 +3,55 @@
 // consulting firms Lebanon, what does an AI consultant do, how to choose an AI
 // consultant, AI consultant cost, AI transformation consulting Beirut, agentic AI
 // Lebanon. Title/H1 carry "cost" and "guide" to differentiate from the service page.
+import { figure, label } from './_kit.js';
+
+const sections = [
+    { id: 'short', label: 'The short version' },
+    { id: 'what', label: 'What an AI consultant does' },
+    { id: 'cost', label: 'What it costs in Lebanon' },
+    { id: 'firms', label: 'Who the firms are' },
+    { id: 'choose', label: 'How to choose' },
+    { id: 'chatbot-vs-agent', label: 'Chatbot, agent or workflow' },
+    { id: 'lebanon', label: 'What is different in Lebanon' },
+    { id: 'results', label: 'How long results take' },
+    { id: 'faq', label: 'FAQ' },
+];
+
 export default {
     path: '/blog/ai-consulting-in-lebanon-guide/',
     title: 'AI Consulting in Lebanon: 2026 Guide to Costs & Choosing',
     ogTitle: 'AI Consulting in Lebanon: the 2026 guide to costs, firms and how to choose',
     description: 'A 2026 guide to AI consulting in Lebanon: what consultants do, USD price bands from an audit to an enterprise programme, who the firms are, and how to choose.',
     ogType: 'article',
+    ogImage: '/img/og-guide.jpg',
     schemaType: 'Article',
     datePublished: '2026-09-19',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'Guide', href: '/blog/ai-consulting-in-lebanon-guide/' }, { label: 'AI Consulting in Lebanon (2026)' }],
+    word: 'Guide',
+    eyebrow: 'AI consulting · Lebanon · 2026 guide',
     h1: 'AI Consulting in Lebanon (2026): What Consultants Do, What It Costs, How to Choose',
     lead: 'Written for owners and managers in Lebanon who are being pitched "AI" from every direction and want a straight answer: what you are actually buying, what it should cost in dollars, who sells it here, and how to tell a good engagement from an expensive one.',
     meta: 'By David Geha, AI consultant in Beirut · Published 19 September 2026 · ~12 minute read',
+    hero: {
+        image: 'guide-hero',
+        alt: 'Beirut skyline in monochrome, where most AI consulting firms and consultants in Lebanon are based',
+        caption: 'Beirut. Lebanon\'s AI consulting market is small, concentrated in the capital, and better than its size suggests.',
+    },
     body: `
-  <section class="section container">
+  <section class="toc container">
+    <div class="toc__inner reveal">
+      <div><span class="eyebrow">In this guide</span><p class="hero__meta" style="margin-top:0">Nine questions, answered in order. Jump to the one you came for.</p></div>
+      <ol>${sections.map((s) => `<li><a href="#${s.id}">${s.label}</a></li>`).join('')}</ol>
+    </div>
+  </section>
+
+  <section class="section container" id="short">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Direct answer</span><h2>The short version</h2></div>
-      <div class="prose">
-        <p><strong>An AI consultant in Lebanon should do three things:</strong> find the repetitive work in your business that a system can take over, design that system around the tools you already use, and either build it or specify it well enough that a developer can. In 2026 the realistic price for a small or mid-sized Lebanese business runs from a few hundred dollars for a short audit to the low five figures for a multi-sprint build; enterprise transformation programmes from international firms are a different market with a different budget. The market splits into three tiers, strategy firms, agencies and independent practitioners, and the right choice depends far more on the size of your problem than on the size of the firm.</p>
+      ${label('Direct answer', 'The short version')}
+      <div class="prose reveal">
+        <div class="answer-box">
+          <p><strong>An AI consultant in Lebanon should do three things:</strong> find the repetitive work in your business that a system can take over, design that system around the tools you already use, and either build it or specify it well enough that a developer can. In 2026 the realistic price for a small or mid-sized Lebanese business runs from a few hundred dollars for a short audit to the low five figures for a multi-sprint build; enterprise transformation programmes from international firms are a different market with a different budget. The market splits into three tiers, strategy firms, agencies and independent practitioners, and the right choice depends far more on the size of your problem than on the size of the firm.</p>
+        </div>
         <p>The rest of this guide expands each of those points. I am an <a href="/about/">independent AI consultant based in Beirut</a>, so I have an obvious interest here; I have tried to write it the way I would want to read it if I were on the other side of the table, including where a larger firm is the better call.</p>
       </div>
     </div>
@@ -28,8 +59,11 @@ export default {
 
   <section class="section container" id="what">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Definitions</span><h2>What does an AI consultant do, and how is that different from an agency or a developer?</h2></div>
-      <div class="prose">
+      ${label('Definitions', 'What does an AI consultant do, and how is that different from an agency or a developer?', figure('guide-consultant', {
+        alt: 'Two consultants mapping a business process as a flow diagram on a whiteboard',
+        caption: 'Diagnosis before prescription: a consultant maps which tasks repeat and what they cost before anything is built.',
+    }))}
+      <div class="prose reveal">
         <p>The label is used loosely, so it helps to separate three roles that are often sold under it.</p>
         <h2>A developer builds what you specify</h2>
         <p>You describe the system; they build it. This works well when you already know exactly what you need and have someone on your side who can write a clear brief and test the result. It goes wrong when the brief is "add AI to our process" and nobody has worked out which process or what "add AI" means.</p>
@@ -45,8 +79,12 @@ export default {
 
   <section class="section container" id="cost">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Pricing</span><h2>How much does an AI consultant cost in Lebanon?</h2></div>
-      <div class="prose">
+      ${label('Pricing', 'How much does an AI consultant cost in Lebanon?', figure('guide-cost', {
+        alt: 'Counting US dollar bills beside a laptop and a calculator: AI consulting in Lebanon is priced in USD',
+        caption: 'AI consulting in Lebanon is quoted in US dollars, from a few hundred for an audit to five figures for a multi-sprint build.',
+        tilt: 'right',
+    }))}
+      <div class="prose reveal">
         <p>Prices in Lebanon are quoted in US dollars and vary enormously by tier. The bands below are built from prices publicly listed by Lebanese providers in 2026 and the way this work is usually scoped. Treat them as orientation, not quotes; every serious provider will price your specific situation after a short audit.</p>
         <table>
           <thead><tr><th>Engagement</th><th>Typical 2026 range (USD)</th><th>What you should get</th></tr></thead>
@@ -76,8 +114,11 @@ export default {
 
   <section class="section container" id="firms">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">The market</span><h2>Who are the AI consultants and firms in Lebanon?</h2></div>
-      <div class="prose">
+      ${label('The market', 'Who are the AI consultants and firms in Lebanon?', figure('guide-firms', {
+        alt: 'Downtown Beirut street with the Mohammad Al-Amin Mosque, the district where Lebanon\'s consulting firms and software houses cluster',
+        caption: 'Downtown Beirut. Strategy firms, software houses and independent practitioners all work within a few kilometres of here.',
+    }))}
+      <div class="prose reveal">
         <p>Lebanon's AI consulting market is small, concentrated in Beirut, and better than its size suggests, partly because so many Lebanese engineers work for GCC and international clients. It sorts into three tiers.</p>
         <h2>Tier 1: strategy-led firms and international consultancies</h2>
         <p>Roland Berger, engaged by the Lebanese government in 2026 on its national AI strategy, and the regional offices of the big consultancies. Also Beirut-based firms that lead with strategy and governance, some with published books and executive training. Right for ministries, banks, large groups and anyone who needs an AI strategy signed off at board level. Wrong for a twelve-person agency.</p>
@@ -92,8 +133,12 @@ export default {
 
   <section class="section container" id="choose">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Choosing</span><h2>How do you choose an AI consultant in Lebanon?</h2></div>
-      <div class="prose">
+      ${label('Choosing', 'How do you choose an AI consultant in Lebanon?', figure('guide-choose', {
+        alt: 'Handshake over a signed proposal: agreeing a fixed-price AI consulting engagement',
+        caption: 'Five questions in the first call tell you more than any proposal deck.',
+        tilt: 'right',
+    }))}
+      <div class="prose reveal">
         <h2>Five questions to ask in the first call</h2>
         <ol>
           <li><strong>"Which of my tasks would you automate first, and why not the others?"</strong> A good consultant asks about your week before answering. A weak one describes their product.</li>
@@ -122,8 +167,11 @@ export default {
 
   <section class="section container" id="chatbot-vs-agent">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Buying</span><h2>Chatbot, AI agent or agentic workflow: what should a Lebanese SME actually buy?</h2></div>
-      <div class="prose">
+      ${label('Buying', 'Chatbot, AI agent or agentic workflow: what should a Lebanese SME actually buy?', figure('guide-agent', {
+        alt: 'Developer writing the code of an AI agent on a laptop in a dark room',
+        caption: 'A chatbot answers questions in a window. An agent does the work: reads data, takes actions in your tools, reports back.',
+    }))}
+      <div class="prose reveal">
         <p>Most first purchases in Lebanon are chatbots, because they are easy to demo. Most first <em>wins</em> are pipelines and agents, because they remove hours. A useful way to decide:</p>
         <ul>
           <li><strong>Buy a chatbot</strong> if your real bottleneck is inbound questions at volume (reservations, FAQs, order status) and you already have clean answers to give it.</li>
@@ -137,8 +185,12 @@ export default {
 
   <section class="section container" id="lebanon">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Context</span><h2>What is different about doing AI in Lebanon?</h2></div>
-      <div class="prose">
+      ${label('Context', 'What is different about doing AI in Lebanon?', figure('guide-lebanon', {
+        alt: 'Beirut apartment building facade with balconies and Arabic signage: the everyday context AI systems in Lebanon run in',
+        caption: 'Systems built for Lebanon have to survive power cuts, dollar billing, and customers who write in three languages on WhatsApp.',
+        tilt: 'right',
+    }))}
+      <div class="prose reveal">
         <ul>
           <li><strong>Payments.</strong> Most SaaS and model providers bill in dollars by card, which is still awkward for many Lebanese companies. A consultant who has set up billing for local clients before saves you a week.</li>
           <li><strong>Connectivity and power.</strong> Systems should run in the cloud and queue work, so the daily report still arrives when the office generator does not start. This is a design requirement here, not an edge case.</li>
@@ -152,8 +204,11 @@ export default {
 
   <section class="section container" id="results">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Timeline</span><h2>How long does it take to see results?</h2></div>
-      <div class="prose">
+      ${label('Timeline', 'How long does it take to see results?', figure('guide-timeline', {
+        alt: 'Open planner notebook and glasses on a dark desk: scheduling a two-day audit and a two-week build sprint',
+        caption: 'Two days for the audit, two weeks for the first system, hours saved measurable in the first month.',
+    }))}
+      <div class="prose reveal">
         <p>For the practitioner model: two days for an audit, two weeks for the first system, and the hours-saved figure is measurable in the first month of use. For an agency build the timeline is typically one to three months. For a strategy programme, results are measured in quarters, and that is appropriate for the problems it addresses.</p>
         <p>If someone promises a transformation in a week, or a two-week sprint for a national strategy, the mismatch is the warning sign.</p>
       </div>

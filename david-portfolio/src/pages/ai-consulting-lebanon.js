@@ -4,19 +4,29 @@
 // consulting Lebanon, AI consulting Beirut, AI audit for business Lebanon.
 // Title/H1 deliberately carry neither "cost" nor "guide" (those belong to the
 // blog guide, which shares this SERP).
+import { figure, label, rail } from './_kit.js';
+
 export default {
     path: '/ai-consulting-lebanon/',
     title: 'AI Consulting in Lebanon: Audits, Sprints & Retainers',
     ogTitle: 'AI Consulting in Lebanon — David Geha',
     description: 'Independent AI consulting in Lebanon for agencies, F&B and founders: a 48-hour workflow audit, a fixed-price build sprint and an optional retainer, from Beirut.',
+    ogImage: '/img/og-consulting.jpg',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Consulting in Lebanon' }],
+    word: 'Consulting',
+    eyebrow: 'AI consulting · Beirut, Lebanon',
     h1: 'AI Consulting in Lebanon',
     lead: 'For businesses in Beirut and across Lebanon that repeat the same manual work every day and want an AI system that does it instead. One consultant, three clearly scoped offers, a fixed price before anything is built.',
     meta: 'David Geha · Independent AI consultant · Beirut, Lebanon · English, Arabic, French',
+    hero: {
+        image: 'consulting-hero',
+        alt: 'The clock tower on Nejmeh Square in downtown Beirut, Lebanon, where David Geha meets AI consulting clients',
+        caption: 'Downtown Beirut. I meet clients in person around the city and work remotely with businesses across Lebanon and the GCC.',
+    },
     body: `
   <section class="container" style="padding-top:2.5rem">
-    <dl class="glance">
+    <dl class="glance reveal-stagger">
       <div><dt>Based in</dt><dd>Beirut, Lebanon</dd></div>
       <div><dt>Works with</dt><dd>Agencies · F&amp;B · Founders</dd></div>
       <div><dt>Engagement</dt><dd>48-h audit → 2-week sprint</dd></div>
@@ -24,10 +34,26 @@ export default {
     </dl>
   </section>
 
-  <section class="section container">
+  <section class="section container" id="how">
+    <div class="section__head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps. One working system.</h2>
+      <p>The same person who diagnoses the problem writes the code, so nothing is lost between the recommendation and the delivery.</p>
+    </div>
+    ${rail([
+        { num: '01', title: 'Find the repetitive work', text: 'A 48-hour audit with the people doing the tasks. You get a ranked map of what to automate first and a fixed price for the build.' },
+        { num: '02', title: 'Build the agentic system', text: 'A two-week sprint in your own accounts. Logs, a dashboard and a handover session included; your team is using it by week two.' },
+        { num: '03', title: 'Automate &amp; scale', text: 'Measure the hours saved, decide what is next. Optionally on a month-to-month retainer, cancellable any month.' },
+    ])}
+  </section>
+
+  <section class="section container" id="what">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">What this is</span><h2>Consulting that ends with a working system</h2></div>
-      <div class="prose">
+      ${label('What this is', 'Consulting that ends with a working system', figure('consulting-what', {
+        alt: 'Hand-drawn workflow diagram on a whiteboard mapping a business process before automating it',
+        caption: 'Every engagement starts by mapping how the work actually happens, not with a slide deck about transformation.',
+    }))}
+      <div class="prose reveal">
         <p><strong>AI consulting in Lebanon</strong> usually means one of two things: a strategy deck from a large firm, or a developer who will build whatever you describe. Neither is what most Lebanese businesses need. Agencies with eight people, restaurant groups with three outlets and founders running lean cannot absorb a six-month transformation programme, and they should not have to specify a system they have never seen.</p>
         <p>My practice sits in between. I audit how your team actually works, find the tasks that repeat every day, and then design and build the agentic AI system that takes them over. The same person who diagnoses the problem writes the code, so nothing is lost between the recommendation and the delivery. You get a number for the hours saved, not a roadmap.</p>
         <p>I am an independent consultant based in Beirut, not an AI consulting company or agency. That is deliberate: it keeps the price where a Lebanese SME can justify it and keeps you talking to the person doing the work. If you are comparing <a href="/blog/ai-consulting-in-lebanon-guide/#firms">AI consulting firms in Lebanon</a>, the guide explains where a solo practitioner fits and where a larger firm is the better choice.</p>
@@ -36,8 +62,8 @@ export default {
   </section>
 
   <section class="section container" id="offers">
-    <div class="section__label" style="margin-bottom:2.5rem"><span class="eyebrow">Offers</span><h2>Three ways to work together</h2></div>
-    <div class="cards">
+    <div class="section__head reveal"><span class="eyebrow">Offers</span><h2>Three ways to work together</h2></div>
+    <div class="cards reveal-stagger">
       <article class="card">
         <span class="num">01</span>
         <h3>48-hour AI audit</h3>
@@ -48,7 +74,7 @@ export default {
           <li>A scoped plan and fixed price for the first build</li>
           <li>Yours to keep, whoever you build with</li>
         </ul>
-        <a class="more" href="#audit">What happens in the audit →</a>
+        <a class="more" href="#audit"><span>What happens in the audit</span> →</a>
       </article>
       <article class="card">
         <span class="num">02</span>
@@ -60,7 +86,7 @@ export default {
           <li>Logs, dashboard and a handover session included</li>
           <li>Two weeks of fixes after go-live</li>
         </ul>
-        <a class="more" href="/ai-solutions-lebanon/">See the systems I build →</a>
+        <a class="more" href="/ai-solutions-lebanon/"><span>See the systems I build</span> →</a>
       </article>
       <article class="card">
         <span class="num">03</span>
@@ -72,15 +98,19 @@ export default {
           <li>Monthly review of hours saved and what to automate next</li>
           <li>Cancel any month</li>
         </ul>
-        <a class="more" href="/blog/ai-consulting-in-lebanon-guide/#cost">How this compares to market prices →</a>
+        <a class="more" href="/blog/ai-consulting-in-lebanon-guide/#cost"><span>How this compares to market prices</span> →</a>
       </article>
     </div>
   </section>
 
   <section class="section container" id="audit">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Process</span><h2>What happens in the 48-hour audit</h2></div>
-      <div class="prose">
+      ${label('Process', 'What happens in the 48-hour audit', figure('consulting-audit', {
+        alt: 'Staff member using a touchscreen point-of-sale terminal in a dimly lit restaurant, the kind of daily task an AI audit maps',
+        caption: 'Day one is spent with the people doing the repeated work: the POS export, the supplier chase, the weekly client report.',
+        tilt: 'right',
+    }))}
+      <div class="prose reveal">
         <h2>Day one: watch the work</h2>
         <p>I spend the first day with the people who actually do the repeated tasks, not only the owner. In an agency that is usually the account manager building the weekly client report and the person copying leads into a spreadsheet. In a restaurant group it is whoever reconciles the POS export, chases suppliers on WhatsApp and rewrites the daily sales summary. I record each task: how often, how long, what tools, what breaks.</p>
         <h2>Day two: score and scope</h2>
@@ -98,8 +128,11 @@ export default {
 
   <section class="section container" id="who">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Fit</span><h2>Who this is for, and who it is not</h2></div>
-      <div class="prose">
+      ${label('Fit', 'Who this is for, and who it is not', figure('consulting-who', {
+        alt: 'Small marketing agency team in a planning session at a whiteboard',
+        caption: 'Five to thirty people, several retainer clients, and a founder who still touches every report: the typical agency client.',
+    }))}
+      <div class="prose reveal">
         <h2>Marketing agencies in Beirut and beyond</h2>
         <p>Five to thirty people, several retainer clients, and a founder who still touches every report. The usual first builds: an outreach engine that sources and researches leads and sends personalised first emails, a research pipeline that produces competitor and SEO briefs, and an ad-creative pipeline that turns a brief into on-brand visuals ready for Meta Ads.</p>
         <h2>Restaurants, cafés and F&amp;B groups</h2>
@@ -114,8 +147,12 @@ export default {
 
   <section class="section container" id="why">
     <div class="section__grid">
-      <div class="section__label"><span class="eyebrow">Why me</span><h2>An engineer's approach to AI consulting</h2></div>
-      <div class="prose">
+      ${label('Why me', "An engineer's approach to AI consulting", figure('consulting-why', {
+        alt: 'Drafting compass resting on an engineering blueprint: define the load before designing the beam',
+        caption: 'Civil engineering training shows up in the work: measure before and after, never ship something you cannot inspect.',
+        tilt: 'right',
+    }))}
+      <div class="prose reveal">
         <p>I am a Civil &amp; Environmental Engineering student at the American University of Beirut who has been building agentic systems for Lebanese businesses since 2025. Engineering training shows up in the work: define the load before designing the beam, measure before and after, and never ship something you cannot inspect. Every system I build logs what it did and hands exceptions to a person.</p>
         <p>The stack is boring on purpose. Supabase for data, Vercel for hosting, Claude for the reasoning steps, GitHub for the code. All of it sits in your accounts, so if we stop working together nothing stops working. You can read more about the systems on the <a href="/ai-solutions-lebanon/">AI solutions page</a> and about me on the <a href="/about/">about page</a>.</p>
         <p>I work in English, Arabic and French, in person around Beirut and remotely across Lebanon and the GCC.</p>
