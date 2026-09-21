@@ -5,9 +5,9 @@
 // Lebanon. Title/H1 carry "cost" and "guide" to differentiate from the service page.
 export default {
     path: '/blog/ai-consulting-in-lebanon-guide/',
-    title: 'AI Consulting in Lebanon (2026 Guide): What Consultants Do, What It Costs, How to Choose',
+    title: 'AI Consulting in Lebanon: 2026 Guide to Costs & Choosing',
     ogTitle: 'AI Consulting in Lebanon: the 2026 guide to costs, firms and how to choose',
-    description: 'A practical 2026 guide to AI consulting in Lebanon: what an AI consultant actually does, realistic USD price bands from an audit to an enterprise programme, who the firms and practitioners are, and how a Lebanese SME should choose.',
+    description: 'A 2026 guide to AI consulting in Lebanon: what consultants do, USD price bands from an audit to an enterprise programme, who the firms are, and how to choose.',
     ogType: 'article',
     schemaType: 'Article',
     datePublished: '2026-09-19',

@@ -3,3 +3,6 @@ davidgeha.dev-audit/google-api.json
 *.secret.json
 .env
 .env.*
+
+# the SEO/GEO engine is its own private repo (seo-geo-engine/.git)
+/seo-geo-engine/

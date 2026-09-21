@@ -6,9 +6,9 @@
 // blog guide, which shares this SERP).
 export default {
     path: '/ai-consulting-lebanon/',
-    title: 'AI Consulting in Lebanon — Audits, Build Sprints & Retainers | David Geha',
+    title: 'AI Consulting in Lebanon: Audits, Sprints & Retainers',
     ogTitle: 'AI Consulting in Lebanon — David Geha',
-    description: 'Independent AI consulting in Lebanon for marketing agencies, F&B businesses and founders: a 48-hour workflow audit, a fixed-price build sprint, and an optional retainer. Based in Beirut, working across Lebanon.',
+    description: 'Independent AI consulting in Lebanon for agencies, F&B and founders: a 48-hour workflow audit, a fixed-price build sprint and an optional retainer, from Beirut.',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Consulting in Lebanon' }],
     h1: 'AI Consulting in Lebanon',

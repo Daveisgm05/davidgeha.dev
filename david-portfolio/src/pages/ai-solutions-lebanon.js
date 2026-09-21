@@ -49,9 +49,9 @@ const solutions = [
 
 export default {
     path: '/ai-solutions-lebanon/',
-    title: 'AI Solutions & Automation for Businesses in Lebanon | David Geha',
+    title: 'AI Solutions & Automation for Businesses in Lebanon',
     ogTitle: 'AI Solutions & Automation for Businesses in Lebanon',
-    description: 'Custom AI solutions for businesses in Lebanon: lead-outreach engines, research pipelines, ad-creative generation, custom AI CRMs, F&B reporting automation and back-office agents. Built in Beirut, fixed price, you own the code.',
+    description: 'Custom AI solutions in Lebanon: lead-outreach engines, research pipelines, ad creatives, AI CRMs, F&B reporting and back-office agents, built in Beirut.',
     about: 'service',
     schemaType: 'CollectionPage',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Solutions in Lebanon' }],

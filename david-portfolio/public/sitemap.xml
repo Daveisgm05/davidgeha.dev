@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://davidgeha.dev/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/og-image.jpg</image:loc>
       <image:title>David Geha - AI Consultant in Lebanon</image:title>
@@ -27,18 +27,18 @@
   </url>
   <url>
     <loc>https://davidgeha.dev/about/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-consulting-lebanon/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-solutions-lebanon/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
   </url>
   <url>
     <loc>https://davidgeha.dev/blog/ai-consulting-in-lebanon-guide/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,53 @@
+name: notify-engine
+# After a content merge on main, tell the seo-geo-engine which URLs to validate + submit (repository_dispatch).
+# Needs secret ENGINE_DISPATCH_TOKEN (fine-grained PAT with Contents: read/write on Daveisgm05/seo-geo-engine).
+# If the secret is missing the step is skipped — the engine still catches changes with its daily sitemap diff.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "david-portfolio/src/pages/**"
+      - "david-portfolio/src/content/**"
+      - "david-portfolio/index.html"
+      - "david-portfolio/scripts/build-pages.mjs"
+      - "david-portfolio/scripts/sync-static.mjs"
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Work out which URLs changed
+        id: urls
+        run: |
+          SITE=https://davidgeha.dev
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- david-portfolio || true)
+          URLS=""
+          for f in $CHANGED; do
+            case "$f" in
+              david-portfolio/src/pages/*.js)
+                P=$(grep -oE "\"?path\"?: ?['\"][^'\"]+['\"]" "$f" | head -1 | sed -E "s/.*['\"]([^'\"]+)['\"]/\1/")
+                [ -n "$P" ] && URLS="$URLS $SITE$P";;
+              david-portfolio/index.html|david-portfolio/src/content/*|david-portfolio/scripts/sync-static.mjs)
+                URLS="$URLS $SITE/";;
+              david-portfolio/scripts/build-pages.mjs)
+                for g in david-portfolio/src/pages/*.js; do
+                  P=$(grep -oE "\"?path\"?: ?['\"][^'\"]+['\"]" "$g" | head -1 | sed -E "s/.*['\"]([^'\"]+)['\"]/\1/")
+                  [ -n "$P" ] && URLS="$URLS $SITE$P"
+                done;;
+            esac
+          done
+          URLS=$(echo $URLS | tr ' ' '\n' | sort -u | tr '\n' ' ')
+          echo "urls=$URLS" >> "$GITHUB_OUTPUT"
+          echo "changed: $URLS"
+      - name: Dispatch to seo-geo-engine
+        if: steps.urls.outputs.urls != ''
+        env:
+          TOKEN: ${{ secrets.ENGINE_DISPATCH_TOKEN }}
+          URLS: ${{ steps.urls.outputs.urls }}
+        run: |
+          if [ -z "$TOKEN" ]; then echo "ENGINE_DISPATCH_TOKEN not set — skipping (daily sitemap diff will catch it)"; exit 0; fi
+          JSON=$(printf '%s\n' $URLS | python3 -c 'import json,sys; print(json.dumps({"event_type":"site-published","client_payload":{"urls":[l.strip() for l in sys.stdin if l.strip()]}}))')
+          curl -sS -f -X POST -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/Daveisgm05/seo-geo-engine/dispatches -d "$JSON"

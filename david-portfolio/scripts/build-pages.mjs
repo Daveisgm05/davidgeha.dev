@@ -110,12 +110,16 @@ function schemaFor(page) {
         dateModified: TODAY,
         breadcrumb: { '@id': url + '#breadcrumb' },
     };
+    if (page.schemaType === 'Article') {
+        webpage.headline = (page.ogTitle || page.title).slice(0, 110);
+    }
     if (page.schemaType === 'ProfilePage') {
         webpage.mainEntity = person;
         webpage.dateCreated = page.datePublished || TODAY;
     }
     breadcrumb['@id'] = url + '#breadcrumb';
-    const graph = [webpage, breadcrumb, ...(page.extraSchema?.(url) || [])];
+    const extra = typeof page.extraSchema === 'function' ? page.extraSchema(url) : (page.extraSchema || []);
+    const graph = [webpage, breadcrumb, ...extra];
     if (page.faq?.length) {
         graph.push({
             '@type': 'FAQPage', '@id': url + '#faq',
@@ -159,6 +163,7 @@ function render(page) {
   <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-400.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin>
   <link rel="stylesheet" href="/src/pages.css">
+  <script>(function(){var id='%VITE_GA4_ID%';if(!id||id.charAt(0)==='%')return;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});})();</script>
 </head>
 <body>
 ${bar(page.path)}

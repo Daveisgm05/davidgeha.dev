@@ -68,6 +68,8 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; line-height: 
 .glance { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
 .glance div { padding: 1.4rem 1.4rem 1.4rem 0; }
 .glance div + div { padding-left: 1.4rem; border-left: 1px solid var(--hairline); }
+.glance--3 { grid-template-columns: repeat(3, 1fr); }
+.glance--2 { grid-template-columns: repeat(2, 1fr); }
 .glance dt { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-secondary); margin-bottom: 0.35rem; }
 .glance dd { font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-accent); }
 
