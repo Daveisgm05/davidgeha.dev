@@ -12,7 +12,7 @@ Health 56 → 74 (deployed 2026-09-19; PSI post-deploy: mobile 88 / desktop 96).
 | 3 | ✅ IndexNow submitted (`/`, `/sitemap.xml`, `/llms.txt`) → 202 to Bing/Yandex/Naver/Seznam/Yep/Amazon | done | — |
 | 4 | Bing Webmaster Tools → "Import from GSC" | ☐ after #2 | Bing shows the URL indexed |
 | 5 | ✅ www → apex 308 redirect set in Vercel (verified: `www.davidgeha.dev/*` → `https://davidgeha.dev/*`) | done | — |
-| 6 | Profiles: ✅ Instagram `@dave.automate` wired site-wide · ☐ GitHub (token lacks `user` scope — run `gh auth refresh -h github.com -s user` or paste bio/website/location at github.com/settings/profile) · ☐ LinkedIn headline "AI Consultant in Lebanon · agentic AI automation for agencies & F&B" + website | ☐ | Brave/Bing for "David Geha AI consultant" surfaces a profile that links to the site |
+| 6 | Profiles: ✅ Instagram `@dave.automates` wired site-wide (handle corrected 2026-09-21) · ✅ GitHub name/bio/website/location/socials set (verified via API) · ✅ LinkedIn headline + website updated (user-confirmed) | ✅ | Brave/Bing for "David Geha AI consultant" surfaces a profile that links to the site |
 | ✅ | H1/H2/title/meta, Services + FAQ (~1,000 words), schema graph, noscript mirror (726 words), security headers, IndexNow key, images/WebP, robots Claude-SearchBot | done | live on davidgeha.dev |
 
 ## Phase 2 — High-impact (Weeks 2–3)
@@ -22,7 +22,7 @@ Health 56 → 74 (deployed 2026-09-19; PSI post-deploy: mobile 88 / desktop 96).
 | 7 | ✅ **Google Business Profile created 2026-09-19** — `David Geha - AI Consultant`, SAB (Lebanon + cities), Business management consultant, +961 76 412 978, WhatsApp `wa.me/96176412978`, https://davidgeha.dev/. ☐ **Pending verification** (video) — listing is invisible until it passes. ☐ Then: photos (logo, cover, headshot, 4 work mockups), 4 services, and ask 3 clients for reviews mentioning "AI" + "Lebanon", ≤18 days apart | ☐ verify |
 | 8 | ✅ Phone `+961 76 412 978` (WhatsApp link) in footer NAP line, schema `telephone` + `contactPoint`, noscript, llms.txt, FAQ | done |
 | 9 | ✅ Canonical NAP: `David Geha - AI Consultant` · Beirut, Lebanon · david@osgdev.com · +961 76 412 978 · https://davidgeha.dev/ — use exactly this on GBP and every directory | done |
-| 10 | Directory citations, in this order (each also shows up on page 1 for your queries): Clutch → GoodFirms → The Manifest → LinkedIn Services page → TechBehemoths → Consultancy.org → Sortlist → Crunchbase → Bayt → Yellow Pages Lebanon. Send me each URL → I verify with `verify_backlinks.py` and add to `Person.sameAs` | ☐ → 🤖 |
+| 10 | Directory citations, in this order (each also shows up on page 1 for your queries): Clutch → GoodFirms → The Manifest → LinkedIn Services page → TechBehemoths → Consultancy.org → Sortlist → Crunchbase → Bayt → Yellow Pages Lebanon. Copy/paste kit in `LISTINGS-KIT.md`. Send me each URL → I verify with `verify_backlinks.py` and add to `Person.sameAs` | ☐ → 🤖 |
 | 11 | **AUB**: ask CEE dept / Darwazah Center / iPark for a student-founder listing or story (`.edu.lb` link corroborates `alumniOf` and outweighs every directory) | ☐ |
 | 12 | Berytech, UK-Lebanon Tech Hub, ArabNet/Menabytes founder listings | ☐ |
 | 13 | ✅ Fonts self-hosted (8 latin woff2, 2 preloaded, immutable cache); Google Fonts chain removed | done |
