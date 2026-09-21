@@ -214,7 +214,7 @@ Build verified: `npm run build` OK, JSON-LD valid, 5 graph nodes, FAQ 6/6 parity
 - **Avoid site-wide:** "AI agency Lebanon" (state agencies), "AI marketing agency" (wrong intent), "consultant IA Liban" (no FR AI-consulting SERP), "AI for restaurants Lebanon" as a lead phrase (hijacked by a venue named *Ai Restaurant Beirut*).
 
 ### On-site shipped in this pass
-Self-hosted fonts (8 latin woff2, 2 preloaded, immutable cache; Google Fonts chain removed) · COOP header · Instagram `@dave.automate` wired · IndexNow submitted (202) · sitemap submitted via GSC API · Moz/Bing/Google keys configured for the plugin.
+Self-hosted fonts (8 latin woff2, 2 preloaded, immutable cache; Google Fonts chain removed) · COOP header · Instagram `@dave.automates` wired · IndexNow submitted (202) · sitemap submitted via GSC API · Moz/Bing/Google keys configured for the plugin.
 
 ### Still yours
 GBP · GitHub/LinkedIn profiles · www redirect (blocked for me by permission policy — Vercel → Domains → www → Redirect to davidgeha.dev, 308) · disavow confirmation · design calls (loader once-per-session, mobile hero/nav, third-person About).

@@ -20,7 +20,7 @@ Use these exact values everywhere. Same spelling, same phone format, same websit
 | Languages | English, Arabic, French |
 | Hourly rate / min. project | Skip if optional. If required, put your real audit price. |
 | LinkedIn | `https://www.linkedin.com/in/david-geha/` |
-| Instagram | `https://www.instagram.com/dave.automate/` |
+| Instagram | `https://www.instagram.com/dave.automates/` |
 | GitHub | `https://github.com/Daveisgm05` |
 | Logo / photo | Your portrait from the site (`david-portfolio/public/david_transparent.webp` — export as PNG if the site rejects webp) |
 

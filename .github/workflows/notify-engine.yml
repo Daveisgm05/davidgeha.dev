@@ -48,6 +48,6 @@ jobs:
           URLS: ${{ steps.urls.outputs.urls }}
         run: |
           if [ -z "$TOKEN" ]; then echo "ENGINE_DISPATCH_TOKEN not set — skipping (daily sitemap diff will catch it)"; exit 0; fi
-          JSON=$(printf '%s\n' $URLS | python3 -c 'import json,sys; print(json.dumps({"event_type":"site-published","client_payload":{"urls":[l.strip() for l in sys.stdin if l.strip()]}}))')
+          JSON=$(printf '%s\n' $URLS | SHA="$GITHUB_SHA" python3 -c 'import json,os,sys; print(json.dumps({"event_type":"site-published","client_payload":{"urls":[l.strip() for l in sys.stdin if l.strip()],"sha":os.environ.get("SHA","")[:12]}}))')
           curl -sS -f -X POST -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/Daveisgm05/seo-geo-engine/dispatches -d "$JSON"
