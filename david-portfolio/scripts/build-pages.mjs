@@ -25,7 +25,7 @@ export const NAP = {
     sameAs: [
         'https://www.linkedin.com/in/david-geha/',
         'https://github.com/Daveisgm05',
-        'https://www.instagram.com/dave.automate/',
+        'https://www.instagram.com/dave.automates/',
     ],
 };
 
@@ -80,7 +80,7 @@ function footer() {
       <li><a href="/">Home</a></li>${NAV.map((n) => `<li><a href="${n.href}">${n.label}</a></li>`).join('')}
       <li><a href="https://www.linkedin.com/in/david-geha/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
       <li><a href="https://github.com/Daveisgm05" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-      <li><a href="https://www.instagram.com/dave.automate/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+      <li><a href="https://www.instagram.com/dave.automates/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
     </ul>
     <span class="footer__copy">© ${new Date().getFullYear()} David Geha. All rights reserved.</span>
   </div>

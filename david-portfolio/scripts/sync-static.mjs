@@ -63,7 +63,7 @@ ${faq.map(({ q, a }) => `    <h3>${esc(q)}</h3>\n    <p>${esc(a)}</p>`).join('\n
       <a href="tel:+96176412978">+961 76 412 978</a> (WhatsApp) · Beirut, Lebanon ·
       <a href="https://www.linkedin.com/in/david-geha/">LinkedIn</a> ·
       <a href="https://github.com/Daveisgm05">GitHub</a> ·
-      <a href="https://www.instagram.com/dave.automate/">Instagram</a></p>
+      <a href="https://www.instagram.com/dave.automates/">Instagram</a></p>
   </noscript>`;
 
 const nsStart = html.indexOf('<noscript>\n    <h1>');

@@ -84,7 +84,7 @@ export default {
         <ul>
           <li>LinkedIn: <a href="https://www.linkedin.com/in/david-geha/" target="_blank" rel="noopener noreferrer">linkedin.com/in/david-geha</a></li>
           <li>GitHub: <a href="https://github.com/Daveisgm05" target="_blank" rel="noopener noreferrer">github.com/Daveisgm05</a></li>
-          <li>Instagram: <a href="https://www.instagram.com/dave.automate/" target="_blank" rel="noopener noreferrer">@dave.automate</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/dave.automates/" target="_blank" rel="noopener noreferrer">@dave.automates</a></li>
           <li>Email: <a href="mailto:david@osgdev.com">david@osgdev.com</a> · WhatsApp: <a href="https://wa.me/96176412978" target="_blank" rel="noopener">+961 76 412 978</a></li>
         </ul>
         <p>Directory listings and Google Business Profile links will be added here as they go live.</p>
@@ -112,6 +112,6 @@ export default {
         email: 'david@osgdev.com',
         telephone: '+96176412978',
         knowsLanguage: ['en', 'ar', 'fr'],
-        sameAs: ['https://www.linkedin.com/in/david-geha/', 'https://github.com/Daveisgm05', 'https://www.instagram.com/dave.automate/'],
+        sameAs: ['https://www.linkedin.com/in/david-geha/', 'https://github.com/Daveisgm05', 'https://www.instagram.com/dave.automates/'],
     }],
 };
