@@ -170,5 +170,5 @@ export default {
     ],
     ctaTitle: 'Want the audit version of this guide, for your business?',
     ctaText: 'Two days, a written map of what to automate first, and a fixed price for the first build. No obligation to continue.',
-    extraSchema: (url) => [],
+    extraSchema: () => [],
 };

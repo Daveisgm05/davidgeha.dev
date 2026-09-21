@@ -5,12 +5,16 @@
 //   1. FAQPage JSON-LD  <- src/content/faq.js      (Google requires visible parity)
 //   2. <noscript> block <- src/content/services.js + faq.js
 //
+// 3. <noscript> also mirrors src/content/work.js + about.js (homepage work lists, about copy)
+//
 // The site is a client-rendered SPA, so crawlers that don't execute JS
 // (many AI fetchers, and Bing less reliably) only read the raw HTML. The
 // <noscript> mirror gives them the same ~1,000 words a browser user sees,
 // instead of a two-line stub.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { workItems, projects } from '../src/content/work.js';
+import { aboutText, aboutTitle, processSteps } from '../src/content/about.js';
 import { dirname, resolve } from 'node:path';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -47,6 +51,22 @@ const noscript = `<noscript>
     <h2>AI consulting &amp; AI solutions in Lebanon</h2>
     <p>${esc(servicesIntro)}</p>
 ${services.map(({ title, text }) => `    <h3>${esc(title)}</h3>\n    <p>${esc(text)}</p>`).join('\n')}
+
+    <h2>Selected work</h2>
+    <ul>
+${projects.map(({ title, category, year }) => `      <li>${esc(title)} — ${esc(category)}, ${esc(year)}</li>`).join('\n')}
+    </ul>
+
+    <h2>Recent work</h2>
+    <ul>
+${workItems.map(({ date, title, tags }) => `      <li><strong>${esc(date)}</strong> — ${esc(title)} (${esc(tags.join(', '))})</li>`).join('\n')}
+    </ul>
+
+    <h2>${esc(aboutTitle)}</h2>
+    <p>${esc(aboutText)} <a href="/about/">More about David</a>.</p>
+    <ol>
+${processSteps.map(({ num, label }) => `      <li>${esc(num)} — ${esc(label)}</li>`).join('\n')}
+    </ol>
 
     <h2>Working with an AI consultant in Lebanon</h2>
 ${faq.map(({ q, a }) => `    <h3>${esc(q)}</h3>\n    <p>${esc(a)}</p>`).join('\n')}

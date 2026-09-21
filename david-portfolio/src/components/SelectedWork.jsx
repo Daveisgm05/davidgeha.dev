@@ -2,36 +2,7 @@ import React, { useState } from 'react';
 import './SelectedWork.css';
 import Reveal from './Reveal';
 
-const projects = [
-    {
-        id: 1,
-        title: 'Lead Outreach Pipelines',
-        category: 'Agentic Outreach',
-        image: '/work-outreach-v2.webp',
-        year: '2026'
-    },
-    {
-        id: 2,
-        title: 'Competitive Research & SEO/GEO Pipelines',
-        category: 'Market Intelligence',
-        image: '/work-research-v2.webp',
-        year: '2026'
-    },
-    {
-        id: 3,
-        title: 'Image Ad Pipelines',
-        category: 'GPT Image 2.0',
-        image: '/work-ads-v2.webp',
-        year: '2025'
-    },
-    {
-        id: 4,
-        title: 'Custom CRM Dashboards',
-        category: 'Internal Tooling',
-        image: '/work-crm-v3.webp',
-        year: '2025'
-    }
-];
+import { projects } from '../content/work.js';
 
 /**
  * Selected Work — mirrors likely-story.co.uk's homepage list: a single
