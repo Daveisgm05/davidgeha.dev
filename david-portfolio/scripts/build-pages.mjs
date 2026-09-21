@@ -110,6 +110,10 @@ function schemaFor(page) {
         dateModified: TODAY,
         breadcrumb: { '@id': url + '#breadcrumb' },
     };
+    if (page.schemaType === 'ProfilePage') {
+        webpage.mainEntity = person;
+        webpage.dateCreated = page.datePublished || TODAY;
+    }
     breadcrumb['@id'] = url + '#breadcrumb';
     const graph = [webpage, breadcrumb, ...(page.extraSchema?.(url) || [])];
     if (page.faq?.length) {
