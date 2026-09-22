@@ -51,7 +51,33 @@ Do one or two a week. Each takes ~10 minutes: create account → "add/list your 
 | 7 | DesignRush | https://www.designrush.com/agency/get-listed | Has an "AI" category. |
 | 8 | Yellow Pages Lebanon | https://www.yellowpages.com.lb/ → "Add your business" | Local citation; helps GBP. |
 
-Say "done" after each one and I'll check the listing is live and the link/NAP is correct.
+### The three nobody does (do these next — they feed the AI engines directly)
+
+| # | Site | Go to | Why it matters |
+|---|---|---|---|
+| 9 | **Bing Places** | https://www.bingplaces.com → "Import from Google Business Profile" | 5 minutes: it pulls your GBP. Bing's index is what **ChatGPT and Copilot search**. Without it you do not exist to them locally. |
+| 10 | **Apple Business Connect** | https://businessconnect.apple.com | Free, ~10 min. Feeds Apple Maps and Siri; nobody in Lebanon bothers. |
+| 11 | **Wikidata** | https://www.wikidata.org → "Create a new item" | A structured entity ("David Geha, AI consultant, Beirut") with `official website` = davidgeha.dev and links to LinkedIn/GitHub. Google and every LLM read Wikidata. Keep it factual, no marketing language, or it gets deleted. |
+
+### Worth it after those
+
+| # | Site | Go to | Notes |
+|---|---|---|---|
+| 12 | Wellfound (AngelList) | https://wellfound.com | Consultant/startup profile; well crawled. |
+| 13 | F6S | https://www.f6s.com | Founder/startup directory, free, indexes fast. |
+| 14 | Lebanon business chambers / Berytech / SmartESA directories | search each site for "member directory" / "add your startup" | Local `.lb` links — the closest thing to an AUB link outside AUB. |
+
+**Not worth your time:** paid "top 10 AI agency" placements, G2 (software products only), any directory that asks for money to list, anything promising backlinks.
+
+### When a listing goes live
+
+Say "done" with the profile URL. I check the listing is live and the NAP matches, then record it so the engine measures what it did:
+
+```bash
+cd seo-geo-engine && .venv/bin/python src/engine.py memory mark listing_live --subject <domain> --note "<profile url>"
+```
+
+That closes the task, opens a measured off-site change, and from then on the Monday run compares the AI engines' answers before and after that listing.
 
 ## AUB — the one email
 
