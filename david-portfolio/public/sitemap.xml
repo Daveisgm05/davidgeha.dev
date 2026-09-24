@@ -3,7 +3,6 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://davidgeha.dev/</loc>
-    <lastmod>2026-09-21</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/og-image.jpg</image:loc>
       <image:title>David Geha - AI Consultant in Lebanon</image:title>
@@ -27,7 +26,7 @@
   </url>
   <url>
     <loc>https://davidgeha.dev/about/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/david_transparent.webp</image:loc>
       <image:title>David Geha, independent AI consultant based in Beirut, Lebanon</image:title>
@@ -43,7 +42,7 @@
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-consulting-lebanon/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/img/consulting-hero-1600.webp</image:loc>
       <image:title>The clock tower on Nejmeh Square in downtown Beirut, Lebanon, where David Geha meets AI consulting clients</image:title>
@@ -67,7 +66,7 @@
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-solutions-lebanon/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/img/solutions-hero-1600.webp</image:loc>
       <image:title>Lattice of connected nodes on a dark background, representing agentic AI systems linking the tools a business already uses</image:title>
@@ -91,7 +90,7 @@
   </url>
   <url>
     <loc>https://davidgeha.dev/blog/ai-consulting-in-lebanon-guide/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/img/guide-hero-1600.webp</image:loc>
       <image:title>Beirut skyline in monochrome, where most AI consulting firms and consultants in Lebanon are based</image:title>

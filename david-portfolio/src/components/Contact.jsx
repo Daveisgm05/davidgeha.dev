@@ -1,5 +1,6 @@
 import React from 'react';
 import './Contact.css';
+import { siteLinks } from '../content/site-links';
 
 const Contact = () => {
     return (
@@ -25,10 +26,15 @@ const Contact = () => {
                     <span>Beirut, Lebanon</span>
                 </address>
 
+                {/* Content pages come from src/pages via the generated site-links module: a new page or guide
+                    is linked here on the next build, and "All guides" appears once there are two. */}
                 <nav className="contact__sitemap" aria-label="Pages">
                     <a href="/ai-consulting-lebanon/">AI consulting in Lebanon</a>
                     <a href="/ai-solutions-lebanon/">AI solutions &amp; automation</a>
-                    <a href="/blog/ai-consulting-in-lebanon-guide/">2026 guide: costs &amp; how to choose</a>
+                    {siteLinks.pages.map((p) => <a key={p.href} href={p.href}>{p.label}</a>)}
+                    {siteLinks.articles.slice(0, 2).map((a) => <a key={a.href} href={a.href}>{a.label}</a>)}
+                    {siteLinks.hub && <a href={siteLinks.hub}>All guides</a>}
+                    {siteLinks.work && <a href={siteLinks.work}>Case studies</a>}
                     <a href="/about/">About David</a>
                 </nav>
 

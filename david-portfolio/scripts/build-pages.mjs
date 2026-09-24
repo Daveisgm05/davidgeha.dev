@@ -30,12 +30,16 @@ export const NAP = {
     ],
 };
 
-const NAV = [
+const NAV = [  // the Guide entry switches to the /blog/ hub once it exists (see the run section)
     { href: '/ai-consulting-lebanon/', label: 'Consulting' },
     { href: '/ai-solutions-lebanon/', label: 'Solutions' },
     { href: '/blog/ai-consulting-in-lebanon-guide/', label: 'Guide' },
     { href: '/about/', label: 'About' },
 ];
+
+// Pages outside NAV (engine-generated service/industry pages, the /blog/ and /work/ hubs), linked from every
+// footer so no page is reachable only through the sitemap. Filled in before rendering.
+let FOOTER_EXTRA = [];
 
 const STACK = ['Supabase', 'Vercel', 'Claude Code', 'Claude Desktop', 'GitHub', 'GPT Image 2.0', 'Custom CRMs', 'Outreach Systems'];
 
@@ -122,7 +126,8 @@ function footer(page) {
     <nav class="contact__sitemap" aria-label="Pages">
       <a href="/">Home — AI consultant in Lebanon</a>
       <a href="/#work">Selected work</a>${NAV.map((n) => `
-      <a href="${n.href}"${n.href === page.path ? ' aria-current="page"' : ''}>${n.label === 'Guide' ? '2026 guide: costs &amp; how to choose' : n.label === 'About' ? 'About David' : n.label === 'Consulting' ? 'AI consulting in Lebanon' : 'AI solutions &amp; automation'}</a>`).join('')}
+      <a href="${n.href}"${n.href === page.path ? ' aria-current="page"' : ''}>${n.label === 'Guide' ? '2026 guide: costs &amp; how to choose' : n.label === 'Guides' ? 'All guides' : n.label === 'About' ? 'About David' : n.label === 'Consulting' ? 'AI consulting in Lebanon' : 'AI solutions &amp; automation'}</a>`).join('')}${FOOTER_EXTRA.map((n) => `
+      <a href="${n.href}"${n.href === page.path ? ' aria-current="page"' : ''}>${n.label}</a>`).join('')}
     </nav>
     <div class="contact__links">
       <div class="contact__social">
@@ -134,6 +139,32 @@ function footer(page) {
     </div>
   </div>
 </footer>`;
+}
+
+const textOf = (html) => String(html || '').replace(/<[^>]+>/g, '').trim();
+
+// The /blog/ index, generated once two or more articles exist: every article linked, newest first.
+function blogHub(articles) {
+    const cards = articles.map((a, i) => `
+      <article class="card"><span class="num">${String(i + 1).padStart(2, '0')}</span><h3><a href="${a.path}">${esc(a.ogTitle || a.title)}</a></h3>
+        <p>${esc(a.description)}</p></article>`).join('');
+    return {
+        path: '/blog/',
+        title: 'AI Guides for Businesses in Lebanon | David Geha',
+        description: 'Plain-language guides for business owners in Lebanon on AI consulting, automation and choosing the right help, from an AI consultant in Beirut.',
+        schemaType: 'CollectionPage',
+        about: 'service',
+        crumbs: [{ label: 'Home', href: '/' }, { label: 'Guides' }],
+        word: 'Guides',
+        eyebrow: 'AI consulting · Lebanon · Guides',
+        h1: 'Guides on AI for businesses in Lebanon',
+        lead: 'Written by David Geha, an AI consultant in Beirut, for owners and managers deciding what to automate and who to trust with it.',
+        body: `\n  <section class="section container" id="guides"><div class="cards${articles.length % 2 === 0 ? ' cards--2' : ''}">${cards}</div></section>`,
+        faq: [],
+        datePublished: articles[articles.length - 1].datePublished,
+        dateModified: articles[0].dateModified || articles[0].datePublished,
+        extraSchema: (url) => [{ '@type': 'ItemList', '@id': url + '#list', itemListElement: articles.map((a, i) => ({ '@type': 'ListItem', position: i + 1, url: SITE + a.path, name: a.ogTitle || a.title })) }],
+    };
 }
 
 // Every <img> under /img/ in the rendered page, for the sitemap and schema.
@@ -178,7 +209,7 @@ function schemaFor(page) {
         author: person,
         publisher: person,
         datePublished: page.datePublished || TODAY,
-        dateModified: TODAY,
+        dateModified: page.dateModified || page.datePublished || TODAY,
         breadcrumb: { '@id': url + '#breadcrumb' },
     };
     if (primaryImage) {
@@ -244,7 +275,7 @@ function render(page) {
   ${heroPreload(page)}
   <link rel="stylesheet" href="/src/pages.css">
   <script>document.documentElement.classList.add('js')</script>
-  <script>(function(){var id='%VITE_GA4_ID%';if(!id||id.charAt(0)==='%')return;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});})();</script>
+  <script>(function(){var id='%VITE_GA4_ID%';if(!id||id.charAt(0)==='%')return;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});})();(function(){var id='%VITE_CLARITY_ID%';if(!id||id.charAt(0)==='%')return;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',id);})();document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';var m=h.indexOf('mailto:')===0?'email':h.indexOf('tel:')===0?'phone':/wa\\.me\\/|whatsapp\\.com/.test(h)?'whatsapp':/calendly\\.com|cal\\.com/.test(h)?'booking':'';if(!m)return;if(window.gtag)gtag('event','generate_lead',{method:m,link_location:location.pathname});if(window.clarity){clarity('event','generate_lead');clarity('set','lead_method',m);}},true);</script>
 </head>
 <body>
 <div class="hero-frame">
@@ -298,6 +329,21 @@ for (const f of files) {
     pages.push(page);
 }
 
+// No orphans: crawlers and AI fetchers find pages through links, not only the sitemap.
+const articles = pages.filter((p) => p.path.startsWith('/blog/'))
+    .sort((a, b) => String(b.datePublished || '').localeCompare(String(a.datePublished || '')));
+if (articles.length >= 2 && !pages.some((p) => p.path === '/blog/')) pages.push(blogHub(articles));
+// With a hub, the nav's "Guide" becomes "Guides" → /blog/ (the same rule as scripts/site-links.mjs for the SPA)
+const guideNav = NAV.find((n) => n.label === 'Guide');
+if (guideNav && pages.some((p) => p.path === '/blog/')) Object.assign(guideNav, { href: '/blog/', label: 'Guides' });
+const inNav = new Set(NAV.map((n) => n.href));
+FOOTER_EXTRA = [
+    ...pages.filter((p) => !inNav.has(p.path) && !/^\/(blog|work)\//.test(p.path))
+        .map((p) => ({ href: p.path, label: p.navLabel ? esc(p.navLabel) : textOf(p.h1) })),
+    ...['/blog/', '/work/'].filter((h) => pages.some((p) => p.path === h) && !inNav.has(h))
+        .map((h) => ({ href: h, label: h === '/blog/' ? 'All guides' : 'Case studies' })),
+];
+
 const rendered = new Map();
 for (const p of pages) {
     const dir = join(root, p.path);
@@ -322,12 +368,13 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>${SITE}/</loc>
-    <lastmod>${TODAY}</lastmod>
 ${imageXml(homeImages)}
   </url>
 ${pages.map((p) => {
     const imgs = collectImages(rendered.get(p.path)).map((i) => [i.src, i.alt]);
-    return `  <url>\n    <loc>${SITE}${p.path}</loc>\n    <lastmod>${p.lastmod || TODAY}</lastmod>\n${imageXml(imgs)}\n  </url>`;
+    // lastmod = the page's real last change (dateModified), never the build date — Google ignores lastmod that always moves
+    const mod = p.dateModified || p.datePublished;
+    return `  <url>\n    <loc>${SITE}${p.path}</loc>\n${mod ? `    <lastmod>${mod}</lastmod>\n` : ''}${imageXml(imgs)}\n  </url>`;
 }).join('\n')}
 </urlset>
 `;

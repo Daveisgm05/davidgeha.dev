@@ -10,6 +10,7 @@ export default {
     description: 'David Geha is an independent AI consultant in Beirut, Lebanon, and an engineering student at AUB, building agentic AI systems for agencies, F&B and founders.',
     schemaType: 'ProfilePage',
     datePublished: '2026-09-19',
+    dateModified: '2026-09-22',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'About' }],
     word: 'About',
     eyebrow: 'AI consultant · Beirut, Lebanon',

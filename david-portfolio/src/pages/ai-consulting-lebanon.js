@@ -11,6 +11,8 @@ export default {
     title: 'AI Consulting in Lebanon: Audits, Sprints & Retainers',
     ogTitle: 'AI Consulting in Lebanon — David Geha',
     description: 'Independent AI consulting in Lebanon for agencies, F&B and founders: a 48-hour workflow audit, a fixed-price build sprint and an optional retainer, from Beirut.',
+    datePublished: '2026-09-19',
+    dateModified: '2026-09-22',
     ogImage: '/img/og-consulting.jpg',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Consulting in Lebanon' }],
