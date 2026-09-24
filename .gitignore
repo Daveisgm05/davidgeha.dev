@@ -1,5 +1,4 @@
 # local secrets — never commit
-davidgeha.dev-audit/google-api.json
 *.secret.json
 .env
 .env.*

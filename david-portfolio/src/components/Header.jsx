@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import './Header.css';
 import HeroPortrait from './HeroPortrait';
 import { INTRO_READY_EVENT, shouldSkipIntro, prefersReducedMotion } from '../lib/introGate';
+import { siteLinks } from '../content/site-links';
 
 const ArrowUpRight = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -137,7 +138,7 @@ const Header = () => {
                             ))}
                             <li><a href="/ai-consulting-lebanon/">AI consulting</a></li>
                             <li><a href="/ai-solutions-lebanon/">AI solutions</a></li>
-                            <li><a href="/blog/ai-consulting-in-lebanon-guide/">Guide</a></li>
+                            {siteLinks.guide && <li><a href={siteLinks.guide.href}>{siteLinks.guide.label}</a></li>}
                             <li><a href="https://wa.me/96176412978" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
                         </ul>
                     </details>

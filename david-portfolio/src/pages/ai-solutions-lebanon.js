@@ -60,6 +60,8 @@ export default {
     title: 'AI Solutions & Automation for Businesses in Lebanon',
     ogTitle: 'AI Solutions & Automation for Businesses in Lebanon',
     description: 'Custom AI solutions in Lebanon: lead-outreach engines, research pipelines, ad creatives, AI CRMs, F&B reporting and back-office agents, built in Beirut.',
+    datePublished: '2026-09-19',
+    dateModified: '2026-09-22',
     ogImage: '/img/og-solutions.jpg',
     about: 'service',
     schemaType: 'CollectionPage',

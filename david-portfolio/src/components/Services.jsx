@@ -2,6 +2,10 @@ import React from 'react';
 import './Services.css';
 import Reveal from './Reveal';
 import { services, servicesIntro } from '../content/services';
+import { siteLinks } from '../content/site-links';
+
+// A card links to its service's own page once that page exists, else to its section on the solutions page.
+const live = new Set(siteLinks.pages.map((p) => p.href));
 
 
 const Services = () => {
@@ -20,12 +24,12 @@ const Services = () => {
             </div>
 
             <Reveal as="div" className="services__grid" variant="rise" stagger>
-                {services.map(({ num, title, text, href, cta }) => (
+                {services.map(({ num, title, text, href, page, cta }) => (
                     <article className="service" key={num}>
                         <span className="service__num">{num}</span>
                         <h3 className="service__title">{title}</h3>
                         <p className="service__text">{text}</p>
-                        {href && <a className="service__link" href={href}>{cta} →</a>}
+                        {href && <a className="service__link" href={page && live.has(page) ? page : href}>{cta} →</a>}
                     </article>
                 ))}
             </Reveal>
