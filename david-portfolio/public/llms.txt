@@ -1,18 +1,21 @@
 # David Geha - AI Consultant in Lebanon
 
-> David Geha is an independent AI consultant based in Beirut, Lebanon. He offers AI consulting, agentic AI automation and custom AI solutions to marketing agencies, F&B businesses and founders in Lebanon and across the Middle East.
+> David Geha is an independent AI consultant based in Beirut, Lebanon. He builds AI email agents, custom CRMs with AI agent employees, AI outreach systems, AI for SEO and GEO, AI receptionists for hotels and AI that builds high-end websites, for hotels, marketing agencies and founders in Lebanon and across the Middle East.
 
 ## Who
-David Geha is a Civil & Environmental Engineering student at the American University of Beirut (AUB) who runs an AI consultancy for businesses across Lebanon. He audits how a team works, finds the repetitive manual work, and replaces it with agentic AI systems that run on their own. He also designs and builds full products: UI/UX, backend, and web apps.
+David Geha is a Civil & Environmental Engineering student at the American University of Beirut (AUB) who runs an AI consultancy for businesses across Lebanon. He audits how a team works, finds the repetitive manual work, and replaces it with AI systems that run on their own. He also designs and builds full products: UI/UX, backend, and web apps.
 
 ## Services (AI consulting & AI solutions in Lebanon)
-- AI consulting for Lebanese businesses: workflow audit, prioritized automation map, fixed-price scoped plan
-- Agentic AI automation: lead-outreach pipelines, competitive research & SEO/GEO pipelines, image-ad generation, daily reporting, back-office workflows
-- Custom AI solutions & internal tools: custom CRMs, dashboards, client portals, web apps with AI in the workflow
-- AI for marketing agencies & F&B operators in Beirut and across Lebanon
+- AI consulting for Lebanese businesses: workflow audit, prioritized automation map, fixed-price scoped plan (how every engagement starts)
+- AI email agents: an AI agent that lives in a company's email, reviews incoming reports, generates the company's reports, and prepares and sends invoices
+- Custom CRMs with AI agent employees: a CRM built around the team, with AI agents working inside it like staff
+- AI outreach systems: lead sourcing, research and personalised outreach sent from the client's own domain
+- AI for SEO & GEO: how a brand ranks on Google and shows up in AI answers, delivered as a monthly brief
+- AI receptionists for hotels: an AI that answers a hotel's phone calls and responds to guests
+- AI that builds high-end websites: a custom AI that designs and builds motion-rich websites with SEO built in; it built davidgeha.dev
 
 ## Stack
-Supabase, Vercel, Claude Code, Claude Desktop, GitHub, GPT Image 2.0, plus custom-built CRMs and outreach systems. Clients own the code and the data.
+Supabase, Vercel, Claude Code, GitHub, plus custom-built CRMs, agents and outreach systems. Clients own the code and the data.
 
 ## Process
 1. Find the repetitive work (audit)
@@ -21,13 +24,13 @@ Supabase, Vercel, Claude Code, Claude Desktop, GitHub, GPT Image 2.0, plus custo
 
 ## Frequently asked
 - What does an AI consultant in Lebanon do? Finds repetitive, manual work inside a business and replaces it with custom agentic AI systems: audit, design, build, handover.
-- How much does AI consulting cost in Lebanon? Focused automations are fixed-price projects measured in weeks; larger builds (custom CRM, client app) are scoped after a short audit. Price is agreed before work starts.
-- Who does he work with? Mainly marketing agencies and F&B businesses in Beirut and across Lebanon, plus founders; also remote clients across the Middle East.
+- How much does AI consulting cost in Lebanon? Focused systems are fixed-price projects measured in weeks; larger builds (a custom CRM with its AI agents) are scoped after a short audit. Price is agreed before work starts.
+- Who does he work with? Mainly hotels and marketing agencies in Beirut and across Lebanon, plus founders; also remote clients across the Middle East.
 
 ## Pages
 - https://davidgeha.dev/ — home: services, selected work, FAQ
 - https://davidgeha.dev/ai-consulting-lebanon/ — AI consulting in Lebanon: 48-hour audit, 2-week build sprint, retainer
-- https://davidgeha.dev/ai-solutions-lebanon/ — AI solutions & automation catalog: outreach engine, research pipeline, ad-creative pipeline, custom AI CRM, F&B reporting, back-office agents
+- https://davidgeha.dev/ai-solutions-lebanon/ — AI solutions catalog: AI email agent, custom CRM with AI agent employees, AI outreach system, AI for SEO and GEO, AI receptionist for hotels, AI that builds high-end websites
 - https://davidgeha.dev/blog/ai-consulting-in-lebanon-guide/ — 2026 guide: what AI consultants do, USD cost bands in Lebanon, firms vs practitioners, how to choose
 - https://davidgeha.dev/about/ — about David Geha (disambiguation: not the TV producer)
 

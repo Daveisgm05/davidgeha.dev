@@ -8,25 +8,33 @@
       <image:title>David Geha - AI Consultant in Lebanon</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://davidgeha.dev/work-outreach-v2.webp</image:loc>
-      <image:title>Lead Outreach Pipelines - agentic AI automation project</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://davidgeha.dev/work-research-v2.webp</image:loc>
-      <image:title>Competitive Research and SEO/GEO Pipelines - AI automation project</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://davidgeha.dev/work-ads-v2.webp</image:loc>
-      <image:title>Image Ad Pipelines - AI ad-creative generation project</image:title>
+      <image:loc>https://davidgeha.dev/work-email-agent.webp</image:loc>
+      <image:title>AI Email Agent - an AI agent in a company inbox that reviews reports, generates reports and prepares invoices</image:title>
     </image:image>
     <image:image>
       <image:loc>https://davidgeha.dev/work-crm-v3.webp</image:loc>
-      <image:title>Custom CRM Dashboards - custom AI solution for a marketing agency in Lebanon</image:title>
+      <image:title>Custom CRM with AI Agent Employees - custom AI solution for a marketing agency in Lebanon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-outreach-v2.webp</image:loc>
+      <image:title>AI Outreach Systems - agentic lead outreach project</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-research-v2.webp</image:loc>
+      <image:title>AI for SEO and GEO - search and AI-visibility pipeline</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-receptionist.webp</image:loc>
+      <image:title>AI Receptionist for Hotels - an AI that answers hotel phone calls</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-website-ai.webp</image:loc>
+      <image:title>AI Website Builder - the custom AI that built davidgeha.dev</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://davidgeha.dev/about/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/david_transparent.webp</image:loc>
       <image:title>David Geha, independent AI consultant based in Beirut, Lebanon</image:title>
@@ -42,7 +50,7 @@
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-consulting-lebanon/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/img/consulting-hero-1600.webp</image:loc>
       <image:title>The clock tower on Nejmeh Square in downtown Beirut, Lebanon, where David Geha meets AI consulting clients</image:title>
@@ -52,8 +60,8 @@
       <image:title>Hand-drawn workflow diagram on a whiteboard mapping a business process before automating it</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://davidgeha.dev/img/consulting-audit-1200.webp</image:loc>
-      <image:title>Staff member using a touchscreen point-of-sale terminal in a dimly lit restaurant, the kind of daily task an AI audit maps</image:title>
+      <image:loc>https://davidgeha.dev/img/consulting-audit-map-1200.webp</image:loc>
+      <image:title>The 48-hour audit task map on a tablet resting on black basalt: every repeated task scored for automation potential</image:title>
     </image:image>
     <image:image>
       <image:loc>https://davidgeha.dev/img/consulting-who-1200.webp</image:loc>
@@ -66,31 +74,23 @@
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-solutions-lebanon/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/img/solutions-hero-1600.webp</image:loc>
       <image:title>Lattice of connected nodes on a dark background, representing agentic AI systems linking the tools a business already uses</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://davidgeha.dev/img/solutions-fnb-1200.webp</image:loc>
-      <image:title>Chefs at work in a dimly lit restaurant kitchen: the daily reporting and inventory busywork behind F&amp;B operations in Lebanon</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://davidgeha.dev/img/solutions-backoffice-1200.webp</image:loc>
-      <image:title>Paperwork, calculator and smartphone on a dark office desk: the intake and data entry a back-office agent takes over</image:title>
     </image:image>
     <image:image>
       <image:loc>https://davidgeha.dev/img/solutions-smes-1200.webp</image:loc>
       <image:title>Two colleagues working side by side on a laptop in a small plant-filled office</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://davidgeha.dev/img/solutions-industries-1200.webp</image:loc>
-      <image:title>Contemporary café interior with a long bar counter, the kind of F&amp;B outlet where daily reporting is automated</image:title>
+      <image:loc>https://davidgeha.dev/img/solutions-hotel-reception-1200.webp</image:loc>
+      <image:title>The hotel AI receptionist on a phone resting on black basalt, mid-call with a guest</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://davidgeha.dev/blog/ai-consulting-in-lebanon-guide/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/img/guide-hero-1600.webp</image:loc>
       <image:title>Beirut skyline in monochrome, where most AI consulting firms and consultants in Lebanon are based</image:title>

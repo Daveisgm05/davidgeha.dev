@@ -54,9 +54,9 @@ writeFileSync(
 // ---- 2. <noscript> mirror ---------------------------------------------
 const noscript = `<noscript>
     <h1>David Geha - AI Consultant in Lebanon</h1>
-    <p>David Geha is an independent AI consultant in Lebanon offering AI consulting, AI automation and AI
-      agents, AI for SEO and GEO, AI outreach systems and custom AI solutions for marketing agencies, F&amp;B
-      businesses and founders in Beirut and across Lebanon.</p>
+    <p>David Geha is an independent AI consultant in Lebanon who builds AI email agents, custom CRMs with AI
+      agent employees, AI outreach systems, AI for SEO and GEO, AI receptionists for hotels and AI that builds
+      high-end websites, for hotels, marketing agencies and founders in Beirut and across Lebanon.</p>
 
     <h2>AI consulting &amp; AI solutions in Lebanon</h2>
     <p>${esc(servicesIntro)}</p>
@@ -64,12 +64,12 @@ ${services.map(({ title, text }) => `    <h3>${esc(title)}</h3>\n    <p>${esc(te
 
     <h2>Selected work</h2>
     <ul>
-${projects.map(({ title, category, year }) => `      <li>${esc(title)} — ${esc(category)}, ${esc(year)}</li>`).join('\n')}
+${projects.map(({ title, category }) => `      <li>${esc(title)} — ${esc(category)}</li>`).join('\n')}
     </ul>
 
     <h2>Recent work</h2>
     <ul>
-${workItems.map(({ date, title, tags }) => `      <li><strong>${esc(date)}</strong> — ${esc(title)} (${esc(tags.join(', '))})</li>`).join('\n')}
+${workItems.map(({ title, tags }) => `      <li>${esc(title)} (${esc(tags.join(', '))})</li>`).join('\n')}
     </ul>
 
     <h2>${esc(aboutTitle)}</h2>

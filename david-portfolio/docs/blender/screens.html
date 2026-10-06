@@ -1,0 +1,173 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: 'Inter'; font-weight: 300 700; src: url('file:///Users/davidsmac/Projects/david%20geha%20portfolio/david-portfolio/public/fonts/inter-400.woff2'); }
+@font-face { font-family: 'Mono'; font-weight: 400 500; src: url('file:///Users/davidsmac/Projects/david%20geha%20portfolio/david-portfolio/public/fonts/jetbrains-mono-var.woff2'); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, sans-serif; color: #111; background: #fff; -webkit-font-smoothing: antialiased; }
+.screen { width: var(--w); height: var(--h); overflow: hidden; position: relative; }
+.mono { font-family: Mono, monospace; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #c6f432; }
+/* app chrome */
+.app { display: grid; grid-template-columns: 190px 1fr; height: 100%; }
+.side { border-right: 1px solid #ececec; padding: 22px 16px; display: flex; flex-direction: column; gap: 4px; background: #fafafa; }
+.brand { font-weight: 650; font-size: 17px; margin: 0 6px 18px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+.brand i { width: 22px; height: 22px; border-radius: 6px; background: #111; display: inline-block; }
+.nav { padding: 8px 10px; border-radius: 8px; font-size: 13px; color: #555; display: flex; gap: 10px; align-items: center; }
+.nav::before { content: ''; width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid #bbb; }
+.nav.on { background: #fff; color: #111; box-shadow: 0 0 0 1px #e8e8e8; font-weight: 550; }
+.main { padding: 26px 30px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.top { display: flex; justify-content: space-between; align-items: center; }
+h1 { font-size: 24px; letter-spacing: -0.03em; font-weight: 650; }
+.sub { font-size: 12.5px; color: #777; margin-top: 4px; }
+.btn { background: #111; color: #fff; border-radius: 999px; padding: 9px 16px; font-size: 12.5px; font-weight: 550; display: inline-flex; gap: 8px; align-items: center; }
+.btn.ghost { background: #fff; color: #111; box-shadow: inset 0 0 0 1px #ddd; }
+.search { flex: 1; max-width: 380px; border-radius: 999px; box-shadow: inset 0 0 0 1px #e3e3e3; padding: 9px 16px; font-size: 12.5px; color: #999; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.card { border-radius: 14px; box-shadow: inset 0 0 0 1px #ececec; padding: 14px 16px; }
+.card b { display: block; font-size: 26px; letter-spacing: -0.03em; margin-top: 6px; font-weight: 650; }
+.card span { font-size: 11.5px; color: #888; }
+.card em { font-style: normal; font-size: 11px; color: #4a7a00; font-weight: 600; }
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+th { text-align: left; font-weight: 500; color: #999; font-size: 11px; padding: 8px 10px; border-bottom: 1px solid #eee; }
+td { padding: 11px 10px; border-bottom: 1px solid #f2f2f2; color: #333; }
+td b { color: #111; font-weight: 600; }
+.pill { font-size: 10.5px; padding: 3px 9px; border-radius: 999px; background: #f2f2f2; color: #444; font-weight: 550; }
+.pill.go { background: #111; color: #fff; }
+.pill.ok { background: #eef9d6; color: #3f6a00; }
+.bar { height: 6px; border-radius: 99px; background: #eee; overflow: hidden; } .bar i { display: block; height: 100%; background: #111; }
+.row { display: flex; gap: 12px; align-items: center; }
+.tabs { display: flex; gap: 18px; font-size: 12.5px; color: #888; border-bottom: 1px solid #eee; }
+.tabs span { padding-bottom: 9px; } .tabs .on { color: #111; border-bottom: 2px solid #111; font-weight: 550; }
+.panel { border-radius: 14px; box-shadow: inset 0 0 0 1px #ececec; padding: 16px 18px; }
+.av { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg,#ddd,#bbb); flex: none; }
+/* dark variant (phone SEO app) */
+.dark { background: #0c0d0f; color: #f2f2ee; }
+</style></head>
+<body>
+
+<!-- 1 · audit map (tablet 4:3) -->
+<div class="screen" id="audit" style="--w:1600px;--h:1200px">
+  <div class="app" style="grid-template-columns: 220px 1fr">
+    <div class="side"><div class="brand"><i></i>Workflow audit</div><div class="nav on">Task map</div><div class="nav">Interviews</div><div class="nav">Data sources</div><div class="nav">Build plan</div><div class="nav">Pricing</div></div>
+    <div class="main" style="padding:34px 40px; gap:24px">
+      <div class="top"><div><h1 style="font-size:32px">48-hour audit · task map</h1><div class="sub" style="font-size:15px">Every repeated task, scored for automation potential, risk and payback</div></div><span class="btn" style="font-size:15px;padding:12px 20px">Export plan</span></div>
+      <div class="cards"><div class="card"><span style="font-size:14px">Tasks mapped</span><b style="font-size:34px">37</b></div><div class="card"><span style="font-size:14px">Hours / week</span><b style="font-size:34px">61.5</b></div><div class="card"><span style="font-size:14px">Automate first</span><b style="font-size:34px">9</b><em style="font-size:13px">~38 h back</em></div><div class="card"><span style="font-size:14px">Leave manual</span><b style="font-size:34px">6</b></div></div>
+      <div class="panel" style="padding:20px 24px">
+      <table style="font-size:15.5px"><tr><th style="font-size:13px">Task</th><th style="font-size:13px">Owner</th><th style="font-size:13px">Hours / wk</th><th style="font-size:13px">Automation potential</th><th style="font-size:13px">Decision</th></tr>
+      <tr><td><b>Lead research &amp; first emails</b></td><td>Sales</td><td>12.0</td><td><div class="bar"><i style="width:92%"></i></div></td><td><span class="pill go">Automate first</span></td></tr>
+      <tr><td><b>Daily sales report</b></td><td>Ops</td><td>6.5</td><td><div class="bar"><i style="width:88%"></i></div></td><td><span class="pill go">Automate first</span></td></tr>
+      <tr><td><b>Supplier follow-ups</b></td><td>Kitchen</td><td>5.0</td><td><div class="bar"><i style="width:81%"></i></div></td><td><span class="pill go">Automate first</span></td></tr>
+      <tr><td><b>Ad creative variations</b></td><td>Design</td><td>9.0</td><td><div class="bar"><i style="width:74%"></i></div></td><td><span class="pill ok">Phase 2</span></td></tr>
+      <tr><td><b>Inventory counts</b></td><td>Kitchen</td><td>7.5</td><td><div class="bar"><i style="width:63%"></i></div></td><td><span class="pill ok">Phase 2</span></td></tr>
+      <tr><td><b>Client strategy calls</b></td><td>Founder</td><td>8.0</td><td><div class="bar"><i style="width:12%"></i></div></td><td><span class="pill">Keep human</span></td></tr>
+      <tr><td><b>Invoice reconciliation</b></td><td>Finance</td><td>4.5</td><td><div class="bar"><i style="width:57%"></i></div></td><td><span class="pill ok">Phase 2</span></td></tr></table></div>
+    </div>
+  </div>
+</div>
+
+<!-- 2 · agent run log (laptop 16:10) -->
+<div class="screen" id="agent" style="--w:1600px;--h:1000px">
+  <div class="app">
+    <div class="side"><div class="brand"><i></i>Agents</div><div class="nav on">Runs</div><div class="nav">Outreach agent</div><div class="nav">Report agent</div><div class="nav">Exceptions</div><div class="nav">Settings</div></div>
+    <div class="main">
+      <div class="top"><div><h1>Run #1,284 · Outreach agent</h1><div class="sub"><span class="dot"></span>&nbsp; Running · started 07:00 · on schedule</div></div><div class="row"><span class="btn ghost">Pause</span><span class="btn">View exceptions (2)</span></div></div>
+      <div class="cards"><div class="card"><span>Leads sourced</span><b>42</b></div><div class="card"><span>Researched</span><b>42</b></div><div class="card"><span>Emails sent</span><b>38</b><em>4 held for review</em></div><div class="card"><span>Replies today</span><b>6</b></div></div>
+      <div class="panel" style="flex:1">
+        <table class="mono" style="font-size:12px">
+          <tr><th>Time</th><th>Step</th><th>Detail</th><th>Status</th></tr>
+          <tr><td>07:00:02</td><td><b>Source</b></td><td>Pulled 42 companies matching the ideal customer profile</td><td><span class="pill ok">done</span></td></tr>
+          <tr><td>07:03:41</td><td><b>Research</b></td><td>Read site, socials and recent news for each lead</td><td><span class="pill ok">done</span></td></tr>
+          <tr><td>07:11:18</td><td><b>Write</b></td><td>Drafted 42 first messages in the brand's voice</td><td><span class="pill ok">done</span></td></tr>
+          <tr><td>07:12:05</td><td><b>Review</b></td><td>4 drafts flagged for a human check</td><td><span class="pill">held</span></td></tr>
+          <tr><td>07:15:30</td><td><b>Send</b></td><td>38 emails sent from the client's domain</td><td><span class="pill ok">done</span></td></tr>
+          <tr><td>07:15:31</td><td><b>Log</b></td><td>Every message and reply written to the CRM</td><td><span class="pill ok">done</span></td></tr>
+          <tr><td>09:42:10</td><td><b>Reply</b></td><td>New reply · meeting request · routed to sales</td><td><span class="pill go">new</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 · CRM (laptop 16:10) -->
+<div class="screen" id="crm" style="--w:1600px;--h:1000px">
+  <div class="app">
+    <div class="side"><div class="brand"><i></i>CRM</div><div class="nav on">Dashboard</div><div class="nav">Leads</div><div class="nav">Contacts</div><div class="nav">Deals</div><div class="nav">Tasks</div><div class="nav">Reports</div></div>
+    <div class="main">
+      <div class="top"><h1>Dashboard</h1><div class="search">Search clients, deals, tasks…</div></div>
+      <div class="cards"><div class="card"><span>Active clients</span><b>24</b></div><div class="card"><span>Open deals</span><b>11</b><em>$48.2k pipeline</em></div><div class="card"><span>Deliverables due</span><b>7</b></div><div class="card"><span>Tasks today</span><b>15</b></div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:12px;flex:1">
+        <div class="panel"><div class="row" style="justify-content:space-between"><b style="font-size:14px">Pipeline</b><span class="sub">This quarter</span></div>
+          <svg viewBox="0 0 600 200" style="width:100%;margin-top:14px"><polyline fill="none" stroke="#111" stroke-width="3" points="0,170 60,150 120,158 180,120 240,128 300,96 360,104 420,70 480,78 540,44 600,40"/><polyline fill="none" stroke="#c6f432" stroke-width="3" points="0,185 60,178 120,172 180,160 240,150 300,148 360,130 420,126 480,110 540,100 600,92"/></svg></div>
+        <div class="panel"><b style="font-size:14px">Recent deals</b>
+          <table style="margin-top:8px"><tr><td><b>Retainer · agency</b></td><td><span class="pill ok">Won</span></td></tr><tr><td><b>Website rebuild</b></td><td><span class="pill">Proposal</span></td></tr><tr><td><b>Ad campaign</b></td><td><span class="pill go">Negotiation</span></td></tr><tr><td><b>Brand refresh</b></td><td><span class="pill">Discovery</span></td></tr></table></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 · SEO/GEO (phone 9:19.5, dark like the studied app) -->
+<div class="screen dark" id="seo" style="--w:780px;--h:1690px;padding:90px 54px">
+  <div class="mono" style="font-size:22px;color:#888">9:41</div>
+  <div style="margin-top:70px;font-size:70px;font-weight:700;letter-spacing:-0.04em;line-height:1">Search &amp;<br>AI visibility</div>
+  <div style="margin-top:24px;font-size:26px;color:#999;line-height:1.4">How the brand ranks on Google and shows up in ChatGPT, Gemini and AI answers.</div>
+  <div style="margin-top:56px;border-radius:30px;background:#16181c;padding:36px">
+    <div class="mono" style="font-size:20px;color:#888">SEO SCORE</div>
+    <div style="font-size:96px;font-weight:700;letter-spacing:-0.04em">87<span style="font-size:36px;color:#777"> /100</span></div>
+    <svg viewBox="0 0 600 140" style="width:100%"><polyline fill="none" stroke="#c6f432" stroke-width="5" points="0,120 80,110 160,116 240,80 320,86 400,50 480,58 600,20"/></svg>
+  </div>
+  <div style="margin-top:28px;border-radius:30px;background:#16181c;padding:36px">
+    <div class="mono" style="font-size:20px;color:#888">CITED IN AI ANSWERS</div>
+    <div style="display:grid;gap:22px;margin-top:24px;font-size:26px">
+      <div class="row" style="justify-content:space-between"><span>ChatGPT</span><span class="mono" style="color:#c6f432">7 / 10</span></div>
+      <div class="row" style="justify-content:space-between"><span>Google AI Overviews</span><span class="mono" style="color:#c6f432">5 / 10</span></div>
+      <div class="row" style="justify-content:space-between"><span>Gemini</span><span class="mono" style="color:#c6f432">6 / 10</span></div>
+      <div class="row" style="justify-content:space-between"><span>Perplexity</span><span class="mono" style="color:#c6f432">4 / 10</span></div>
+    </div>
+  </div>
+  <div style="margin-top:28px;border-radius:30px;background:#16181c;padding:36px">
+    <div class="mono" style="font-size:20px;color:#888">CONTENT GAPS</div>
+    <div style="margin-top:20px;font-size:26px;line-height:1.7;color:#ccc">3 pages to write · 5 to refresh · 2 technical fixes</div>
+  </div>
+  <div style="margin-top:44px;background:#f2f2ee;color:#111;border-radius:999px;padding:30px;text-align:center;font-weight:650;font-size:26px;letter-spacing:0.06em">MONTHLY BRIEF</div>
+</div>
+
+<!-- 5 · Leads engine (laptop 16:10) -->
+<div class="screen" id="leads" style="--w:1600px;--h:1000px">
+  <div class="app">
+    <div class="side"><div class="brand"><i></i>Leads engine</div><div class="nav on">Prospects</div><div class="nav">Campaigns</div><div class="nav">Sequences</div><div class="nav">Replies</div><div class="nav">Analytics</div></div>
+    <div class="main">
+      <div class="top"><div><h1>Leads engine</h1><div class="sub">Find companies, research them and send outreach that reads like you wrote it</div></div><span class="btn">Find prospects</span></div>
+      <div class="row"><div class="search" style="max-width:none">Describe your target — e.g. restaurants in Beirut with 3+ locations</div><span class="btn ghost">Filters</span></div>
+      <div class="tabs"><span class="on">All prospects · 184</span><span>Not contacted</span><span>Sent</span><span>Opened</span><span>Replied</span></div>
+      <table><tr><th></th><th>Company</th><th>Signal</th><th>Fit</th><th>Status</th></tr>
+        <tr><td><div class="av"></div></td><td><b>Coastal restaurant group</b><div class="sub">F&amp;B · 4 locations</div></td><td>New branch announced last week</td><td>94</td><td><span class="pill ok">Replied</span></td></tr>
+        <tr><td><div class="av"></div></td><td><b>Studio creative agency</b><div class="sub">Agency · 18 people</div></td><td>Hiring 2 account managers</td><td>91</td><td><span class="pill go">Sent</span></td></tr>
+        <tr><td><div class="av"></div></td><td><b>Boutique hotel</b><div class="sub">Hospitality · 32 rooms</div></td><td>Rated 4.7 on Google, 900+ reviews</td><td>88</td><td><span class="pill go">Sent</span></td></tr>
+        <tr><td><div class="av"></div></td><td><b>Specialty coffee roaster</b><div class="sub">F&amp;B · wholesale</div></td><td>Launched online store</td><td>86</td><td><span class="pill">Drafted</span></td></tr>
+        <tr><td><div class="av"></div></td><td><b>Performance marketing studio</b><div class="sub">Agency · 9 people</div></td><td>New client wins on LinkedIn</td><td>83</td><td><span class="pill">Researching</span></td></tr></table>
+    </div>
+  </div>
+</div>
+
+<!-- 6 · ad creatives + F&B report (tablet 4:3) -->
+<div class="screen" id="ads" style="--w:1600px;--h:1200px">
+  <div class="app" style="grid-template-columns: 220px 1fr">
+    <div class="side"><div class="brand"><i></i>Studio</div><div class="nav on">Ad creatives</div><div class="nav">Daily report</div><div class="nav">Inventory</div><div class="nav">Suppliers</div></div>
+    <div class="main" style="padding:34px 40px;gap:24px">
+      <div class="top"><div><h1 style="font-size:32px">This week's ad set</h1><div class="sub" style="font-size:15px">12 on-brand variations · ready to export to Meta Ads</div></div><span class="btn" style="font-size:15px;padding:12px 20px">Export to Meta</span></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+        <div style="aspect-ratio:4/5;border-radius:16px;background:linear-gradient(160deg,#2a2a2a,#0d0d0d)"></div>
+        <div style="aspect-ratio:4/5;border-radius:16px;background:linear-gradient(160deg,#e9e6df,#bdb8ad)"></div>
+        <div style="aspect-ratio:4/5;border-radius:16px;background:linear-gradient(160deg,#4a4a4a,#1a1a1a)"></div>
+        <div style="aspect-ratio:4/5;border-radius:16px;background:linear-gradient(160deg,#d6d3cc,#8e8a83)"></div>
+      </div>
+      <div class="panel" style="padding:20px 24px"><div class="row" style="justify-content:space-between"><b style="font-size:17px">Daily report · all outlets</b><span class="sub" style="font-size:14px">Sent to the team at 08:00</span></div>
+        <table style="font-size:15px;margin-top:8px"><tr><th style="font-size:13px">Outlet</th><th style="font-size:13px">Covers</th><th style="font-size:13px">Revenue</th><th style="font-size:13px">Low stock</th></tr>
+        <tr><td><b>Downtown</b></td><td>212</td><td>$6,940</td><td><span class="pill ok">OK</span></td></tr>
+        <tr><td><b>Seaside</b></td><td>168</td><td>$5,210</td><td><span class="pill go">2 items</span></td></tr>
+        <tr><td><b>Uptown</b></td><td>141</td><td>$4,380</td><td><span class="pill ok">OK</span></td></tr></table></div>
+    </div>
+  </div>
+</div>
+</body></html>

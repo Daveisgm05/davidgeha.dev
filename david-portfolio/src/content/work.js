@@ -4,75 +4,77 @@
 export const workItems = [
     {
         id: 1,
-        date: 'JUNE 2026',
-        tags: ['AGENTIC', 'OUTREACH', 'SUPABASE'],
-        title: 'Outreach engine that sources leads, researches each one, and sends personalized cold emails on its own',
-        color: 'white'
+        tags: ['AI AGENT', 'EMAIL', 'INVOICES'],
+        title: 'AI agent that lives in a company\'s email, reviews incoming reports, generates its reports and prepares its invoices',
+        color: '#c6f432'
     },
     {
         id: 2,
-        date: 'APRIL 2026',
-        tags: ['AI', 'MARKETING', 'GPT IMAGE 2.0'],
-        title: 'Ad-creative pipeline generating on-brand UGC-style visuals, ready to export to Meta Ads',
-        color: '#ff0066' // Pinkish
-    },
-    {
-        id: 3,
-        date: 'MARCH 2026',
-        tags: ['AI', 'F&B', 'AUTOMATION'],
-        title: 'Automated the daily reporting and inventory busywork for an F&B consultancy',
-        color: '#cc9900' // Yellow/Gold
-    },
-    {
-        id: 4,
-        date: 'JANUARY 2026',
-        tags: ['FULL STACK', 'CRM', 'SUPABASE'],
-        title: 'Custom CRM built for a marketing agency to track clients, deals, and delivery',
-        color: '#0066cc' // Blue
-    },
-    {
-        id: 5,
-        date: 'NOVEMBER 2025',
-        tags: ['UI/UX', 'APP'],
-        title: 'Designed and built a client-facing web app end to end, from UI to deploy',
+        tags: ['CRM', 'AI AGENTS', 'SUPABASE'],
+        title: 'Custom CRM with AI agent employees working inside it: keeping records current, following up on deals and preparing tasks',
         color: 'white'
     },
     {
+        id: 3,
+        tags: ['AGENTIC', 'OUTREACH'],
+        title: 'Outreach engine that sources leads, researches each one, and sends personalized cold emails on its own',
+        color: '#ff0066'
+    },
+    {
+        id: 4,
+        tags: ['SEO', 'GEO', 'AI VISIBILITY'],
+        title: 'SEO and GEO pipeline that tracks how a brand ranks on Google and shows up in AI answers, delivered as a monthly brief',
+        color: '#0066cc'
+    },
+    {
+        id: 5,
+        tags: ['VOICE AGENT', 'HOTELS'],
+        title: 'AI receptionist that answers phone calls for hotels and responds to guests',
+        color: '#cc9900'
+    },
+    {
         id: 6,
-        date: 'SEPTEMBER 2025',
-        tags: ['AGENTIC', 'WORKFLOW'],
-        title: 'Internal agentic workflow that clears repetitive back-office tasks for a small team',
-        color: '#808080' // Grey
+        tags: ['WEB', '3D', 'MOTION'],
+        title: 'Custom AI that builds high-end websites, used to build this portfolio',
+        color: '#808080'
     }
 ];
 
 export const projects = [
     {
         id: 1,
-        title: 'Lead Outreach Pipelines',
-        category: 'Agentic Outreach',
-        image: '/work-outreach-v2.webp',
-        year: '2026'
+        title: 'AI Email Agent',
+        category: 'Reports & invoices',
+        image: '/work-email-agent.webp'
     },
     {
         id: 2,
-        title: 'Competitive Research & SEO/GEO Pipelines',
-        category: 'Market Intelligence',
-        image: '/work-research-v2.webp',
-        year: '2026'
+        title: 'Custom CRM with AI Agent Employees',
+        category: 'Internal tooling',
+        image: '/work-crm-v3.webp'
     },
     {
         id: 3,
-        title: 'Image Ad Pipelines',
-        category: 'GPT Image 2.0',
-        image: '/work-ads-v2.webp',
-        year: '2025'
+        title: 'AI Outreach Systems',
+        category: 'Agentic outreach',
+        image: '/work-outreach-v2.webp'
     },
     {
         id: 4,
-        title: 'Custom CRM Dashboards',
-        category: 'Internal Tooling',
-        image: '/work-crm-v3.webp',
-        year: '2025'
+        title: 'AI for SEO & GEO',
+        category: 'Search & AI visibility',
+        image: '/work-research-v2.webp'
+    },
+    {
+        id: 5,
+        title: 'AI Receptionist for Hotels',
+        category: 'Voice agent',
+        image: '/work-receptionist.webp'
+    },
+    {
+        id: 6,
+        title: 'AI Website Builder',
+        category: 'Built this portfolio',
+        image: '/work-website-ai.webp'
     }
 ];

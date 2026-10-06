@@ -1,73 +1,36 @@
-import React, { useEffect, useRef } from 'react';
-import './About.css';
-import Reveal from './Reveal';
-
+import React from 'react';
 import { aboutText, aboutTitle, processSteps as steps } from '../content/about.js';
 
-const About = () => {
-    const railRef = useRef(null);
-
-    // Steps reveal in lockstep with scroll position (not a fixed-timing
-    // stagger) — --progress tracks how far the rail has scrolled through a
-    // window above the fold, and each step reads its own slice of it in CSS.
-    useEffect(() => {
-        const el = railRef.current;
-        if (!el) return;
-
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            el.style.setProperty('--progress', 1);
-            return;
-        }
-
-        let raf = 0;
-        const update = () => {
-            raf = 0;
-            const rect = el.getBoundingClientRect();
-            const vh = window.innerHeight;
-            const start = vh * 0.9;
-            const end = vh * 0.35;
-            const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
-            el.style.setProperty('--progress', progress);
-        };
-        const onScroll = () => {
-            if (raf) return;
-            raf = requestAnimationFrame(update);
-        };
-
-        update();
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll);
-        return () => {
-            cancelAnimationFrame(raf);
-            window.removeEventListener('scroll', onScroll);
-            window.removeEventListener('resize', onScroll);
-        };
-    }, []);
-
-    return (
-        <section className="about container" id="about">
+/**
+ * About: the paper interlude (V1's hard surface switch). The title streams in (house
+ * reveal), the statement brightens word by word as it's read (P8), and the process runs
+ * as a pipeline (inspired: P35's progress principle drawn as a data line): a packet
+ * travels the rail with scroll and each station lights as it passes.
+ */
+const About = () => (
+    <section className="about" id="about">
+        <div className="container">
             <div className="about__grid">
-                <Reveal as="div" className="about__intro" variant="rise">
-                    <h2 className="about__title">{aboutTitle}</h2>
-                </Reveal>
+                <h2 className="about__title" data-anim="tokens">{aboutTitle}</h2>
 
-                <Reveal as="p" className="about__text" variant="rise" delay={0.1}>
-                    {aboutText}{' '}
+                <p className="about__text">
+                    <span data-anim="brighten">{aboutText}</span>{' '}
                     <a className="about__more" href="/about/">More about me →</a>
-                </Reveal>
+                </p>
             </div>
 
             {/* The process as a pipeline: one rail, three stations */}
-            <ol className="about__process" ref={railRef}>
+            <ol className="pipeline" data-pipeline style={{ '--steps': steps.length }}>
                 {steps.map(({ num, label }, i) => (
-                    <li className="process-step" key={num} style={{ '--i': i }}>
-                        <span className="process-step__num">{num}</span>
-                        <h3 className="process-step__label">{label}</h3>
+                    <li className="pipeline__step" key={num} style={{ '--i': i }}>
+                        <span className="pipeline__node" aria-hidden="true"></span>
+                        <span className="pipeline__num">{num}</span>
+                        <h3 className="pipeline__label">{label}</h3>
                     </li>
                 ))}
             </ol>
-        </section>
-    );
-};
+        </div>
+    </section>
+);
 
 export default About;

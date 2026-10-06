@@ -7,36 +7,21 @@
 export const services = [
     {
         num: '01',
-        href: '/ai-consulting-lebanon/',
-        cta: 'How the audit works',
-        title: 'AI consulting for Lebanese businesses',
-        text: 'I start with an audit of how your team actually works: where hours go, which tasks repeat every day, and what data already exists. You get a clear, prioritized map of what AI can take over now, what it should not touch yet, and what it will cost to build. No slide decks about "digital transformation", just a plan you can act on next week.',
+        href: '/ai-solutions-lebanon/#email',
+        page: '/ai-automation-lebanon/',
+        cta: 'How the email agent works',
+        title: 'AI email agents',
+        text: 'An AI agent that lives in your company\'s email. It reviews the reports that come in, generates the reports your team and management need, and prepares and sends invoices from the same inbox. It works inside the email account you already use, logs everything it does, and leaves anything unusual for a person to approve.',
     },
     {
         num: '02',
-        href: '/ai-solutions-lebanon/',
-        page: '/ai-automation-lebanon/',
-        cta: 'See the systems',
-        title: 'AI automation & AI agents',
-        text: 'Not a chatbot bolted onto your website. I build agentic systems that do the work end to end: sourcing and researching leads, writing and sending personalized outreach, generating on-brand ad creatives, compiling daily reports, and clearing back-office busywork. They run on their own, log what they did, and hand you the exceptions.',
+        href: '/ai-solutions-lebanon/#crm',
+        cta: 'Custom CRMs and their agents',
+        title: 'Custom CRMs with AI agent employees',
+        text: 'A CRM designed around how your team actually sells and delivers, with AI agents working inside it like members of staff: they keep records up to date, follow up on deals and prepare the next tasks, while your team sees every action and can step in. Full stack, from UI/UX to backend and deploy, on Supabase, Vercel, Claude and GitHub, so you own the code and the data.',
     },
     {
         num: '03',
-        href: '/ai-solutions-lebanon/#crm',
-        cta: 'Custom CRMs and tools',
-        title: 'Custom AI solutions & internal tools',
-        text: 'When off-the-shelf software does not fit, I design and build the product: custom CRMs, dashboards, client portals, and web apps with AI baked into the workflow. Full stack, from UI/UX to backend and deploy, on a modern, low-maintenance stack of Supabase, Vercel, Claude, and GitHub, so you own the code and the data.',
-    },
-    {
-        num: '04',
-        href: '/ai-solutions-lebanon/#research',
-        page: '/ai-seo-geo-lebanon/',
-        cta: 'How the SEO/GEO pipeline works',
-        title: 'AI for SEO & GEO',
-        text: 'Being found now means two things: ranking on Google, and being the name ChatGPT, Gemini and Google\'s AI answers give when someone asks who to hire. I build the pipeline that does the research behind both: competitor and content gaps, technical SEO issues, and how each brand shows up in AI answers, refreshed monthly as a brief your team edits instead of writes.',
-    },
-    {
-        num: '05',
         href: '/ai-solutions-lebanon/#outreach',
         page: '/ai-outreach-lebanon/',
         cta: 'See the outreach engine',
@@ -44,12 +29,27 @@ export const services = [
         text: 'An agent that finds leads matching your ideal customer, researches each one (site, socials, recent news), writes a personal first message and sends it from your own domain on a schedule, logging every reply in your CRM. You approve the sequence once; it runs daily.',
     },
     {
+        num: '04',
+        href: '/ai-solutions-lebanon/#seo-geo',
+        page: '/ai-seo-geo-lebanon/',
+        cta: 'How the SEO/GEO pipeline works',
+        title: 'AI for SEO & GEO',
+        text: 'Being found now means two things: ranking on Google, and being the name ChatGPT, Gemini and Google\'s AI answers give when someone asks who to hire. I build the pipeline that does the research behind both: competitor and content gaps, technical SEO issues, and how each brand shows up in AI answers, refreshed monthly as a brief your team edits instead of writes.',
+    },
+    {
+        num: '05',
+        href: '/ai-solutions-lebanon/#receptionist',
+        cta: 'Meet the AI receptionist',
+        title: 'AI receptionists for hotels',
+        text: 'An AI receptionist that answers your hotel\'s phone calls. It picks up when guests call, responds to their questions, and passes on anything that needs your team, so calls still get answered at night, at weekends and when the front desk is busy.',
+    },
+    {
         num: '06',
-        href: '/ai-solutions-lebanon/#industries',
-        cta: 'Agencies and F&B',
-        title: 'AI for marketing agencies & F&B',
-        text: 'Most of my work is with marketing agencies and food & beverage operators in Beirut and across Lebanon. Agencies get outreach engines, research pipelines, and ad-creative generation. F&B teams get inventory, reporting, and supplier follow-ups automated. Same approach in every case: find the repeat work, build the system, measure the hours saved.',
+        href: '/ai-solutions-lebanon/#websites',
+        cta: 'How the website AI works',
+        title: 'AI that builds high-end websites',
+        text: 'A custom AI system that designs and builds high-end, motion-rich websites: layout, typography, 3D and animation, with the SEO built in from the first page. I used it to build this portfolio, the site you are on now.',
     },
 ];
 
-export const servicesIntro = 'Lebanese businesses run lean. Small teams, tight margins, and a lot of manual work that quietly eats the week. As an independent AI consultant based in Lebanon, I help marketing agencies, F&B operators, and founders replace that work with agentic AI systems built for how they actually operate, not for how a vendor\'s product works. Every engagement starts with a real audit and ends with a system in production and a number for the hours it gives back.';
+export const servicesIntro = 'Lebanese businesses run lean. Small teams, tight margins, and a lot of manual work that quietly eats the week. As an independent AI consultant based in Lebanon, I help hotels, marketing agencies and founders replace that work with AI agents and systems built for how they actually operate, not for how a vendor\'s product works. Every engagement starts with a real audit and ends with a system in production and a number for the hours it gives back.';

@@ -1,16 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import './Header.css';
+import { gsap, splitWords, tokenTimeline } from '../motion/engine';
+import { dur, ease, stagger } from '../motion/tokens';
 import HeroPortrait from './HeroPortrait';
+import HeroField from './HeroField';
+import { ArrowUpRight } from './SiteHeader';
 import { INTRO_READY_EVENT, shouldSkipIntro, prefersReducedMotion } from '../lib/introGate';
-import { siteLinks } from '../content/site-links';
-
-const ArrowUpRight = () => (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" strokeWidth="1.5"
-            strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-);
 
 const InstagramIcon = () => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -32,166 +26,117 @@ const GitHubIcon = () => (
     </svg>
 );
 
-const navLinks = ['Work', 'Services', 'About', 'Contact'];
-
 const socials = [
     { name: 'Instagram', href: 'https://www.instagram.com/dave.automates/', Icon: InstagramIcon },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/david-geha/', Icon: LinkedInIcon },
     { name: 'GitHub', href: 'https://github.com/Daveisgm05', Icon: GitHubIcon },
 ];
 
+/**
+ * Home hero (inspired: C4's "one picture filling exactly one viewport, melting into the
+ * black page", built from P51's depth portrait, V25's field and a mixed-face lockup).
+ * The name sits behind the depth portrait; the loader hands over to a hero beat
+ * (name rises out of its masks, the portrait focuses in, the intro streams in), and on the
+ * way out the two halves of the name drift apart while the portrait recedes (one scrub).
+ */
 const Header = () => {
-    const headerRef = useRef(null);
-    const navStatusRef = useRef(null);
-    const navLinksRef = useRef(null);
-    const navActionsRef = useRef(null);
-    const nameOutlineRef = useRef(null);
-    const nameSolidRef = useRef(null);
-    const introRef = useRef(null);
-    const socialsRef = useRef(null);
+    const heroRef = useRef(null);
+    const stageRef = useRef(null);
+    const roleRef = useRef(null);
 
-    // First-load entrance, orchestrated with GSAP instead of CSS keyframes
-    // firing unconditionally on mount — the old version animated in while
-    // still hidden behind the Loader curtain, so it was never actually
-    // visible. This waits for the Loader to signal it's clear (or, on a
-    // mid-page reload / reduced motion, plays immediately with no wait).
     useEffect(() => {
-        if (prefersReducedMotion()) return; // CSS already forces the final state
+        if (prefersReducedMotion()) return; // CSS shows the final state
+        const hero = heroRef.current;
+        let play, split;
 
-        const header = headerRef.current;
-        let play;
-
-        // React StrictMode runs this effect, its cleanup, then this effect
-        // again in dev. GSAP caches parsed transform data per element, so a
-        // plain gsap.set(el, {clearProps:'all'}) on cleanup resets the DOM
-        // style but not that internal cache — the second run's yPercent:115
-        // then compounds on the first run's stale cache instead of starting
-        // clean (visible as the name staying stuck instead of animating in).
-        // gsap.context()/.revert() is GSAP's own fix for exactly this: it
-        // tracks everything created inside, and reverts it — cache included.
         const ctx = gsap.context(() => {
-            const nameWords = [nameOutlineRef.current, nameSolidRef.current];
-            const navLinkItems = navLinksRef.current
-                ? Array.from(navLinksRef.current.children)
-                : [];
+            const nameWords = hero.querySelectorAll('.hero__word-inner');
+            const navItems = document.querySelectorAll('.site-header [data-hero-hide]');
+            const fades = hero.querySelectorAll('[data-hero-hide="fade"]');
+            split = splitWords(roleRef.current, { caret: true });
+            const role = tokenTimeline(split.words);
 
-            // Matches the CSS baseline exactly (Header.css) so this is a
-            // no-op visually — it just tells GSAP explicitly what "from" is.
-            gsap.set(navStatusRef.current, { autoAlpha: 0, y: -10 });
-            gsap.set(navLinkItems, { autoAlpha: 0, y: -10 });
-            gsap.set(navActionsRef.current, { autoAlpha: 0, y: -10 });
-            gsap.set(nameWords, { yPercent: 115 });
-            gsap.set(introRef.current, { autoAlpha: 0, y: 24 });
-            gsap.set(socialsRef.current, { autoAlpha: 0, y: 16 });
+            gsap.set(nameWords, { yPercent: 112 });
+            gsap.set(stageRef.current, { opacity: 0, scale: 1.06, filter: 'blur(14px)' });
+            gsap.set([...navItems, ...fades], { opacity: 0, y: 18 });
+            gsap.set(roleRef.current, { opacity: 1 });
 
             play = () => {
-                header?.classList.add('is-ready'); // gates the portrait's own CSS reveal (Header.css)
-
-                gsap.timeline({ defaults: { ease: 'expo.out' } })
-                    .to(navStatusRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, 0)
-                    .to(navLinkItems, { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.07 }, 0.08)
-                    .to(navActionsRef.current, { autoAlpha: 1, y: 0, duration: 0.7 }, 0.3)
-                    .to(nameWords, { yPercent: 0, duration: 1.2, stagger: 0.12 }, 0.15)
-                    .to(introRef.current, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.75)
-                    .to(socialsRef.current, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.85);
+                gsap.timeline({ defaults: { ease: ease.land } })
+                    .to(navItems, { opacity: 1, y: 0, duration: dur.lg, ease: ease.out, stagger: stagger.line / 2 }, 0)
+                    .to(nameWords, { yPercent: 0, duration: dur.hero, stagger: stagger.line }, 0.05)
+                    .to(stageRef.current, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: dur.hero * 1.2, ease: ease.out, clearProps: 'filter' }, 0.15)
+                    .add(role.play(), 0.75)
+                    .to(fades, { opacity: 1, y: 0, duration: dur.lg, ease: ease.out, stagger: stagger.item * 1.6 }, 0.85);
             };
+
+            // the way out: one scrubbed move for the whole hero
+            const exit = { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
+            gsap.to(stageRef.current, { yPercent: 10, scale: 0.86, opacity: 0.25, ease: 'none', scrollTrigger: exit });
+            gsap.to(hero.querySelector('.hero__foot'), { yPercent: -40, opacity: 0, ease: 'none', scrollTrigger: { ...exit, end: '60% top' } });
 
             if (shouldSkipIntro()) play();
             else window.addEventListener(INTRO_READY_EVENT, play, { once: true });
-        }, headerRef);
+        }, hero);
 
         return () => {
             window.removeEventListener(INTRO_READY_EVENT, play);
-            header?.classList.remove('is-ready');
             ctx.revert();
+            split?.revert();
         };
     }, []);
 
     return (
-        <div className="hero-frame">
-        <header className="header" id="top" ref={headerRef}>
-            {/* Top navigation — borderless top bar */}
-            <nav className="nav container">
-                <span className="nav__status" ref={navStatusRef}>
-                    <span className="nav__dot" aria-hidden="true"></span>
-                    <span className="nav__status-label">Available for new projects</span>
-                </span>
+        <header className="hero" id="top" ref={heroRef} data-drift-scope>
+            <HeroField />
 
-                <ul className="nav__links" ref={navLinksRef}>
-                    {navLinks.map((link) => (
-                        <li key={link}><a href={`#${link.toLowerCase()}`}>{link}</a></li>
-                    ))}
-                </ul>
+            {/* The visible H1 is the name; the sr-only tail gives search engines and
+                screen readers the full "who + what + where" in the top heading. */}
+            <h1 className="hero__name">
+                <span className="hero__word hero__word--serif" data-drift="-16"><span className="hero__word-inner">David</span></span>
+                <span className="hero__word hero__word--outline" data-drift="16"><span className="hero__word-inner">Geha</span></span>
+                <span className="sr-only"> — AI Consultant in Lebanon</span>
+            </h1>
 
-                <div className="nav__actions" ref={navActionsRef}>
-                    <a className="nav__cta" href="mailto:david@osgdev.com">
-                        Let's talk <ArrowUpRight />
-                    </a>
-                    <a className="nav__logo" href="#top" aria-label="Back to top">D</a>
-                    {/* ≤1024px: the inline links are hidden, so a native
-                        <details> menu takes over — no JS, no focus trap needed. */}
-                    <details className="nav__menu">
-                        <summary aria-label="Open menu">Menu</summary>
-                        <ul>
-                            {navLinks.map((link) => (
-                                <li key={link}><a href={`#${link.toLowerCase()}`}>{link}</a></li>
-                            ))}
-                            <li><a href="/ai-consulting-lebanon/">AI consulting</a></li>
-                            <li><a href="/ai-solutions-lebanon/">AI solutions</a></li>
-                            {siteLinks.guide && <li><a href={siteLinks.guide.href}>{siteLinks.guide.label}</a></li>}
-                            <li><a href="https://wa.me/96176412978" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-                        </ul>
-                    </details>
-                </div>
-            </nav>
-
-            {/* Hero — name behind portrait */}
-            <div className="hero">
-                {/* The visible H1 is the name; the sr-only tail gives search engines and
-                    screen readers the full "who + what + where" in the top heading. */}
-                <h1 className="hero__name">
-                    <span className="hero__word hero__word--outline"><span className="hero__word-inner" ref={nameOutlineRef}>David</span></span>
-                    <span className="hero__word hero__word--solid"><span className="hero__word-inner" ref={nameSolidRef}>Geha</span></span>
-                    <span className="sr-only"> — AI Consultant in Lebanon</span>
-                </h1>
-
+            <div className="hero__stage" ref={stageRef}>
                 <HeroPortrait className="hero__portrait" alt="David Geha" />
+                <span className="hero__frame" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            </div>
 
+            <div className="hero__foot container">
                 {/* Bottom-left: role + intro */}
-                <div className="hero__intro" ref={introRef}>
-                    <span className="hero__eyebrow">AI Automation · Lebanon</span>
-                    <h2 className="hero__role">AI consultant in Lebanon</h2>
-                    <p className="hero__subtitle">
+                <div className="hero__intro">
+                    <span className="hero__eyebrow eyebrow" data-hero-hide="fade">AI Automation · Lebanon</span>
+                    <h2 className="hero__role" ref={roleRef} data-hero-hide="role">AI consultant in Lebanon</h2>
+                    <p className="hero__subtitle" data-hero-hide="fade">
                         I find the repetitive work in your business and <br />
                         build agentic AI systems that run it for you — <br />
                         AI consulting and custom AI solutions for teams in Beirut and across Lebanon.
                     </p>
-                    <a href="#work" className="hero__btn">
+                    <a href="#work" className="hero__btn" data-hero-hide="fade">
                         Let's collaborate <ArrowUpRight />
                     </a>
                 </div>
 
                 {/* Bottom-right: social pills */}
-                <div className="hero__socials" ref={socialsRef}>
-                    {socials.map(({ name, href, Icon }) => {
-                        const external = href.startsWith('http');
-                        return (
-                            <a
-                                key={name}
-                                href={href}
-                                className="hero__social"
-                                aria-label={name}
-                                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                            >
-                                <span className="hero__social-icon"><Icon /></span>
-                                {name}
-                            </a>
-                        );
-                    })}
+                <div className="hero__socials">
+                    {socials.map(({ name, href, Icon }) => (
+                        <a
+                            key={name}
+                            href={href}
+                            className="hero__social"
+                            aria-label={name}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-hero-hide="fade"
+                        >
+                            <span className="hero__social-icon"><Icon /></span>
+                            {name}
+                        </a>
+                    ))}
                 </div>
             </div>
         </header>
-        </div>
     );
 };
 

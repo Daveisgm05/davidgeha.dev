@@ -1,47 +1,31 @@
-// Progressive enhancement for the static pages. Every effect here has a CSS
-// fallback gated on `html.js` (added inline in <head>), so without JS the page
-// renders fully visible — crawlers and reader modes see everything.
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Progressive enhancement for the static pages (scripts/build-pages.mjs). Every page is
+// complete without JS (crawlers and reader modes see everything); this adds the same
+// motion system as the homepage: smooth scroll, the hero beat and the data-* hooks.
+// The page modules' existing classes are mapped onto hooks here, so neither the modules
+// nor the SEO engine's generated pages need to know about motion.
+import { initMotion, heroBeat } from './motion/engine.js';
+import { reduced, lowTier } from './motion/tokens.js';
 
-// Hero entrance (mirrors the homepage's GSAP sequence with CSS keyframes).
+const tag = (selector, attr, value) => document.querySelectorAll(selector).forEach((el) => {
+    if (!el.hasAttribute(attr)) el.setAttribute(attr, value);
+});
+
+tag('.section__head h2, .section__label h2', 'data-anim', 'tokens');
+tag('.section__head p, .prose.reveal, .toc__inner.reveal', 'data-anim', 'fade');
+tag('.reveal-stagger', 'data-anim', 'stagger');
+tag('.figure__frame', 'data-reveal', 'img');
+tag('.band__frame img', 'data-parallax', '8');
+tag('.hero__media--portrait', 'data-portrait', '');
+
+// the live lattice behind every hero (the CSS dots stay underneath as the static form)
 const panel = document.querySelector('.panel');
-if (panel) requestAnimationFrame(() => panel.classList.add('is-ready'));
-
-// Scroll-triggered reveals (same contract as the homepage's <Reveal>).
-const targets = document.querySelectorAll('.reveal, .reveal-stagger');
-if (reduced || !('IntersectionObserver' in window)) {
-    targets.forEach((el) => el.classList.add('is-visible'));
-} else {
-    const io = new IntersectionObserver((entries) => {
-        for (const e of entries) {
-            if (!e.isIntersecting) continue;
-            e.target.classList.add('is-visible');
-            io.unobserve(e.target);
-        }
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    targets.forEach((el) => io.observe(el));
+if (panel && !panel.querySelector('[data-field]')) {
+    const c = document.createElement('canvas');
+    c.className = 'panel__field';
+    c.setAttribute('data-field', '');
+    c.setAttribute('aria-hidden', 'true');
+    panel.prepend(c);
 }
 
-// Process rail: the fill draws in lockstep with scroll position.
-const rails = document.querySelectorAll('[data-rail]');
-if (rails.length) {
-    if (reduced) {
-        rails.forEach((el) => el.style.setProperty('--progress', 1));
-    } else {
-        let raf = 0;
-        const update = () => {
-            raf = 0;
-            const vh = window.innerHeight;
-            rails.forEach((el) => {
-                const rect = el.getBoundingClientRect();
-                const start = vh * 0.9, end = vh * 0.35;
-                const p = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
-                el.style.setProperty('--progress', p);
-            });
-        };
-        const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
-        update();
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll);
-    }
-}
+initMotion();
+if (!reduced() && !lowTier()) heroBeat(document.querySelector('.hero'));
