@@ -10,9 +10,9 @@ export default {
     path: '/ai-consulting-lebanon/',
     title: 'AI Consulting in Lebanon: Audits, Sprints & Retainers',
     ogTitle: 'AI Consulting in Lebanon — David Geha',
-    description: 'Independent AI consulting in Lebanon for agencies, F&B and founders: a 48-hour workflow audit, a fixed-price build sprint and an optional retainer, from Beirut.',
+    description: 'Independent AI consulting in Lebanon for hotels, agencies and founders: a 48-hour workflow audit, a fixed-price build sprint and an optional retainer, from Beirut.',
     datePublished: '2026-09-19',
-    dateModified: '2026-09-22',
+    dateModified: '2026-10-06',
     ogImage: '/img/og-consulting.jpg',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Consulting in Lebanon' }],
@@ -30,7 +30,7 @@ export default {
   <section class="container" style="padding-top:2.5rem">
     <dl class="glance reveal-stagger">
       <div><dt>Based in</dt><dd>Beirut, Lebanon</dd></div>
-      <div><dt>Works with</dt><dd>Agencies · F&amp;B · Founders</dd></div>
+      <div><dt>Works with</dt><dd>Hotels · Agencies · Founders</dd></div>
       <div><dt>Engagement</dt><dd>48-h audit → 2-week sprint</dd></div>
       <div><dt>Pricing</dt><dd>Fixed, agreed up front</dd></div>
     </dl>
@@ -56,7 +56,7 @@ export default {
         caption: 'Every engagement starts by mapping how the work actually happens, not with a slide deck about transformation.',
     }))}
       <div class="prose reveal">
-        <p><strong>AI consulting in Lebanon</strong> usually means one of two things: a strategy deck from a large firm, or a developer who will build whatever you describe. Neither is what most Lebanese businesses need. Agencies with eight people, restaurant groups with three outlets and founders running lean cannot absorb a six-month transformation programme, and they should not have to specify a system they have never seen.</p>
+        <p><strong>AI consulting in Lebanon</strong> usually means one of two things: a strategy deck from a large firm, or a developer who will build whatever you describe. Neither is what most Lebanese businesses need. Agencies with eight people, hotels with a busy front desk and founders running lean cannot absorb a six-month transformation programme, and they should not have to specify a system they have never seen.</p>
         <p>My practice sits in between. I audit how your team actually works, find the tasks that repeat every day, and then design and build the agentic AI system that takes them over. The same person who diagnoses the problem writes the code, so nothing is lost between the recommendation and the delivery. You get a number for the hours saved, not a roadmap.</p>
         <p>I am an independent consultant based in Beirut, not an AI consulting company or agency. That is deliberate: it keeps the price where a Lebanese SME can justify it and keeps you talking to the person doing the work. If you are comparing <a href="/blog/ai-consulting-in-lebanon-guide/#firms">AI consulting firms in Lebanon</a>, the guide explains where a solo practitioner fits and where a larger firm is the better choice.</p>
       </div>
@@ -82,7 +82,7 @@ export default {
         <span class="num">02</span>
         <h3>2-week build sprint</h3>
         <p class="price">Fixed price · scoped in the audit</p>
-        <p>One system, built and put into production: a lead-outreach engine, a reporting pipeline, an ad-creative generator, a custom CRM or an internal agent. Your team is using it by the end of week two.</p>
+        <p>One system, built and put into production: an email agent, a custom CRM with AI agent employees, an outreach system, an SEO and GEO pipeline, an AI receptionist or a website. Your team is using it by the end of week two.</p>
         <ul>
           <li>Built on Supabase, Vercel, Claude and GitHub — you own the code and the data</li>
           <li>Logs, dashboard and a handover session included</li>
@@ -107,14 +107,14 @@ export default {
 
   <section class="section container" id="audit">
     <div class="section__grid">
-      ${label('Process', 'What happens in the 48-hour audit', figure('consulting-audit', {
-        alt: 'Staff member using a touchscreen point-of-sale terminal in a dimly lit restaurant, the kind of daily task an AI audit maps',
-        caption: 'Day one is spent with the people doing the repeated work: the POS export, the supplier chase, the weekly client report.',
+      ${label('Process', 'What happens in the 48-hour audit', figure('consulting-audit-map', {
+        alt: 'The 48-hour audit task map on a tablet resting on black basalt: every repeated task scored for automation potential',
+        caption: 'Day one is spent with the people doing the repeated work: the inbox, the incoming reports, the calls, the weekly client report.',
         tilt: 'right',
     }))}
       <div class="prose reveal">
         <h2>Day one: watch the work</h2>
-        <p>I spend the first day with the people who actually do the repeated tasks, not only the owner. In an agency that is usually the account manager building the weekly client report and the person copying leads into a spreadsheet. In a restaurant group it is whoever reconciles the POS export, chases suppliers on WhatsApp and rewrites the daily sales summary. I record each task: how often, how long, what tools, what breaks.</p>
+        <p>I spend the first day with the people who actually do the repeated tasks, not only the owner. In an agency that is usually the account manager building the weekly client report and the person copying leads into a spreadsheet. At a hotel it is the front desk answering the same calls and whoever turns the incoming reports into the daily one. I record each task: how often, how long, what tools, what breaks.</p>
         <h2>Day two: score and scope</h2>
         <p>Every task gets three scores: hours per month, how mechanical it is, and what goes wrong if the automation makes a mistake. High hours, high mechanical, low risk goes first. Anything that touches money movement or legal commitments gets a human approval step or stays manual. You get a one-page map and a fixed price for the first sprint.</p>
         <h2>What you leave with</h2>
@@ -136,9 +136,9 @@ export default {
     }))}
       <div class="prose reveal">
         <h2>Marketing agencies in Beirut and beyond</h2>
-        <p>Five to thirty people, several retainer clients, and a founder who still touches every report. The usual first builds: an outreach engine that sources and researches leads and sends personalised first emails, a research pipeline that produces competitor and SEO briefs, and an ad-creative pipeline that turns a brief into on-brand visuals ready for Meta Ads.</p>
-        <h2>Restaurants, cafés and F&amp;B groups</h2>
-        <p>Multiple outlets, a POS that exports CSVs nobody reads, supplier orders on WhatsApp, and a daily report someone builds by hand. Typical first build: the daily sales and inventory summary produced automatically every morning, with supplier follow-ups drafted and waiting for approval.</p>
+        <p>Five to thirty people, several retainer clients, and a founder who still touches every report. The usual first builds: an outreach engine that sources and researches leads and sends personalised first emails, an SEO and GEO pipeline that shows how each client ranks on Google and appears in AI answers, and a custom CRM with AI agent employees working inside it.</p>
+        <h2>Hotels</h2>
+        <p>A front desk that cannot answer every call, and reports and invoices that pile up in email. Typical first builds: an AI receptionist that answers calls and responds to guests, and an email agent that reviews incoming reports, generates the hotel's reports and prepares invoices.</p>
         <h2>Founders and small teams</h2>
         <p>Anyone running a company where the same three tasks eat the afternoon. If you can describe the task in a sentence and it happens every day, it is probably a candidate.</p>
         <h2>Not a fit</h2>

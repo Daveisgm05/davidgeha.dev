@@ -1,43 +1,41 @@
 import React from 'react';
-import './MyWork.css';
-import Reveal from './Reveal';
-
 import { workItems } from '../content/work.js';
 
-const MyWork = () => {
-    return (
-        <section className="my-work container" id="builds">
-            <Reveal as="h2" className="my-work__title" variant="rise">Recent Builds</Reveal>
+/**
+ * Recent Builds as a build log (inspired: P43's typewriter in the brand's own world, an
+ * agent's run log). When the panel arrives, each entry prints in order: its status light
+ * comes on, the date and the line type out behind a signal caret, then the tags settle.
+ * (Source order is date, tags, title, as before the redesign; the grid places the tags under the line.)
+ * The text is in the page from the start; only its visibility is animated.
+ */
+const MyWork = () => (
+    <section className="builds" id="builds">
+        {/* P46: a generated loop of light running through fibre, veiled behind the log */}
+        <div className="builds__film" aria-hidden="true">
+            <video data-film data-src="/film/fibers.mp4" poster="/film/fibers-poster.webp" muted loop playsInline preload="none"></video>
+        </div>
+        <div className="container builds__grid">
+            <h2 className="builds__title my-work__title" data-anim="tokens">Recent Builds</h2>
 
-            <Reveal as="div" className="my-work__grid" variant="rise" stagger>
-                {workItems.map((item, i) => (
-                    <article
-                        key={item.id}
-                        className="work-card"
-                        style={{ '--card-color': item.color, '--stack-index': i }}
-                    >
-                        <div className="work-card__content">
-                            <div className="work-card__header">
-                                <time className="work-card__date">{item.date}</time>
-                                <div className="work-card__tags">
-                                    {item.tags.map(tag => (
-                                        <span key={tag} className="work-card__tag">{tag}</span>
-                                    ))}
-                                </div>
+            <div className="log">
+                <div className="log__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+                <ol className="log__lines" data-log>
+                    {workItems.map((item) => (
+                        <li key={item.id} className="log__line" data-log-line style={{ '--dot': item.color }}>
+                            <span className="log__dot" data-log-dot aria-hidden="true"></span>
+                            <div className="log__tags" data-log-after>
+                                {item.tags.map((tag) => (
+                                    <span key={tag} className="log__tag">{tag}</span>
+                                ))}
                             </div>
-
-                            <h3 className="work-card__title">
-                                {item.title}
-                            </h3>
-                        </div>
-
-                        {/* Decorative fold/icon for top right if needed, 
-                for now utilizing border radius and pseudo elements */}
-                    </article>
-                ))}
-            </Reveal>
-        </section>
-    );
-};
+                            <h3 className="log__title" data-log-type>{item.title}</h3>
+                        </li>
+                    ))}
+                </ol>
+                <span className="log__prompt" aria-hidden="true"></span>
+            </div>
+        </div>
+    </section>
+);
 
 export default MyWork;

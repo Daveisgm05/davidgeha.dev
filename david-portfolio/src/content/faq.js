@@ -8,15 +8,15 @@ export const faq = [
     },
     {
         q: 'How much does AI consulting cost in Lebanon?',
-        a: 'It depends on scope. A focused automation, such as a lead-outreach pipeline or a reporting workflow, is a fixed-price project measured in weeks, not months. Larger builds like a custom CRM or a client-facing app are scoped after a short audit. You always get a price before any work starts, and every project is sized against the hours it will save you.',
+        a: 'It depends on scope. A focused system, such as an email agent or an outreach pipeline, is a fixed-price project measured in weeks, not months. Larger builds like a custom CRM with its AI agents are scoped after a short audit. You always get a price before any work starts, and every project is sized against the hours it will save you.',
     },
     {
         q: 'What kind of businesses do you work with?',
-        a: 'Mainly marketing agencies and F&B businesses in Beirut and across Lebanon, plus founders who want to automate outreach, research, reporting, and other repeat tasks with AI. If your team does the same thing every day by hand, it is probably a fit.',
+        a: 'Mainly hotels and marketing agencies in Beirut and across Lebanon, plus founders who want AI agents to take over email, reporting, outreach and other repeat work. If your team does the same thing every day by hand, it is probably a fit.',
     },
     {
         q: 'What can you automate with AI?',
-        a: 'Lead-outreach pipelines, competitive research and SEO/GEO pipelines, image-ad generation, custom CRMs and dashboards, and back-office workflows. Everything is built on a modern stack: Supabase, Vercel, Claude, and GitHub, so you own the code and the data.',
+        a: 'An AI agent in your company email that reviews incoming reports, generates reports and prepares invoices; custom CRMs with AI agent employees working inside them; outreach systems that find and contact leads; SEO and GEO pipelines for Google and AI answers; an AI receptionist that answers hotel phone calls; and a custom AI that builds high-end websites. Everything is built on a modern stack: Supabase, Vercel, Claude, and GitHub, so you own the code and the data.',
     },
     {
         q: 'Do you build AI solutions for companies outside Lebanon?',

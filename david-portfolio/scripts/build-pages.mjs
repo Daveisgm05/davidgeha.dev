@@ -41,14 +41,15 @@ const NAV = [  // the Guide entry switches to the /blog/ hub once it exists (see
 // footer so no page is reachable only through the sitemap. Filled in before rendering.
 let FOOTER_EXTRA = [];
 
-const STACK = ['Supabase', 'Vercel', 'Claude Code', 'Claude Desktop', 'GitHub', 'GPT Image 2.0', 'Custom CRMs', 'Outreach Systems'];
+const STACK = ['Supabase', 'Vercel', 'Claude Code', 'GitHub', 'AI Email Agents', 'AI CRMs', 'Outreach Systems', 'SEO & GEO', 'AI Receptionists', 'AI Web Design'];
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const ARROW = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 function nav(current) {
     const links = NAV.map((n) => `<li><a href="${n.href}"${n.href === current ? ' aria-current="page"' : ''}>${n.label}</a></li>`).join('');
-    return `<nav class="nav container" aria-label="Primary">
+    return `<div class="site-header" data-header>
+    <nav class="nav" aria-label="Primary">
       <a class="nav__status" href="/#contact"><span class="nav__dot" aria-hidden="true"></span><span class="nav__status-label">Available for new projects</span></a>
       <ul class="nav__links">${links}</ul>
       <div class="nav__actions">
@@ -59,7 +60,9 @@ function nav(current) {
           <ul><li><a href="/">Home</a></li>${links}<li><a href="/#work">Work</a></li><li><a href="${NAP.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></li></ul>
         </details>
       </div>
-    </nav>`;
+    </nav>
+    <span class="site-header__progress" aria-hidden="true"></span>
+  </div>`;
 }
 
 function crumbs(list) {
@@ -69,7 +72,7 @@ function crumbs(list) {
 function heroMedia(page) {
     const h = page.hero || {};
     if (h.portrait) {
-        return `<div class="hero__media hero__media--portrait">
+        return `<div class="hero__media hero__media--portrait" data-hero-hide="fade">
           <img class="hero__portrait" src="/david_transparent.webp" width="900" height="1200" alt="${esc(h.alt || 'David Geha, AI consultant in Beirut, Lebanon')}" loading="eager" fetchpriority="high" decoding="async">
         </div>`;
     }
@@ -78,7 +81,7 @@ function heroMedia(page) {
     const widths = [480, 800, 1200, 1600];
     const srcset = widths.map((w) => `/img/${h.image}-${w}.webp ${w}w`).join(', ');
     return `<figure class="hero__media">
-          <div class="hero__frame"><img src="/img/${h.image}-1600.webp" srcset="${srcset}" sizes="(max-width: 900px) calc(100vw - 4rem), 44vw" width="${meta.w}" height="${meta.h}" alt="${esc(h.alt)}" loading="eager" fetchpriority="high" decoding="async"></div>
+          <div class="hero__frame" data-hero-hide="media"><img src="/img/${h.image}-1600.webp" srcset="${srcset}" sizes="(max-width: 900px) calc(100vw - 4rem), 44vw" width="${meta.w}" height="${meta.h}" alt="${esc(h.alt)}" loading="eager" fetchpriority="high" decoding="async"></div>
           ${h.caption ? `<figcaption>${h.caption}</figcaption>` : ''}
         </figure>`;
 }
@@ -94,14 +97,14 @@ function heroPreload(page) {
 
 function marquee(items) {
     const list = [...items, ...items];
-    return `<section class="marquee" aria-label="Tools and stack">
+    return `<section class="marquee" aria-label="Tools and stack" data-marquee>
   <div class="marquee__track">${list.map((t, i) => `<span class="marquee__item"${i >= items.length ? ' aria-hidden="true"' : ''}>${esc(t)}<span class="marquee__sep" aria-hidden="true">✦</span></span>`).join('')}</div>
 </section>`;
 }
 
 function faqBlock(faq) {
     if (!faq?.length) return '';
-    return `<div class="faq reveal-stagger">${faq.map(({ q, a }, i) => `
+    return `<div class="faq reveal-stagger" data-accordion>${faq.map(({ q, a }, i) => `
   <details${i === 0 ? ' open' : ''}>
     <summary><h3>${esc(q)}</h3><span class="icon" aria-hidden="true"></span></summary>
     <div class="answer"><p>${a}</p></div>
@@ -110,14 +113,20 @@ function faqBlock(faq) {
 }
 
 function footer(page) {
-    return `<footer class="contact container" id="contact">
-  <div class="contact__content reveal">
-    <h2 class="contact__title">${page.ctaTitle || "Let's automate the work you shouldn't be doing."}</h2>
-    <p class="contact__text">${page.ctaText || 'Send one or two sentences about the work your team repeats most. You get a scoped plan and a fixed price before anything is built.'}</p>
-    <div class="contact__actions">
-      <a href="${NAP.whatsapp}" class="contact__button" target="_blank" rel="noopener">WhatsApp David</a>
-      <a href="mailto:${NAP.email}" class="contact__button contact__button--ghost">Start a project by email</a>
+    return `<footer class="contact container" id="contact" data-globe-scope>
+  <div class="contact__globe" data-globe aria-hidden="true"></div>
+  <div class="contact__content">
+    <div class="contact__call">
+      <div>
+        <h2 class="contact__title" data-anim="tokens">${page.ctaTitle || "Let's automate the work you shouldn't be doing."}</h2>
+        <p class="contact__text" data-anim="fade">${page.ctaText || 'Send one or two sentences about the work your team repeats most. You get a scoped plan and a fixed price before anything is built.'}</p>
+      </div>
+      <div class="contact__actions">
+        <a href="${NAP.whatsapp}" class="contact__button contact__button--circle" target="_blank" rel="noopener" data-magnetic>WhatsApp David</a>
+        <a href="mailto:${NAP.email}" class="contact__button contact__button--ghost">Start a project by email</a>
+      </div>
     </div>
+    <div class="contact__slab" data-anim="fade">
     <address class="contact__nap">
       <a href="mailto:${NAP.email}">${NAP.email}</a><span aria-hidden="true">·</span>
       <a href="${NAP.whatsapp}" target="_blank" rel="noopener">${NAP.phone}</a><span aria-hidden="true">·</span>
@@ -136,6 +145,7 @@ function footer(page) {
         <a href="https://github.com/Daveisgm05" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
       </div>
       <div class="contact__copyright">© ${new Date().getFullYear()} David Geha. All rights reserved.</div>
+    </div>
     </div>
   </div>
 </footer>`;
@@ -269,8 +279,8 @@ function render(page) {
   <script type="application/ld+json">
   ${schemaFor(page).replace(/\n/g, '\n  ')}
   </script>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-400.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-500.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-tight-var.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/jetbrains-mono-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin>
   ${heroPreload(page)}
   <link rel="stylesheet" href="/src/pages.css">
@@ -278,19 +288,19 @@ function render(page) {
   <script>(function(){var id='%VITE_GA4_ID%';if(!id||id.charAt(0)==='%')return;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});})();(function(){var id='%VITE_CLARITY_ID%';if(!id||id.charAt(0)==='%')return;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,'clarity','script',id);})();document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';var m=h.indexOf('mailto:')===0?'email':h.indexOf('tel:')===0?'phone':/wa\\.me\\/|whatsapp\\.com/.test(h)?'whatsapp':/calendly\\.com|cal\\.com/.test(h)?'booking':'';if(!m)return;if(window.gtag)gtag('event','generate_lead',{method:m,link_location:location.pathname});if(window.clarity){clarity('event','generate_lead');clarity('set','lead_method',m);}},true);</script>
 </head>
 <body>
+${nav(page.path)}
 <div class="hero-frame">
-  <div class="panel${page.hero?.portrait ? ' panel--portrait' : ''}" id="top">
-    ${nav(page.path)}
+  <div class="panel${page.hero?.portrait ? ' panel--portrait' : ''}" id="top" data-drift-scope>
     <header class="hero container">
-      ${page.word ? `<span class="hero__mark" aria-hidden="true" style="--chars:${page.word.length}">${esc(page.word)}</span>` : ''}
+      ${page.word ? `<span class="hero__mark" aria-hidden="true" style="--chars:${page.word.length}" data-drift="-18">${esc(page.word)}</span>` : ''}
       <div class="hero__grid">
         <div class="hero__copy">
-          ${crumbs(page.crumbs)}
-          ${page.eyebrow ? `<span class="hero__eyebrow">${esc(page.eyebrow)}</span>` : ''}
-          <h1 class="hero__title">${page.h1}</h1>
-          ${page.lead ? `<p class="hero__lead">${page.lead}</p>` : ''}
-          ${page.meta ? `<p class="hero__meta">${page.meta}</p>` : ''}
-          <div class="hero__actions">
+          ${crumbs(page.crumbs).replace('<ol class="crumbs">', '<ol class="crumbs" data-hero-hide="fade">')}
+          ${page.eyebrow ? `<span class="hero__eyebrow" data-hero-hide="fade">${esc(page.eyebrow)}</span>` : ''}
+          <h1 class="hero__title" data-hero-hide="tokens">${page.h1}</h1>
+          ${page.lead ? `<p class="hero__lead" data-hero-hide="fade">${page.lead}</p>` : ''}
+          ${page.meta ? `<p class="hero__meta" data-hero-hide="fade">${page.meta}</p>` : ''}
+          <div class="hero__actions" data-hero-hide="fade">
             <a class="btn btn--solid" href="${NAP.whatsapp}" target="_blank" rel="noopener">WhatsApp David ${ARROW}</a>
             <a class="btn btn--ghost" href="mailto:${NAP.email}">Email David</a>
           </div>
@@ -357,10 +367,12 @@ for (const p of pages) {
 // sitemap: home + generated pages, each with its images
 const homeImages = [
     ['/og-image.jpg', 'David Geha - AI Consultant in Lebanon'],
-    ['/work-outreach-v2.webp', 'Lead Outreach Pipelines - agentic AI automation project'],
-    ['/work-research-v2.webp', 'Competitive Research and SEO/GEO Pipelines - AI automation project'],
-    ['/work-ads-v2.webp', 'Image Ad Pipelines - AI ad-creative generation project'],
-    ['/work-crm-v3.webp', 'Custom CRM Dashboards - custom AI solution for a marketing agency in Lebanon'],
+    ['/work-email-agent.webp', 'AI Email Agent - an AI agent in a company inbox that reviews reports, generates reports and prepares invoices'],
+    ['/work-crm-v3.webp', 'Custom CRM with AI Agent Employees - custom AI solution for a marketing agency in Lebanon'],
+    ['/work-outreach-v2.webp', 'AI Outreach Systems - agentic lead outreach project'],
+    ['/work-research-v2.webp', 'AI for SEO and GEO - search and AI-visibility pipeline'],
+    ['/work-receptionist.webp', 'AI Receptionist for Hotels - an AI that answers hotel phone calls'],
+    ['/work-website-ai.webp', 'AI Website Builder - the custom AI that built davidgeha.dev'],
 ];
 const imageXml = (list) => list.map(([f, t]) => `    <image:image>\n      <image:loc>${SITE}${f}</image:loc>\n      <image:title>${esc(t)}</image:title>\n    </image:image>`).join('\n');
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

@@ -2,11 +2,27 @@
 // Primary: "AI solutions Lebanon". Secondaries: AI automation Lebanon, AI services
 // Lebanon, custom AI solutions Lebanon, AI implementation services Lebanon,
 // AI agents for business Lebanon, AI for small business / SMEs Lebanon.
-import { figure, img, label, tags, workImg } from './_kit.js';
+import { figure, label, tags, workImg } from './_kit.js';
 
 const solutions = [
     {
-        id: 'outreach', num: '01', title: 'Lead-outreach engine',
+        id: 'email', num: '01', title: 'AI email agent',
+        problem: 'Reports arrive by email all week. Someone has to read and check each one, compile the company\'s own reports from them, and prepare invoices by hand.',
+        what: 'An AI agent that lives in your company\'s email. It reviews the reports that come in, generates the reports your team and management need, and prepares and sends invoices from the same inbox. Anything unusual waits for a person to approve.',
+        stack: 'Your existing email account · Claude · Supabase · Vercel',
+        time: 'Scoped in the audit', for: 'Hotels, agencies, any team that runs on email',
+        media: workImg('work-email-agent', 'AI email agent built by David Geha: an inbox where the agent reviews incoming reports, generates reports and prepares invoices'),
+    },
+    {
+        id: 'crm', num: '02', title: 'Custom CRM with AI agent employees',
+        problem: 'Off-the-shelf CRMs cost per seat, do half of what you need, and nobody updates them.',
+        what: 'A CRM built around how your team actually sells and delivers, with AI agents working inside it like members of staff: they keep records current, follow up on deals and prepare the next tasks. Your team sees every action an agent takes and can step in at any point.',
+        stack: 'Supabase (Postgres + auth) · Vercel · Claude for extraction and summaries',
+        time: '2 × 2-week sprints', for: 'Agencies, service businesses, founders',
+        media: workImg('work-crm-v3', 'Custom CRM with AI agent employees built by David Geha for a marketing agency in Lebanon: clients, deals and delivery in one view'),
+    },
+    {
+        id: 'outreach', num: '03', title: 'AI outreach system',
         problem: 'Someone spends afternoons finding leads, reading their websites, and writing first emails that mostly go unanswered.',
         what: 'An agent that sources leads against your ideal-customer profile, researches each one (site, socials, recent news), writes a personalised first message, sends it from your domain on a schedule, and logs replies into your CRM. You approve the sequence once; it runs daily.',
         stack: 'Supabase · Vercel cron · Claude · your email domain (SPF/DKIM set up properly)',
@@ -14,7 +30,7 @@ const solutions = [
         media: workImg('work-outreach-v2', 'Lead-outreach engine built by David Geha: an agentic pipeline that sources, researches and emails leads for a marketing agency in Lebanon'),
     },
     {
-        id: 'research', num: '02', title: 'Research and SEO/GEO pipeline',
+        id: 'seo-geo', num: '04', title: 'AI for SEO and GEO',
         problem: 'Competitor audits, keyword research and client briefs take a day each and are out of date a month later.',
         what: 'A pipeline that takes a client or competitor list and produces the brief: positioning, content gaps, technical SEO issues, and how each brand shows up in AI answers (ChatGPT, Perplexity, Google AI Overviews). Runs on demand or monthly, outputs a document your team edits rather than writes.',
         stack: 'Supabase · Claude · search and crawl APIs · Google Docs/Notion export',
@@ -22,36 +38,20 @@ const solutions = [
         media: workImg('work-research-v2', 'Competitive research and SEO/GEO pipeline built by David Geha: automated competitor and AI-visibility briefs for agencies'),
     },
     {
-        id: 'ads', num: '03', title: 'Ad-creative pipeline',
-        problem: 'Every campaign needs twenty variations of a visual, and the designer is the bottleneck.',
-        what: 'From a brief and your brand assets to a set of on-brand, UGC-style visuals and copy variants, sized for Meta and Instagram, with a review step before anything is exported. Your designer approves and adjusts instead of producing from zero.',
-        stack: 'Image generation models · Claude for copy · brand-asset library in Supabase · Meta-ready export',
-        time: '2-week sprint', for: 'Agencies, e-commerce, F&B brands',
-        media: workImg('work-ads-v2', 'Ad-creative pipeline built by David Geha: AI-generated, on-brand UGC-style visuals ready for Meta Ads'),
+        id: 'receptionist', num: '05', title: 'AI receptionist for hotels',
+        problem: 'Calls go unanswered at night, at weekends and whenever the front desk is busy with the guests in front of it.',
+        what: 'An AI receptionist that answers your hotel\'s phone calls, responds to guests\' questions and passes on anything that needs your team.',
+        stack: 'Your hotel\'s phone line · details scoped in the audit',
+        time: 'Scoped in the audit', for: 'Hotels and guesthouses',
+        media: workImg('work-receptionist', 'AI receptionist built by David Geha answering a hotel phone call and responding to a guest'),
     },
     {
-        id: 'crm', num: '04', title: 'Custom AI CRM and dashboards',
-        problem: 'Off-the-shelf CRMs cost per seat, do half of what you need, and nobody updates them.',
-        what: 'A CRM built around how your team actually sells and delivers: clients, deals, delivery status, and the AI doing the data entry from email and WhatsApp. Dashboards that answer the owner\'s questions without a weekly spreadsheet.',
-        stack: 'Supabase (Postgres + auth) · Vercel · Claude for extraction and summaries',
-        time: '2 × 2-week sprints', for: 'Agencies, service businesses, founders',
-        media: workImg('work-crm-v3', 'Custom AI CRM dashboard built by David Geha for a marketing agency in Lebanon: clients, deals and delivery in one view'),
-    },
-    {
-        id: 'fnb', num: '05', title: 'F&B reporting and inventory automation',
-        problem: 'Daily sales summaries, inventory counts and supplier follow-ups are done by hand across outlets, late and inconsistently.',
-        what: 'The morning report produced automatically from your POS export, inventory variances flagged, and supplier reorder messages drafted in Arabic or English and waiting for a tap to send. Works with the tools you already have, including WhatsApp.',
-        stack: 'POS CSV/API · Supabase · Claude · WhatsApp Business API or approval queue',
-        time: '2-week sprint', for: 'Restaurants, cafés, cloud kitchens, F&B consultancies',
-        media: img('solutions-fnb', { alt: 'Chefs at work in a dimly lit restaurant kitchen: the daily reporting and inventory busywork behind F&B operations in Lebanon' }),
-    },
-    {
-        id: 'backoffice', num: '06', title: 'WhatsApp and back-office agents',
-        problem: 'Small teams lose hours to intake, scheduling, document handling and follow-ups that are simple but constant.',
-        what: 'Internal agents that read incoming messages and documents, extract what matters, update the right system, and draft the reply, with a person approving anything that leaves the building. Built one workflow at a time so each one is measurable.',
-        stack: 'Supabase · Claude · WhatsApp / email / Google Drive connectors',
-        time: '2-week sprint per workflow', for: 'Any small team with repeat admin',
-        media: img('solutions-backoffice', { alt: 'Paperwork, calculator and smartphone on a dark office desk: the intake and data entry a back-office agent takes over' }),
+        id: 'websites', num: '06', title: 'AI that builds high-end websites',
+        problem: 'A premium website usually means months with an agency, and the result is often either beautiful and invisible on Google, or optimised and forgettable.',
+        what: 'A custom AI system that designs and builds high-end, motion-rich websites (layout, typography, 3D and animation) with the SEO built in from the first page. I used it to build this portfolio.',
+        stack: 'Claude Code · GSAP · three.js · Blender · Vercel',
+        time: 'Scoped in the audit', for: 'Founders, hotels, agencies',
+        media: workImg('work-website-ai', 'The website-building AI by David Geha: this portfolio, davidgeha.dev, which it designed and built'),
     },
 ];
 
@@ -59,9 +59,9 @@ export default {
     path: '/ai-solutions-lebanon/',
     title: 'AI Solutions & Automation for Businesses in Lebanon',
     ogTitle: 'AI Solutions & Automation for Businesses in Lebanon',
-    description: 'Custom AI solutions in Lebanon: lead-outreach engines, research pipelines, ad creatives, AI CRMs, F&B reporting and back-office agents, built in Beirut.',
+    description: 'Custom AI solutions in Lebanon: AI email agents, CRMs with AI agent employees, outreach, SEO and GEO, AI receptionists for hotels and AI-built websites.',
     datePublished: '2026-09-19',
-    dateModified: '2026-09-22',
+    dateModified: '2026-10-06',
     ogImage: '/img/og-solutions.jpg',
     about: 'service',
     schemaType: 'CollectionPage',
@@ -69,7 +69,7 @@ export default {
     word: 'Solutions',
     eyebrow: 'Custom AI systems · Lebanon',
     h1: 'AI Solutions &amp; Automation for Businesses in Lebanon',
-    lead: 'Six systems I build for Lebanese agencies, F&amp;B operators and founders. Each one replaces a specific piece of repeated manual work, runs in accounts you own, and ships in a two-week sprint at a fixed price.',
+    lead: 'Six systems I build for Lebanese hotels, agencies and founders. Each one replaces a specific piece of repeated manual work, runs in accounts you own, and is scoped and priced in the audit before anything is built.',
     meta: 'Custom-built · Supabase, Vercel, Claude, GitHub · English, Arabic, French',
     hero: {
         image: 'solutions-hero',
@@ -79,7 +79,7 @@ export default {
     body: `
   <section class="container" style="padding-top:2.5rem">
     <dl class="glance reveal-stagger">
-      <div><dt>Delivery</dt><dd>2-week sprints</dd></div>
+      <div><dt>Delivery</dt><dd>Scoped per system</dd></div>
       <div><dt>Ownership</dt><dd>Your accounts, your code</dd></div>
       <div><dt>Runs on</dt><dd>Supabase · Vercel · Claude</dd></div>
       <div><dt>Support</dt><dd>WhatsApp, optional retainer</dd></div>
@@ -98,7 +98,7 @@ export default {
   </section>
 
   <section class="section container" id="solutions">
-    <div class="section__head reveal"><span class="eyebrow">Catalog</span><h2>What I build</h2><p>Six systems, each one a two-week sprint. The first four are screenshots of builds already running for clients.</p></div>
+    <div class="section__head reveal"><span class="eyebrow">Catalog</span><h2>What I build</h2><p>Six systems, each one scoped in the audit. The CRM, outreach and SEO/GEO pictures show builds already running for clients; the others illustrate the systems.</p></div>
     <div class="cards cards--2 reveal-stagger">
 ${solutions.map((s) => `      <article class="card" id="${s.id}">
         <div class="card__media">${s.media}</div>
@@ -122,13 +122,13 @@ ${solutions.map((s) => `      <article class="card" id="${s.id}">
         <p>Almost every business I work with in Lebanon has fewer than thirty people. That changes what "AI solutions" should mean. You do not need a data lake or a transformation office. You need the three tasks that eat your afternoon handled by something reliable, and you need to see the hours come back within the first month.</p>
         <h2>Which processes should a small business automate first?</h2>
         <ol>
-          <li><strong>Anything produced daily from data you already have</strong>: sales summaries, inventory variances, client status reports. Highest payback, lowest risk.</li>
-          <li><strong>Outbound that follows a pattern</strong>: lead research and first-touch emails, supplier reorders, appointment reminders. High volume, easy to review.</li>
+          <li><strong>Anything produced regularly from data you already have</strong>: reports compiled from the figures that arrive by email, client status reports, invoices. Highest payback, lowest risk.</li>
+          <li><strong>Outbound that follows a pattern</strong>: lead research and first-touch emails, follow-ups, appointment reminders. High volume, easy to review.</li>
           <li><strong>Intake and data entry</strong>: reading emails, WhatsApp messages and PDFs into the CRM or sheet. Tedious for people, easy for an agent, always with a human approval step where money or commitments are involved.</li>
         </ol>
         <p>What I do <em>not</em> recommend automating first: anything customer-facing that a mistake would embarrass you in, and anything you have not yet done by hand long enough to know the rules.</p>
         <h2>Can it run on the tools we already use?</h2>
-        <p>Yes, and it should. WhatsApp, Google Sheets, your POS export, Meta Ads, Notion, HubSpot and plain email are the usual connection points. The system sits beside your tools and moves data between them; it does not replace them.</p>
+        <p>Yes, and it should. Your email, your phone line, WhatsApp, Google Sheets, Notion and HubSpot are the usual connection points. The system sits beside your tools and moves data between them; it does not replace them.</p>
         <h2>What happens when the internet or power drops?</h2>
         <p>The systems run on Vercel and Supabase, so they keep working when your office does not. Scheduled jobs run on time whether anyone is at a desk; queued messages wait for approval and send when you are back online. Nothing depends on a laptop in Beirut staying on.</p>
       </div>
@@ -137,18 +137,18 @@ ${solutions.map((s) => `      <article class="card" id="${s.id}">
 
   <section class="section container" id="industries">
     <div class="section__grid">
-      ${label('Industries', 'Where these systems already run', figure('solutions-industries', {
-        alt: 'Contemporary café interior with a long bar counter, the kind of F&B outlet where daily reporting is automated',
-        caption: 'Agencies feel the payback fastest; F&B groups get the morning report and supplier follow-ups handled before service starts.',
+      ${label('Industries', 'Where these systems already run', figure('solutions-hotel-reception', {
+        alt: 'The hotel AI receptionist on a phone resting on black basalt, mid-call with a guest',
+        caption: 'Hotels get their calls answered and their email handled; agencies get outreach, SEO and GEO, and a CRM their agents work in.',
         tilt: 'right',
     }))}
       <div class="prose reveal">
         <h2>Marketing agencies</h2>
-        <p>Outreach engines, research pipelines and ad-creative generation, usually in that order. Agencies feel the payback fastest because the same work repeats for every client. See the <a href="/#work">selected work</a> for the outreach engine and the ad-creative pipeline.</p>
-        <h2>Restaurants and F&amp;B</h2>
-        <p>Daily reporting and inventory automation for an F&amp;B consultancy managing multiple outlets, with supplier follow-ups drafted for approval. Arabic and English, working over WhatsApp.</p>
+        <p>Outreach engines, SEO and GEO pipelines, and custom CRMs with AI agent employees. Agencies feel the payback fastest because the same work repeats for every client. See the <a href="/#work">selected work</a> for the outreach engine and the CRM.</p>
+        <h2>Hotels</h2>
+        <p>An AI receptionist that answers calls and responds to guests, and an email agent that reviews incoming reports, generates the hotel's reports and prepares invoices.</p>
         <h2>Founders and service businesses</h2>
-        <p>Custom CRMs and internal agents that clear back-office work for teams of two to ten. The <a href="/ai-consulting-lebanon/">consulting page</a> explains how an engagement is scoped and priced.</p>
+        <p>Custom CRMs, email agents and websites built by the website AI, for teams of two to ten. The <a href="/ai-consulting-lebanon/">consulting page</a> explains how an engagement is scoped and priced.</p>
       </div>
     </div>
   </section>`,
@@ -156,8 +156,8 @@ ${solutions.map((s) => `      <article class="card" id="${s.id}">
     faq: [
         { q: 'How much does AI automation cost in Lebanon?', a: 'Each system above is delivered as a fixed-price two-week sprint, scoped in a 48-hour audit so the price is known before work starts. Larger builds like a full CRM are two consecutive sprints. Publicly listed prices from other Lebanese providers range from about $2,000 for a basic chatbot to $25,000 and up for enterprise workflow automation; the <a href="/blog/ai-consulting-in-lebanon-guide/#cost">consulting guide</a> compares the bands.' },
         { q: 'Chatbot vs AI agent: what is the difference?', a: 'A chatbot answers questions inside a chat window. An agent does work: it reads data, decides what to do next, takes actions in your tools, and reports back. Everything on this page is an agent or a pipeline. A chatbot is occasionally one component of a larger workflow, rarely the whole solution.' },
-        { q: 'Do you offer AI implementation services for software we already bought?', a: 'Sometimes. If you have a CRM, POS or marketing platform with an API, I can build the agents that feed and use it. If the tool has no API and no export, the honest answer is that it will limit what is possible, and the audit will say so.' },
-        { q: 'Which AI models do you use?', a: 'Claude for reasoning, extraction and writing, current image models for creative generation, and whatever search or crawl APIs the task needs. Models are swapped when a better one appears; the system is designed so that is a configuration change, not a rebuild.' },
+        { q: 'Do you offer AI implementation services for software we already bought?', a: 'Sometimes. If you have a CRM, booking system or marketing platform with an API, I can build the agents that feed and use it. If the tool has no API and no export, the honest answer is that it will limit what is possible, and the audit will say so.' },
+        { q: 'Which AI models do you use?', a: 'Claude for reasoning, extraction and writing, and whatever search, crawl or voice services the task needs. Models are swapped when a better one appears; the system is designed so that is a configuration change, not a rebuild.' },
         { q: 'Can I see it working before I commit?', a: 'The audit produces a scoped plan, not a demo. But the first sprint is built in your accounts from day one, so you watch it come together over the two weeks and can stop at any point.' },
         { q: 'Do you build AI solutions for companies outside Lebanon?', a: 'Yes. Most clients are in Beirut and across Lebanon, but the systems are remote-first by nature and I work with teams in the GCC and with Lebanese founders abroad in the same way.' },
     ],

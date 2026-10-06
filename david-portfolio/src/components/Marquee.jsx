@@ -1,22 +1,24 @@
 import React from 'react';
-import './Marquee.css';
 
 const STACK = [
     'Supabase',
     'Vercel',
     'Claude Code',
-    'Claude Desktop',
     'GitHub',
-    'GPT Image 2.0',
-    'Custom CRMs',
+    'AI Email Agents',
+    'AI CRMs',
     'Outreach Systems',
+    'SEO & GEO',
+    'AI Receptionists',
+    'AI Web Design',
 ];
 
+// P14 velocity-reactive marquee with V10's outline row (every other name is stroked).
 const Marquee = () => {
     // Duplicated once so the -50% translate loops seamlessly.
     const items = [...STACK, ...STACK];
     return (
-        <section className="marquee" aria-label="Tools and stack">
+        <section className="marquee" aria-label="Tools and stack" data-marquee>
             <div className="marquee__track">
                 {items.map((tool, i) => (
                     <span

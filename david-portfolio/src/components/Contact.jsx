@@ -1,22 +1,29 @@
 import React from 'react';
-import './Contact.css';
 import { siteLinks } from '../content/site-links';
 
-const Contact = () => {
-    return (
-        <footer className="contact container" id="contact">
-            <div className="contact__content">
-                <h2 className="contact__title">
+/**
+ * Footer CTA: C70 adapted (DESIGN.md). The call line at impact size streams in, a signal
+ * circle leans toward the pointer (V16 + magnetic), and everything practical sits in one
+ * inset notched slab below it. Behind the call, a dot-matrix globe turns to Beirut (globe.js).
+ */
+const Contact = () => (
+    <footer className="contact" id="contact" data-globe-scope>
+        <div className="contact__globe" data-globe aria-hidden="true"></div>
+        <div className="container contact__content">
+            <div className="contact__call">
+                <h2 className="contact__title" data-anim="tokens">
                     Let's automate the work <br />
                     you shouldn't be doing.
                 </h2>
 
                 <div className="contact__actions">
-                    <a href="mailto:david@osgdev.com" className="contact__button">
+                    <a href="mailto:david@osgdev.com" className="contact__button contact__button--circle" data-magnetic>
                         Start a project
                     </a>
                 </div>
+            </div>
 
+            <div className="contact__slab" data-anim="fade">
                 {/* Visible NAP — must match the Google Business Profile and every directory exactly. */}
                 <address className="contact__nap">
                     <a href="mailto:david@osgdev.com">david@osgdev.com</a>
@@ -49,8 +56,8 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-        </footer>
-    );
-};
+        </div>
+    </footer>
+);
 
 export default Contact;

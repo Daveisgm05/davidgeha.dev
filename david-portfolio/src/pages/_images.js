@@ -5,6 +5,8 @@
 export const IMAGES = {
     'about-beirut': { w: 1200, h: 591, src: 'https://www.pexels.com/photo/city-on-sea-coast-in-lebanon-14655706/' },
     'about-engineering': { w: 1200, h: 800, src: 'https://www.pexels.com/photo/low-angle-shot-of-a-tower-crane-11654555/' },
+    'solutions-hotel-reception': { w: 1200, h: 900, src: 'Blender render for this site (docs/blender/devices.py): the hotel AI receptionist on a phone on basalt' },
+    'consulting-audit-map': { w: 1200, h: 900, src: 'Blender render for this site (docs/blender/devices.py): the audit task map on a tablet on basalt' },
     'consulting-audit': { w: 1200, h: 800, src: 'https://www.pexels.com/photo/touchscreen-to-make-orders-at-restaurant-12935078/' },
     'consulting-hero': { w: 1600, h: 1065, src: 'https://www.pexels.com/photo/iconic-beirut-clock-tower-in-downtown-area-36340591/' },
     'consulting-what': { w: 1200, h: 801, src: 'https://www.pexels.com/photo/white-dry-erase-board-with-red-diagram-1181311/' },
