@@ -4,6 +4,7 @@
   "installCommand": "npm --prefix david-portfolio install",
   "buildCommand": "npm --prefix david-portfolio run build",
   "outputDirectory": "david-portfolio/dist",
+  "trailingSlash": true,
   "redirects": [
     {
       "source": "/:path*",

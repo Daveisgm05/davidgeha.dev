@@ -7,7 +7,7 @@ export default {
     path: '/about/',
     title: 'About David Geha — AI Consultant in Beirut, Lebanon',
     ogTitle: 'David Geha — AI consultant in Beirut, Lebanon',
-    description: 'David Geha is an independent AI consultant in Beirut, Lebanon, and an engineering student at AUB, building AI agents and custom AI systems for hotels, agencies and founders.',
+    description: 'David Geha is an independent AI consultant in Beirut, Lebanon, and an engineering student at AUB, building AI agents for hotels, agencies and founders.',
     schemaType: 'ProfilePage',
     datePublished: '2026-09-19',
     dateModified: '2026-10-06',
