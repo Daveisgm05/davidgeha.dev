@@ -22,7 +22,7 @@
   /* text */
   --text: #ecebe4;
   --muted: #9b9a93;
-  --dim: #6d6c67;
+  --dim: #82817b; /* 4.5:1 or better on ink, ink-2 and ink-3 */
   --on-paper: #0f1012;
   --on-paper-muted: #55554f;
   /* the one accent */
