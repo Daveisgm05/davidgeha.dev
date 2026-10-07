@@ -2,7 +2,9 @@
 // wakes up in the signal colour around the pointer, with a slow scan line passing down it.
 // Beirut's coordinates are drawn into the canvas corners (pixels, not page text). Used by the
 // homepage hero (HeroField.jsx) and every content page's hero ([data-field], added by pages.js).
-// Paused off-screen; one still frame for reduced motion.
+// Paused off-screen; one still frame for reduced motion and without a graphics chip.
+import { reduced, noGPU } from './tokens.js';
+
 const GAP = 26;            // lattice spacing, CSS px
 const REACH = 190;         // pointer glow radius, CSS px
 const SCAN_S = 7;          // seconds per scan pass
@@ -12,7 +14,7 @@ const SIGNAL = [198, 244, 50];
 export function field(canvas) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const still = reduced() || noGPU();
     let w = 0, h = 0, dpr = 1, raf = 0, running = false, onScreen = true;
     const ptr = { x: -9999, y: -9999, tx: -9999, ty: -9999 };
 

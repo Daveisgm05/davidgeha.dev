@@ -6,7 +6,7 @@
 // same page list so the sitemap can't drift from what exists.
 //
 // Runs as part of `prebuild` (after sync-static) and `predev`.
-import { readdirSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readdirSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve, join } from 'node:path';
 import { IMAGES } from '../src/pages/_images.js';
@@ -375,11 +375,15 @@ const homeImages = [
     ['/work-website-ai.webp', 'AI Website Builder - the custom AI that built davidgeha.dev'],
 ];
 const imageXml = (list) => list.map(([f, t]) => `    <image:image>\n      <image:loc>${SITE}${f}</image:loc>\n      <image:title>${esc(t)}</image:title>\n    </image:image>`).join('\n');
+// the home page's lastmod is the dateModified its structured data states (index.html) — every URL carries one
+const homeMod = (readFileSync(resolve(root, 'index.html'), 'utf8').match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/) || [])[1];
+if (!homeMod) throw new Error('build-pages: index.html states no dateModified — the sitemap needs the home page\'s date');
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>${SITE}/</loc>
+    <lastmod>${homeMod}</lastmod>
 ${imageXml(homeImages)}
   </url>
 ${pages.map((p) => {
