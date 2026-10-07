@@ -12,6 +12,27 @@ export const siteLinks = {
             "title": "AI Consulting in Lebanon: the 2026 guide to costs, firms and how to choose"
         }
     ],
-    "pages": [],
+    "pages": [
+        {
+            "href": "/ai-agents-lebanon/",
+            "label": "AI agents"
+        },
+        {
+            "href": "/ai-automation-lebanon/",
+            "label": "AI automation"
+        },
+        {
+            "href": "/ai-outreach-lebanon/",
+            "label": "AI outreach systems"
+        },
+        {
+            "href": "/ai-seo-geo-lebanon/",
+            "label": "AI for SEO & GEO"
+        },
+        {
+            "href": "/privacy/",
+            "label": "Privacy"
+        }
+    ],
     "work": null
 };

@@ -31,6 +31,10 @@ Supabase, Vercel, Claude Code, GitHub, plus custom-built CRMs, agents and outrea
 - https://davidgeha.dev/ — home: services, selected work, FAQ
 - https://davidgeha.dev/ai-consulting-lebanon/ — AI consulting in Lebanon: 48-hour audit, 2-week build sprint, retainer
 - https://davidgeha.dev/ai-solutions-lebanon/ — AI solutions catalog: AI email agent, custom CRM with AI agent employees, AI outreach system, AI for SEO and GEO, AI receptionist for hotels, AI that builds high-end websites
+- https://davidgeha.dev/ai-automation-lebanon/ — AI automation in Lebanon: what to automate first (reports, invoices, follow-ups, WhatsApp and email intake), what to leave alone, how it runs beside the tools a team already uses
+- https://davidgeha.dev/ai-agents-lebanon/ — AI agents for businesses in Lebanon: agents versus chatbots, the email agent, AI agent employees in a custom CRM, the outreach agent, the hotel AI receptionist
+- https://davidgeha.dev/ai-outreach-lebanon/ — AI outreach systems in Lebanon: lead sourcing, research and personalised first emails sent from the client's own domain, replies logged in the CRM
+- https://davidgeha.dev/ai-seo-geo-lebanon/ — AI for SEO and GEO (generative engine optimization) in Lebanon: the pipeline behind competitor briefs and how brands appear in ChatGPT, Perplexity and Google's AI answers
 - https://davidgeha.dev/blog/ai-consulting-in-lebanon-guide/ — 2026 guide: what AI consultants do, USD cost bands in Lebanon, firms vs practitioners, how to choose
 - https://davidgeha.dev/about/ — about David Geha (disambiguation: not the TV producer)
 

@@ -48,6 +48,50 @@
       <image:loc>https://davidgeha.dev/img/about-engineering-1200.webp</image:loc>
       <image:title>Tower crane and a high-rise under construction in monochrome: the civil engineering discipline behind the consultancy</image:title>
     </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-crm-v3.webp</image:loc>
+      <image:title>Custom CRM dashboard David Geha built for a marketing agency in Lebanon</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://davidgeha.dev/ai-agents-lebanon/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-crm-v3.webp</image:loc>
+      <image:title>Screenshot of a custom CRM showing clients, deals and delivery in one view, with AI agent employees working inside it</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/guide-agent-1200.webp</image:loc>
+      <image:title>Hands typing on a laptop keyboard</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-email-agent.webp</image:loc>
+      <image:title>An AI email agent working in a company inbox: incoming reports reviewed, reports generated and invoices prepared</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-outreach-v2.webp</image:loc>
+      <image:title>An AI outreach agent pipeline: leads sourced against an ideal-customer profile, researched and sent a personalised first email</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-receptionist.webp</image:loc>
+      <image:title>An AI receptionist answering a hotel phone call and responding to a guest</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://davidgeha.dev/ai-automation-lebanon/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-email-agent.webp</image:loc>
+      <image:title>Screenshot of the AI email agent: a company inbox where the agent reviews incoming reports, generates reports and prepares invoices</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/solutions-backoffice-1200.webp</image:loc>
+      <image:title>Black calculator resting on printed figures: the reports and invoices that are usually automated first</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/consulting-audit-map-1200.webp</image:loc>
+      <image:title>The audit task map on a tablet resting on black basalt, with every repeated task scored for payback</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://davidgeha.dev/ai-consulting-lebanon/</loc>
@@ -74,11 +118,59 @@
     </image:image>
   </url>
   <url>
+    <loc>https://davidgeha.dev/ai-outreach-lebanon/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-outreach-v2.webp</image:loc>
+      <image:title>The lead-outreach engine: an agentic pipeline that sources, researches and emails leads for a marketing agency in Lebanon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/consulting-who-1200.webp</image:loc>
+      <image:title>Small marketing agency team in a planning session at a whiteboard</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://davidgeha.dev/ai-seo-geo-lebanon/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-research-v2.webp</image:loc>
+      <image:title>The SEO and GEO pipeline: automated competitor and AI-visibility briefs for agencies, on a phone</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/img/consulting-what-1200.webp</image:loc>
+      <image:title>Red marker diagram drawn on a whiteboard, mapping the steps of a process</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://davidgeha.dev/ai-solutions-lebanon/</loc>
     <lastmod>2026-10-06</lastmod>
     <image:image>
       <image:loc>https://davidgeha.dev/img/solutions-hero-1600.webp</image:loc>
       <image:title>Lattice of connected nodes on a dark background, representing agentic AI systems linking the tools a business already uses</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-email-agent.webp</image:loc>
+      <image:title>AI email agent built by David Geha: an inbox where the agent reviews incoming reports, generates reports and prepares invoices</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-crm-v3.webp</image:loc>
+      <image:title>Custom CRM with AI agent employees built by David Geha for a marketing agency in Lebanon: clients, deals and delivery in one view</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-outreach-v2.webp</image:loc>
+      <image:title>Lead-outreach engine built by David Geha: an agentic pipeline that sources, researches and emails leads for a marketing agency in Lebanon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-research-v2.webp</image:loc>
+      <image:title>Competitive research and SEO/GEO pipeline built by David Geha: automated competitor and AI-visibility briefs for agencies</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-receptionist.webp</image:loc>
+      <image:title>AI receptionist built by David Geha answering a hotel phone call and responding to a guest</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://davidgeha.dev/work-website-ai.webp</image:loc>
+      <image:title>The website-building AI by David Geha: this portfolio, davidgeha.dev, which it designed and built</image:title>
     </image:image>
     <image:image>
       <image:loc>https://davidgeha.dev/img/solutions-smes-1200.webp</image:loc>
@@ -124,5 +216,10 @@
       <image:loc>https://davidgeha.dev/img/guide-timeline-1200.webp</image:loc>
       <image:title>Open planner notebook and glasses on a dark desk: scheduling a two-day audit and a two-week build sprint</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://davidgeha.dev/privacy/</loc>
+    <lastmod>2026-10-07</lastmod>
+
   </url>
 </urlset>

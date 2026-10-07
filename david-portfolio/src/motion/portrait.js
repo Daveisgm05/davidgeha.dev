@@ -101,7 +101,9 @@ function compile(gl, type, src) {
 function loadImage(url) {
     return new Promise((res, rej) => {
         const img = new Image();
-        img.crossOrigin = 'anonymous';
+        // only another origin needs CORS (same-origin pixels never taint the GL texture) — and a CORS request
+        // would miss index.html's preload of the same file and download it twice
+        if (new URL(url, location.href).origin !== location.origin) img.crossOrigin = 'anonymous';
         img.onload = () => res(img);
         img.onerror = rej;
         img.src = url;
