@@ -30,7 +30,7 @@ const SiteHeader = () => (
             </ul>
 
             <div className="nav__actions" data-hero-hide="fade">
-                <a className="nav__cta" href="mailto:david@osgdev.com">
+                <a className="nav__cta" href="mailto:david@gehalb.com">
                     Let's talk <ArrowUpRight />
                 </a>
                 <a className="nav__logo" href="#top" aria-label="Back to top">D</a>

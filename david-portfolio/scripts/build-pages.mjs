@@ -18,7 +18,7 @@ const TODAY = new Date().toISOString().slice(0, 10);
 export const NAP = {
     name: 'David Geha - AI Consultant',
     person: 'David Geha',
-    email: 'david@osgdev.com',
+    email: 'david@gehalb.com',
     phone: '+961 76 412 978',
     phoneE164: '+96176412978',
     whatsapp: 'https://wa.me/96176412978',

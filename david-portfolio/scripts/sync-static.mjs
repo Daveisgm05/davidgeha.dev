@@ -88,7 +88,7 @@ ${faq.map(({ q, a }) => `    <h3>${esc(q)}</h3>\n    <p>${esc(a)}</p>`).join('\n
 ${links.pages.map(({ href, label }) => `      <li><a href="${href}">${esc(label)}</a></li>`).join('\n')}${links.pages.length ? '\n' : ''}${links.hub ? '      <li><a href="/blog/">All guides</a></li>\n' : ''}${links.articles.map(({ href, title }) => `      <li><a href="${href}">${esc(title)}</a></li>`).join('\n')}${links.articles.length ? '\n' : ''}${links.work ? '      <li><a href="/work/">Case studies</a></li>\n' : ''}      <li><a href="/about/">About David Geha</a></li>
     </ul>
 
-    <p>Contact: <a href="mailto:david@osgdev.com">david@osgdev.com</a> ·
+    <p>Contact: <a href="mailto:david@gehalb.com">david@gehalb.com</a> ·
       <a href="tel:+96176412978">+961 76 412 978</a> (WhatsApp) · Beirut, Lebanon ·
       <a href="https://www.linkedin.com/in/david-geha/">LinkedIn</a> ·
       <a href="https://github.com/Daveisgm05">GitHub</a> ·

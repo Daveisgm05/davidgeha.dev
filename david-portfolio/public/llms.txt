@@ -35,7 +35,7 @@ Supabase, Vercel, Claude Code, GitHub, plus custom-built CRMs, agents and outrea
 - https://davidgeha.dev/about/ — about David Geha (disambiguation: not the TV producer)
 
 ## Contact
-- Email: david@osgdev.com
+- Email: david@gehalb.com
 - Phone / WhatsApp: +961 76 412 978
 - Location: Beirut, Lebanon (serves all of Lebanon, remote-friendly)
 - LinkedIn: https://www.linkedin.com/in/david-geha/

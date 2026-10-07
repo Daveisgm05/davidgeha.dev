@@ -17,7 +17,7 @@ const Contact = () => (
                 </h2>
 
                 <div className="contact__actions">
-                    <a href="mailto:david@osgdev.com" className="contact__button contact__button--circle" data-magnetic>
+                    <a href="mailto:david@gehalb.com" className="contact__button contact__button--circle" data-magnetic>
                         Start a project
                     </a>
                 </div>
@@ -26,7 +26,7 @@ const Contact = () => (
             <div className="contact__slab" data-anim="fade">
                 {/* Visible NAP — must match the Google Business Profile and every directory exactly. */}
                 <address className="contact__nap">
-                    <a href="mailto:david@osgdev.com">david@osgdev.com</a>
+                    <a href="mailto:david@gehalb.com">david@gehalb.com</a>
                     <span aria-hidden="true">·</span>
                     <a href="https://wa.me/96176412978" target="_blank" rel="noopener noreferrer">+961 76 412 978</a>
                     <span aria-hidden="true">·</span>
