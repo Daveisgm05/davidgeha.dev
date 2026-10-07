@@ -11,6 +11,7 @@
  * — the head turns, it doesn't warp. Falls back to a static <img> on reduced
  * motion or when WebGL2 is unavailable.
  */
+import { noGPU } from './tokens.js';
 
 const GX = 150;          // grid columns
 const GY = 200;          // grid rows (≈ 3:4)
@@ -175,7 +176,7 @@ function buildGeometry(depthGrid) {
 
 /** Mounts the depth portrait on `canvas`; calls onFail() when WebGL2 or the assets are missing. */
 export function mountPortrait(canvas, { diffuse = '/david_transparent.webp', depth = '/david_depth.png', onFail = () => {} } = {}) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { onFail(); return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || noGPU()) { onFail(); return; }
     const gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: false, antialias: true });
     if (!gl) { onFail(); return; }
 
@@ -355,7 +356,7 @@ export function mountPortrait(canvas, { diffuse = '/david_transparent.webp', dep
 // a canvas is laid over it and the image hides only once the GL portrait is drawing.
 export async function portrait(host) {
     const img = host.querySelector('img');
-    if (!img || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+    if (!img || window.matchMedia('(prefers-reduced-motion: reduce)').matches || noGPU()) return null;
     const canvas = document.createElement('canvas');
     canvas.className = 'portrait-canvas';
     canvas.setAttribute('aria-hidden', 'true');

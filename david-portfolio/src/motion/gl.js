@@ -1,15 +1,15 @@
 // The one WebGL stage every three.js piece mounts through (web-motion-craft's GL rules):
 //   - three.js is imported lazily, only when a GL host comes near the viewport;
-//   - no canvas under reduced motion, on the low tier or without WebGL: the host keeps its fallback;
+//   - no canvas under reduced motion, on the low tier, without WebGL or without a graphics chip: the host keeps its fallback;
 //   - the pixel ratio is capped (1.5 on desktop, 1 on touch);
 //   - one frame loop on gsap's ticker (in step with ScrollTrigger and Lenis), paused while the host is
 //     off-screen or the tab is hidden; a lost context falls back instead of freezing;
 //   - dispose() frees the renderer, its context and every listener.
 import gsap from 'gsap';
-import { reduced, lowTier, finePointer } from './tokens.js';
+import { reduced, lowTier, noGPU, finePointer } from './tokens.js';
 
 export function canGL() {
-    if (reduced() || lowTier()) return false;
+    if (reduced() || lowTier() || noGPU()) return false;
     try {
         const c = document.createElement('canvas');
         return !!(c.getContext('webgl2') || c.getContext('webgl'));

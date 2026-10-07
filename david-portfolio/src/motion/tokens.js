@@ -41,3 +41,18 @@ export const lowTier = () => {
     const c = navigator.connection;
     return !!(c && (c.saveData || /2g/.test(c.effectiveType || '')));
 };
+// No graphics chip: the browser would draw WebGL and canvas in software on the processor (a headless or test
+// browser, a virtual machine, a blocklisted GPU). Every canvas and 3D piece then shows its still frame, as under
+// reduced motion — a frame loop in software keeps the main thread busy for seconds. Checked once.
+let soft;
+export const noGPU = () => {
+    if (soft !== undefined) return soft;
+    try {
+        const g = document.createElement('canvas').getContext('webgl');
+        const info = g && g.getExtension('WEBGL_debug_renderer_info');
+        const renderer = info ? String(g.getParameter(info.UNMASKED_RENDERER_WEBGL)) : '';
+        soft = !g || /swiftshader|llvmpipe|softpipe|software|basic render|offscreen/i.test(renderer);
+        g?.getExtension('WEBGL_lose_context')?.loseContext();
+    } catch { soft = true; }
+    return soft;
+};

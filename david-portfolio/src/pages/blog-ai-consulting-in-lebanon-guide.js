@@ -27,7 +27,7 @@ export default {
     ogImage: '/img/og-guide.jpg',
     schemaType: 'Article',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-06',
+    dateModified: '2026-10-07',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'Guide', href: '/blog/ai-consulting-in-lebanon-guide/' }, { label: 'AI Consulting in Lebanon (2026)' }],
     word: 'Guide',
     eyebrow: 'AI consulting · Lebanon · 2026 guide',
@@ -127,7 +127,7 @@ export default {
         <h2>Tier 2: software houses and AI agencies</h2>
         <p>Established Lebanese development companies such as Eurisko, Webspot, NavyBits and SEIDOR's Lebanon office, plus AI-automation specialists like LB Clouds and Zfort's Lebanon practice. They offer AI development, custom models, chatbots and workflow automation, usually with team capacity and long-term support contracts. Right when you need a large build, a partner stack, or an SLA. Prices start in the low thousands and scale to enterprise.</p>
         <h2>Tier 3: independent practitioners</h2>
-        <p>A growing group of solo consultants in Beirut who audit, design and build themselves, typically for agencies, F&amp;B, clinics, real estate and founders. This is where I sit, alongside a handful of others you will find on LinkedIn and in the local AI community. Right when the problem is specific, the team is small, and you want the person who diagnoses the work to also build the system. Wrong when you need a team of five on site.</p>
+        <p>A growing group of solo consultants in Beirut who audit, design and build themselves, typically for agencies, hotels, clinics, real estate and founders. This is where I sit, alongside a handful of others you will find on LinkedIn and in the local AI community. Right when the problem is specific, the team is small, and you want the person who diagnoses the work to also build the system. Wrong when you need a team of five on site.</p>
         <p>Directories like Clutch, TechBehemoths, GoodFirms and Consultancy.org list many of the Tier 2 firms with reviews; they are a reasonable place to start a shortlist, keeping in mind that they mostly list companies large enough to have been reviewed.</p>
       </div>
     </div>
