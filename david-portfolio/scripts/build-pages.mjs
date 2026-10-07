@@ -76,6 +76,12 @@ function heroMedia(page) {
           <img class="hero__portrait" src="/david_transparent.webp" width="900" height="1200" alt="${esc(h.alt || 'David Geha, AI consultant in Beirut, Lebanon')}" loading="eager" fetchpriority="high" decoding="async">
         </div>`;
     }
+    if (h.work) {  // a project screenshot from the homepage work list (public/work-*.webp, 1280×960)
+        return `<figure class="hero__media">
+          <div class="hero__frame" data-hero-hide="media"><img src="/${h.work}.webp" srcset="${workSrcset(h.work)}" sizes="(max-width: 900px) calc(100vw - 4rem), 44vw" width="1280" height="960" alt="${esc(h.alt)}" loading="eager" fetchpriority="high" decoding="async"></div>
+          ${h.caption ? `<figcaption>${h.caption}</figcaption>` : ''}
+        </figure>`;
+    }
     if (!h.image) return '';
     const meta = IMAGES[h.image];
     const widths = [480, 800, 1200, 1600];
@@ -86,13 +92,16 @@ function heroMedia(page) {
         </figure>`;
 }
 
+const workSrcset = (name) => `/${name}-640.webp 640w, /${name}-960.webp 960w, /${name}.webp 1280w`;
+
 function heroPreload(page) {
     const h = page.hero || {};
-    if (h.portrait) return `<link rel="preload" as="image" href="/david_transparent.webp">`;
+    if (h.portrait) return `<link rel="preload" as="image" href="/david_transparent.webp" fetchpriority="high">`;
+    if (h.work) return `<link rel="preload" as="image" href="/${h.work}.webp" imagesrcset="${workSrcset(h.work)}" imagesizes="(max-width: 900px) calc(100vw - 4rem), 44vw" fetchpriority="high">`;
     if (!h.image) return '';
     const widths = [480, 800, 1200, 1600];
     const srcset = widths.map((w) => `/img/${h.image}-${w}.webp ${w}w`).join(', ');
-    return `<link rel="preload" as="image" href="/img/${h.image}-1600.webp" imagesrcset="${srcset}" imagesizes="(max-width: 900px) calc(100vw - 4rem), 44vw">`;
+    return `<link rel="preload" as="image" href="/img/${h.image}-1600.webp" imagesrcset="${srcset}" imagesizes="(max-width: 900px) calc(100vw - 4rem), 44vw" fetchpriority="high">`;
 }
 
 function marquee(items) {
@@ -181,7 +190,7 @@ function blogHub(articles) {
 function collectImages(html) {
     const out = [];
     for (const tag of html.match(/<img\b[^>]*>/g) || []) {
-        const src = tag.match(/\bsrc="(\/img\/[^"]+|\/david_transparent\.webp)"/)?.[1];
+        const src = tag.match(/\bsrc="(\/img\/[^"]+|\/david_transparent\.webp|\/work-[^"/]+\.webp)"/)?.[1];
         if (!src) continue;
         const alt = tag.match(/\balt="([^"]*)"/)?.[1] || '';
         if (!out.some((o) => o.src === src)) out.push({ src, alt: alt.replace(/&quot;/g, '"').replace(/&amp;/g, '&') });
@@ -199,7 +208,11 @@ function schemaFor(page) {
     };
     const h = page.hero || {};
     const heroMeta = h.image ? IMAGES[h.image] : null;
-    const primaryImage = heroMeta ? {
+    const primaryImage = h.work ? {
+        '@type': 'ImageObject', '@id': url + '#primaryimage',
+        url: `${SITE}/${h.work}.webp`, contentUrl: `${SITE}/${h.work}.webp`, width: 1280, height: 960,
+        caption: (h.caption || h.alt || '').replace(/<[^>]+>/g, ''),
+    } : heroMeta ? {
         '@type': 'ImageObject', '@id': url + '#primaryimage',
         url: `${SITE}/img/${h.image}-1600.webp`, contentUrl: `${SITE}/img/${h.image}-1600.webp`,
         width: heroMeta.w, height: heroMeta.h, caption: (h.caption || h.alt || '').replace(/<[^>]+>/g, ''),
@@ -248,7 +261,8 @@ function schemaFor(page) {
 function render(page) {
     const url = SITE + page.path;
     const og = page.ogImage || '/og-image.jpg';
-    const ogAlt = page.ogImageAlt || page.hero?.alt || 'David Geha - AI Consultant in Lebanon';
+    // the preview image's own description: a project-screenshot hero is not the preview image unless ogImage says so
+    const ogAlt = page.ogImageAlt || (page.hero?.work && !page.ogImage ? '' : page.hero?.alt) || 'David Geha - AI Consultant in Lebanon';
     return `<!doctype html>
 <html lang="en">
 <head>

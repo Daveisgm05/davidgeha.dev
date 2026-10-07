@@ -16,6 +16,7 @@ export const services = [
     {
         num: '02',
         href: '/ai-solutions-lebanon/#crm',
+        page: '/ai-agents-lebanon/',
         cta: 'Custom CRMs and their agents',
         title: 'Custom CRMs with AI agent employees',
         text: 'A CRM designed around how your team actually sells and delivers, with AI agents working inside it like members of staff: they keep records up to date, follow up on deals and prepare the next tasks, while your team sees every action and can step in. Full stack, from UI/UX to backend and deploy, on Supabase, Vercel, Claude and GitHub, so you own the code and the data.',
