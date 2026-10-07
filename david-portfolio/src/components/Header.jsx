@@ -91,9 +91,10 @@ const Header = () => {
             <HeroField />
 
             {/* The visible H1 is the name; the sr-only tail gives search engines and
-                screen readers the full "who + what + where" in the top heading. */}
+                screen readers the full "who + what + where" in the top heading. The {' '}
+                keeps "David Geha" two words in the page's text (each word is a block). */}
             <h1 className="hero__name">
-                <span className="hero__word hero__word--serif" data-drift="-16"><span className="hero__word-inner">David</span></span>
+                <span className="hero__word hero__word--serif" data-drift="-16"><span className="hero__word-inner">David</span></span>{' '}
                 <span className="hero__word hero__word--outline" data-drift="16"><span className="hero__word-inner">Geha</span></span>
                 <span className="sr-only"> — AI Consultant in Lebanon</span>
             </h1>

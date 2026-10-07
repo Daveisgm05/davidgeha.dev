@@ -19,9 +19,28 @@ function generatedPages(dir = root, out = {}) {
   return out
 }
 
+// Each page's stylesheet goes inline (~9 KB compressed), so no second request holds
+// back the first paint (PageSpeed's render-blocking finding). Fonts stay /fonts/… URLs.
+function inlineCss(maxBytes = 48000) {
+  return {
+    name: 'inline-css',
+    apply: 'build',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html, ctx) {
+        if (!ctx.bundle) return html
+        return html.replace(/<link\b[^>]*rel="stylesheet"[^>]*href="\/(assets\/[^"]+\.css)"[^>]*>/g, (tag, file) => {
+          const css = ctx.bundle[file]?.source
+          return typeof css === 'string' && css.length <= maxBytes && !css.includes('</style') ? `<style>${css}</style>` : tag
+        })
+      },
+    },
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), inlineCss()],
   build: {
     rollupOptions: {
       input: { main: resolve(root, 'index.html'), ...generatedPages() },
