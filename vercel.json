@@ -16,6 +16,16 @@
       ],
       "destination": "https://davidgeha.dev/:path*",
       "permanent": true
+    },
+    {
+      "source": "/blog/ai-consulting-lebanon-guide",
+      "destination": "/blog/ai-consulting-in-lebanon-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-consulting-lebanon-guide/",
+      "destination": "/blog/ai-consulting-in-lebanon-guide/",
+      "permanent": true
     }
   ],
   "headers": [
