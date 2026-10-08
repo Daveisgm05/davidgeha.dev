@@ -6,60 +6,112 @@ import { dur, ease, reduced, lowTier, finePointer } from './tokens.js';
 
 // ------------------------------------------------------------------ P73 frame film
 // [data-sequence] (a tall stage) > [data-sequence-canvas] on a sticky layer. A Blender
-// render of the agent core, one frame per scroll step: scroll position → frame. Frames
-// load coarse-to-fine (every 8th first) so scrubbing works before the set is complete;
-// phones get a lighter set. Static profile: the poster frame only.
+// render (Cycles), one frame per scroll step: scroll position → frame. The set matches the
+// canvas: phones a portrait set, a canvas over XL_PX wide (Retina, 1440p and up) the large
+// set. Frames are fetched coarse-to-fine (every 8th first) at low priority and kept
+// compressed; only the frames within WINDOW of the playhead are decoded, off the main
+// thread (createImageBitmap), and the rest are let go — so a draw never waits on a decode
+// and memory stays bounded however long the film. Static profile: the poster frame only.
+const XL_PX = 2000;
+const WINDOW = 8;   // decoded frames kept either side of the playhead
+const DITHER = 6;   // ± grey levels of the fixed noise laid over each frame (soft-light): ≈ ±3 levels in the darks
 export function sequence(el) {
     const canvas = el.querySelector('[data-sequence-canvas]');
     const ctx = canvas.getContext('2d');
     const total = parseInt(el.dataset.frames, 10);
     const phone = window.matchMedia('(max-width: 760px)').matches;
-    const pattern = (phone && el.dataset.srcPhone) || el.dataset.src;
+    const dpr = () => Math.min(window.devicePixelRatio || 1, 2);
+    const pattern = (phone && el.dataset.srcPhone)
+        || (el.dataset.srcXl && canvas.clientWidth * dpr() > XL_PX && el.dataset.srcXl) || el.dataset.src;
     const url = (i) => pattern.replace('{i}', String(i + 1).padStart(3, '0'));
-    const frames = new Array(total);
+    const blobs = new Array(total);          // compressed frames, ≈ 30–50 KB each
+    const asked = new Array(total).fill(false);
+    const bitmaps = new Map();               // decoded frames near the playhead: frame → ImageBitmap
+    const pending = new Set();
     let current = -1, want = Math.round(total * 0.08), dead = false;
 
     const fit = () => {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = Math.round(canvas.clientWidth * dpr);
-        canvas.height = Math.round(canvas.clientHeight * dpr);
+        canvas.width = Math.round(canvas.clientWidth * dpr());
+        canvas.height = Math.round(canvas.clientHeight * dpr());
+        ctx.imageSmoothingEnabled = true;   // a resize resets the context: set the resampling again
+        ctx.imageSmoothingQuality = 'high';
         current = -1; draw(want);
     };
-    const nearestLoaded = (i) => {
+    const nearestDecoded = (i) => {
         for (let d = 0; d < total; d++) {
-            if (frames[i - d]?.complete && frames[i - d].naturalWidth) return i - d;
-            if (frames[i + d]?.complete && frames[i + d].naturalWidth) return i + d;
+            if (bitmaps.has(i - d)) return i - d;
+            if (bitmaps.has(i + d)) return i + d;
         }
         return -1;
     };
+    // decode the nearest missing frames around the playhead, two at a time; let go of the far ones
+    const decodeAround = () => {
+        for (const [k, bmp] of bitmaps) if (Math.abs(k - want) > WINDOW && k !== current) { bmp.close(); bitmaps.delete(k); }
+        while (pending.size < 2) {
+            let next = -1;
+            for (let d = 0; d <= WINDOW && next < 0; d++) {
+                for (const k of [want + d, want - d]) {
+                    if (k >= 0 && k < total && blobs[k] && !bitmaps.has(k) && !pending.has(k)) { next = k; break; }
+                }
+            }
+            if (next < 0) return;
+            pending.add(next);
+            createImageBitmap(blobs[next]).then((bmp) => {
+                if (dead) return bmp.close();
+                bitmaps.set(next, bmp);
+                if (current < 0 || Math.abs(next - want) < Math.abs(current - want)) { current = -1; draw(want); }
+            }).catch(() => {}).finally(() => { pending.delete(next); if (!dead) decodeAround(); });
+        }
+    };
+    let noise;
+    const grain = () => {
+        if (noise) return noise;
+        const tile = document.createElement('canvas');
+        tile.width = tile.height = 256;
+        const g = tile.getContext('2d'), px = g.createImageData(256, 256);
+        for (let p = 0; p < px.data.length; p += 4) {
+            px.data[p] = px.data[p + 1] = px.data[p + 2] = 128 - DITHER + Math.floor(Math.random() * (2 * DITHER + 1));
+            px.data[p + 3] = 255;
+        }
+        g.putImageData(px, 0, 0);
+        return (noise = ctx.createPattern(tile, 'repeat'));
+    };
     function draw(i) {
         want = i;
-        const k = nearestLoaded(i);
+        decodeAround();
+        const k = nearestDecoded(i);
         if (k < 0 || k === current) return;
         current = k;
-        const img = frames[k], cw = canvas.width, ch = canvas.height;
-        const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
-        const w = img.naturalWidth * s, h = img.naturalHeight * s;
+        const img = bitmaps.get(k), cw = canvas.width, ch = canvas.height;
+        const s = Math.max(cw / img.width, ch / img.height);
+        const w = img.width * s, h = img.height * s;
         const bias = 0.5;
         // phones: lift the core into the open top half, above the copy
         const lift = cw / ch < 1 ? ch * 0.17 : 0;
-        ctx.drawImage(img, (cw - w) * bias, (ch - h) / 2 - lift, w, h);
+        const x = (cw - w) * bias, y = (ch - h) / 2 - lift;
+        ctx.drawImage(img, x, y, w, h);
+        // the render's dither, put back: lossy frames turn a dark gradient into faint steps
+        ctx.globalCompositeOperation = 'soft-light';
+        ctx.fillStyle = grain();
+        ctx.fillRect(x, y, w, h);
+        ctx.globalCompositeOperation = 'source-over';
     }
-    const load = (i) => new Promise((res) => {
-        if (frames[i]) return res();
-        const img = new Image();
-        img.decoding = 'async';
-        img.onload = img.onerror = () => { if (!dead) { if (Math.abs(i - want) < Math.abs(current - want) || current < 0) { current = -1; draw(want); } } res(); };
-        img.src = url(i);
-        frames[i] = img;
-    });
+    const load = (i) => {
+        if (asked[i]) return Promise.resolve();
+        asked[i] = true;
+        return fetch(url(i), { priority: 'low' })
+            .then((r) => (r.ok ? r.blob() : null))
+            .then((blob) => { if (blob && !dead) { blobs[i] = blob; if (Math.abs(i - want) <= WINDOW) decodeAround(); } })
+            .catch(() => {});
+    };
+    const stop = () => { dead = true; for (const bmp of bitmaps.values()) bmp.close(); bitmaps.clear(); };
 
     const isStatic = reduced() || lowTier();
     if (isStatic) {
         el.classList.add('is-static');
         load(want).then(fit);
         window.addEventListener('resize', fit);
-        return () => { dead = true; window.removeEventListener('resize', fit); };
+        return () => { stop(); window.removeEventListener('resize', fit); };
     }
 
     let st;
@@ -84,7 +136,7 @@ export function sequence(el) {
     // before the stage pins, ease the first frames in as it rises (no dead first screen)
     const ro = new ResizeObserver(fit);
     ro.observe(canvas);
-    return () => { dead = true; st?.kill(); ro.disconnect(); };
+    return () => { stop(); st?.kill(); ro.disconnect(); };
 }
 
 // ------------------------------------------------------------------ P46 looping film
