@@ -19,12 +19,14 @@ const PICTURES = [1, 2, 3, 4, 5, 6].map((n) => `/img/service-0${n}-800.webp`);
  *
  * The head rides on a pinned 3D film (C44/P73 adapted to the portfolio's own world): a laptop
  * on volcanic basalt opens, its screen wakes on an agent's run log, and the camera comes round
- * and pushes in, frame by frame as the page scrolls (Blender: docs/blender/devices.py;
- * motion/media.js → sequence).
+ * and pushes in, frame by frame as the page scrolls (Blender Cycles: docs/blender/devices.py;
+ * motion/media.js → sequence). Frames are cached for a year (vercel.json → /film): a new render
+ * goes in a new folder (laptop-v3 …).
  */
 const Services = () => (
     <section className="services" id="services">
-        <div className="services__stage" data-sequence data-frames="120" data-src="/film/core/{i}.webp" data-src-phone="/film/core-m/{i}.webp">
+        <div className="services__stage" data-sequence data-frames="120" data-src="/film/laptop-v2/hd/{i}.webp"
+            data-src-xl="/film/laptop-v2/xl/{i}.webp" data-src-phone="/film/laptop-v2/m/{i}.webp">
             <div className="services__sticky">
                 <canvas className="services__canvas" data-sequence-canvas aria-hidden="true"></canvas>
                 <div className="container services__head">

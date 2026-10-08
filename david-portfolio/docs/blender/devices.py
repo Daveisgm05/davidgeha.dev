@@ -3,21 +3,48 @@
 #   still: blender -b -P devices.py -- still <laptop|phone|tablet> <screen.png> <out.png> <w> <h> [samples] [yaw]
 #   film:  blender -b -P devices.py -- film laptop <screen.png> <out_dir> <w> <h> <frames> [samples]
 #          the lid opens, the screen wakes, the camera pushes in (scrubbed on the site, so linear time)
+# Quality (env): ENGINE=CYCLES (default; BLENDER_EEVEE for a quick look), SAMPLES cap, NOISE (adaptive threshold),
+# PREVIEW=f1,f2 renders only those frames. The site's film: Cycles path tracing, OpenImageDenoise on albedo + normal
+# (accurate prefilter), dithered 8-bit PNG; desktop SHIFT_X=-0.17 2560×1440, phone LENS=35 SHIFT_Y=-0.05 1080×1920.
 import bpy, bmesh, math, sys, os
 from mathutils import Vector
 
 a = sys.argv[sys.argv.index('--') + 1:]
 MODE, DEVICE, SCREEN, OUT, W, H = a[0], a[1], a[2], a[3], int(a[4]), int(a[5])
 FRAMES = int(a[6]) if MODE == 'film' else 1
-SAMPLES = int(a[7]) if MODE == 'film' and len(a) > 7 else (int(a[6]) if MODE == 'still' and len(a) > 6 else (24 if MODE == 'film' else 64))
+SAMPLES = int(a[7]) if MODE == 'film' and len(a) > 7 else (int(a[6]) if MODE == 'still' and len(a) > 6 else (512 if MODE == 'film' else 256))
 YAW = float(a[7]) if MODE == 'still' and len(a) > 7 else -28.0
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene
 sc.render.resolution_x, sc.render.resolution_y = W, H
-sc.render.engine = 'CYCLES'
-sc.cycles.samples = SAMPLES
-sc.cycles.use_denoising = True
+sc.render.engine = os.environ.get('ENGINE', 'CYCLES')
+if sc.render.engine == 'BLENDER_EEVEE':
+    sc.eevee.taa_render_samples = int(os.environ.get('EEVEE_SAMPLES', 48))
+    try: sc.eevee.use_raytracing = True
+    except AttributeError: pass
+cy = sc.cycles
+cy.samples = SAMPLES
+cy.use_adaptive_sampling = True
+cy.adaptive_threshold = float(os.environ.get('NOISE', 0.004))   # stop a pixel once its noise is below this
+cy.adaptive_min_samples = 64
+cy.use_denoising = True
+cy.denoiser = 'OPENIMAGEDENOISE'
+cy.denoising_input_passes = 'RGB_ALBEDO_NORMAL'                  # edges and textures stay sharp through the denoiser
+cy.denoising_prefilter = 'ACCURATE'
+try: cy.denoising_quality = 'HIGH'
+except AttributeError: pass
+try: cy.denoising_use_gpu = True
+except AttributeError: pass
+cy.max_bounces, cy.diffuse_bounces, cy.glossy_bounces = 12, 6, 8
+cy.transmission_bounces, cy.transparent_max_bounces = 8, 8
+cy.caustics_reflective = cy.caustics_refractive = False
+cy.blur_glossy = 0.4                                             # no fireflies off the metal
+cy.sample_clamp_indirect = 4.0
+cy.light_sampling_threshold = 0.005
+sc.render.filter_size = 1.2                                      # a slightly crisper pixel filter than the 1.5 default
+sc.render.use_persistent_data = True                             # the scene stays loaded between frames
+sc.render.dither_intensity = 1.0                                 # no banding in the dark gradients
 try:
     prefs = bpy.context.preferences.addons['cycles'].preferences
     prefs.compute_device_type = 'METAL'; prefs.get_devices()
@@ -43,7 +70,7 @@ def principled(name, base, rough=0.5, metal=0.0):
 
 # ---------------------------------------------------------------- basalt: a displaced, cut block
 def rock():
-    bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=6, radius=1.0)
+    bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=int(os.environ.get('ROCK_SUBDIV', 7)), radius=1.0)
     r = bpy.context.object; r.name = 'basalt'
     r.scale = (0.46, 0.34, 0.2); bpy.ops.object.transform_apply(scale=True)
     for name, ttype, size, strength in (('big', 'VORONOI', 0.35, 0.09), ('mid', 'CLOUDS', 0.12, 0.035), ('fine', 'CLOUDS', 0.03, 0.008)):
@@ -63,9 +90,23 @@ def rock():
     vor = nt.nodes.new('ShaderNodeTexVoronoi'); vor.inputs['Scale'].default_value = 140
     mix = nt.nodes.new('ShaderNodeMath'); mix.operation = 'MULTIPLY'
     nt.links.new(noise.outputs['Fac'], mix.inputs[0]); nt.links.new(vor.outputs['Distance'], mix.inputs[1])
-    bump = nt.nodes.new('ShaderNodeBump'); bump.inputs['Strength'].default_value = 1.3
-    nt.links.new(mix.outputs['Value'], bump.inputs['Height'])
+    # vesicles: the small gas pits of volcanic stone, and a fine grain
+    pits = nt.nodes.new('ShaderNodeTexVoronoi'); pits.inputs['Scale'].default_value = 420; pits.feature = 'F1'
+    ramp = nt.nodes.new('ShaderNodeMapRange'); ramp.inputs['From Min'].default_value = 0.0; ramp.inputs['From Max'].default_value = 0.09
+    nt.links.new(pits.outputs['Distance'], ramp.inputs['Value'])
+    grain = nt.nodes.new('ShaderNodeTexNoise'); grain.inputs['Scale'].default_value = 900; grain.inputs['Detail'].default_value = 4
+    soft = nt.nodes.new('ShaderNodeMath'); soft.operation = 'MULTIPLY_ADD'; soft.inputs[1].default_value = 0.35; soft.inputs[2].default_value = 0.65
+    nt.links.new(ramp.outputs['Result'], soft.inputs[0])   # sparse pits: most of the surface keeps the original grain
+    h1 = nt.nodes.new('ShaderNodeMath'); h1.operation = 'MULTIPLY'
+    nt.links.new(mix.outputs['Value'], h1.inputs[0]); nt.links.new(soft.outputs['Value'], h1.inputs[1])
+    h2 = nt.nodes.new('ShaderNodeMath'); h2.operation = 'MULTIPLY_ADD'; h2.inputs[1].default_value = 0.08
+    nt.links.new(grain.outputs['Fac'], h2.inputs[0]); nt.links.new(h1.outputs['Value'], h2.inputs[2])
+    bump = nt.nodes.new('ShaderNodeBump'); bump.inputs['Strength'].default_value = 0.75; bump.inputs['Distance'].default_value = 0.0025
+    nt.links.new(h2.outputs['Value'], bump.inputs['Height'])
     nt.links.new(bump.outputs['Normal'], b.inputs['Normal'])
+    # matte volcanic stone: a faint sheen on the high points only, never a grey polish
+    rr = nt.nodes.new('ShaderNodeMapRange'); rr.inputs['To Min'].default_value = 0.98; rr.inputs['To Max'].default_value = 0.9
+    nt.links.new(ramp.outputs['Result'], rr.inputs['Value']); nt.links.new(rr.outputs['Result'], b.inputs['Roughness'])
     r.data.materials.append(mat)
     return r
 
@@ -76,7 +117,7 @@ def screen_material(path, name='screen'):
     out = nt.nodes.new('ShaderNodeOutputMaterial')
     tex = nt.nodes.new('ShaderNodeTexImage'); tex.image = bpy.data.images.load(path); tex.interpolation = 'Cubic'
     em = nt.nodes.new('ShaderNodeEmission'); em.inputs['Strength'].default_value = 1.0
-    glossy = nt.nodes.new('ShaderNodeBsdfGlossy'); glossy.inputs['Roughness'].default_value = 0.08
+    glossy = nt.nodes.new('ShaderNodeBsdfGlossy'); glossy.inputs['Roughness'].default_value = 0.05
     glossy.inputs['Color'].default_value = (1, 1, 1, 1)
     fres = nt.nodes.new('ShaderNodeLayerWeight'); fres.inputs['Blend'].default_value = 0.12
     add = nt.nodes.new('ShaderNodeMixShader')
@@ -86,16 +127,26 @@ def screen_material(path, name='screen'):
     nt.links.new(add.outputs['Shader'], out.inputs['Surface'])
     return m, em
 
-ALU, _ = principled('aluminium', (0.13, 0.13, 0.135), rough=0.46, metal=1.0)
-BLACK, _ = principled('bezel', (0.004, 0.004, 0.005), rough=0.18)
+ALU, _alu = principled('aluminium', (0.13, 0.13, 0.135), rough=0.4, metal=1.0)
+# bead-blasted aluminium: a fine, even roughness grain instead of a perfect mirror-smooth surface
+_n = ALU.node_tree.nodes; _g = _n.new('ShaderNodeTexNoise'); _g.inputs['Scale'].default_value = 2400; _g.inputs['Detail'].default_value = 2
+_r = _n.new('ShaderNodeMapRange'); _r.inputs['To Min'].default_value = 0.36; _r.inputs['To Max'].default_value = 0.44
+ALU.node_tree.links.new(_g.outputs['Fac'], _r.inputs['Value']); ALU.node_tree.links.new(_r.outputs['Result'], _alu.inputs['Roughness'])
+BLACK, _blk = principled('bezel', (0.004, 0.004, 0.005), rough=0.18)
+_blk.inputs['Coat Weight'].default_value = 0.6; _blk.inputs['Coat Roughness'].default_value = 0.04   # the glass over the bezel
 KEY, _ = principled('keys', (0.012, 0.012, 0.013), rough=0.55)
+CAP, _cap = principled('keycaps', (0.016, 0.016, 0.017), rough=0.62)
+_cap.inputs['Sheen Weight'].default_value = 0.25; _cap.inputs['Sheen Roughness'].default_value = 0.4   # soft-touch plastic
+GLASSPAD, _gp = principled('trackpad', (0.085, 0.085, 0.09), rough=0.3)
+_gp.inputs['Coat Weight'].default_value = 0.3; _gp.inputs['Coat Roughness'].default_value = 0.2       # etched glass
 
 def box(name, size, loc=(0, 0, 0), mat=ALU, bevel=0.0, segs=4, parent=None):
     bpy.ops.mesh.primitive_cube_add(size=1, location=loc)
     o = bpy.context.object; o.name = name; o.scale = size
     bpy.ops.object.transform_apply(scale=True)
     if bevel:
-        bv = o.modifiers.new('bevel', 'BEVEL'); bv.width = bevel; bv.segments = segs; bv.limit_method = 'NONE'
+        bv = o.modifiers.new('bevel', 'BEVEL'); bv.width = bevel; bv.segments = max(segs, int(os.environ.get('BEVEL_SEGS', 8)))
+        bv.limit_method = 'NONE'; bv.harden_normals = True
     o.data.materials.append(mat)
     for p in o.data.polygons: p.use_smooth = True
     if parent: o.parent = parent
@@ -113,11 +164,15 @@ def laptop(path):
     W_, D_, T_ = 0.31, 0.215, 0.012
     box('base', (W_, D_, T_), (0, 0, T_ / 2), bevel=0.004, parent=root)
     box('well', (W_ * 0.88, D_ * 0.42, 0.0012), (0, D_ * 0.12, T_ + 0.0002), mat=KEY, parent=root)
-    key = box('key', (0.0158, 0.0152, 0.0014), (-W_ * 0.415, D_ * 0.12 - D_ * 0.17, T_ + 0.0009), mat=KEY, bevel=0.0012, segs=2, parent=root)
+    key = box('key', (0.0158, 0.0152, 0.0014), (-W_ * 0.415, D_ * 0.12 - D_ * 0.17, T_ + 0.0009), mat=CAP, bevel=0.0012, segs=4, parent=root)
     for axis, count in ((0, 14), (1, 5)):
         arr = key.modifiers.new(f'a{axis}', 'ARRAY'); arr.count = count
         arr.relative_offset_displace = (1.2, 0, 0) if axis == 0 else (0, 1.22, 0)
-    box('pad', (0.11, 0.068, 0.0006), (0, -D_ * 0.3, T_ + 0.0001), mat=principled('pad', (0.1, 0.1, 0.105), rough=0.5, metal=1.0)[0], parent=root)
+    box('pad', (0.11, 0.068, 0.0006), (0, -D_ * 0.3, T_ + 0.0001), mat=GLASSPAD, bevel=0.0003, segs=3, parent=root)
+    # the hinge barrel along the back edge (seen while the lid is still closed)
+    bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=0.0042, depth=W_ * 0.78, location=(0, D_ / 2 - 0.004, T_ - 0.0005), rotation=(0, math.radians(90), 0))
+    barrel = bpy.context.object; barrel.name = 'barrel'; barrel.data.materials.append(ALU); barrel.parent = root
+    for p in barrel.data.polygons: p.use_smooth = True
     hinge = bpy.data.objects.new('hinge', None); sc.collection.objects.link(hinge)
     hinge.parent = root; hinge.location = (0, D_ / 2 - 0.004, T_)
     box('lid', (W_, 0.006, D_), (0, 0.003, D_ / 2), bevel=0.004, parent=hinge)
@@ -194,13 +249,16 @@ else:
     part.rotation_euler = (math.radians(90), 0, 0); part.keyframe_insert('rotation_euler', frame=1)
     part.rotation_euler = (math.radians(-14), 0, 0); part.keyframe_insert('rotation_euler', frame=f_open)
     emission.inputs['Strength'].default_value = 0.0; emission.inputs['Strength'].keyframe_insert('default_value', frame=int(FRAMES * 0.22))
-    emission.inputs['Strength'].default_value = 1.0; emission.inputs['Strength'].keyframe_insert('default_value', frame=f_wake)
+    emission.inputs['Strength'].default_value = float(os.environ.get('SCREEN_GLOW', 1.45))  # white reads white under AgX
+    emission.inputs['Strength'].keyframe_insert('default_value', frame=f_wake)
+    cam_d.dof.focus_object = bpy.data.objects.get('screen') or target   # the run log stays sharp as the camera pushes in
     # the camera: a low three-quarter view that rises and comes round to face the screen, then pushes in
     keys = [(1, orbit(-48, 1.25, 0.32)), (f_open, orbit(-24, 1.0, 0.42)), (f_end, orbit(-6, 0.56, 0.24))]
     for f, p in keys:
         cam.location = p; cam.keyframe_insert('location', frame=f)
     target.location = (0, 0.02, 0.07); target.keyframe_insert('location', frame=1)
     target.location = (0, 0.07, 0.13); target.keyframe_insert('location', frame=f_end)
+    sc.frame_start = int(os.environ.get('FROM', 1))   # resume an interrupted render (FROM=13)
     sc.render.filepath = OUT + '/f_'
     prev = os.environ.get('PREVIEW')
     if prev:
