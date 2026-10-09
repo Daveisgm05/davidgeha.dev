@@ -1,5 +1,5 @@
 // /privacy/ — what this site collects and why. Every statement is checked against the code: no forms, no cookies,
-// self-hosted fonts and images, one sessionStorage flag (src/lib/introGate.js). The analytics paragraph follows the
+// self-hosted fonts and images, nothing kept in the browser's storage. The analytics paragraph follows the
 // build: Google Analytics / Clarity are named only when their IDs are set (VITE_GA4_ID / VITE_CLARITY_ID, the same
 // variables index.html and the page template read), so the page never claims a tracker that isn't running.
 const env = globalThis.process?.env || {};  // read at build time by scripts/build-pages.mjs (Node)
@@ -18,7 +18,7 @@ export default {
     title: 'Privacy | David Geha, AI Consultant in Beirut',
     description: 'What davidgeha.dev collects and why: no forms, no tracking cookies, self-hosted fonts and images, and what happens to the messages you send David Geha.',
     datePublished: '2026-10-07',
-    dateModified: '2026-10-07',
+    dateModified: '2026-10-09',
     about: 'person',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'Privacy' }],
     navLabel: 'Privacy',
@@ -34,7 +34,6 @@ export default {
       <div class="prose reveal">
         ${analytics}
         <p>The fonts and images are served from this site itself, so reading a page does not call a font service or an advertising network.</p>
-        <p>The homepage remembers, for the length of your visit, that its opening animation has already played, so it does not play again on every page. That note is kept in your browser's session storage, is never sent anywhere, and is deleted when you close the tab.</p>
         <p>The site is hosted on Vercel. Like any web host, Vercel processes the technical details every request carries (your IP address, your browser and the page you asked for) to deliver the page and protect the site from abuse.</p>
       </div>
     </div>

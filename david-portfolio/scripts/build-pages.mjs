@@ -73,7 +73,7 @@ function heroMedia(page) {
     const h = page.hero || {};
     if (h.portrait) {
         return `<div class="hero__media hero__media--portrait" data-hero-hide="fade">
-          <img class="hero__portrait" src="/david_transparent.webp" width="900" height="1200" alt="${esc(h.alt || 'David Geha, AI consultant in Beirut, Lebanon')}" loading="eager" fetchpriority="high" decoding="async">
+          <img class="hero__portrait" src="/david_transparent.webp" srcset="/david_transparent-520.webp 520w, /david_transparent-780.webp 780w, /david_transparent.webp 1049w" sizes="(max-width: 900px) calc(100vw - 4rem), 44vw" width="900" height="1200" alt="${esc(h.alt || 'David Geha, AI consultant in Beirut, Lebanon')}" loading="eager" fetchpriority="high" decoding="async">
         </div>`;
     }
     if (h.work) {  // a project screenshot from the homepage work list (public/work-*.webp, 1280×960)
@@ -294,7 +294,6 @@ function render(page) {
   ${schemaFor(page).replace(/\n/g, '\n  ')}
   </script>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-tight-var.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/jetbrains-mono-var.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin>
   ${heroPreload(page)}
   <link rel="stylesheet" href="/src/pages.css">

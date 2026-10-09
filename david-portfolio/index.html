@@ -423,7 +423,29 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <!-- The home hero as static markup (keep in step with src/components/Header.jsx): the intro, the page's largest
+       paint, shows before any script; React replaces it with the same hero, and the hero beat plays from there. -->
+  <div id="root"><div class="app"><main><header class="hero" id="top">
+    <h1 class="hero__name">
+      <span class="hero__word hero__word--serif"><span class="hero__word-inner" style="transform:translateY(112%)">David</span></span>
+      <span class="hero__word hero__word--outline"><span class="hero__word-inner" style="transform:translateY(112%)">Geha</span></span>
+      <span class="sr-only"> — AI Consultant in Lebanon</span>
+    </h1>
+    <div class="hero__stage" style="transform:scale(1.06)"></div>
+    <div class="hero__foot container">
+      <div class="hero__intro">
+        <span class="hero__eyebrow eyebrow" data-hero-hide="fade">AI Automation · Lebanon</span>
+        <h2 class="hero__role" data-hero-hide="role">AI consultant in Lebanon</h2>
+        <p class="hero__subtitle" data-hero-hide="fade">I find the repetitive work in your business and <br>build agentic AI systems that run it for you — <br>AI consulting and custom AI solutions for teams in Beirut and across Lebanon.</p>
+        <a href="#work" class="hero__btn" data-hero-hide="fade">Let's collaborate <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="hero__socials">
+        <a href="https://www.instagram.com/dave.automates/" class="hero__social" aria-label="Instagram" target="_blank" rel="noopener noreferrer" data-hero-hide="fade"><span class="hero__social-icon"></span>Instagram</a>
+        <a href="https://www.linkedin.com/in/david-geha/" class="hero__social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" data-hero-hide="fade"><span class="hero__social-icon"></span>LinkedIn</a>
+        <a href="https://github.com/Daveisgm05" class="hero__social" aria-label="GitHub" target="_blank" rel="noopener noreferrer" data-hero-hide="fade"><span class="hero__social-icon"></span>GitHub</a>
+      </div>
+    </div>
+  </header></main></div></div>
   <!-- Crawlable fallback for engines that don't execute JavaScript (incl. some AI crawlers) -->
   <noscript>
     <h1>David Geha - AI Consultant in Lebanon</h1>

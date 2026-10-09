@@ -58,7 +58,7 @@ const Services = () => (
                     </article>
                 ))}
                 <div className="services__follower" data-rows-image aria-hidden="true">
-                    <img src={PICTURES[0]} alt="" width="800" height="600" decoding="async" />
+                    <img src={PICTURES[0]} alt="" width="800" height="600" loading="lazy" decoding="async" />
                 </div>
             </div>
         </div>

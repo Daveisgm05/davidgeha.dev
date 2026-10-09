@@ -14,13 +14,13 @@ sitemap) was not changed by the redesign; keep it that way when restyling (see "
 - Tokens: `src/styles/site.css` (`:root`) for CSS, and `src/motion/tokens.js` for durations, eases, staggers and
   knobs. Animations take their numbers from there, never inline.
 
-Chrome (chosen for this project): loader inspired (P43 typewriter × brand: typed name and role, mono counter, scan-line split, ≤ 1.5 s, first visit per session) · transition none · header P25 *Scroll-away bar over a top scrim* + P35 progress hairline · menu none (inline links; native `<details>` sheet ≤ 1024 px) · footer C70 adapted · cursor none
+Chrome (chosen for this project): loader none (removed 2026-10-09, the owner's call: the hero is the page's largest paint and shows before any script — index.html carries it as static markup) · transition none · header P25 *Scroll-away bar over a top scrim* + P35 progress hairline · menu none (inline links; native `<details>` sheet ≤ 1024 px) · footer C70 adapted · cursor none
 House reveal: inspired *token stream*: words arrive from a soft blur one after another, with a signal caret flashing at each word's edge (P43 × P7)
 
 ## Home (`src/App.jsx`)
 | Section | Mode | Design |
 |---|---|---|
-| Hero | inspired | C4's principle (one picture filling one viewport, melting into the page) with P51's depth portrait (`HeroPortrait.jsx`), V25's field as a dot lattice that glows around the pointer with a scan line (`HeroField.jsx`), a mixed-face name behind the portrait, focus brackets. Hero beat after the loader; on exit the name halves drift apart while the portrait recedes (one scrub). |
+| Hero | inspired | C4's principle (one picture filling one viewport, melting into the page) with P51's depth portrait (`HeroPortrait.jsx`), V25's field as a dot lattice that glows around the pointer with a scan line (`HeroField.jsx`), a mixed-face name behind the portrait, focus brackets. The hero paints with the page (static copy in index.html); the beat only moves things — the name rises out of its masks, the portrait settles from a slight zoom, the role types in; nothing fades in from nothing. On exit the name halves drift apart while the portrait recedes (one scrub). |
 | Stack marquee | adapted | P14 velocity-reactive, V10 outline on every other name, skew by scroll speed. |
 | Selected work | adapted | C41 / P31 pinned stacking cards, varied to framed "windows" (index · title · category · year bar), covered card shrinks and dims, picture settles from zoom, a CSS-counter index. The site's one pinned gallery. |
 | About | adapted | V1 paper interlude; P8 statement brightening word by word; the process as a pipeline rail with a travelling packet (inspired by P35). |
@@ -55,8 +55,8 @@ profile (no Lenis, no hidden first view, essential hooks only); the phone sheet,
 button are pointer-only.
 
 ## SEO contract (do not break when restyling)
-- `splitWords()` wraps words in spans without changing `textContent`; never reveal text by rewriting it (the loader
-  and the log type with clip/opacity, the counters are CSS counters).
+- `splitWords()` wraps words in spans without changing `textContent`; never reveal text by rewriting it (the
+  log types with clip/opacity, the counters are CSS counters).
 - Decorative additions carry no words: `aria-hidden`, pseudo-element `content`, or canvas pixels.
 - Keep the DOM order of copy (the build log keeps date → tags → title; the grid places them).
 - Check before merging a design change: build, then snapshot every page's head, headings, text, links and image alts

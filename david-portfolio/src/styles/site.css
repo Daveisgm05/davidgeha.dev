@@ -361,8 +361,10 @@ html:not(.motion) .marquee__track { animation: marquee-css 40s linear infinite; 
   position: absolute; left: calc(100% + 0.04em); top: 0.12em; bottom: 0.12em; width: 0.42em;
   background: var(--signal); opacity: 0; pointer-events: none;
 }
-/* before the engine runs, hero-beat targets stay hidden only with JS on; a failsafe shows them after 3 s */
-html.js [data-hero-hide] { opacity: 0; animation: failsafe 0.01s 3s forwards; }
+/* before the engine runs, only the typed lines (an H1 or role streaming in) wait hidden, with JS on; a failsafe shows
+   them after 3 s. Everything else in the hero — the lead, the picture, the buttons — paints with the page (it is the
+   page's largest paint) and only moves in. */
+html.js [data-hero-hide="tokens"], html.js [data-hero-hide="role"] { opacity: 0; animation: failsafe 0.01s 3s forwards; }
 html.motion [data-hero-hide] { animation: none; }
 @keyframes failsafe { to { opacity: 1; } }
 

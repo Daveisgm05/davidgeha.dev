@@ -60,11 +60,6 @@
 .hero__media--portrait.is-gl .hero__portrait { opacity: 0; }
 .panel--portrait .hero__copy { padding-bottom: clamp(3rem, 7vw, 6rem); }
 
-/* the hero beat's start state (JS on, before the engine runs; site.css holds the failsafe) */
-html.js [data-hero-hide="media"] { clip-path: inset(100% 0 0 0 round var(--radius)); opacity: 1; animation: failsafe-clip 0.01s 3s forwards; }
-html.motion [data-hero-hide="media"] { animation: none; }
-@keyframes failsafe-clip { to { clip-path: inset(0 0 0 0 round var(--radius)); } }
-@media (prefers-reduced-motion: reduce) { html.js [data-hero-hide="media"] { clip-path: none; } }
 
 @media (max-width: 900px) {
   .hero__grid { grid-template-columns: minmax(0, 1fr); }

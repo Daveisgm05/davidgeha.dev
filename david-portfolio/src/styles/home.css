@@ -2,29 +2,6 @@
    Homepage sections. Tokens, chrome and the footer slab live in site.css.
    ========================================================================== */
 
-/* ---------------------------------------------------------------- loader (inspired: P43 × brand) */
-html.is-loading { overflow: hidden; }
-.loader {
-  position: fixed; inset: 0; z-index: 100;
-  display: grid; place-items: center;
-  background: var(--ink);
-  clip-path: inset(0% 0% 0% 0%);
-}
-.loader__inner { display: grid; gap: 0.6rem; width: min(84vw, 36rem); }
-.loader__line { clip-path: inset(0 100% 0 0); white-space: nowrap; justify-self: start; }
-.loader__logo {
-  font-family: var(--font-display); font-weight: 500;
-  font-size: clamp(2.6rem, 8vw, 5.25rem); line-height: 1; letter-spacing: -0.045em;
-}
-.loader__row { display: flex; align-items: center; gap: 0.5rem; }
-.loader__tag { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.loader__caret { width: 0.55rem; height: 0.95rem; background: var(--signal); animation: caret 0.9s steps(1) infinite; }
-@keyframes caret { 50% { opacity: 0; } }
-.loader__bar { display: block; height: 1px; margin-top: 2rem; background: var(--line); }
-.loader__bar i { display: block; height: 100%; background: var(--signal); transform-origin: 0 50%; transform: scaleX(0); }
-.loader__num { justify-self: end; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--muted); letter-spacing: 0.08em; }
-.loader__num::before { counter-reset: pct var(--n, 0); content: counter(pct, decimal-leading-zero) '%'; }
-
 /* ---------------------------------------------------------------- hero */
 .hero {
   position: relative; isolation: isolate;

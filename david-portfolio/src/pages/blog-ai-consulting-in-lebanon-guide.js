@@ -27,7 +27,7 @@ export default {
     ogImage: '/img/og-guide.jpg',
     schemaType: 'Article',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-07',
+    dateModified: '2026-10-09',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'Guide', href: '/blog/ai-consulting-in-lebanon-guide/' }, { label: 'AI Consulting in Lebanon (2026)' }],
     word: 'Guide',
     eyebrow: 'AI consulting · Lebanon · 2026 guide',
@@ -54,7 +54,7 @@ export default {
         <div class="answer-box">
           <p><strong>An AI consultant in Lebanon should do three things:</strong> find the repetitive work in your business that a system can take over, design that system around the tools you already use, and either build it or specify it well enough that a developer can. In 2026 the realistic price for a small or mid-sized Lebanese business runs from a few hundred dollars for a short audit to the low five figures for a multi-sprint build; enterprise transformation programmes from international firms are a different market with a different budget. The market splits into three tiers, strategy firms, agencies and independent practitioners, and the right choice depends far more on the size of your problem than on the size of the firm.</p>
         </div>
-        <p>The rest of this guide expands each of those points. I am an <a href="/about/">independent AI consultant based in Beirut</a>, so I have an obvious interest here; I have tried to write it the way I would want to read it if I were on the other side of the table, including where a larger firm is the better call.</p>
+        <p>The rest of this guide expands each of those points. I am an independent <a href="/">AI consultant in Lebanon</a>, based in Beirut (<a href="/about/">about me</a>), so I have an obvious interest here; I have tried to write it the way I would want to read it if I were on the other side of the table, including where a larger firm is the better call.</p>
       </div>
     </div>
   </section>
