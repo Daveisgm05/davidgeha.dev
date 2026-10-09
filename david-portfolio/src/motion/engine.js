@@ -417,8 +417,10 @@ hook('[data-field]', field, { essential: true });
 hook('[data-portrait]', later(portrait));
 
 // ------------------------------------------------------------------ hero beat (static pages)
-// Every [data-hero-hide] in the hero focuses in once, in document order; the H1 streams in
-// with the house reveal and the picture opens with P11's clip.
+// Every [data-hero-hide] in the hero moves in once, in document order; the H1 streams in
+// with the house reveal. The lead, the buttons and the picture are painted with the page (they
+// are its largest paint): they only move — a rise, the picture settling from a slight zoom —
+// never fade in from nothing or open from a closed clip.
 export function heroBeat(scope = document) {
     const items = [...scope.querySelectorAll('[data-hero-hide]')];
     if (!items.length) return null;
@@ -427,8 +429,8 @@ export function heroBeat(scope = document) {
     const reverts = [];
     for (const el of items) {
         const kind = el.dataset.heroHide;
-        gsap.set(el, { opacity: 1 });
         if (kind === 'tokens') {
+            gsap.set(el, { opacity: 1 });
             const s = splitWords(el, { caret: true });
             reverts.push(s.revert);
             const inner = tokenTimeline(s.words);
@@ -436,10 +438,9 @@ export function heroBeat(scope = document) {
             at += 0.25;
         } else if (kind === 'media') {
             const img = el.querySelector('img');
-            tl.fromTo(el, { clipPath: 'inset(100% 0% 0% 0% round var(--radius))' }, { clipPath: 'inset(0% 0% 0% 0% round var(--radius))', duration: dur.hero, ease: ease.land }, 0.15);
-            if (img) tl.fromTo(img, { scale: 1.3 }, { scale: 1, duration: dur.hero * 1.3, ease: ease.land }, 0.15);
+            if (img) tl.fromTo(img, { scale: 1.12 }, { scale: 1, duration: dur.hero * 1.3, ease: ease.land }, 0.15);
         } else {
-            tl.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: dur.lg, ease: ease.out }, at);
+            tl.fromTo(el, { y: 24 }, { y: 0, duration: dur.lg, ease: ease.out }, at);
             at += 0.08;
         }
     }

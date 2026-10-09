@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { gsap, splitWords, tokenTimeline } from '../motion/engine';
 import { dur, ease, stagger } from '../motion/tokens';
 import HeroPortrait from './HeroPortrait';
 import HeroField from './HeroField';
 import { ArrowUpRight } from './SiteHeader';
-import { INTRO_READY_EVENT, shouldSkipIntro, prefersReducedMotion } from '../lib/introGate';
+import { prefersReducedMotion } from '../lib/introGate';
 
 const InstagramIcon = () => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -35,8 +35,10 @@ const socials = [
 /**
  * Home hero (inspired: C4's "one picture filling exactly one viewport, melting into the
  * black page", built from P51's depth portrait, V25's field and a mixed-face lockup).
- * The name sits behind the depth portrait; the loader hands over to a hero beat
- * (name rises out of its masks, the portrait focuses in, the intro streams in), and on the
+ * The name sits behind the depth portrait. index.html carries the same hero as static markup,
+ * so the intro (the page's largest paint) shows before any script; when React takes over, the
+ * hero beat plays (the name rises out of its masks, the portrait settles, the role types in —
+ * the intro and the nav stay where they are, never faded in), and on the
  * way out the two halves of the name drift apart while the portrait recedes (one scrub).
  */
 const Header = () => {
@@ -44,30 +46,26 @@ const Header = () => {
     const stageRef = useRef(null);
     const roleRef = useRef(null);
 
-    useEffect(() => {
+    // before the first paint of the React hero, so it starts exactly where index.html's copy stood
+    useLayoutEffect(() => {
         if (prefersReducedMotion()) return; // CSS shows the final state
         const hero = heroRef.current;
-        let play, split;
+        let split;
 
         const ctx = gsap.context(() => {
             const nameWords = hero.querySelectorAll('.hero__word-inner');
-            const navItems = document.querySelectorAll('.site-header [data-hero-hide]');
-            const fades = hero.querySelectorAll('[data-hero-hide="fade"]');
             split = splitWords(roleRef.current, { caret: true });
             const role = tokenTimeline(split.words);
 
             gsap.set(nameWords, { yPercent: 112 });
-            gsap.set(stageRef.current, { opacity: 0, scale: 1.06, filter: 'blur(14px)' });
-            gsap.set([...navItems, ...fades], { opacity: 0, y: 18 });
+            gsap.set(stageRef.current, { scale: 1.06 });
             gsap.set(roleRef.current, { opacity: 1 });
 
-            play = () => {
+            const play = () => {
                 gsap.timeline({ defaults: { ease: ease.land } })
-                    .to(navItems, { opacity: 1, y: 0, duration: dur.lg, ease: ease.out, stagger: stagger.line / 2 }, 0)
                     .to(nameWords, { yPercent: 0, duration: dur.hero, stagger: stagger.line }, 0.05)
-                    .to(stageRef.current, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: dur.hero * 1.2, ease: ease.out, clearProps: 'filter' }, 0.15)
-                    .add(role.play(), 0.75)
-                    .to(fades, { opacity: 1, y: 0, duration: dur.lg, ease: ease.out, stagger: stagger.item * 1.6 }, 0.85);
+                    .to(stageRef.current, { scale: 1, duration: dur.hero * 1.2, ease: ease.out }, 0.15)
+                    .add(role.play(), 0.75);
             };
 
             // the way out: one scrubbed move for the whole hero
@@ -75,12 +73,10 @@ const Header = () => {
             gsap.to(stageRef.current, { yPercent: 10, scale: 0.86, opacity: 0.25, ease: 'none', scrollTrigger: exit });
             gsap.to(hero.querySelector('.hero__foot'), { yPercent: -40, opacity: 0, ease: 'none', scrollTrigger: { ...exit, end: '60% top' } });
 
-            if (shouldSkipIntro()) play();
-            else window.addEventListener(INTRO_READY_EVENT, play, { once: true });
+            play();
         }, hero);
 
         return () => {
-            window.removeEventListener(INTRO_READY_EVENT, play);
             ctx.revert();
             split?.revert();
         };

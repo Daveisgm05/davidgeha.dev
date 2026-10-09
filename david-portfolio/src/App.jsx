@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { initMotion } from './motion/engine';
-import Loader from './components/Loader';
 import SiteHeader from './components/SiteHeader';
 import Header from './components/Header';
 import Marquee from './components/Marquee';
@@ -21,7 +20,6 @@ function App() {
 
   return (
     <div className="app">
-      <Loader />
       <SiteHeader />
       <main>
         <Header />

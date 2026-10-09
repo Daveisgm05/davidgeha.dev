@@ -12,13 +12,13 @@ export default {
     ogTitle: 'AI Consulting in Lebanon — David Geha',
     description: 'Independent AI consulting in Lebanon for hotels, agencies and founders: a 48-hour audit, a fixed-price build sprint and an optional retainer, from Beirut.',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-06',
+    dateModified: '2026-10-09',
     ogImage: '/img/og-consulting.jpg',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Consulting in Lebanon' }],
     word: 'Consulting',
     eyebrow: 'AI consulting · Beirut, Lebanon',
-    h1: 'AI Consulting in Lebanon',
+    h1: 'AI Consulting in Lebanon: the Audit, the Build, the Retainer',
     lead: 'For businesses in Beirut and across Lebanon that repeat the same manual work every day and want an AI system that does it instead. One consultant, three clearly scoped offers, a fixed price before anything is built.',
     meta: 'David Geha · Independent AI consultant · Beirut, Lebanon · English, Arabic, French',
     hero: {
@@ -57,7 +57,7 @@ export default {
     }))}
       <div class="prose reveal">
         <p><strong>AI consulting in Lebanon</strong> usually means one of two things: a strategy deck from a large firm, or a developer who will build whatever you describe. Neither is what most Lebanese businesses need. Agencies with eight people, hotels with a busy front desk and founders running lean cannot absorb a six-month transformation programme, and they should not have to specify a system they have never seen.</p>
-        <p>My practice sits in between. I audit how your team actually works, find the tasks that repeat every day, and then design and build the agentic AI system that takes them over. The same person who diagnoses the problem writes the code, so nothing is lost between the recommendation and the delivery. You get a number for the hours saved, not a roadmap.</p>
+        <p>My practice as an <a href="/">AI consultant in Lebanon</a> sits in between. I audit how your team actually works, find the tasks that repeat every day, and then design and build the agentic AI system that takes them over. The same person who diagnoses the problem writes the code, so nothing is lost between the recommendation and the delivery. You get a number for the hours saved, not a roadmap.</p>
         <p>I am an independent consultant based in Beirut, not an AI consulting company or agency. That is deliberate: it keeps the price where a Lebanese SME can justify it and keeps you talking to the person doing the work. If you are comparing <a href="/blog/ai-consulting-in-lebanon-guide/#firms">AI consulting firms in Lebanon</a>, the guide explains where a solo practitioner fits and where a larger firm is the better choice.</p>
       </div>
     </div>

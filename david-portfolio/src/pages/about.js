@@ -5,16 +5,16 @@ import { figure, label, rail, workImg } from './_kit.js';
 
 export default {
     path: '/about/',
-    title: 'About David Geha — AI Consultant in Beirut, Lebanon',
-    ogTitle: 'David Geha — AI consultant in Beirut, Lebanon',
+    title: 'About David Geha — Independent AI Consultant Based in Beirut',
+    ogTitle: 'About David Geha, an independent AI consultant based in Beirut',
     description: 'David Geha is an independent AI consultant in Beirut, Lebanon, and an engineering student at AUB, building AI agents for hotels, agencies and founders.',
     schemaType: 'ProfilePage',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-06',
+    dateModified: '2026-10-09',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'About' }],
     word: 'About',
     eyebrow: 'AI consultant · Beirut, Lebanon',
-    h1: 'David Geha, AI consultant in Beirut, Lebanon',
+    h1: 'About David Geha, an AI consultant based in Beirut',
     lead: 'Not the American television producer of the same name. This David Geha is an engineering student at the American University of Beirut who runs an independent AI consultancy for businesses across Lebanon.',
     meta: 'Beirut, Lebanon · English, Arabic, French · Working with clients since 2025',
     hero: { portrait: true, alt: 'David Geha, independent AI consultant based in Beirut, Lebanon' },
@@ -36,7 +36,7 @@ export default {
     }))}
       <div class="prose reveal">
         <p><strong>David Geha is an independent AI consultant based in Beirut, Lebanon.</strong> He works with hotels, marketing agencies and founders to find the repetitive manual work inside their businesses and replace it with AI systems that run on their own: AI agents that live in a company's email and handle its reports and invoices, custom CRMs with AI agent employees, AI outreach systems, AI for SEO and GEO, AI receptionists that answer hotel calls, and a custom AI that builds high-end websites. He audits the work, designs the system, builds it, and hands it over running in the client's own accounts.</p>
-        <p>He is also a fourth-year Civil &amp; Environmental Engineering student at the American University of Beirut (AUB). The consultancy started in 2025 with agentic workflows for small teams and has since shipped systems for hotels, agencies and founders in Lebanon.</p>
+        <p>He is also a fourth-year Civil &amp; Environmental Engineering student at the American University of Beirut (AUB). The consultancy started in 2025 with agentic workflows for small teams and has since shipped systems for hotels, agencies and founders in Lebanon. What he builds as an <a href="/">AI consultant in Lebanon</a> is on the home page.</p>
         <p>If you searched his name and found a television producer in Los Angeles, that is a different person. The consultant's public profiles are linked at the bottom of this page.</p>
       </div>
     </div>
