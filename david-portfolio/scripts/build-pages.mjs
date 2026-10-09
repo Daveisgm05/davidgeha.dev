@@ -96,7 +96,7 @@ const workSrcset = (name) => `/${name}-640.webp 640w, /${name}-960.webp 960w, /$
 
 function heroPreload(page) {
     const h = page.hero || {};
-    if (h.portrait) return `<link rel="preload" as="image" href="/david_transparent.webp" fetchpriority="high">`;
+    if (h.portrait) return `<link rel="preload" as="image" href="/david_transparent.webp" imagesrcset="/david_transparent-520.webp 520w, /david_transparent-780.webp 780w, /david_transparent.webp 1049w" imagesizes="(max-width: 900px) calc(100vw - 4rem), 44vw" fetchpriority="high">`;
     if (h.work) return `<link rel="preload" as="image" href="/${h.work}.webp" imagesrcset="${workSrcset(h.work)}" imagesizes="(max-width: 900px) calc(100vw - 4rem), 44vw" fetchpriority="high">`;
     if (!h.image) return '';
     const widths = [480, 800, 1200, 1600];
