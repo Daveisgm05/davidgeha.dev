@@ -22,6 +22,10 @@ export const siteLinks = {
             "label": "AI automation"
         },
         {
+            "href": "/ai-consultant-dubai-gulf/",
+            "label": "Dubai and the Gulf"
+        },
+        {
             "href": "/ai-outreach-lebanon/",
             "label": "AI outreach systems"
         },
