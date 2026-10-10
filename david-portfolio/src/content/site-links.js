@@ -26,6 +26,14 @@ export const siteLinks = {
             "label": "Dubai and the Gulf"
         },
         {
+            "href": "/ai-crm-lebanon/",
+            "label": "AI CRM"
+        },
+        {
+            "href": "/ai-for-hotels-lebanon/",
+            "label": "AI Receptionist for Hotels"
+        },
+        {
             "href": "/ai-outreach-lebanon/",
             "label": "AI outreach systems"
         },
