@@ -12,7 +12,7 @@ export default {
     ogTitle: 'AI Consulting in Lebanon — David Geha',
     description: 'Independent AI consulting in Lebanon for hotels, agencies and founders: a 48-hour audit, a fixed-price build sprint and an optional retainer, from Beirut.',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-09',
+    dateModified: '2026-10-12',
     ogImage: '/img/og-consulting.jpg',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Consulting in Lebanon' }],
@@ -151,11 +151,11 @@ export default {
     <div class="section__grid">
       ${label('Why me', "An engineer's approach to AI consulting", figure('consulting-why', {
         alt: 'Drafting compass resting on an engineering blueprint: define the load before designing the beam',
-        caption: 'Civil engineering training shows up in the work: measure before and after, never ship something you cannot inspect.',
+        caption: 'Engineering training shows up in the work: measure before and after, never ship something you cannot inspect.',
         tilt: 'right',
     }))}
       <div class="prose reveal">
-        <p>I am a Civil &amp; Environmental Engineering student at the American University of Beirut who has been building agentic systems for Lebanese businesses since 2025. Engineering training shows up in the work: define the load before designing the beam, measure before and after, and never ship something you cannot inspect. Every system I build logs what it did and hands exceptions to a person.</p>
+        <p>I am an engineering student at the American University of Beirut who has been building agentic systems for Lebanese businesses since 2025. Engineering training shows up in the work: define the load before designing the beam, measure before and after, and never ship something you cannot inspect. Every system I build logs what it did and hands exceptions to a person.</p>
         <p>The stack is boring on purpose. Supabase for data, Vercel for hosting, Claude for the reasoning steps, GitHub for the code. All of it sits in your accounts, so if we stop working together nothing stops working. You can read more about the systems on the <a href="/ai-solutions-lebanon/">AI solutions page</a> and about me on the <a href="/about/">about page</a>.</p>
         <p>I work in English, Arabic and French, in person around Beirut and remotely across Lebanon and the GCC.</p>
       </div>
