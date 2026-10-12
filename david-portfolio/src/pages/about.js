@@ -10,7 +10,7 @@ export default {
     description: 'David Geha is an independent AI consultant in Beirut, Lebanon, and an engineering student at AUB, building AI agents for hotels, agencies and founders.',
     schemaType: 'ProfilePage',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-09',
+    dateModified: '2026-10-12',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'About' }],
     word: 'About',
     eyebrow: 'AI consultant · Beirut, Lebanon',
@@ -22,7 +22,7 @@ export default {
   <section class="container" style="padding-top:2.5rem">
     <dl class="glance reveal-stagger">
       <div><dt>Based in</dt><dd>Beirut, Lebanon</dd></div>
-      <div><dt>Education</dt><dd>Civil &amp; Environmental Engineering, AUB</dd></div>
+      <div><dt>Education</dt><dd>Engineering, AUB</dd></div>
       <div><dt>Focus</dt><dd>Agentic AI automation</dd></div>
       <div><dt>Clients</dt><dd>Hotels · Agencies · Founders</dd></div>
     </dl>
@@ -36,7 +36,7 @@ export default {
     }))}
       <div class="prose reveal">
         <p><strong>David Geha is an independent AI consultant based in Beirut, Lebanon.</strong> He works with hotels, marketing agencies and founders to find the repetitive manual work inside their businesses and replace it with AI systems that run on their own: AI agents that live in a company's email and handle its reports and invoices, custom CRMs with AI agent employees, AI outreach systems, AI for SEO and GEO, AI receptionists that answer hotel calls, and a custom AI that builds high-end websites. He audits the work, designs the system, builds it, and hands it over running in the client's own accounts.</p>
-        <p>He is also a fourth-year Civil &amp; Environmental Engineering student at the American University of Beirut (AUB). The consultancy started in 2025 with agentic workflows for small teams and has since shipped systems for hotels, agencies and founders in Lebanon. What he builds as an <a href="/">AI consultant in Lebanon</a> is on the home page.</p>
+        <p>He is also a fourth-year engineering student at the American University of Beirut (AUB). The consultancy started in 2025 with agentic workflows for small teams and has since shipped systems for hotels, agencies and founders in Lebanon. What he builds as an <a href="/">AI consultant in Lebanon</a> is on the home page.</p>
         <p>If you searched his name and found a television producer in Los Angeles, that is a different person. The consultant's public profiles are linked at the bottom of this page.</p>
       </div>
     </div>
@@ -45,12 +45,12 @@ export default {
   <section class="section container" id="why">
     <div class="section__grid">
       ${label('Background', 'Why does an engineering student build AI systems?', figure('about-engineering', {
-        alt: 'Tower crane and a high-rise under construction in monochrome: the civil engineering discipline behind the consultancy',
+        alt: 'Tower crane and a high-rise under construction in monochrome: the engineering discipline behind the consultancy',
         caption: 'Define the load, size the member, check it against failure modes, never build what you cannot inspect. Same rules for automation.',
         tilt: 'right',
     }))}
       <div class="prose reveal">
-        <p>Civil engineering is a discipline of constraints: define the load, choose the material, size the member, check it against failure modes, and never build what you cannot inspect. That is also the right way to build automation for a small business. Most failed AI projects skip the first step, defining the load, which in a business means measuring the work before deciding what to automate.</p>
+        <p>Engineering is a discipline of constraints: define the load, choose the material, size the member, check it against failure modes, and never build what you cannot inspect. That is also the right way to build automation for a small business. Most failed AI projects skip the first step, defining the load, which in a business means measuring the work before deciding what to automate.</p>
         <p>That is why every engagement starts with an <a href="/ai-consulting-lebanon/#audit">audit</a> rather than a demo, why every system logs what it did and hands exceptions to a person, and why the stack is deliberately conventional (Supabase, Vercel, Claude, GitHub) so that a client can hire anyone to maintain it later.</p>
         <p>Alongside the automation work, David designs and builds complete products, from UI/UX through backend to deployment, which is how the custom CRM and the website-building AI came about: he used that AI to build this site.</p>
       </div>
@@ -122,7 +122,7 @@ export default {
         url,
         mainEntityOfPage: url,
         image: 'https://davidgeha.dev/og-image.jpg',
-        description: 'Independent AI consultant in Beirut, Lebanon, and Civil & Environmental Engineering student at AUB. Audits, designs and builds AI agents and custom AI systems for hotels, marketing agencies and founders across Lebanon.',
+        description: 'Independent AI consultant in Beirut, Lebanon, and engineering student at AUB. Audits, designs and builds AI agents and custom AI systems for hotels, marketing agencies and founders across Lebanon.',
         jobTitle: 'AI Consultant',
         worksFor: { '@id': 'https://davidgeha.dev/#service' },
         disambiguatingDescription: 'AI consultant and engineering student based in Beirut, Lebanon (not the American television producer of the same name).',
