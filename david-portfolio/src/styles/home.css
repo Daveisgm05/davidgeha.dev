@@ -50,7 +50,7 @@
 .hero__frame i:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
 
 .hero__foot {
-  position: absolute; left: 0; right: 0; bottom: clamp(1.5rem, 5svh, 3rem); z-index: 3;
+  position: absolute; left: 0; right: 0; bottom: clamp(3rem, 10svh, 6rem); z-index: 3;
   display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem;
 }
 .hero__intro { max-width: 30rem; display: grid; justify-items: start; gap: 0.9rem; }
@@ -78,7 +78,7 @@
   .hero__name { position: relative; top: auto; padding-top: calc(var(--nav-h) + 2.5rem); font-size: 17.5vw; padding-inline: var(--pad); }
   .hero__stage { position: relative; height: 62svh; margin-top: -9svh; }
   .hero__frame { display: none; }
-  .hero__foot { position: relative; bottom: auto; flex-direction: column; align-items: stretch; margin-top: -14svh; padding-bottom: 2.5rem; }
+  .hero__foot { position: relative; bottom: auto; flex-direction: column; align-items: stretch; margin-top: -19svh; padding-bottom: 3.5rem; }
   .hero__subtitle br { display: none; }
   .hero__socials { flex-direction: row; flex-wrap: wrap; }
 }
