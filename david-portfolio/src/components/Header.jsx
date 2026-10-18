@@ -110,7 +110,7 @@ const Header = () => {
                         build agentic AI systems that run it for you — <br />
                         AI consulting and custom AI solutions for teams in Beirut and across Lebanon.
                     </p>
-                    <a href="#work" className="hero__btn" data-hero-hide="fade">
+                    <a href="mailto:david@gehalb.com" className="hero__btn" data-hero-hide="fade">
                         Let's collaborate <ArrowUpRight />
                     </a>
                 </div>
