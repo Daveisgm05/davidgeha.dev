@@ -1,0 +1,48 @@
+name: deploy
+# Vercel takes CLI deploys only on this project, so every commit on main is deployed from here. The seo-geo-engine reads
+# this run's result to know the commit is live (src/publishers/deploy.py). Needs secret VERCEL_TOKEN (team daveautomates).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_CLI: vercel@56.5.0
+      SCOPE: daveautomates
+      PROJECT: david-portfolio
+      DOMAIN: davidgeha.dev
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Deploy to production
+        id: deploy
+        run: |
+          rm -rf .git
+          npx --yes "$VERCEL_CLI" link --yes --project "$PROJECT" --scope "$SCOPE" --token "$VERCEL_TOKEN"
+          url=$(npx --yes "$VERCEL_CLI" deploy --prod --yes -m "commit=$GITHUB_SHA" --scope "$SCOPE" --token "$VERCEL_TOKEN" | tail -1)
+          echo "address=${url#https://}" >> "$GITHUB_OUTPUT"
+      - name: Confirm the domain serves this deployment
+        env:
+          ADDRESS: ${{ steps.deploy.outputs.address }}
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            serving=$(npx --yes "$VERCEL_CLI" inspect "$DOMAIN" --format=json --scope "$SCOPE" --token "$VERCEL_TOKEN" | jq -r '.url + " " + .readyState')
+            if [ "$serving" = "$ADDRESS READY" ]; then
+              code=$(curl -s -o /dev/null -w '%{http_code}' "https://$DOMAIN/")
+              [ "$code" = 200 ] && exit 0
+              echo "$DOMAIN answered $code"
+            fi
+            sleep 10
+          done
+          echo "$DOMAIN serves '$serving', not $ADDRESS READY"
+          exit 1
