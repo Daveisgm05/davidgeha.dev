@@ -137,13 +137,15 @@ function footer(page) {
     </div>
     <div class="contact__slab" data-anim="fade">
     <address class="contact__nap">
+      <span>${NAP.name}</span><span aria-hidden="true">·</span>
       <a href="mailto:${NAP.email}">${NAP.email}</a><span aria-hidden="true">·</span>
       <a href="${NAP.whatsapp}" target="_blank" rel="noopener">${NAP.phone}</a><span aria-hidden="true">·</span>
       <span>${NAP.city}</span>
     </address>
     <nav class="contact__sitemap" aria-label="Pages">
       <a href="/">Home — AI consultant in Lebanon</a>
-      <a href="/#work">Selected work</a>${NAV.map((n) => `
+      <a href="/#work">Selected work</a>
+      <a href="/#contact">Contact</a>${NAV.map((n) => `
       <a href="${n.href}"${n.href === page.path ? ' aria-current="page"' : ''}>${n.label === 'Guide' ? '2026 guide: costs &amp; how to choose' : n.label === 'Guides' ? 'All guides' : n.label === 'About' ? 'About David' : n.label === 'Consulting' ? 'AI consulting in Lebanon' : 'AI solutions &amp; automation'}</a>`).join('')}${FOOTER_EXTRA.map((n) => `
       <a href="${n.href}"${n.href === page.path ? ' aria-current="page"' : ''}>${n.label}</a>`).join('')}
     </nav>

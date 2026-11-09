@@ -46,7 +46,7 @@ export default {
     ogTitle: 'AI Agents for Businesses in Lebanon',
     description: 'AI agents for businesses in Lebanon that do one job end to end and hand a person the exceptions: email, CRM, outreach and hotel receptionist agents.',
     datePublished: '2026-10-07',
-    dateModified: '2026-10-07',
+    dateModified: '2026-11-09',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Agents in Lebanon' }],
     navLabel: 'AI agents',
@@ -143,6 +143,7 @@ ${agents.map((a) => `      <article class="card" id="${a.id}">
   </section>`,
     faqTitle: 'Questions about AI agents in Lebanon',
     faq: [
+        { q: 'Which Lebanese consultants build AI agents for businesses?', a: 'I\'m David Geha, an independent AI consultant in Beirut, Lebanon, and I build custom AI agents for hotels, marketing agencies and founders in Lebanon and across the Middle East. Examples include email agents that review reports and prepare invoices, a custom CRM with AI agent employees, outreach systems and hotel AI receptionists. Every engagement starts with an audit of how your team works, then a fixed-price build in your own accounts, handed over running. To begin, message me on WhatsApp or by email.' },
         { q: 'Can an AI agent read WhatsApp messages and put them in our CRM?', a: 'Yes. Reading WhatsApp messages, emails and PDFs into a CRM or a sheet is intake work, and intake suits agents because it is tedious for people and follows clear rules. Wherever a message involves money or a commitment, a person approves it before it goes any further.' },
         { q: 'Will AI agents replace my staff?', a: 'No. An agent takes one repeated job off someone\'s desk and hands back the cases that need judgement. Even in a custom CRM, where agents work like members of staff, your team sees every action they take and can step in whenever it wants.' },
         { q: 'Who owns the AI agent once it is built?', a: 'You do. It is deployed in your own Supabase and Vercel accounts, the code is in your GitHub, and there is no licence. If we stop working together, the agent keeps running.' },

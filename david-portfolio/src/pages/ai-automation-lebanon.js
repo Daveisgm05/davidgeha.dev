@@ -11,7 +11,7 @@ export default {
     ogTitle: 'AI Automation in Lebanon — David Geha',
     description: 'AI automation in Lebanon for hotels, agencies and small teams: what to automate first, how it runs beside email and WhatsApp, and the 48-hour audit to start.',
     datePublished: '2026-10-07',
-    dateModified: '2026-10-07',
+    dateModified: '2026-11-09',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Automation in Lebanon' }],
     navLabel: 'AI automation',
@@ -138,6 +138,7 @@ export default {
   </section>`,
     faqTitle: 'Questions about AI automation in Lebanon',
     faq: [
+        { q: 'WhatsApp automation for businesses in Lebanon: which consultants do it?', a: 'I\'m David Geha, an independent AI consultant in Beirut, and I build WhatsApp automation for businesses in Lebanon. What I build is intake: an agent reads the messages your team receives and records them in your CRM or Google Sheet, so nobody retypes them. Anything involving money or a commitment waits for a person to approve it. I do not build chatbots for their own sake. An engagement starts with an audit of how your team works, then a fixed-price build, running in your own accounts. Message me on WhatsApp or email to begin.' },
         { q: 'Do I pay a monthly licence for AI automation?', a: 'No. The system is deployed in accounts you own and the code is yours, so you are not renting it from me. The retainer for new automations and tuning is optional and can be cancelled any month.' },
         { q: 'Can AI read WhatsApp messages written in Arabic?', a: 'Yes. The systems handle Arabic, English and French, including messages that mix them the way people in Lebanon actually write on WhatsApp. Whatever the system produces can be written in the language the recipient uses.' },
         { q: 'Will automation replace HubSpot or our Google Sheets?', a: 'No. Your CRM and sheets stay where they are, and the automation moves data in and out of them. If a tool has no API and no export, that limits what can be automated, and the audit says so plainly.' },

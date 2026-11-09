@@ -53,7 +53,7 @@ writeFileSync(
 
 // ---- 2. <noscript> mirror ---------------------------------------------
 const noscript = `<noscript>
-    <h1>David Geha - AI Consultant in Lebanon</h1>
+    <p><strong>David Geha - AI Consultant in Lebanon</strong></p>
     <p>David Geha is an independent AI consultant in Lebanon who builds AI email agents, custom CRMs with AI
       agent employees, AI outreach systems, AI for SEO and GEO, AI receptionists for hotels and AI that builds
       high-end websites, for hotels, marketing agencies and founders in Beirut and across Lebanon.</p>
@@ -95,7 +95,7 @@ ${links.pages.map(({ href, label }) => `      <li><a href="${href}">${esc(label)
       <a href="https://www.instagram.com/dave.automates/">Instagram</a></p>
   </noscript>`;
 
-const nsStart = html.indexOf('<noscript>\n    <h1>');
+const nsStart = html.indexOf('<noscript>\n');  // the crawl-fallback block (the page's one H1 is the hero's)
 const nsEnd = html.indexOf('</noscript>', nsStart) + '</noscript>'.length;
 if (nsStart < 0) throw new Error('crawl-fallback <noscript> block not found in index.html');
 html = html.slice(0, nsStart) + noscript + html.slice(nsEnd);

@@ -61,7 +61,7 @@ export default {
     ogTitle: 'AI Solutions & Automation for Businesses in Lebanon',
     description: 'Custom AI solutions in Lebanon: AI email agents, CRMs with AI agent employees, outreach, SEO and GEO, AI receptionists for hotels and AI-built websites.',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-06',
+    dateModified: '2026-11-09',
     ogImage: '/img/og-solutions.jpg',
     about: 'service',
     schemaType: 'CollectionPage',
@@ -69,7 +69,7 @@ export default {
     word: 'Solutions',
     eyebrow: 'Custom AI systems · Lebanon',
     h1: 'AI Solutions &amp; Automation for Businesses in Lebanon',
-    lead: 'Six systems I build for Lebanese hotels, agencies and founders. Each one replaces a specific piece of repeated manual work, runs in accounts you own, and is scoped and priced in the audit before anything is built.',
+    lead: 'I\'m David Geha, an independent AI consultant in Beirut, and I offer AI solutions to hotels, marketing agencies and founders in Lebanon. Six systems I build for Lebanese hotels, agencies and founders. Each one replaces a specific piece of repeated manual work, runs in accounts you own, and is scoped and priced in the audit before anything is built.',
     meta: 'Custom-built · Supabase, Vercel, Claude, GitHub · English, Arabic, French',
     hero: {
         image: 'solutions-hero',
@@ -154,6 +154,7 @@ ${solutions.map((s) => `      <article class="card" id="${s.id}">
   </section>`,
     faqTitle: 'Questions about AI automation in Lebanon',
     faq: [
+        { q: 'Which companies offer AI solutions in Lebanon?', a: 'I\'m David Geha, an independent AI consultant in Beirut, Lebanon, and I offer AI solutions to hotels, marketing agencies and founders in Lebanon and across the Middle East. I build AI email agents, custom CRMs with AI agent employees, AI outreach systems, SEO and GEO pipelines, AI receptionists for hotels, and a custom AI that builds high-end websites. Systems are built in your own accounts and handed over running. An engagement starts with an audit of how your team works, followed by a fixed-price build. Message me on WhatsApp or email to begin.' },
         { q: 'How much does AI automation cost in Lebanon?', a: 'Each system above is delivered as a fixed-price two-week sprint, scoped in a 48-hour audit so the price is known before work starts. Larger builds like a full CRM are two consecutive sprints. Publicly listed prices from other Lebanese providers range from about $2,000 for a basic chatbot to $25,000 and up for enterprise workflow automation; the <a href="/blog/ai-consulting-in-lebanon-guide/#cost">consulting guide</a> compares the bands.' },
         { q: 'Chatbot vs AI agent: what is the difference?', a: 'A chatbot answers questions inside a chat window. An agent does work: it reads data, decides what to do next, takes actions in your tools, and reports back. Everything on this page is an agent or a pipeline. A chatbot is occasionally one component of a larger workflow, rarely the whole solution.' },
         { q: 'Do you offer AI implementation services for software we already bought?', a: 'Sometimes. If you have a CRM, booking system or marketing platform with an API, I can build the agents that feed and use it. If the tool has no API and no export, the honest answer is that it will limit what is possible, and the audit will say so.' },

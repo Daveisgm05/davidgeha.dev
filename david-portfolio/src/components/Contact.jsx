@@ -26,6 +26,8 @@ const Contact = () => (
             <div className="contact__slab" data-anim="fade">
                 {/* Visible NAP — must match the Google Business Profile and every directory exactly. */}
                 <address className="contact__nap">
+                    <span>David Geha - AI Consultant</span>
+                    <span aria-hidden="true">·</span>
                     <a href="mailto:david@gehalb.com">david@gehalb.com</a>
                     <span aria-hidden="true">·</span>
                     <a href="https://wa.me/96176412978" target="_blank" rel="noopener noreferrer">+961 76 412 978</a>
@@ -43,6 +45,8 @@ const Contact = () => (
                     {siteLinks.hub && <a href={siteLinks.hub}>All guides</a>}
                     {siteLinks.work && <a href={siteLinks.work}>Case studies</a>}
                     <a href="/about/">About David</a>
+                    <a href="/#contact">Contact</a>
+                    {!siteLinks.pages.some((p) => p.href === '/privacy/') && <a href="/privacy/">Privacy</a>}
                 </nav>
 
                 <div className="contact__links">

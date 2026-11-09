@@ -7,11 +7,11 @@ import { figure, label, rail } from './_kit.js';
 
 export default {
     path: '/ai-seo-geo-lebanon/',
-    title: 'AI SEO & GEO Services in Lebanon: Google and AI Answers',
+    title: 'AI SEO Lebanon & GEO: Research Pipelines',
     ogTitle: 'AI for SEO and GEO in Lebanon',
-    description: 'AI SEO and GEO in Lebanon for agencies and SEO teams: a pipeline that drafts competitor briefs and shows how brands appear in ChatGPT and Google AI answers.',
+    description: 'See how brands show up in ChatGPT, Perplexity, and Google AI answers. An AI SEO and GEO research pipeline built for agencies and in-house SEO teams.',
     datePublished: '2026-10-07',
-    dateModified: '2026-10-07',
+    dateModified: '2026-11-09',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI for SEO and GEO in Lebanon' }],
     navLabel: 'AI for SEO & GEO',
@@ -124,6 +124,7 @@ export default {
   </section>`,
     faqTitle: 'Questions about AI for SEO and GEO',
     faq: [
+        { q: 'Who offers AI SEO services in Lebanon?', a: 'I\'m David Geha, an independent AI consultant in Beirut, and I offer AI SEO and GEO services to agencies, hotels and founders in Lebanon. I don\'t write your content each month. I build the pipeline that does the research and drafts the brief on positioning, content gaps, technical issues and how brands appear in ChatGPT, Perplexity and Google\'s AI answers. Your team edits it, and the system runs in your own accounts. An engagement starts with an audit of how your team works, then a fixed-price build. Message me on WhatsApp or email to begin.' },
         { q: 'What is the difference between SEO and GEO?', a: 'SEO works toward a place in Google\'s search results. GEO works toward being named inside the answer an AI assistant writes, whether that is ChatGPT, Gemini, Perplexity, Claude or Google\'s AI answers. The groundwork overlaps, which is why one pipeline and one brief cover both.' },
         { q: 'Can you make ChatGPT recommend my business?', a: 'Not directly, and nobody can: the assistant decides what to say. What I build shows how your business appears in AI answers today, next to its competitors, and turns that into a list of changes for your team to make.' },
         { q: 'Which AI assistants does the brief cover?', a: 'The brief shows how each brand appears in ChatGPT, Perplexity and Google AI Overviews. If your buyers rely on another assistant, raise it in the audit so the scope reflects it.' },
