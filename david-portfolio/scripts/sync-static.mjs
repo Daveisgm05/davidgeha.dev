@@ -73,7 +73,7 @@ ${workItems.map(({ title, tags }) => `      <li>${esc(title)} (${esc(tags.join('
     </ul>
 
     <h2>${esc(aboutTitle)}</h2>
-    <p>${esc(aboutText)} <a href="/about/">More about David</a>.</p>
+    <p>${esc(aboutText)} <a href="/about/">More about David Geha</a>.</p>
     <ol>
 ${processSteps.map(({ num, label }) => `      <li>${esc(num)} — ${esc(label)}</li>`).join('\n')}
     </ol>

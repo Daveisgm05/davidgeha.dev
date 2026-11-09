@@ -42,9 +42,9 @@ const agents = [
 
 export default {
     path: '/ai-agents-lebanon/',
-    title: 'Custom AI Agents for Businesses in Lebanon',
-    ogTitle: 'AI Agents for Businesses in Lebanon',
-    description: 'AI agents for businesses in Lebanon that do one job end to end and hand a person the exceptions: email, CRM, outreach and hotel receptionist agents.',
+    title: 'AI Agents Lebanon: Custom AI Agent Development',
+    ogTitle: 'AI Agents in Lebanon: Custom AI Agent Development',
+    description: 'Custom AI agent development in Lebanon: David Geha builds AI agents for email, CRM, outreach and hotel reception, each in your own accounts at a fixed price.',
     datePublished: '2026-10-07',
     dateModified: '2026-11-09',
     about: 'service',
@@ -52,8 +52,8 @@ export default {
     navLabel: 'AI agents',
     word: 'Agents',
     eyebrow: 'Custom AI agents · Lebanon',
-    h1: 'AI Agents for Businesses in Lebanon',
-    lead: 'I build AI agents for businesses in Lebanon: software that takes one job from start to finish, such as the reports and invoices in your inbox or the follow-ups in your CRM, and hands a person anything unusual. Each agent runs in accounts you own, logs every action, and gets a fixed price in a 48-hour audit before anything is built.',
+    h1: 'AI Agents in Lebanon: Custom AI Agent Development for Businesses',
+    lead: 'David Geha provides custom AI agent development and agentic AI automation for Lebanese businesses. I build AI agents: software that takes one job from start to finish, such as the reports and invoices in your inbox or the follow-ups in your CRM, and hands a person anything unusual. Each agent runs in accounts you own, logs every action, and gets a fixed price in a 48-hour audit before anything is built.',
     meta: 'David Geha, an AI consultant in Beirut · Built in your own Supabase and Vercel accounts · English, Arabic, French',
     hero: {
         work: 'work-crm-v3',
@@ -79,13 +79,14 @@ export default {
       <div class="prose reveal">
         <p>An <strong>AI agent</strong> does a job; a chatbot holds a conversation. A chatbot answers questions in a window and waits for the next one, so the work behind each question is still yours. An agent reads what comes in, decides the next step, acts in your tools and hands a person whatever falls outside its rules, so the only work left for your team is the exceptions.</p>
         <p>Take the reports that land in a company's inbox every week. A chatbot could summarise one if somebody pasted it in. An email agent reviews each one as it arrives, produces the reports management reads, prepares the invoices, and stops for a person when something looks unusual.</p>
+        <p><strong>Chatbot development</strong> in Lebanon usually means a bot that answers conversational queries, and the work behind each answer stays with your team. <strong>Agentic AI automation</strong> and custom agent development go further: the agent automates the work end to end, on Vercel and Supabase, so it queues tasks and keeps going through local power and internet drops instead of stopping with the office.</p>
         <p>That difference is also the honest test of whether you need an agent. If the job is answering the same few questions, a clear page on your website may be enough. If it is reading, checking, writing and sending every day, an agent is the right shape; when a chatbot helps, it is a small part of a larger agent.</p>
       </div>
     </div>
   </section>
 
   <section class="section container" id="agents">
-    <div class="section__head reveal"><span class="eyebrow">What I build</span><h2>Four AI agents I build for businesses in Lebanon</h2><p>Each one takes over a job someone on your team does by hand today and passes anything unusual to a person. The CRM and the outreach engine run for clients; the other two pictures illustrate the systems.</p></div>
+    <div class="section__head reveal"><span class="eyebrow">What I build</span><h2>Custom AI Agent Development Services in Lebanon</h2><p>Four development deliverables: the email agent, the CRM agents, the outreach system and the receptionist. Each one takes over a job someone on your team does by hand today and passes anything unusual to a person. The CRM and the outreach engine run for clients; the other two pictures illustrate the systems.</p></div>
     <div class="cards cards--2 reveal-stagger">
 ${agents.map((a) => `      <article class="card" id="${a.id}">
         ${a.media ? `<div class="card__media">${a.media}</div>` : ''}

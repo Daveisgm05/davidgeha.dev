@@ -5,12 +5,12 @@ import { figure, label, rail, workImg } from './_kit.js';
 
 export default {
     path: '/about/',
-    title: 'About David Geha — Independent AI Consultant Based in Beirut',
+    title: 'David Geha | AI Consultant Beirut, Lebanon',
     ogTitle: 'About David Geha, an independent AI consultant based in Beirut',
     description: 'David Geha is an independent AI consultant in Beirut, Lebanon, and an engineering student at AUB, building AI agents for hotels, agencies and founders.',
     schemaType: 'ProfilePage',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-12',
+    dateModified: '2026-11-09',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'About' }],
     word: 'About',
     eyebrow: 'AI consultant · Beirut, Lebanon',
@@ -30,14 +30,25 @@ export default {
 
   <section class="section container" id="who">
     <div class="section__grid">
-      ${label('Who', 'Who is David Geha?', figure('about-beirut', {
+      ${label('Who', 'Who is David Geha, the AI consultant in Beirut?', figure('about-beirut', {
         alt: 'Aerial view of the Lebanese coast and Beirut bay at dusk',
         caption: 'Based in Beirut, working in person around the city and remotely with businesses across Lebanon and the GCC.',
     }))}
       <div class="prose reveal">
         <p><strong>David Geha is an independent AI consultant based in Beirut, Lebanon.</strong> He works with hotels, marketing agencies and founders to find the repetitive manual work inside their businesses and replace it with AI systems that run on their own: AI agents that live in a company's email and handle its reports and invoices, custom CRMs with AI agent employees, AI outreach systems, AI for SEO and GEO, AI receptionists that answer hotel calls, and a custom AI that builds high-end websites. He audits the work, designs the system, builds it, and hands it over running in the client's own accounts.</p>
-        <p>He is also a fourth-year engineering student at the American University of Beirut (AUB). The consultancy started in 2025 with agentic workflows for small teams and has since shipped systems for hotels, agencies and founders in Lebanon. What he builds as an <a href="/">AI consultant in Lebanon</a> is on the home page.</p>
+        <p>As an AI consultant in Beirut, he brings an engineering background: he is also a fourth-year engineering student at the American University of Beirut (AUB). The consultancy started in 2025 with agentic workflows for small teams and has since shipped systems for hotels, agencies and founders in Lebanon. What he builds as an <a href="/">AI consultant in Lebanon</a> is on the home page.</p>
         <p>If you searched his name and found a television producer in Los Angeles, that is a different person. The consultant's public profiles are linked at the bottom of this page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="clients">
+    <div class="section__grid">
+      ${label('Clients', 'Who does he work with: hotels, marketing agencies and founders?')}
+      <div class="prose reveal">
+        <p><strong>Hotels:</strong> an AI receptionist that answers calls and responds to guests, and an email agent that reviews incoming reports, generates the hotel's reports and prepares invoices.</p>
+        <p><strong>Marketing agencies:</strong> a custom CRM with AI agent employees that brings clients, deals and delivery into one view, an outreach system that sources, researches and emails leads, and an SEO and GEO pipeline.</p>
+        <p><strong>Founders:</strong> custom CRMs, email agents and websites built by the website AI. Measured outcomes from these projects are not published yet; detailed case studies are being written up.</p>
       </div>
     </div>
   </section>
@@ -107,6 +118,8 @@ export default {
     </div>
   </section>`,
     faq: [
+        { q: 'How does an engagement with David work, and what scope do projects have?', a: 'Every engagement starts with a 48-hour audit that ranks repeated tasks by payback and ends in a fixed price. The build is a two-week sprint in the client\'s own accounts (a custom CRM runs as two consecutive sprints), and a month-to-month retainer is optional. Typical projects for Lebanese businesses are one system at a time: an email agent, a CRM with AI agents, an outreach system, an SEO and GEO pipeline or a hotel receptionist.' },
+        { q: 'How should I budget for AI implementation?', a: 'The price is fixed and agreed before anything is built: the audit is a fixed fee, the build sprint is a fixed price scoped in the audit, and there is no recurring licence because the system runs in your own accounts. The <a href="/blog/ai-consulting-in-lebanon-guide/#cost">guide to AI consulting costs in Lebanon</a> compares the market bands.' },
         { q: 'Where is David Geha based?', a: 'Beirut, Lebanon. He meets clients in person around Beirut and works remotely with businesses across Lebanon and the GCC.' },
         { q: 'Is David Geha the television producer?', a: 'No. There is an American television producer named David Geha; the AI consultant is a different person, an engineering student at AUB running a consultancy in Beirut.' },
         { q: 'What languages does he work in?', a: 'English, Arabic and French, and the systems he builds handle all three, including the mixed-language messages common on WhatsApp in Lebanon.' },

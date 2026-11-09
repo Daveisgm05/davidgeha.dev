@@ -7,9 +7,9 @@ import { figure, label, rail } from './_kit.js';
 
 export default {
     path: '/ai-seo-geo-lebanon/',
-    title: 'AI SEO Lebanon & GEO: Research Pipelines',
-    ogTitle: 'AI for SEO and GEO in Lebanon',
-    description: 'See how brands show up in ChatGPT, Perplexity, and Google AI answers. An AI SEO and GEO research pipeline built for agencies and in-house SEO teams.',
+    title: 'AI SEO Services Lebanon | GEO Services Lebanon',
+    ogTitle: 'AI SEO Services & AI Search Optimization in Lebanon',
+    description: 'AI SEO and GEO services in Lebanon: a pipeline that shows how brands rank on Google and appear in ChatGPT, Perplexity and AI Overviews, built for agencies.',
     datePublished: '2026-10-07',
     dateModified: '2026-11-09',
     about: 'service',
@@ -17,8 +17,8 @@ export default {
     navLabel: 'AI for SEO & GEO',
     word: 'Search',
     eyebrow: 'AI for SEO and GEO · Beirut, Lebanon',
-    h1: 'AI for SEO and GEO in Lebanon',
-    lead: 'AI SEO in Lebanon, as I build it, is a pipeline that does the research and writes the brief: positioning, content gaps, technical SEO issues and, for GEO, how each brand shows up when buyers ask ChatGPT, Perplexity or Google\'s AI answers. Your team edits the brief rather than writing it, and the system runs in your own accounts.',
+    h1: 'AI SEO Services &amp; AI Search Optimization in Lebanon',
+    lead: 'David Geha is an independent AI SEO consultant based in Beirut, helping Lebanese businesses and agencies rank in Google and appear in ChatGPT, Perplexity and Google AI Overviews. AI SEO in Lebanon, as I build it, is a pipeline that does the research and writes the brief: positioning, content gaps, technical SEO issues and, for GEO, how each brand shows up when buyers ask ChatGPT, Perplexity or Google\'s AI answers. Your team edits the brief rather than writing it, and the system runs in your own accounts.',
     meta: 'David Geha, an AI consultant in Beirut · For agencies and SEO teams · English, Arabic, French',
     hero: {
         work: 'work-research-v2',
@@ -49,6 +49,16 @@ export default {
         </ul>
         <p>Competitor audits, keyword research and client briefs usually take a day each, and they are out of date a month later. The pipeline runs on demand or monthly, so the brief can be refreshed before a pitch or a client review instead of going stale.</p>
         <p>The stack is small: Supabase holds the data, search and crawl APIs gather it, Claude drafts the brief, and the result lands in Google Docs or Notion, ready for your team to edit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="aeo-geo">
+    <div class="section__grid">
+      ${label('AI search', 'AI Search Optimization (AEO &amp; GEO)')}
+      <div class="prose reveal">
+        <p>AI search optimization covers both answer engine optimization (AEO), being the source an assistant quotes, and GEO, being named in the answer. The work behind both is the same research: how each brand shows up when buyers ask ChatGPT, Perplexity or Google AI Overviews.</p>
+        <p>The stack is Supabase for the data, search and crawl APIs to gather it and Claude to draft the brief. The two-week sprint delivers the pipeline in your accounts, and each run records how every brand on your list shows up in AI answers, so your team can track who gets named from one brief to the next.</p>
       </div>
     </div>
   </section>
@@ -125,6 +135,7 @@ export default {
     faqTitle: 'Questions about AI for SEO and GEO',
     faq: [
         { q: 'Who offers AI SEO services in Lebanon?', a: 'I\'m David Geha, an independent AI consultant in Beirut, and I offer AI SEO and GEO services to agencies, hotels and founders in Lebanon. I don\'t write your content each month. I build the pipeline that does the research and drafts the brief on positioning, content gaps, technical issues and how brands appear in ChatGPT, Perplexity and Google\'s AI answers. Your team edits it, and the system runs in your own accounts. An engagement starts with an audit of how your team works, then a fixed-price build. Message me on WhatsApp or email to begin.' },
+        { q: 'Do you offer AI marketing in Lebanon?', a: 'I build AI systems for marketing work rather than run campaigns. For marketing agencies and teams that means the SEO and GEO pipeline on this page, an <a href="/ai-outreach-lebanon/">AI outreach system</a> for new business and a custom CRM with AI agent employees. I do not write or publish content for you each month.' },
         { q: 'What is the difference between SEO and GEO?', a: 'SEO works toward a place in Google\'s search results. GEO works toward being named inside the answer an AI assistant writes, whether that is ChatGPT, Gemini, Perplexity, Claude or Google\'s AI answers. The groundwork overlaps, which is why one pipeline and one brief cover both.' },
         { q: 'Can you make ChatGPT recommend my business?', a: 'Not directly, and nobody can: the assistant decides what to say. What I build shows how your business appears in AI answers today, next to its competitors, and turns that into a list of changes for your team to make.' },
         { q: 'Which AI assistants does the brief cover?', a: 'The brief shows how each brand appears in ChatGPT, Perplexity and Google AI Overviews. If your buyers rely on another assistant, raise it in the audit so the scope reflects it.' },

@@ -15,7 +15,7 @@ const About = () => (
 
                 <p className="about__text">
                     <span data-anim="brighten">{aboutText}</span>{' '}
-                    <a className="about__more" href="/about/">More about me →</a>
+                    <a className="about__more" href="/about/">More about David Geha →</a>
                 </p>
             </div>
 

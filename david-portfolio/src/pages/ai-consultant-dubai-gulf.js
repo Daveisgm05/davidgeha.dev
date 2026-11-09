@@ -54,13 +54,13 @@ export default {
     ogTitle: 'An AI Consultant for Businesses in Dubai and the Gulf',
     description: 'An AI consultant in Beirut for businesses in Dubai, the UAE and the Gulf: a 48-hour audit, then AI systems built in your own accounts.',
     datePublished: '2026-10-09',
-    dateModified: '2026-10-09',
+    dateModified: '2026-11-09',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Consultant for Dubai and the Gulf' }],
     navLabel: 'Dubai and the Gulf',
     word: 'Gulf',
     eyebrow: 'AI consultant · Dubai, the UAE and the Gulf',
-    h1: 'An AI Consultant for Businesses in Dubai and the Gulf',
+    h1: 'An AI Consultant for Businesses in Dubai, Riyadh, Doha and the Gulf',
     lead: 'I am David Geha, an independent AI consultant based in Beirut, and I take on projects with businesses in Dubai, the rest of the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. I find the work your team repeats every day and build AI systems that take it over, in accounts you own, after a 48-hour audit that gives you a fixed price before anything is built.',
     meta: 'Based in Beirut · Projects across the Gulf · English, Arabic, French',
     hero: {
@@ -83,14 +83,17 @@ export default {
       ${label('Working together', 'Can an AI consultant in Beirut work with a business in Dubai?')}
       <div class="prose reveal">
         <p>Yes. The work is the same wherever your office is: understand which jobs your team repeats, decide which of them software should take over, and build that software where you control it. Everything I build runs in your own Supabase and Vercel accounts, with the code in your GitHub and no licence, so nothing depends on where I sit.</p>
+        <h2>Data, code and ownership for businesses in Dubai, Riyadh, Doha and the wider GCC</h2>
+        <p>The stack is Supabase, Vercel and GitHub, all in accounts that belong to you. Your data stays in those accounts rather than on a platform I run, you own the code, and there is no licence, so there is no lock-in to me: if we stop working together, the system keeps running. My access can be revoked whenever you choose.</p>
+        <h2>Time zones for Dubai, Riyadh and Doha</h2>
         <p>The time difference is small. Dubai, Abu Dhabi and Muscat are two hours ahead of Beirut in winter and one hour ahead in summer; Riyadh, Doha, Kuwait City and Manama are one hour ahead in winter and on the same time in summer. A working day in Beirut covers most of a working day in the Gulf.</p>
-        <p>I work in English, Arabic and French, so the people who do the work can explain it in the language they use every day, and the systems can read and write the messages your customers actually send.</p>
+        <p>I work in English, Arabic and French, so the people who do the work can explain it in the language they use every day, and the systems can read and write the messages your customers actually send. That covers a business in Dubai, Riyadh or Doha alike.</p>
       </div>
     </div>
   </section>
 
   <section class="section container" id="systems">
-    <div class="section__head reveal"><span class="eyebrow">What I build</span><h2>AI systems I build for businesses in the UAE and the Gulf</h2><p>The same six systems I build in Lebanon. Each one takes over a job someone on your team does by hand today and leaves the decisions to a person.</p></div>
+    <div class="section__head reveal"><span class="eyebrow">What I build</span><h2>AI Agent Development and Business Process Automation for Dubai, Riyadh and Doha</h2><p>Custom AI agent workflows for businesses in the UAE and the Gulf: the same six systems I build in Lebanon. Each one takes over a job someone on your team does by hand today and leaves the decisions to a person.</p></div>
     <div class="cards cards--2 reveal-stagger">
 ${systems.map((x) => `      <article class="card" id="${x.id}">
         <h3>${x.title}</h3>
@@ -130,7 +133,8 @@ ${systems.map((x) => `      <article class="card" id="${x.id}">
         { q: 'What time zone do you work in?', a: 'Beirut time. Dubai is two hours ahead of Beirut in winter and one hour ahead in summer; Riyadh, Doha and Kuwait City are one hour ahead in winter and on the same time in summer, so most of the working day overlaps.' },
         { q: 'Can the systems work in Arabic?', a: 'Yes. I work in English, Arabic and French, and the systems are built to read and write the language your team and your customers use.' },
         { q: 'Who owns the system once it is built?', a: 'You do. It is deployed in your own Supabase and Vercel accounts, the code is in your GitHub, and there is no licence. If we stop working together, it keeps running.' },
-        { q: 'How much does it cost?', a: 'There is no price list. The 48-hour audit comes back with a fixed price for the first build, so you know the number before anything is built, and you can stop after the audit.' },
+        { q: 'How much does it cost?', a: 'There is no price list. A project begins with the 48-hour audit, which ranks your repeated tasks by payback and produces a fixed price. The build is then a fixed-price two-week sprint, or 2 × 2-week sprints for a custom CRM with AI agent employees. There are no recurring licensing fees, you know the number before anything is built, and you can stop after the audit.' },
+        { q: 'Can you build AI agents for a business in Riyadh or Doha?', a: 'Yes. I build custom AI agent workflows and business process automation for businesses across the Gulf, including Saudi Arabia and Qatar, from Beirut, in English, Arabic or French. Riyadh and Doha are one hour ahead of Beirut in winter and on the same time in summer.' },
     ],
     ctaTitle: 'Tell me what your team repeats every day.',
     ctaText: 'One message from Dubai, Riyadh or Doha about a task your team does by hand is enough to start. The 48-hour audit turns it into a scoped plan and a fixed price.',
