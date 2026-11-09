@@ -18,7 +18,7 @@ export default {
     word: 'Automation',
     eyebrow: 'AI automation · Beirut, Lebanon',
     h1: 'AI Automation in Lebanon',
-    lead: 'AI automation in Lebanon pays off on the plain, repeated work: the reports, invoices, follow-ups and data entry your team redoes every week. I am David Geha, an AI consultant in Beirut, and I build systems that take that work over beside your email, phone line, WhatsApp and Google Sheets, with anything unusual waiting for a person to approve.',
+    lead: 'David Geha is an independent AI automation consultant in Beirut, building business process and workflow automation for Lebanese small businesses, most with fewer than thirty people. It pays off on the plain, repeated work: the reports, invoices, follow-ups and data entry your team redoes every week. I build systems that take that work over beside your email, phone line, WhatsApp and Google Sheets, with anything unusual waiting for a person to approve.',
     meta: 'Independent consultant · Beirut, Lebanon · English, Arabic, French',
     hero: {
         work: 'work-email-agent',
@@ -54,6 +54,17 @@ export default {
     </div>
   </section>
 
+  <section class="section container" id="whatsapp">
+    <div class="section__grid">
+      ${label('WhatsApp', 'WhatsApp automation for businesses in Lebanon')}
+      <div class="prose reveal">
+        <p>The WhatsApp automation I build is intake: an AI agent reads the WhatsApp messages and PDFs your team receives and records them in your CRM or a Google Sheet, so nobody retypes a request, a set of details or an attached document. Customer and admin intake follows clear rules, which is why it suits an agent.</p>
+        <p>Every entry has a human approval step where it matters: anything that involves money or a commitment waits for a person to approve it before it counts.</p>
+        <p>What I do not build is a WhatsApp chatbot for its own sake. A bot that answers customers is customer-facing work, which should not be the first thing you automate; when an automatic reply makes sense, it is one step inside a larger workflow.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section container" id="first">
     <div class="section__grid">
       ${label('Priorities', 'Which work should you automate first?', figure('solutions-backoffice', {
@@ -80,9 +91,6 @@ export default {
       ${label('Your tools', 'Does it work with WhatsApp and the tools we already use?')}
       <div class="prose reveal">
         <p>Yes. Email, the phone line, WhatsApp, Google Sheets, Notion and HubSpot are the usual connection points for the systems I build. Each system sits beside those tools and moves data between them; your team keeps working in the screens it already knows.</p>
-        <h2>WhatsApp automation for businesses in Lebanon</h2>
-        <p>The WhatsApp automation I build is intake: an agent reads the messages your team receives and records them in your CRM or Google Sheet, so nobody retypes a request, a set of details or an attached document. Anything that involves money or a commitment waits for a person to approve it first.</p>
-        <p>What I do not build is a WhatsApp chatbot for its own sake. A bot that answers customers is customer-facing work, which should not be the first thing you automate; when an automatic reply makes sense, it is one step inside a larger workflow.</p>
         <h2>Does the automation keep running through power cuts?</h2>
         <p>Yes. The systems run on Vercel and Supabase rather than on a computer in your office, so scheduled jobs run on time when the office loses internet or power. Anything waiting for approval stays queued until someone is back online to look at it.</p>
       </div>
@@ -139,6 +147,9 @@ export default {
     faqTitle: 'Questions about AI automation in Lebanon',
     faq: [
         { q: 'WhatsApp automation for businesses in Lebanon: which consultants do it?', a: 'I\'m David Geha, an independent AI consultant in Beirut, and I build WhatsApp automation for businesses in Lebanon. What I build is intake: an agent reads the messages your team receives and records them in your CRM or Google Sheet, so nobody retypes them. Anything involving money or a commitment waits for a person to approve it. I do not build chatbots for their own sake. An engagement starts with an audit of how your team works, then a fixed-price build, running in your own accounts. Message me on WhatsApp or email to begin.' },
+        { q: 'How long does an AI automation project take?', a: 'The 48-hour audit comes first: two working days that end in a ranked list of what to automate and a fixed price. The build is then a fixed-price two-week sprint in your own accounts, and your team is using the system by the end of week two. A full custom CRM runs as two consecutive sprints.' },
+        { q: 'Does AI automation keep working through power and internet cuts in Lebanon?', a: 'Yes. The systems run on Vercel and Supabase rather than on a computer in your office, so scheduled jobs run on time when the office loses power or internet. Anything waiting for approval stays queued until someone is back online.' },
+        { q: 'What should I not automate first?', a: 'Anything customer-facing where a mistake would embarrass you, and any task you have not yet done by hand long enough to know the rules. Start with regular output from data you already have, such as reports and invoices.' },
         { q: 'Do I pay a monthly licence for AI automation?', a: 'No. The system is deployed in accounts you own and the code is yours, so you are not renting it from me. The retainer for new automations and tuning is optional and can be cancelled any month.' },
         { q: 'Can AI read WhatsApp messages written in Arabic?', a: 'Yes. The systems handle Arabic, English and French, including messages that mix them the way people in Lebanon actually write on WhatsApp. Whatever the system produces can be written in the language the recipient uses.' },
         { q: 'Will automation replace HubSpot or our Google Sheets?', a: 'No. Your CRM and sheets stay where they are, and the automation moves data in and out of them. If a tool has no API and no export, that limits what can be automated, and the audit says so plainly.' },

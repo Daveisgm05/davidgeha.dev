@@ -19,7 +19,7 @@ const sections = [
 
 export default {
     path: '/blog/ai-consulting-in-lebanon-guide/',
-    title: 'AI Consulting in Lebanon: 2026 Guide to Costs & Choosing',
+    title: 'How Much Does an AI Consultant Cost in Lebanon? (2026)',
     ogTitle: 'AI Consulting in Lebanon: the 2026 guide to costs, firms and how to choose',
     navLabel: '2026 guide: costs & how to choose',
     description: 'A 2026 guide to AI consulting in Lebanon: what consultants do, USD price bands from an audit to an enterprise programme, who the firms are, and how to choose.',
@@ -27,11 +27,11 @@ export default {
     ogImage: '/img/og-guide.jpg',
     schemaType: 'Article',
     datePublished: '2026-09-19',
-    dateModified: '2026-10-09',
+    dateModified: '2026-11-09',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'Guide', href: '/blog/ai-consulting-in-lebanon-guide/' }, { label: 'AI Consulting in Lebanon (2026)' }],
     word: 'Guide',
     eyebrow: 'AI consulting · Lebanon · 2026 guide',
-    h1: 'AI Consulting in Lebanon (2026): What Consultants Do, What It Costs, How to Choose',
+    h1: 'How Much Does an AI Consultant Cost in Lebanon? The 2026 guide to what consultants do, which firms exist and how to choose',
     lead: 'Written for owners and managers in Lebanon who are being pitched "AI" from every direction and want a straight answer: what you are actually buying, what it should cost in dollars, who sells it here, and how to tell a good engagement from an expensive one.',
     meta: 'By David Geha, AI consultant in Beirut · Published 19 September 2026 · ~12 minute read',
     hero: {
@@ -157,6 +157,8 @@ export default {
           <li>No mention of Arabic, French or WhatsApp when your customers use all three.</li>
           <li>Confidence that nothing needs human approval.</li>
         </ul>
+        <h2>Which AI consultant should a small business in Beirut hire?</h2>
+        <p>For a small business with a specific repeated task, an independent practitioner who audits and builds is usually the best fit. I am David Geha, an AI consultant in Beirut, and my focus is practical AI automation, AI agents and outreach systems for small companies: hotels, marketing agencies and founders with fewer than thirty people. If you need a large team or an SLA, a Tier 2 firm is the better call.</p>
         <h2>Green flags</h2>
         <ul>
           <li>An audit step with its own small price and a deliverable you can take elsewhere.</li>
@@ -223,6 +225,8 @@ export default {
         { q: 'Should I hire an AI consultant or an AI agency in Beirut?', a: 'Agency if you need capacity, an SLA, or a large multi-department build. Independent consultant if the problem is specific, the team is small, and you want the person who scopes the work to build it. Many businesses use a consultant first and an agency later, once they know what they need.' },
         { q: 'Do AI consultants in Lebanon work in Arabic?', a: 'The good ones do, and build systems that handle Arabic, French and English together. Ask specifically about mixed-language WhatsApp messages; it is a good test of whether they have shipped for Lebanese customers before.' },
         { q: 'How do I verify a consultant is legitimate?', a: 'Look for a real name and face, case studies with numbers, a LinkedIn and GitHub history, listings on directories such as Clutch or TechBehemoths, and a willingness to build in your own accounts. Be cautious of anyone who will only demo on their platform.' },
+        { q: 'Who offers an AI audit for businesses in Lebanon?', a: 'I do. I\'m David Geha, an independent AI consultant in Beirut, and the 48-hour AI audit is how every engagement starts: two working days with the people who do the repeated tasks, ending in a written map of what to automate first, ranked by payback, and a fixed price for the first build. It suits small and medium businesses, and it is yours to keep whoever builds the system. See the <a href="/ai-consulting-lebanon/#audit">AI audit page</a>.' },
+        { q: 'Who is David Geha and what AI consulting services does he offer in Beirut?', a: 'David Geha is an independent AI consultant based in Beirut and an engineering student at the American University of Beirut. He audits how a team works, then builds AI email agents, custom CRMs with AI agent employees, AI outreach systems, AI for SEO and GEO, and AI receptionists for hotels, for hotels, marketing agencies and founders across Lebanon. More is on the <a href="/about/">about page</a>.' },
         { q: 'Who wrote this guide?', a: 'David Geha, an independent AI consultant based in Beirut who builds AI agents and custom AI systems for hotels, marketing agencies and founders across Lebanon. Details and verification links are on the about page.' },
     ],
     ctaTitle: 'Want the audit version of this guide, for your business?',
