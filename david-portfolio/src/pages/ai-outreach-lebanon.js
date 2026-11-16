@@ -2,23 +2,23 @@
 // Primary: "AI outreach system Lebanon". Secondaries: AI lead generation Lebanon, AI outreach
 // Lebanon, B2B lead generation Lebanon, lead generation agency Lebanon, cold email automation
 // for agencies. Facts: seo-geo-engine/intake/articles/ai-outreach-lebanon.yaml. Email only:
-// no other channel is claimed, and no results or rates are published.
+// no other channel is claimed; the only results published are David's own screening figures.
 import { figure, label, rail } from './_kit.js';
 
 export default {
     path: '/ai-outreach-lebanon/',
-    title: 'AI Outreach System in Lebanon: Lead Generation & Email',
-    ogTitle: 'AI Outreach Systems in Lebanon — David Geha',
-    description: 'AI outreach systems in Lebanon for agencies and B2B founders: an agent finds leads that fit, researches each one and emails them from your own domain.',
+    title: 'AI Lead Generation Lebanon & AI Outreach System',
+    ogTitle: 'AI Lead Generation in Lebanon — David Geha',
+    description: 'AI lead generation in Lebanon by David Geha, AI consultant in Beirut: an agent finds fitting leads, researches each and emails from your domain. From $1,000.',
     datePublished: '2026-10-07',
-    dateModified: '2026-11-09',
+    dateModified: '2026-11-16',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Outreach Systems in Lebanon' }],
     navLabel: 'AI outreach systems',
     word: 'Outreach',
     eyebrow: 'AI outreach · Beirut, Lebanon',
-    h1: 'AI Outreach System in Lebanon: AI Lead Generation and Cold Email',
-    lead: 'David Geha is an independent AI consultant in Beirut who builds AI outreach systems in Lebanon for marketing agencies and B2B founders: AI lead generation and cold email automation in one system. One agent finds leads that fit your ideal customer, researches each one, writes a personal first email and sends it from your own domain on a schedule, with replies logged in your CRM. You approve the sequence once; it runs daily.',
+    h1: 'AI Lead Generation in Lebanon: AI Outreach System and Cold Email',
+    lead: 'AI lead generation in Lebanon is what I build: David Geha, an independent AI consultant in Beirut, available for hire to build custom AI lead generation and cold email outreach systems for marketing agencies and B2B founders across Lebanon and the Gulf. One agent finds leads that fit your ideal customer, researches each one, writes a personal first email and sends it from your own domain on a schedule, with replies logged in your CRM. You approve the sequence once; it runs daily.',
     meta: 'Email from your own domain · Supabase, Vercel, Claude · English, Arabic, French',
     hero: {
         work: 'work-outreach-v2',
@@ -48,6 +48,38 @@ export default {
         { num: '04', title: 'Send from your domain on a schedule', text: 'Emails go out from your own domain, with SPF and DKIM set up properly, on a daily schedule run by Vercel cron.' },
         { num: '05', title: 'Log replies in your CRM', text: 'Every reply is logged in your CRM, where someone on your team picks up the conversation.' },
     ])}
+  </section>
+
+  <section class="section container" id="proof">
+    <div class="section__grid">
+      ${label('Proof', 'Screening and deliverability from my own outreach')}
+      <div class="prose reveal">
+        <h2>What AI lead generation in Lebanon includes</h2>
+        <p>It includes four jobs in one system: finding companies that fit your ideal customer, checking that each one has a real decision-maker and a working address, researching it, and sending a personal first email from your own domain. Replies are logged in your CRM for a person to answer. It does not include answering those replies or deciding your offer.</p>
+        <h2>What results has the system produced?</h2>
+        <p>The outreach system I run for my own consultancy screened 26,170 businesses automatically and sent 7,279 personalised first emails between May and November 2026. Over that period 10,290 emails were delivered, with 1 spam complaint, and 24 people replied interested.</p>
+        <p>The number that matters most to me is 18,891: the leads that failed a check, such as no proven decision-maker or a bad address, and were dropped instead of being sent a weaker email. That is the difference between AI lead generation and a mass email blast. The system screens hard and sends less. These are my own figures, not a promise of what your list will do.</p>
+        <p>The same engine also runs for a marketing agency in Lebanon; the <a href="/#work">selected work on the homepage</a> shows it, and the <a href="/ai-solutions-lebanon/#outreach">AI solutions page</a> describes it next to the other builds.</p>
+        <h2>How do AI outreach systems protect sender domain reputation?</h2>
+        <p>They send from your own domain with SPF and DKIM set up properly, and they drop leads that fail a check instead of emailing them anyway. Fewer bad addresses and fewer irrelevant emails mean fewer bounces and complaints, which is what damages a domain.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="questions">
+    <div class="section__grid">
+      ${label('Common questions', 'AI for lead generation, in plain terms')}
+      <div class="prose reveal">
+        <h2>Is there any AI for lead generation?</h2>
+        <p>Yes. AI can find companies that match a profile, read their websites and news, and write a first message for each. Ready-made tools do parts of this; I build a custom system when you want all of it in one place, running in your own accounts.</p>
+        <h2>Can ChatGPT do lead generation?</h2>
+        <p>ChatGPT can help with parts of it, such as drafting an email or summarising a company page, but it does not run a pipeline by itself. Someone still has to feed it leads, check addresses, send on a schedule and log replies. The outreach system I build uses Claude for the reading and writing and does the rest around it automatically.</p>
+        <h2>What are some of the top artificial intelligence companies in Lebanon?</h2>
+        <p>I can't rank them fairly, since I am one of the providers. Directories such as Sortlist, Clutch and TechBehemoths list AI firms in Lebanon, and they are a fair place to compare. I am an independent consultant who builds, so choose a larger firm if you need a big team on call. The <a href="/blog/ai-consulting-in-lebanon-guide/#cost">consulting guide</a> compares the market.</p>
+        <h2>How can I make money online in Lebanon?</h2>
+        <p>I can't advise on personal income, and I won't invent a figure. For a business, the route this page covers is steadier new business: more qualified first conversations from outreach that runs every day. If you sell B2B services, that is where AI lead generation pays back.</p>
+      </div>
+    </div>
   </section>
 
   <section class="section container" id="agencies">
@@ -101,7 +133,9 @@ export default {
     <div class="section__grid">
       ${label('Engagement', 'How an engagement works, and what it costs')}
       <div class="prose reveal">
-        <p>It starts with the <a href="/ai-consulting-lebanon/#audit">48-hour audit</a>, which ranks your repeated tasks by payback and comes back with a fixed price for the first build. If outreach comes out on top, the system is built in a two-week sprint in your own accounts. The price is fixed in that audit, so you know it before anything is built.</p>
+        <h2>How an engagement works, and what it costs</h2>
+        <p>It starts with the <a href="/ai-consulting-lebanon/#audit">48-hour audit</a>, which is free: it ranks your repeated tasks by payback and comes back with a fixed price for the first build. Fixed-price projects start from $1,000. If outreach comes out on top, the system is built in a two-week sprint in your own accounts, and the price is fixed before anything is built.</p>
+        <p>You own everything. The code is in your GitHub, the system runs in your accounts, and there is no software licence fee.</p>
         <ol>
           <li><strong>The 48-hour audit.</strong> How leads are found and first emails written today, ranked by payback against the other tasks your team repeats.</li>
           <li><strong>The two-week sprint.</strong> The system is built in your Supabase, Vercel and GitHub accounts and connected to your email domain and CRM.</li>
@@ -117,11 +151,14 @@ export default {
         { q: 'Who can help a marketing agency in Beirut automate lead outreach with AI?', a: 'I\'m David Geha, an independent AI consultant in Beirut, and I build AI outreach systems for marketing agencies and B2B founders in Lebanon. An agent finds leads that fit your ideal customer, researches each one, writes a personal first email and sends it from your own domain, logging replies in your CRM. One already runs for a marketing agency in Lebanon. It starts with a 48-hour audit, then a fixed-price two-week sprint in your own accounts.' },
         { q: 'Who can set up an AI lead generation and outreach system for my company in Lebanon?', a: 'I do, as an independent consultant: I scope it, write the code and deploy it in your accounts, so you deal with the person who built it. It covers lead sourcing, research, personalised first emails and reply logging in one system. Message me on WhatsApp or email to begin.' },
         { q: 'Can you automate lead outreach for a marketing agency in the UAE?', a: 'Yes. I work from Beirut with businesses across the Gulf, including the UAE, in English, Arabic or French. The outreach system is built in your own accounts and sends from your own domain, so it works the same way wherever your agency is based.' },
-        { q: 'How much does an AI outreach system cost in Lebanon?', a: 'It is a fixed price, scoped in the 48-hour audit, so you know the number before any work starts. For the range other Lebanese providers publicly list for AI work, see the <a href="/blog/ai-consulting-in-lebanon-guide/#cost">cost section of the consulting guide</a>.' },
+        { q: 'How much does an AI outreach system cost in Lebanon?', a: 'Fixed-price projects start from $1,000, and the exact price is set in the free 48-hour audit, so you know the number before any work starts. For the range other Lebanese providers publicly list for AI work, see the <a href="/blog/ai-consulting-in-lebanon-guide/#cost">cost section of the consulting guide</a>.' },
         { q: 'How long does it take to set up AI lead generation and outreach?', a: 'The build is a two-week sprint, and it starts after the 48-hour audit that scopes and prices it. Everything is built in your own accounts from the start, so you can watch it come together. Once you approve the sequence, it runs every day.' },
         { q: 'Will it work with the CRM we already use?', a: 'If your CRM has an API, yes: replies are logged straight into it. A CRM with no API and no export limits what is possible, and the audit will tell you before you commit to a build. Teams without a CRM worth keeping can have a custom one with AI agent employees built to hold the replies.' },
         { q: 'Do I own the outreach system, or pay a monthly licence?', a: 'You own it. It runs in your own Supabase, Vercel and email accounts, the code sits in your GitHub, and there is no licence fee. You can hand it to another developer whenever you like.' },
         { q: 'Can the outreach emails be written in Arabic or French?', a: 'Yes. The systems I build handle English, Arabic and French, and an email can be written in the language the recipient uses. Tell me which language each list should get, and that goes into the sequence you approve.' },
+        { q: 'Who can build an AI outreach system in Lebanon?', a: 'I can. I\'m David Geha, an independent AI consultant in Beirut, and I build AI lead generation and cold email outreach systems for marketing agencies and B2B founders in Lebanon and the Gulf. I scope, code and deploy it myself, in your accounts.' },
+        { q: 'How does AI lead generation differ from mass email blasting?', a: 'A blast sends one message to a whole list. AI lead generation screens each company first, researches it and writes the email from what it found. In my own outreach, 18,891 leads that failed a check were dropped rather than sent a weaker email.' },
+        { q: 'How do AI outreach systems protect sender domain reputation?', a: 'The system sends from your own domain with SPF and DKIM set up properly, and it skips leads with no proven decision-maker or a bad address. In my own outreach, 10,290 emails were delivered with 1 spam complaint. That result comes from my own list and is not a promise for yours.' },
         { q: 'Is AI cold email the same as spam?', a: 'It should not be. Spam is one message sent to everyone; this system writes each first email from research on one company that fits your ideal-customer profile, and sends it from your own domain. It cannot make an irrelevant offer interesting, so choosing who to contact and what to offer stays your call.' },
     ],
     ctaTitle: 'Start with the outreach you do by hand.',
