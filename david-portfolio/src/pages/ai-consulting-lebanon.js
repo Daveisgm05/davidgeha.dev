@@ -12,7 +12,7 @@ export default {
     ogTitle: 'AI Consulting in Lebanon — David Geha',
     description: 'Independent AI consulting in Lebanon for hotels, agencies and founders: a 48-hour audit, a fixed-price build sprint and an optional retainer, from Beirut.',
     datePublished: '2026-09-19',
-    dateModified: '2026-11-09',
+    dateModified: '2026-11-16',
     ogImage: '/img/og-consulting.jpg',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Consulting in Lebanon' }],
@@ -43,7 +43,7 @@ export default {
       <p>The same person who diagnoses the problem writes the code, so nothing is lost between the recommendation and the delivery.</p>
     </div>
     ${rail([
-        { num: '01', title: 'AI Audit for Businesses in Lebanon: 48-Hour AI Readiness Assessment', text: 'Find the repetitive work: a 48-hour AI audit with the people doing the tasks, an assessment of which of your tasks are ready for AI. You get a ranked map of what to automate first and a fixed price for the build. <a href="#audit">What happens in the audit</a>.' },
+        { num: '01', title: 'Find the repetitive work', text: 'A 48-hour audit with the people doing the tasks. You get a ranked map of what to automate first and a fixed price for the build.' },
         { num: '02', title: 'Build the agentic system', text: 'A two-week sprint in your own accounts. Logs, a dashboard and a handover session included; your team is using it by week two.' },
         { num: '03', title: 'Automate &amp; scale', text: 'Measure the hours saved, decide what is next. Optionally on a month-to-month retainer, cancellable any month.' },
     ])}
@@ -166,8 +166,6 @@ export default {
     faqTitle: 'Questions before you hire an AI consultant',
     faq: [
         { q: 'How much does AI consulting cost in Lebanon?', a: 'With me, the audit is a fixed fee for two days, the build sprint is a fixed price scoped in that audit, and the retainer is a flat monthly amount you can cancel any month. You always know the number before work starts. For the wider market, Lebanese providers publicly list anything from roughly $1,500 for an audit to $25,000 or more for enterprise workflow projects; the <a href="/blog/ai-consulting-in-lebanon-guide/#cost">guide</a> breaks those bands down.' },
-        { q: 'Who offers an AI audit for businesses in Lebanon?', a: 'I do. I\'m David Geha, an independent AI consultant in Beirut, and the 48-hour AI audit is how every engagement starts: two working days with the people who do the repeated tasks, ending in a written map of what to automate first, scored for hours, risk and payback, and a fixed price for the first build. The audit is yours to keep whoever you build with, and its fee is credited against the sprint if you go ahead.' },
-        { q: 'Who is the best AI consultant for a small business in Beirut?', a: 'That depends on the size of your problem. For a team under thirty people with a specific repeated task, an independent consultant who audits and builds, like me, keeps the price within reach. For an enterprise programme with compliance needs, a larger firm is the better call.' },
         { q: 'How long does an engagement take?', a: 'Two working days for the audit, two weeks for the first build sprint. Most clients have a system running inside a month of the first call. Larger builds such as a full custom CRM are split into consecutive sprints so something ships every two weeks.' },
         { q: 'Do I need technical staff on my side?', a: 'No. You need one person who knows how the work is done today and can spend a few hours with me during the audit, and an owner who can approve the plan. I handle the accounts, the deployment and the handover, and I train whoever will use the system.' },
         { q: 'Is my data safe, and where does it run?', a: 'Everything runs in accounts you own: your Supabase database, your Vercel project, your API keys. I have access while we work and you can revoke it at any point. Nothing is trained on your data, and anything sensitive stays out of prompts unless we decide together that it is needed.' },

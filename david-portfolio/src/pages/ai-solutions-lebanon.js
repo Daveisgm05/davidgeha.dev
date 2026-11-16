@@ -61,7 +61,7 @@ export default {
     ogTitle: 'AI Solutions & Automation for Businesses in Lebanon',
     description: 'Custom AI solutions in Lebanon: AI email agents, CRMs with AI agent employees, outreach, SEO and GEO, AI receptionists for hotels and AI-built websites.',
     datePublished: '2026-09-19',
-    dateModified: '2026-11-09',
+    dateModified: '2026-11-16',
     ogImage: '/img/og-solutions.jpg',
     about: 'service',
     schemaType: 'CollectionPage',
@@ -154,7 +154,6 @@ ${solutions.map((s) => `      <article class="card" id="${s.id}">
   </section>`,
     faqTitle: 'Questions about AI automation in Lebanon',
     faq: [
-        { q: 'Which companies offer AI solutions in Lebanon?', a: 'I\'m David Geha, an independent AI consultant in Beirut, Lebanon, and I offer AI solutions to hotels, marketing agencies and founders in Lebanon and across the Middle East. I build AI email agents, custom CRMs with AI agent employees, AI outreach systems, SEO and GEO pipelines, AI receptionists for hotels, and a custom AI that builds high-end websites. Systems are built in your own accounts and handed over running. An engagement starts with an audit of how your team works, followed by a fixed-price build. Message me on WhatsApp or email to begin.' },
         { q: 'What AI services are available for small businesses in Lebanon?', a: 'I offer six AI services for small businesses and SMEs in Lebanon: an AI email agent that reviews reports and prepares invoices, a custom CRM with AI agent employees, an AI outreach system, AI for SEO and GEO, an AI receptionist for hotels, and a custom AI that builds high-end websites. Each one takes over a specific repeated task and handles Arabic, English and French.' },
         { q: 'What custom AI solutions are built for Lebanese companies?', a: 'Custom AI systems designed around the tools and process a company already has: one system per repeated task, deployed in the company\'s own Supabase and Vercel accounts, with the code in its GitHub. Examples running today include a custom CRM and an outreach engine for marketing agencies in Lebanon.' },
         { q: 'How do custom AI systems differ from resold software licences?', a: 'A resold platform charges per seat or per month and asks you to change how you work to fit it. A custom system is built around your process, runs in accounts you own, has no licence, and keeps running if we stop working together.' },
