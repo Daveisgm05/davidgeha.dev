@@ -7,9 +7,9 @@ import { figure, label, rail } from './_kit.js';
 
 export default {
     path: '/ai-seo-geo-lebanon/',
-    title: 'AI SEO Services Lebanon | GEO Services Lebanon',
-    ogTitle: 'AI SEO Services & AI Search Optimization in Lebanon',
-    description: 'AI SEO and GEO services in Lebanon: a pipeline that shows how brands rank on Google and appear in ChatGPT, Perplexity and AI Overviews, built for agencies.',
+    title: 'AI SEO & GEO Services in Lebanon: Google and AI Answers',
+    ogTitle: 'AI for SEO and GEO in Lebanon',
+    description: 'AI SEO and GEO in Lebanon for agencies and SEO teams: a pipeline that drafts competitor briefs and shows how brands appear in ChatGPT and Google AI answers.',
     datePublished: '2026-10-07',
     dateModified: '2026-11-16',
     about: 'service',
@@ -17,7 +17,7 @@ export default {
     navLabel: 'AI for SEO & GEO',
     word: 'Search',
     eyebrow: 'AI for SEO and GEO · Beirut, Lebanon',
-    h1: 'AI SEO Services &amp; AI Search Optimization in Lebanon',
+    h1: 'AI for SEO and GEO in Lebanon',
     lead: 'David Geha is an independent AI SEO consultant based in Beirut, helping Lebanese businesses and agencies rank in Google and appear in ChatGPT, Perplexity and Google AI Overviews. AI SEO in Lebanon, as I build it, is a pipeline that does the research and writes the brief: positioning, content gaps, technical SEO issues and, for GEO, how each brand shows up when buyers ask ChatGPT, Perplexity or Google\'s AI answers. Your team edits the brief rather than writing it, and the system runs in your own accounts.',
     meta: 'David Geha, an AI consultant in Beirut · For agencies and SEO teams · English, Arabic, French',
     hero: {
@@ -134,7 +134,6 @@ export default {
   </section>`,
     faqTitle: 'Questions about AI for SEO and GEO',
     faq: [
-        { q: 'Who offers AI SEO services in Lebanon?', a: 'I\'m David Geha, an independent AI consultant in Beirut, and I offer AI SEO and GEO services to agencies, hotels and founders in Lebanon. I don\'t write your content each month. I build the pipeline that does the research and drafts the brief on positioning, content gaps, technical issues and how brands appear in ChatGPT, Perplexity and Google\'s AI answers. Your team edits it, and the system runs in your own accounts. An engagement starts with an audit of how your team works, then a fixed-price build. Message me on WhatsApp or email to begin.' },
         { q: 'Do you offer AI marketing in Lebanon?', a: 'I build AI systems for marketing work rather than run campaigns. For marketing agencies and teams that means the SEO and GEO pipeline on this page, an <a href="/ai-outreach-lebanon/">AI outreach system</a> for new business and a custom CRM with AI agent employees. I do not write or publish content for you each month.' },
         { q: 'What is the difference between SEO and GEO?', a: 'SEO works toward a place in Google\'s search results. GEO works toward being named inside the answer an AI assistant writes, whether that is ChatGPT, Gemini, Perplexity, Claude or Google\'s AI answers. The groundwork overlaps, which is why one pipeline and one brief cover both.' },
         { q: 'Can you make ChatGPT recommend my business?', a: 'Not directly, and nobody can: the assistant decides what to say. What I build shows how your business appears in AI answers today, next to its competitors, and turns that into a list of changes for your team to make.' },
@@ -142,7 +141,6 @@ export default {
         { q: 'How long does it take to set up AI for SEO?', a: 'The 48-hour audit comes first and ends with a fixed price. The build is a two-week sprint in your own accounts. After that, the pipeline runs whenever you ask for a brief, or monthly on a schedule.' },
         { q: 'Who owns the pipeline and the data?', a: 'You do. Everything runs in your own accounts, the code sits in your GitHub and there is no licence. If we stop working together, the pipeline keeps working for you.' },
         { q: 'Is an AI SEO pipeline a replacement for an SEO agency?', a: 'No. It replaces the day of research before the work, not the people who decide, write and publish. For an agency it removes that research day for each client; for a business without one, someone still has to act on what the brief says.' },
-        { q: 'Which SEO agency or consultant in Lebanon uses AI to get better results?', a: 'I\'m David Geha, an independent AI consultant in Beirut, and I\'m a consultant rather than an SEO agency. I build the AI pipeline that does the repeated SEO and GEO research and drafts the brief: positioning, content gaps, technical issues and how each brand shows up in ChatGPT, Perplexity and Google\'s AI answers. Your team edits the brief and decides, and the system runs in your own accounts. If you want content published for you every month, an agency fits better. An engagement starts with an audit of how your team works, then a fixed-price build.' },
     ],
     ctaTitle: 'Start with one client and its competitors.',
     ctaText: 'Send the list of brands you track and tell me where the brief should land, Google Docs or Notion. The 48-hour audit comes back with a fixed price for the build.',
