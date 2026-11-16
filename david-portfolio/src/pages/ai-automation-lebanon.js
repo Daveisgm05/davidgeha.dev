@@ -7,11 +7,11 @@ import { figure, label, rail } from './_kit.js';
 
 export default {
     path: '/ai-automation-lebanon/',
-    title: 'AI Automation in Lebanon: What to Automate First',
+    title: 'AI Automation Lebanon: What to Automate First',
     ogTitle: 'AI Automation in Lebanon — David Geha',
-    description: 'AI automation in Lebanon for hotels, agencies and small teams: what to automate first, how it runs beside email and WhatsApp, and the 48-hour audit to start.',
+    description: 'Automate repetitive reports, invoices, and data entry for your Lebanon team. Runs beside WhatsApp and email, with a fixed-price 2-week sprint.',
     datePublished: '2026-10-07',
-    dateModified: '2026-11-09',
+    dateModified: '2026-11-16',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Automation in Lebanon' }],
     navLabel: 'AI automation',
