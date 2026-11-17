@@ -16,7 +16,7 @@ export default {
   ],
   "h1": "Case studies",
   "lead": "Each page shows what the work looked like before, what was built, and the measured result. Numbers come from the client's own systems.",
-  "body": "\n  <section class=\"section container\" id=\"studies\"><div class=\"cards cards--3\"><article class=\"card\"><span class=\"num\">01</span><h3><a href=\"/work/ai-outreach-system-results/\">24 interested replies for a consultancy using an AI outreach system</a></h3><p><strong>26,170</strong> businesses screened automatically</p><p class=\"meta\">one-person AI consultancy (my own) · Supabase, Claude, Google Maps and Overture data</p></article></div></section>",
+  "body": "\n  <section class=\"section container\" id=\"studies\"><div class=\"cards cards--2\"><article class=\"card\"><span class=\"num\">01</span><h3><a href=\"/work/ai-outreach-system-results/\">24 interested replies for a consultancy using an AI outreach system</a></h3><p><strong>26,170</strong> businesses screened automatically</p><p class=\"meta\">one-person AI consultancy (my own) · Supabase, Claude, Google Maps and Overture data</p></article><article class=\"card\"><span class=\"num\">02</span><h3><a href=\"/work/custom-ai-crm/\">6 tools in 1 app for a digital studio using a custom CRM</a></h3><p><strong>$0</strong> monthly software licence</p><p class=\"meta\">two-founder digital studio · Supabase, React, TypeScript</p></article></div></section>",
   "faq": [],
   "extraSchema": [
     {
@@ -28,6 +28,12 @@ export default {
           "position": 1,
           "url": "https://davidgeha.dev/work/ai-outreach-system-results/",
           "name": "24 interested replies for a consultancy using an AI outreach system"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://davidgeha.dev/work/custom-ai-crm/",
+          "name": "6 tools in 1 app for a digital studio using a custom CRM"
         }
       ]
     }
