@@ -16,7 +16,7 @@ export default {
   ],
   "h1": "Case studies",
   "lead": "Each page shows what the work looked like before, what was built, and the measured result. Numbers come from the client's own systems.",
-  "body": "\n  <section class=\"section container\" id=\"studies\"><div class=\"cards cards--3\"><article class=\"card\"><span class=\"num\">01</span><h3><a href=\"/work/ai-outreach-system-results/\">24 interested replies for a consultancy using an AI outreach system</a></h3><p><strong>26,170</strong> businesses screened automatically</p><p class=\"meta\">one-person AI consultancy (my own) · Supabase, Claude, Google Maps and Overture data</p></article><article class=\"card\"><span class=\"num\">02</span><h3><a href=\"/work/custom-ai-crm/\">6 tools in 1 app for a digital studio using a custom CRM</a></h3><p><strong>$0</strong> monthly software licence</p><p class=\"meta\">two-founder digital studio · Supabase, React, TypeScript</p></article><article class=\"card\"><span class=\"num\">03</span><h3><a href=\"/work/marketing-agency-ai-agent/\">5 roles in one AI agent for a 360° marketing agency using Claude</a></h3><p><strong>5</strong> roles one agent covers</p><p class=\"meta\">boutique 360° marketing agency · Claude, Railway, Gmail and Microsoft mail</p></article></div></section>",
+  "body": "\n  <section class=\"section container\" id=\"studies\"><div class=\"cards cards--2\"><article class=\"card\"><span class=\"num\">01</span><h3><a href=\"/work/ai-outreach-system-results/\">24 interested replies for a consultancy using an AI outreach system</a></h3><p><strong>26,170</strong> businesses screened automatically</p><p class=\"meta\">one-person AI consultancy (my own) · Supabase, Claude, Google Maps and Overture data</p></article><article class=\"card\"><span class=\"num\">02</span><h3><a href=\"/work/custom-ai-crm/\">6 tools in 1 app for a digital studio using a custom CRM</a></h3><p><strong>$0</strong> monthly software licence</p><p class=\"meta\">two-founder digital studio · Supabase, React, TypeScript</p></article><article class=\"card\"><span class=\"num\">03</span><h3><a href=\"/work/marketing-agency-ai-agent/\">5 roles in one AI agent for a 360° marketing agency using Claude</a></h3><p><strong>5</strong> roles one agent covers</p><p class=\"meta\">boutique 360° marketing agency · Claude, Railway, Gmail and Microsoft mail</p></article><article class=\"card\"><span class=\"num\">04</span><h3><a href=\"/work/hotel-ai-receptionist-pilot/\">3-language phone booking for a city hotel using an AI receptionist</a></h3><p><strong>3</strong> languages answered on one phone line</p><p class=\"meta\">city hotel (pilot) · Vapi, Deepgram, Vercel</p></article></div></section>",
   "faq": [],
   "extraSchema": [
     {
@@ -40,6 +40,12 @@ export default {
           "position": 3,
           "url": "https://davidgeha.dev/work/marketing-agency-ai-agent/",
           "name": "5 roles in one AI agent for a 360° marketing agency using Claude"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://davidgeha.dev/work/hotel-ai-receptionist-pilot/",
+          "name": "3-language phone booking for a city hotel using an AI receptionist"
         }
       ]
     }
