@@ -34,6 +34,10 @@ export const siteLinks = {
             "label": "AI Receptionist for Hotels"
         },
         {
+            "href": "/ai-for-marketing-agencies-lebanon/",
+            "label": "AI for Marketing Agencies"
+        },
+        {
             "href": "/ai-outreach-lebanon/",
             "label": "AI outreach systems"
         },
@@ -46,5 +50,5 @@ export const siteLinks = {
             "label": "Privacy"
         }
     ],
-    "work": null
+    "work": "/work/"
 };
