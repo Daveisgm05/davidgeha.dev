@@ -46,7 +46,7 @@ export default {
     ogTitle: 'AI Agents for Businesses in Lebanon',
     description: 'AI agents for businesses in Lebanon that do one job end to end and hand a person the exceptions: email, CRM, outreach and hotel receptionist agents.',
     datePublished: '2026-10-07',
-    dateModified: '2026-11-16',
+    dateModified: '2026-11-23',
     about: 'service',
     crumbs: [{ label: 'Home', href: '/' }, { label: 'AI Agents in Lebanon' }],
     navLabel: 'AI agents',
@@ -134,7 +134,7 @@ ${agents.map((a) => `      <article class="card" id="${a.id}">
     <div class="section__head reveal">
       <span class="eyebrow">Engagement</span>
       <h2>How an AI agent project works, and what it costs</h2>
-      <p>Every agent starts with the <a href="/ai-consulting-lebanon/#audit">48-hour audit</a>, which ranks your repeated tasks by payback and comes back with a fixed price for the first build. There is no price list and no licence, so you know the number before anything is built. For what other providers in Lebanon publicly charge, the <a href="/blog/ai-consulting-in-lebanon-guide/#cost">guide to AI consulting costs</a> compares the market bands.</p>
+      <p>Every agent starts with the <a href="/ai-consulting-lebanon/#audit">48-hour audit</a>, which ranks your repeated tasks by payback and comes back with a fixed price for the first build. Fixed-price projects start from $1,000, with no licence, so you know the number before anything is built. For what other providers in Lebanon publicly charge, the <a href="/blog/ai-consulting-in-lebanon-guide/#cost">guide to AI consulting costs</a> compares the market bands.</p>
     </div>
     ${rail([
         { num: '01', title: 'Find the job worth an agent', text: 'I sit with the people doing the repeated work, rank each task by payback and price the first agent.' },
